@@ -1,0 +1,49 @@
+@use "../forward" as *;
+
+h2 {
+  font-size: rems($font-size-h2);
+  @include font-family($font-family-h2, $font-weight-h2);
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h2-tab);
+  }
+}
+
+h3 {
+  font-size: rems($font-size-h3);
+  @include font-family($font-family-h3, $font-weight-h3);
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h3-tab);
+  }
+}
+
+.heading-subtitle {
+  &__sub {
+    margin-bottom: em(16px, 16px);
+    color: $color-custom-3;
+    @include font-family(main, medium);
+    font-size: rems(16px);
+    line-height: 1;
+  }
+
+  &__main {
+    margin-bottom: em(9px, 34px);
+    line-height: 1.2;
+  }
+
+  &__border {
+    display: inline-block;
+    height: auto;
+    line-height: 0;
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: rems(130px);
+      height: rems(4px);
+      background-image: $color-custom-2;
+      border-radius: rems(2px);
+    }
+  }
+}

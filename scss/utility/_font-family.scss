@@ -1,0 +1,9 @@
+@use "../forward" as *;
+
+.font-family-main {
+  @include font-family(main, regular);
+}
+
+.font-family-accent {
+  @include font-family(accent, regular);
+}

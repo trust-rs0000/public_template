@@ -1,0 +1,255 @@
+@use "../forward" as *;
+
+%dl-reboot {
+  @at-root &.form_wrap {
+    > dl {
+      &:last-child {
+        > dt,
+        > dd {
+          border-bottom: none;
+        }
+      }
+    }
+
+    > dl > dt,
+    > dl > dd {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+    }
+
+    > dl > dt {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.dl {
+  @extend %dl-reboot;
+
+  & > dl {
+    align-items: flex-start;
+    margin-bottom: em(25, 16);
+    padding-bottom: em(25, 16);
+    border-bottom: 1px solid $color-border;
+
+    @include media-max(tab) {
+      display: block !important;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  & > dl > dt {
+    margin-right: rems(25px);
+    font-size: rems(16px);
+    @include font-family(base, medium);
+
+    @include media-max(tab) {
+      width: 100% !important;
+      margin-right: 0;
+      margin-bottom: rems(10px);
+    }
+  }
+
+  & > dl > dd {
+    flex: 1 0 0;
+    font-size: rems(16px);
+    @include font-family(base, regular);
+  }
+}
+
+.dl-news {
+  @extend %dl-reboot;
+  max-height: 300px;
+  overflow-y: auto;
+  @include scroll-bar;
+
+  & > dl {
+    margin-bottom: em(18, 16);
+    padding-bottom: em(19, 16);
+    border-bottom: 1px solid $color-border;
+
+    @include media-max(sp) {
+      display: block !important;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  & > dl > dt {
+    flex: 0 0 auto;
+    margin-right: 38px;
+    @include font-family(accent, bold);
+    font-size: rems(16px);
+
+    @include media-max(sp) {
+      margin-right: 0;
+      margin-bottom: rems(20px);
+    }
+  }
+
+  & > dl > dd {
+    flex: 1 0 0;
+    font-size: rems(16px);
+    line-height: div(26, 16);
+  }
+}
+
+.dl-company {
+  @extend %dl-reboot;
+
+  & > dl {
+    margin-bottom: em(18, 16);
+    padding-bottom: em(19, 16);
+    border-bottom: 1px solid $color-border;
+
+    @include media-max(sp) {
+      display: block !important;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  & > dl > dt,
+  & > dl > dd {
+    font-size: rems(16px);
+
+    @include media-max(sp) {
+      width: 100% !important;
+    }
+  }
+
+  & > dl > dt {
+    display: block;
+    margin-right: rems(10px);
+    @include font-family(base, medium);
+
+    @include media-max(sp) {
+      margin-right: 0;
+      margin-bottom: rems(7px);
+      text-align: left;
+    }
+  }
+}
+
+.dl-history {
+  @extend %dl-reboot;
+
+  & > dl {
+    padding-bottom: rems(60px);
+    position: relative;
+    z-index: 0;
+
+    @include media-max(sp) {
+      display: block !important;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: rems(4px);
+      width: 0;
+      height: 0;
+      border: 8px solid $color-main;
+      border-radius: 100%;
+
+      @include media-max(sp) {
+        top: 0;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: rems(7px);
+      top: rems(4px);
+      bottom: rems(-4px);
+      background-color: #e6e6e6;
+      width: rems(2px);
+      z-index: -1;
+    }
+  }
+
+  & > dl > dt {
+    display: block !important;
+    margin-top: rems(2px);
+    margin-right: em(60, 20);
+    padding-left: em(60, 20) !important;
+    @include font-family(main, black);
+    font-size: rems(20px);
+    line-height: 1;
+
+    @include media-max(sp) {
+      margin-right: 0;
+      margin-bottom: rems(20px);
+    }
+  }
+
+  & > dl > dd {
+    @include media-max(sp) {
+      padding-left: em(60, 20) !important;
+    }
+  }
+}
+
+.form_wrap.dl-menu {
+  @extend %dl-reboot;
+
+  & > dl {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rems(15px);
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      z-index: 0;
+      width: 100%;
+      border-bottom: dotted 1px #000;
+    }
+  }
+
+  & > dl > dt,
+  & > dl > dd {
+    width: auto !important;
+    background-color: white !important;
+    z-index: 1;
+  }
+
+  & > dl > dt {
+    margin-right: em(40, 20);
+    padding-right: em(10, 20) !important;
+    text-align: left;
+  }
+
+  & > dl > dd {
+    padding-left: em(10, 20) !important;
+    text-align: right;
+  }
+}

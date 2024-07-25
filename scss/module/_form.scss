@@ -1,0 +1,416 @@
+@use "../forward" as *;
+
+%form-reboot {
+  & > dl {
+    &:last-of-type > dt,
+    &:last-of-type > dd {
+      border: none;
+    }
+  }
+
+  & > dl > dt,
+  & > dl > dd {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  & > dl > dt {
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+
+  & > dl > dt > label {
+    font-size: rems(10px);
+    color: $color-warn;
+  }
+
+  & > dl > dd > input {
+    padding: em(10, 16);
+    font-size: rems(16px);
+    border: 1px solid $color-border;
+    border-radius: 0;
+  }
+
+  & > dl > dd > div {
+    &:first-child {
+      margin-bottom: rems(10px);
+    }
+  }
+
+  @mixin border {
+    border: 1px solid $color-border;
+    border-radius: 0;
+    @content;
+  }
+
+  .date {
+    display: block;
+    flex-wrap: wrap;
+
+    .date {
+      display: flex;
+    }
+
+    & > div {
+      align-items: center;
+      margin-bottom: rems(10px);
+      margin-right: 0;
+      float: none;
+    }
+
+    & > div:last-of-type > select {
+      margin-bottom: 0;
+    }
+
+    & > div > input {
+      margin-bottom: 0;
+      font-size: rems(16px);
+      text-align: left;
+      @include border;
+    }
+
+    & > div > select {
+      margin-bottom: 0;
+      font-size: rems(16px);
+      @include border;
+    }
+
+    & > div > span {
+      margin-right: 0;
+      margin-left: 0;
+      font-size: rems(16px);
+      line-height: 1;
+    }
+  }
+
+  .select {
+    & > select {
+      @include border;
+    }
+  }
+
+  .checkbox {
+    .checkbox {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    & > label {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      margin-right: 10px;
+      margin-bottom: rems(16px);
+    }
+
+    & > label > input {
+      margin: 0 !important;
+      margin-right: 5px !important;
+    }
+  }
+
+  .email {
+    & > div > input {
+      margin-bottom: 0;
+      padding: em(10, 16);
+      font-size: rems(16px);
+      @include border;
+    }
+  }
+
+  .addr {
+    & > div {
+      margin-bottom: rems(10px);
+
+      &:first-child {
+        align-items: center;
+      }
+
+      &:nth-child(2) {
+        & > select {
+          margin-bottom: 0;
+          @include border;
+        }
+      }
+    }
+
+    & > div > span {
+      margin-right: 10px;
+      line-height: 1;
+    }
+
+    & > div > input {
+      margin-bottom: 0;
+      font-size: rems(16px);
+      @include border;
+    }
+  }
+
+  .number {
+    & > input {
+      font-size: rems(16px);
+      @include border;
+    }
+  }
+
+  .textarea {
+    & > textarea {
+      min-height: 100px;
+      padding: em(10, 16);
+      font-size: rems(10px);
+      @include border;
+    }
+  }
+
+  .file {
+    border-top: none !important;
+    border-bottom: 1px solid $color-border !important;
+
+    & > dt {
+      display: flex !important;
+      margin-bottom: rems(10px);
+      background: transparent;
+      padding-top: 0 !important;
+      font-size: rems(16px);
+    }
+
+    & > dd > label {
+      @include border;
+      right: 0;
+    }
+
+    .drop {
+      margin-bottom: 0;
+      border: 1px dotted $color-border;
+    }
+  }
+
+  .photo {
+    & > dt {
+      background: transparent;
+    }
+  }
+}
+
+.form.form_wrap {
+  @extend %form-reboot;
+
+  & > dl {
+    // display: block !important;
+    margin-bottom: rems(30px);
+  }
+
+  & > dl > dt {
+    margin-right: 20px;
+    margin-bottom: rems(10px);
+    @include font-family(base, medium);
+  }
+
+  & > dl > dd {
+    input,
+    textarea {
+      // border: none !important;
+      border-radius: 3px !important;
+    }
+  }
+}
+
+// formを使用したページ限定
+// ※は必須項目
+#TRANS_ANNOT {
+  color: $color-warn;
+}
+
+// フォーム使用したときに上に出てくるゴミデータ
+h2.mail.title {
+  display: none;
+}
+
+section .form p.annot {
+  margin: 0;
+  margin-bottom: rems(40px);
+  color: $color-warn;
+}
+
+// 確認ページ(入力不足)
+section div.form_wrap.error {
+  margin-top: calc($header-margin-top + 40px);
+  padding: em(16, 20);
+  background-color: $color-warn;
+
+  & > p {
+    padding: 0;
+    color: white;
+  }
+}
+
+// 確認ページ(確認ページ)
+section div.form_wrap.confirm {
+  padding-top: em(16, 40);
+}
+
+// ボタン
+.submit {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @include media-max(sp) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 100%;
+    flex: 1 0 0;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: rems(60px);
+
+    @include media-max(sp) {
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: rems(20px);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+%bt-reboot {
+  padding: em(10, 16);
+  @include font-family(base, medium);
+  border: 1px solid $color-main;
+  border-radius: 0;
+  background: none;
+  text-indent: 0;
+}
+
+.bt_confirm,
+.bt_back,
+.bt_send {
+  @extend %bt-reboot;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  background-color: $color-main;
+}
+
+.bt_back,
+.bt_confirm,
+.bt_send {
+  color: white;
+}
+
+// カレンダー
+div#form_calendar {
+  margin: 0;
+
+  div.head {
+    height: auto;
+    margin-bottom: rems(20px);
+
+    & > span {
+      @include font-family(base, medium);
+      line-height: 1;
+
+      &:not(:nth-of-type(3)) {
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+
+      // MONTH
+      &:nth-of-type(3) {
+        display: block;
+        font-size: rems(20px);
+        position: static;
+        transform: unset;
+      }
+
+      // YEAR, MONTH:ENGLISH
+      &:nth-of-type(2),
+      &:nth-of-type(4) {
+        font-size: rems(12px);
+      }
+
+      &:nth-of-type(4) {
+        display: none;
+      }
+    }
+  }
+
+  .prev,
+  .next {
+    width: auto !important;
+    color: $color-main;
+    font-size: rems(14px) !important;
+  }
+
+  table {
+    // 曜日
+    & > thead > tr > th {
+      font-size: rems(12px);
+      font-weight: 500;
+    }
+
+    // ボディ
+    & > tbody {
+      background-color: white;
+
+      & > tr > td {
+        &:first-of-type {
+          background: unset;
+        }
+      }
+
+      & > tr > td > label {
+        font-size: rems(10px) !important;
+        font-weight: 500 !important;
+      }
+
+      & > tr > td.past {
+        background: unset;
+      }
+
+      & > tr > td.open,
+      & > tr > td.close {
+        & > span {
+          display: none !important;
+        }
+      }
+
+      & > tr > td.close {
+        background-color: $color-form-calendar-close-bg;
+        position: relative;
+        z-index: 0;
+
+        &::after {
+          content: "休";
+          font-size: rems(11px);
+          line-height: 1;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+        }
+      }
+
+      & > tr > td.other {
+        background-color: $color-form-calendar-other-bg;
+      }
+    }
+  }
+
+  & > dl.open,
+  & > dl.close {
+    display: none !important;
+  }
+}

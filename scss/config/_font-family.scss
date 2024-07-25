@@ -1,0 +1,51 @@
+// font-family
+$font-family: (
+  base: #{"Noto Sans JP",
+  sans-serif},
+  main: #{"Jost",
+  "Noto Sans JP",
+  sans-serif,
+  },
+  accent: #{"Jost",
+  "Noto Sans JP",
+  sans-serif},
+);
+
+$font-weights: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  black: 900,
+);
+
+// font-family
+// bodyに対するフォント
+$font-family-base: base;
+$font-weight-base: regular;
+
+$font-family-header-nav-link: accent;
+$font-weight-header-nav-link: medium;
+
+$font-family-footer-nav-link: base;
+$font-weight-footer-nav-link: medium;
+
+$font-family-dropdown-nav-link: base;
+$font-weight-dropdown-nav-link: bold;
+
+$font-family-h2: base;
+$font-weight-h2: medium;
+
+$font-family-h3: $font-family-h2;
+$font-weight-h3: $font-weight-h2;
+
+$font-family-blog-h1: $font-family-h2;
+$font-weight-blog-h1: $font-weight-h2;
+
+$font-family-blog-h2: $font-family-h2;
+$font-weight-blog-h2: $font-weight-h2;
+
+$font-family-blog-h3: $font-family-h2;
+$font-weight-blog-h3: $font-weight-h2;

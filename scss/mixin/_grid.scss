@@ -1,0 +1,19 @@
+@use "sass:math" as *;
+
+@mixin flex($gutter-x, $gutter-y, $col) {
+  flex: 0 0 calc((100% - (var($gutter-x)) * ($col - 1)) / $col);
+  margin-right: var(--gutter-x);
+  margin-bottom: var(--gutter-y);
+
+  &:nth-child(#{$col}n) {
+    margin-right: 0;
+  }
+
+  &:not(:nth-child(#{$col}n)) {
+    margin-right: var(--gutter-x);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

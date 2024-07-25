@@ -1,0 +1,43 @@
+{
+  "liveServer.settings.port": 5502,
+  "liveSassCompile.settings.formats": [
+    //Sassの出力内容の設定
+    {
+      "format": "expanded", //nested、compact、compressedのどれかを選ぶ
+      "extensionName": ".css", //style.cssとして出力
+      "savePath": "/css" //cssフォルダの中にstyle.cssを出力
+    }
+  ],
+  // prettier
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.useEditorConfig": false,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 100,
+  "prettier.singleAttributePerLine": true,
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // autoprefixer
+  "autoprefixer.options": {
+    "overrideBrowserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
+    "grid": "autoplace"
+  }
+}

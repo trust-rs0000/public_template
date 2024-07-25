@@ -1,0 +1,425 @@
+@use "../forward" as *;
+
+.flex-link {
+  .box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: visible !important;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    & > div > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      line-height: 1.6;
+    }
+  }
+}
+
+.flex-media {
+  .box {
+    width: 100%;
+
+    & > article {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include media-max(tab) {
+        display: block;
+      }
+    }
+
+    & > article > h3 {
+      display: none;
+    }
+
+    & > article > img {
+      width: 50% !important;
+      margin-right: rems(60px);
+
+      @include media-max(tab) {
+        width: 100% !important;
+        margin-right: 0;
+        margin-bottom: rems(40px);
+      }
+    }
+
+    & > article > div {
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: rems(22px);
+
+    @include media-max(tab) {
+      margin-bottom: rems(22px);
+    }
+  }
+
+  &__button {
+    margin-top: rems(45px);
+  }
+
+  &--reverse {
+    .box {
+      & > article {
+        flex-direction: row-reverse;
+      }
+
+      & > article > img {
+        margin-right: 0;
+        margin-left: 40px;
+
+        @include media-max(tab) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.flex-card {
+  justify-content: center;
+
+  .box {
+    background-color: white;
+    padding: 20px;
+
+    & > article > h3 {
+      display: none;
+    }
+
+    & > article > img {
+      width: 100% !important;
+      margin-bottom: rems(14px);
+    }
+
+    & > article > div {
+      & > * {
+        margin-bottom: rems(10px);
+      }
+
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: rems(14px);
+    font-size: rems(18px);
+    @include font-family(base, bold);
+    text-align: center;
+  }
+
+  &__text {
+    @include font-family(base, regular);
+    font-size: rems(16px);
+    text-align: center;
+    line-height: 2;
+  }
+}
+
+.flex-slider {
+  display: block !important;
+
+  .box {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+.flex-checkbox {
+  .box {
+    display: flex;
+    align-items: center;
+    margin-bottom: rems(25px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > img {
+      width: 40px !important;
+      margin-right: 10px;
+
+      @include media-max(sp) {
+        width: 30px !important;
+      }
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+      flex: 1 0 0;
+    }
+  }
+}
+
+.flex-list {
+  counter-reset: list 0;
+
+  .box {
+    counter-increment: list 1;
+
+    margin-bottom: rems(20px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+
+      &:before {
+        content: counter(list, decimal-leading-zero);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 0;
+        height: 0;
+        margin-right: 8px;
+        padding: em(20, 16);
+        color: white;
+        background-color: $color-accent;
+        @include font-family(base, medium);
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+.flex-category {
+  .box {
+    padding: em(15, 16) em(20, 16);
+    background-color: $color-custom-1;
+    border: 1px solid $color-main;
+    text-align: center;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+}
+
+.flex-flow {
+  counter-reset: flow 0;
+
+  .box {
+    counter-increment: flow 1;
+
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: rems(60px);
+    overflow: visible !important;
+    position: relative;
+    z-index: 0;
+
+    &:before {
+      content: counter(flow, decimal-leading-zero);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 0;
+      height: 0;
+      margin-right: 20px;
+      padding: 30px;
+      color: white;
+      background-color: $color-main;
+      border-radius: 100%;
+    }
+
+    &:after {
+      content: "";
+      width: 1px;
+      height: 100%;
+      background-color: $color-custom-1;
+      position: absolute;
+      top: 60px;
+      left: 30px;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    margin-bottom: rems(8px);
+    padding-bottom: em(8, 16);
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__text {
+    line-height: 2;
+  }
+}
+
+.flex-faq {
+  border: 1px solid black;
+
+  .box {
+    width: 100%;
+
+    &:last-child {
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.8s;
+    }
+
+    @at-root .js-accordion-open .box:last-child {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.8s;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+    }
+
+    &:first-child > div {
+      padding: em(15, 16) em(40, 16) em(15, 16) em(20, 16);
+      position: relative;
+      z-index: 0;
+      cursor: pointer;
+
+      &:after {
+        @include font-awesome("\2b");
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0, -50%);
+        z-index: 1;
+        transition: 0.8s;
+      }
+    }
+
+    @at-root .js-accordion-open .box:first-child > div {
+      &:after {
+        transform: translate(0, -50%) rotate(-45deg);
+        transition: 0.8s;
+      }
+    }
+
+    &:last-child > div {
+      font-size: rems(14px);
+      padding: em(15, 14) em(20, 14);
+      border-top: 1px dashed black;
+    }
+
+    & > div {
+      flex: 1 0 0;
+    }
+  }
+}
+
+.flex-cta {
+  &__link {
+    display: block;
+    padding: rems(56px) rems(40px) rems(52px);
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    z-index: 0;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    margin-bottom: rems(12px);
+  }
+
+  &__text {
+    @include font-family(base, medium);
+    font-size: rems(20px);
+  }
+}
+
+.flex-voice {
+  .box {
+    padding: em(30, 16) em(20, 16);
+    background-color: white;
+  }
+
+  &__title {
+    margin-bottom: em(12, 18);
+    padding-bottom: em(10, 18);
+    font-size: rems(18px);
+    font-weight: bold;
+    border-bottom: 1px solid $color-main;
+  }
+
+  &__text {
+    margin-bottom: rems(10px);
+  }
+
+  &__user {
+    color: $color-accent;
+    font-size: rems(14px);
+    text-align: right;
+
+    &:before {
+      margin-right: 7px;
+      @include font-awesome("\f007");
+    }
+  }
+}
+
+.flex-staff {
+  .box {
+    & > article > img {
+      display: block;
+    }
+
+    & > article > h3 {
+      display: none;
+    }
+
+    & > article > div {
+      padding: 20px;
+      background-color: white;
+    }
+  }
+
+  &__english {
+    margin-bottom: rems(7px);
+    color: $color-main;
+    font-size: rems(14px);
+    @include font-family(accent, semibold);
+    line-height: 1;
+  }
+
+  &__title {
+    margin-bottom: rems(21px);
+    @include font-family(base, medium);
+    font-size: rems(22px);
+    line-height: 1;
+  }
+
+  &__roll {
+    margin-bottom: rems(15px);
+    color: $color-custom-2;
+    @include font-family(base, medium);
+    font-size: rems(15px);
+    line-height: 1;
+  }
+}

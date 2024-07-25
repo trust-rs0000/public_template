@@ -1,0 +1,35 @@
+@use "breakpoints" as *;
+@use "size" as *;
+@use "../config/inner" as *;
+@use "../config/breakpoints" as *;
+
+@mixin inner-fixed-max-bp1200() {
+  @include media-max(bp1200) {
+    max-width: $inner-size-bp1200;
+  }
+
+  @include media-max(bp1000) {
+    max-width: $inner-size-bp1000;
+  }
+
+  @include media-max(tab) {
+    max-width: $inner-size-tab;
+  }
+
+  @include media-max(sp) {
+    max-width: $inner-size-sp;
+    padding-right: em($inner-padding-sp, 16);
+    padding-left: em($inner-padding-sp, 16);
+  }
+}
+
+// インナーサイズを設定する。
+@mixin inner($maxWidth, $padding: $inner-padding) {
+  max-width: calc($maxWidth + ($padding * 2));
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-right: em($padding, 16);
+  padding-left: em($padding, 16);
+
+  @include inner-fixed-max-bp1200();
+}

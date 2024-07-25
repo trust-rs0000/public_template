@@ -1,0 +1,17 @@
+@use "../forward" as *;
+
+.br-sp-break {
+  display: none;
+
+  @include media-max(sp) {
+    display: block;
+  }
+}
+
+.br-tab-break {
+  display: none;
+
+  @include media-max(tab) {
+    display: block;
+  }
+}

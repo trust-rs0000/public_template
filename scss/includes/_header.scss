@@ -1,0 +1,113 @@
+@use "../forward" as *;
+
+.header {
+  width: 100%;
+  padding: rems(20px) rems(40px);
+  background-color: $color-header-bg;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: $z-header;
+  transition: $transition-duration;
+
+  @include media-max(drawer) {
+    padding: rems(15px) rems(20px);
+    background-color: $color-header-bg-drawer !important;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    margin-right: rems(30px);
+  }
+
+  @at-root .js-scrolled-header & {
+    background-color: lighten($color-header-bg-scroll, 10%);
+    transition: $transition-duration;
+
+    @include media-max(drawer) {
+      padding: em(15, 16) em(20, 16);
+      background-color: $color-header-bg-scroll;
+    }
+  }
+}
+
+.header-logo {
+  display: inline-block;
+  margin-right: rems(20px);
+  text-decoration: none;
+  line-height: 1;
+
+  @include media-max(bp1400) {
+    max-width: rems(200px);
+  }
+
+  @include media-max(tab) {
+    max-width: rems(180px);
+  }
+
+  &__text {
+    margin-bottom: rems(6px);
+    color: #505050;
+    font-size: rems(14px);
+    @include font-family(base, medium);
+    text-align: left;
+  }
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: $transition-duration;
+
+  @include media-max(drawer) {
+    width: 100%;
+    padding-right: rems(20px);
+    padding-left: rems(20px);
+    position: fixed;
+    bottom: rems(5px);
+    left: 0;
+  }
+
+  &__item {
+    margin-right: rems(20px);
+
+    @include media-max(drawer) {
+      flex: 1 0 0;
+      min-width: 0;
+      margin-right: rems(10px);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .button-tel,
+  .button-mail {
+    &:before {
+      @include media-max(sp) {
+        margin-right: 0;
+      }
+    }
+
+    &__text {
+      @include media-max(sp) {
+        display: none;
+      }
+    }
+  }
+
+  &.js-footer-fadein {
+    @include media-max(drawer) {
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition-duration;
+    }
+  }
+}
