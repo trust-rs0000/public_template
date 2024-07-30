@@ -118,6 +118,11 @@
 }
 
 .page-shop {
+  body,
+  #contents {
+    background-color: $color-shop-body;
+  }
+
   #col_main {
     margin-bottom: rems(100px);
 
@@ -752,9 +757,10 @@ div.error {
   }
 
   & > ul > li > a {
-    padding: 8px 15px;
+    padding: em(3px, 14px) rems(10px);
     background-color: $color-shop-tag;
-    font-size: rems(12px);
+    @include font-family(base, medium);
+    font-size: rems(14px);
     border: none;
     border-radius: 0;
     text-decoration: none;

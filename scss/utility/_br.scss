@@ -1,6 +1,6 @@
 @use "../forward" as *;
 
-.br-sp-break {
+.br-sp {
   display: none;
 
   @include media-max(sp) {
@@ -8,7 +8,7 @@
   }
 }
 
-.br-tab-break {
+.br-tab {
   display: none;
 
   @include media-max(tab) {

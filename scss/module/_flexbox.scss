@@ -1,5 +1,6 @@
 @use "../forward" as *;
 
+// アンカーリンク系の横並びボタン等
 .flex-link {
   .box {
     display: flex;
@@ -23,72 +24,7 @@
   }
 }
 
-.flex-media {
-  .box {
-    width: 100%;
-
-    & > article {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      @include media-max(tab) {
-        display: block;
-      }
-    }
-
-    & > article > h3 {
-      display: none;
-    }
-
-    & > article > img {
-      width: 50% !important;
-      margin-right: rems(60px);
-
-      @include media-max(tab) {
-        width: 100% !important;
-        margin-right: 0;
-        margin-bottom: rems(40px);
-      }
-    }
-
-    & > article > div {
-      & > *:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &__title {
-    margin-bottom: rems(22px);
-
-    @include media-max(tab) {
-      margin-bottom: rems(22px);
-    }
-  }
-
-  &__button {
-    margin-top: rems(45px);
-  }
-
-  &--reverse {
-    .box {
-      & > article {
-        flex-direction: row-reverse;
-      }
-
-      & > article > img {
-        margin-right: 0;
-        margin-left: 40px;
-
-        @include media-max(tab) {
-          margin-left: 0;
-        }
-      }
-    }
-  }
-}
-
+// カード型のレイアウト
 .flex-card {
   justify-content: center;
 
@@ -131,6 +67,7 @@
   }
 }
 
+// スライダー:slick使用
 .flex-slider {
   display: block !important;
 
@@ -140,6 +77,53 @@
   }
 }
 
+// dotが画像タイプのスライダー:slick使用
+.flex-gallery {
+  display: block !important;
+  margin-bottom: 0 !important;
+
+  .slick-slide {
+    @include aspect-ratio(1, 1);
+
+    img {
+      border-radius: 0 rems(30px) 0 rems(30px);
+      object-fit: cover;
+
+      @include media-max(tab) {
+        border-radius: 0 rems(30px) 0 rems(30px);
+      }
+    }
+  }
+
+  .slick-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-top: rems(7px);
+    position: static;
+    margin-bottom: rems(-10px);
+
+    & > li {
+      width: calc((100% - (rems(10px) * 4)) / 5);
+      margin: 0;
+      margin-right: rems(10px);
+      margin-bottom: rems(10px);
+      height: auto;
+      @include aspect-ratio(1, 1);
+
+      &:nth-child(5n) {
+        margin-right: 0;
+      }
+
+      img {
+        border-radius: rems(8px);
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// チェックボックスアイコン付きのリスト
 .flex-checkbox {
   .box {
     display: flex;
@@ -151,11 +135,11 @@
     }
 
     & > img {
-      width: 40px !important;
+      width: rems(40px) !important;
       margin-right: 10px;
 
       @include media-max(sp) {
-        width: 30px !important;
+        width: rems(30px) !important;
       }
     }
 
@@ -167,6 +151,7 @@
   }
 }
 
+// 番号付きのリスト
 .flex-list {
   counter-reset: list 0;
 
@@ -217,6 +202,7 @@
   }
 }
 
+// フロー
 .flex-flow {
   counter-reset: flow 0;
 
@@ -267,6 +253,7 @@
   }
 }
 
+// ドロップダウン
 .flex-faq {
   border: 1px solid black;
 
@@ -327,6 +314,7 @@
   }
 }
 
+//
 .flex-cta {
   &__link {
     display: block;
@@ -354,6 +342,7 @@
   }
 }
 
+// お客様の声
 .flex-voice {
   .box {
     padding: em(30, 16) em(20, 16);
@@ -384,6 +373,7 @@
   }
 }
 
+// スタッフ紹介
 .flex-staff {
   .box {
     & > article > img {

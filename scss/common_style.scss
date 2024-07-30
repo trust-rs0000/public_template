@@ -8,7 +8,6 @@
 @use "utility/inner";
 @use "utility/line-height";
 @use "utility/letter-spacing";
-@use "utility/marker";
 @use "utility/position";
 @use "utility/text-align";
 @use "module/anime";
@@ -23,6 +22,9 @@
 @use "module/hamburger";
 @use "module/heading";
 @use "module/label";
+@use "module/marker";
+@use "module/media-text";
+@use "module/megaphone";
 @use "module/mv";
 @use "module/mv-sub";
 @use "module/nav";

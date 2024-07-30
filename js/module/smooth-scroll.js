@@ -1,146 +1,121 @@
-// スムーススクロール start
-class HrefAttribute {
-  constructor(element) {
-    this.element = element;
+/**
+ * スムーズスクロールに関するクラス
+ */
+export default class SmoothScroller {
+  /**
+   *
+   * @param {node} headerElement ヘッダー
+   * @param {int} marginHeight スムーズスクロールした際に、ピッタリくっつかないようにするための余白
+   */
+  constructor(headerElement, marginHeight) {
+    this.headerElement = headerElement;
+    this.marginHeight = marginHeight;
+    this.headerHeight = 0;
   }
 
-  getHref() {
-    return this.element.getAttribute("href");
+  get _headerHeight() {
+    return this.headerElement.clientHeight + this.marginHeight;
   }
 
-  getHash() {
-    const HREF = this.getHref();
-    return HREF.split("#").pop();
-  }
-}
-
-class SmoothScrollHeaderHeight {
-  constructor(height) {
-    this.height = height;
-  }
-}
-
-class SmoothScrollTarget {
-  constructor(hash) {
-    this.hash = hash;
+  set _headerHeight(height) {
+    this.headerHeight = height;
   }
 
-  getTarget() {
-    const HASH = this.hash.replace(/#/, "");
-    return document.querySelector(`#${HASH}`);
-  }
-}
-
-class SmoothScrollPositionTop {
-  constructor(element) {
-    this.element = element;
+  getHashTarget(hash) {
+    try {
+      const HASH_EXCLUDE_MARK = hash.replace(/#/, "");
+      return document.querySelector(`#${HASH_EXCLUDE_MARK}`);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  getRelativeTop() {
-    return this.element.getBoundingClientRect().top;
+  resizeAbsoluteTop(hashTarget) {
+    try {
+      const RELATIVE_TOP = hashTarget.getBoundingClientRect().top;
+      const ABSOLUTE_TOP = RELATIVE_TOP + window.scrollY;
+      return ABSOLUTE_TOP - this._headerHeight;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  getAbsoluteTop() {
-    const RELATIVE_TOP = this.getRelativeTop();
-    return RELATIVE_TOP + window.scrollY;
+  scroll(absoluteTop) {
+    try {
+      window.scrollTo({
+        top: absoluteTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  resizeAbsoluteTop(headerHeight) {
-    const ABSOLUTE_TOP = this.getAbsoluteTop();
-    return ABSOLUTE_TOP - headerHeight.height;
-  }
-}
-
-class InnerSmoothScroll {
-  constructor(absoluteTop) {
-    this.absoluteTop = absoluteTop;
-  }
-
-  scroll() {
-    window.scrollTo({
-      top: this.absoluteTop,
-      left: 0,
-      behavior: "smooth",
-    });
-  }
-}
-
-class OuterSmoothScroll {
-  constructor(absoluteTop) {
-    this.absoluteTop = absoluteTop;
+  scrollOuter(absoluteTop) {
+    try {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+      this.scroll(absoluteTop);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  preScroll() {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "auto",
-    });
-  }
-
-  scroll() {
-    window.scrollTo({
-      top: this.absoluteTop,
-      left: 0,
-      behavior: "smooth",
-    });
-  }
-}
-
-export default function () {
-  window.addEventListener("load", function () {
-    // 内部リンク
-    const SMOOTH_SCROLL_HEADER = document.querySelector(".header");
-    let headerHeight = SMOOTH_SCROLL_HEADER.clientHeight;
+  smoothScroll() {
+    this._headerHeight = this.headerHeight;
 
     window.addEventListener("resize", function () {
-      headerHeight = SMOOTH_SCROLL_HEADER.clientHeight;
+      this._headerHeight = this.headerHeight;
     });
 
+    // 内部リンク
     const ANCHORS = document.querySelectorAll('a[href*="#"]');
+    ANCHORS.forEach(
+      function (anchor) {
+        anchor.addEventListener("click", (e) => {
+          const HREF = anchor.getAttribute("href");
+          const HASH = HREF.split("#").pop();
+          const HASH_TARGET = this.getHashTarget(HASH);
 
-    ANCHORS.forEach(function (anchor) {
-      anchor.addEventListener("click", function (e) {
-        const smoothScrollHeaderHeight = new SmoothScrollHeaderHeight(headerHeight);
-        const hrefAttribute = new HrefAttribute(anchor);
+          if (!HASH_TARGET) {
+            return;
+          }
 
-        const HASH = hrefAttribute.getHash();
+          e.preventDefault();
 
-        const smoothScrollTarget = new SmoothScrollTarget(HASH);
-        const TARGET = smoothScrollTarget.getTarget();
+          const RESIZE_ABSOLUTE_TOP = this.resizeAbsoluteTop(HASH_TARGET);
 
-        if (!TARGET) {
+          this.scroll(RESIZE_ABSOLUTE_TOP);
+        });
+      }.bind(this)
+    );
+
+    // 外部リンク
+    window.addEventListener(
+      "load",
+      function (e) {
+        const OUTER_HASH = location.hash;
+
+        if (!OUTER_HASH) {
           return;
         }
 
         e.preventDefault();
 
-        const smoothScrollPositionTop = new SmoothScrollPositionTop(TARGET);
-        const RESIZE_ABSOLUTE_TOP =
-          smoothScrollPositionTop.resizeAbsoluteTop(smoothScrollHeaderHeight);
+        const HASH_TARGET = this.getHashTarget(OUTER_HASH);
 
-        const innerSmoothScroll = new InnerSmoothScroll(RESIZE_ABSOLUTE_TOP);
-        innerSmoothScroll.scroll();
-      });
-    });
+        if (!HASH_TARGET) {
+          return;
+        }
 
-    // 外部リンク
-    const HASH = location.hash;
-    if (!HASH) {
-      return;
-    }
+        const RESIZE_ABSOLUTE_TOP = this.resizeAbsoluteTop(HASH_TARGET);
 
-    const smoothScrollHeaderHeight = new SmoothScrollHeaderHeight(headerHeight);
-
-    const smoothScrollTarget = new SmoothScrollTarget(HASH);
-    const TARGET = smoothScrollTarget.getTarget();
-
-    const smoothScrollPositionTop = new SmoothScrollPositionTop(TARGET);
-    const RESIZE_ABSOLUTE_TOP = smoothScrollPositionTop.resizeAbsoluteTop(smoothScrollHeaderHeight);
-
-    const outerSmoothScroll = new OuterSmoothScroll(RESIZE_ABSOLUTE_TOP);
-    outerSmoothScroll.preScroll();
-    outerSmoothScroll.scroll();
-  });
-  // スムーススクロール end
+        this.scrollOuter(RESIZE_ABSOLUTE_TOP);
+      }.bind(this)
+    );
+  }
 }

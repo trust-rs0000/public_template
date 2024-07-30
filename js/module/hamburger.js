@@ -24,11 +24,6 @@ export default class Hamburger {
   toggleHamburger() {
     this.hamburger.addEventListener("click", function () {
       try {
-        if (!document.querySelector("html").classList.contains("js-drawer-open")) {
-          $(".drawer").fadeIn();
-        } else {
-          $(".drawer").fadeOut();
-        }
         document.querySelector("html").classList.toggle("js-drawer-open");
       } catch (error) {
         console.log(error);

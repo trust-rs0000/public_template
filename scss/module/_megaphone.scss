@@ -1,0 +1,19 @@
+@use "../forward" as *;
+
+.megaphone {
+  display: inline-flex;
+  align-items: flex-end;
+  color: $color-main;
+  @include font-family(accent, regular);
+  font-size: rems(24px);
+
+  &:before {
+    content: url(/images/utility/megaphone_left.png);
+    margin-right: em(9px, 24px);
+  }
+
+  &:after {
+    content: url(/images/utility/megaphone_right.png);
+    margin-left: em(9px, 24px);
+  }
+}

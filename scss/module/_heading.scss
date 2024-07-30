@@ -18,17 +18,42 @@ h3 {
   }
 }
 
-.heading-subtitle {
-  &__sub {
-    margin-bottom: em(16px, 16px);
-    color: $color-custom-3;
-    @include font-family(main, medium);
-    font-size: rems(16px);
-    line-height: 1;
+.heading-fadein-animation {
+  overflow: hidden;
+
+  .js-span {
+    display: inline-block;
+    transform: translate(0, 100%);
   }
 
+  &.js-arrive-in .js-span {
+    animation: fade-in 0.5s ease forwards;
+  }
+}
+
+.heading-sub-title {
   &__main {
-    margin-bottom: em(9px, 34px);
+    margin-bottom: em(17px, 46px);
+    color: $color-main;
+    @include font-family(main, bold);
+    font-size: rems(46px);
+    line-height: 1;
+
+    &:after {
+      content: "";
+      display: block;
+      width: rems(50px);
+      height: rems(3px);
+      margin-top: rems(9px);
+      background-color: $color-main;
+      border-radius: 100vh;
+    }
+  }
+
+  &__sub {
+    color: $color-custom-3;
+    @include font-family(main, medium);
+    font-size: rems(22px);
     line-height: 1.2;
   }
 
@@ -45,5 +70,31 @@ h3 {
       background-image: $color-custom-2;
       border-radius: rems(2px);
     }
+  }
+}
+
+.heading-bg {
+  padding: em(20, $font-size-h2) rems(20px) em(20, $font-size-h2) rems(38px);
+  color: white;
+  background-color: $color-main;
+  border-radius: 0 rems(30px) rems(30px) 0;
+  line-height: 1.2;
+  position: relative;
+
+  @include media-max(tab) {
+    border-radius: 0 rems(20px) rems(20px) 0;
+  }
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: rems(5px);
+    height: calc(100% - (em(20, $font-size-h2) * 2));
+    background-color: white;
+    border-radius: rems(5px);
+    position: absolute;
+    top: 50%;
+    left: rems(20px);
+    transform: translate(0, -50%);
   }
 }

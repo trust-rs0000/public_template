@@ -1,6 +1,20 @@
 @use "../forward" as *;
 
+@mixin border {
+  border: 1px solid $color-border;
+  border-radius: rems(3px);
+  @content;
+}
+
 %form-reboot {
+  select,
+  input,
+  textarea,
+  .drop {
+    padding: em(8px, 16px) em(10px, 16px);
+    @include border();
+  }
+
   & > dl {
     &:last-of-type > dt,
     &:last-of-type > dd {
@@ -27,163 +41,202 @@
   }
 
   & > dl > dd > input {
-    padding: em(10, 16);
     font-size: rems(16px);
-    border: 1px solid $color-border;
-    border-radius: 0;
   }
 
+  // 注釈
   & > dl > dd > div {
-    &:first-child {
-      margin-bottom: rems(10px);
-    }
+    font-size: rems(14px);
+    line-height: 1.2;
   }
 
-  @mixin border {
-    border: 1px solid $color-border;
-    border-radius: 0;
-    @content;
+  // 注釈
+  & > dl > dd:not(.date, .addr, .email, .drop) > div {
+    margin-top: rems(6px);
+  }
+
+  .date,
+  .addr,
+  .email {
+    & > div {
+      margin-bottom: rems(10px);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .date {
-    display: block;
-    flex-wrap: wrap;
-
     .date {
-      display: flex;
-    }
+      & > div {
+        display: inline-flex;
+        align-items: center;
+        margin-right: rems(10px);
+        float: none;
 
-    & > div {
-      align-items: center;
-      margin-bottom: rems(10px);
-      margin-right: 0;
-      float: none;
-    }
+        &:last-of-type {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
 
-    & > div:last-of-type > select {
-      margin-bottom: 0;
-    }
+      & > div:last-of-type > select {
+        margin-bottom: 0;
+      }
 
-    & > div > input {
-      margin-bottom: 0;
-      font-size: rems(16px);
-      text-align: left;
-      @include border;
-    }
+      & > div > input,
+      & > div > select {
+        width: 0 !important;
+        min-width: rems(75px);
+        max-height: rems(42px);
+      }
 
-    & > div > select {
-      margin-bottom: 0;
-      font-size: rems(16px);
-      @include border;
-    }
+      & > div > input {
+        margin-bottom: 0;
+        font-size: rems(16px);
+        text-align: left;
+        @include border;
+      }
 
-    & > div > span {
-      margin-right: 0;
-      margin-left: 0;
-      font-size: rems(16px);
-      line-height: 1;
+      & > div > select {
+        margin-bottom: 0;
+        font-size: rems(16px);
+      }
+
+      & > div > span {
+        margin-right: 0;
+        margin-left: rems(5px);
+        font-size: rems(16px);
+        line-height: 1;
+      }
     }
   }
 
   .select {
-    & > select {
-      @include border;
-    }
-  }
-
-  .checkbox {
-    .checkbox {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    & > label {
-      display: flex;
-      align-items: center;
-      min-width: 0;
-      margin-right: 10px;
-      margin-bottom: rems(16px);
-    }
-
-    & > label > input {
-      margin: 0 !important;
-      margin-right: 5px !important;
+    .select {
     }
   }
 
   .email {
-    & > div > input {
-      margin-bottom: 0;
-      padding: em(10, 16);
-      font-size: rems(16px);
-      @include border;
+    .email {
+      & > div {
+        margin-bottom: rems(10px);
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      & > div > input {
+        margin-bottom: 0;
+        font-size: rems(16px);
+      }
     }
   }
 
   .addr {
-    & > div {
-      margin-bottom: rems(10px);
+    .addr {
+      & > div {
+        &:first-child {
+          align-items: center;
+        }
 
-      &:first-child {
-        align-items: center;
-      }
-
-      &:nth-child(2) {
-        & > select {
-          margin-bottom: 0;
-          @include border;
+        &:nth-child(2) {
+          & > select {
+            margin-bottom: 0;
+          }
         }
       }
-    }
 
-    & > div > span {
-      margin-right: 10px;
-      line-height: 1;
-    }
+      & > div > span {
+        margin-right: rems(10px);
+        line-height: 1;
+      }
 
-    & > div > input {
-      margin-bottom: 0;
-      font-size: rems(16px);
-      @include border;
+      & > div > input {
+        margin-bottom: 0;
+        font-size: rems(16px);
+      }
+
+      & > div > select {
+        font-size: rems(16px);
+      }
     }
   }
 
   .number {
-    & > input {
-      font-size: rems(16px);
-      @include border;
+    .number {
+      & > input {
+        width: 0 !important;
+        min-width: rems(75px);
+        max-height: rems(42px);
+        font-size: rems(16px);
+      }
+    }
+  }
+
+  .radio,
+  .checkbox {
+    & > label {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      margin-right: rems(30px);
+      margin-bottom: rems(10px);
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    & > label > input {
+      margin: 0;
+      margin-right: rems(5px);
     }
   }
 
   .textarea {
-    & > textarea {
-      min-height: 100px;
-      padding: em(10, 16);
-      font-size: rems(10px);
-      @include border;
+    .textarea {
+      & > textarea {
+        min-height: rems(100px);
+        font-size: rems(16px);
+      }
     }
   }
 
   .file {
     border-top: none !important;
-    border-bottom: 1px solid $color-border !important;
+    border-bottom: none !important;
+
+    .file > label {
+      top: -37px;
+    }
 
     & > dt {
       display: flex !important;
       margin-bottom: rems(10px);
-      background: transparent;
+      background: transparent !important;
       padding-top: 0 !important;
       font-size: rems(16px);
     }
 
     & > dd > label {
-      @include border;
       right: 0;
     }
 
     .drop {
       margin-bottom: 0;
-      border: 1px dotted $color-border;
+      background-size: auto rems(80px);
+      background-position: center 20%;
+
+      & > span {
+        margin-right: 0;
+        margin-bottom: rems(22px);
+        padding: 0;
+        font-size: rems(16px);
+        line-height: 1 !important;
+      }
     }
   }
 
@@ -198,22 +251,21 @@
   @extend %form-reboot;
 
   & > dl {
-    // display: block !important;
-    margin-bottom: rems(30px);
+    margin-bottom: rems(18px);
+    padding-bottom: rems(18px);
+    border-bottom: 1px dotted $color-border;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
   }
 
   & > dl > dt {
-    margin-right: 20px;
+    margin-right: rems(20px);
     margin-bottom: rems(10px);
     @include font-family(base, medium);
-  }
-
-  & > dl > dd {
-    input,
-    textarea {
-      // border: none !important;
-      border-radius: 3px !important;
-    }
   }
 }
 

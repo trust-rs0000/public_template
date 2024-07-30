@@ -26,14 +26,13 @@
 
   min-width: rems(232px);
   padding: em(21, 16) em(50, 16);
-  background: $color-custom-5;
+  background: $color-button-bg;
   font-size: rems(16px);
   @include font-family(base, bold);
   border-radius: 100vh;
   line-height: 1;
   position: relative;
   z-index: 0;
-  @include keyframe-graduation;
 
   &:link,
   &:visited {
@@ -82,7 +81,7 @@
 
   min-width: rems(220px);
   padding: rems(18px) rems(20px);
-  background-color: white;
+  background-color: $color-button-bg;
   border: 1px solid $color-main;
   border-radius: 100vh;
 
