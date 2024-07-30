@@ -17459,32 +17459,6 @@ h3 {
   border-radius: 0.125rem;
 }
 
-.heading-bg {
-  padding: 0.7142857143em 1.25rem 0.7142857143em 2.375rem;
-  color: white;
-  background-color: "";
-  border-radius: 0 1.875rem 1.875rem 0;
-  line-height: 1.2;
-  position: relative;
-}
-@media (max-width: 834px) {
-  .heading-bg {
-    border-radius: 0 1.25rem 1.25rem 0;
-  }
-}
-.heading-bg:before {
-  content: "";
-  display: inline-block;
-  width: 0.3125rem;
-  height: calc(100% - 1.4285714286em);
-  background-color: white;
-  border-radius: 0.3125rem;
-  position: absolute;
-  top: 50%;
-  left: 1.25rem;
-  transform: translate(0, -50%);
-}
-
 .label {
   display: inline-block;
   padding: 0.4285714286em 1.4285714286em;

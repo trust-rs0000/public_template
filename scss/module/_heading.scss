@@ -72,29 +72,3 @@ h3 {
     }
   }
 }
-
-.heading-bg {
-  padding: em(20, $font-size-h2) rems(20px) em(20, $font-size-h2) rems(38px);
-  color: white;
-  background-color: $color-main;
-  border-radius: 0 rems(30px) rems(30px) 0;
-  line-height: 1.2;
-  position: relative;
-
-  @include media-max(tab) {
-    border-radius: 0 rems(20px) rems(20px) 0;
-  }
-
-  &:before {
-    content: "";
-    display: inline-block;
-    width: rems(5px);
-    height: calc(100% - (em(20, $font-size-h2) * 2));
-    background-color: white;
-    border-radius: rems(5px);
-    position: absolute;
-    top: 50%;
-    left: rems(20px);
-    transform: translate(0, -50%);
-  }
-}
