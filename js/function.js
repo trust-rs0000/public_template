@@ -100,7 +100,7 @@ window.addEventListener("DOMContentLoaded", function () {
   // ヘッダーの高さ分、margin-topを設ける。
   // クラス名を変更して使用してください。
   // if (HEADER) {
-  //   const marginTop = new MarginTop(HEADER_NODE);
+  //   const marginTop = new MarginTop(HEADER);
   //   marginTop.bootMarginTop();
   // }
 
