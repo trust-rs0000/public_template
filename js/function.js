@@ -2,9 +2,11 @@
 import Breadcrumb from "./module/breadcrumb.js";
 import Hamburger from "./module/hamburger.js";
 import MarginTop from "./module/margin-top.js";
+import OpeningAnimation from "./module/opening-animation.js";
 import Scroller from "./module/scroller.js";
 import Slider from "./module/slider.js";
 import SmoothScroller from "./module/smooth-scroll.js";
+import Text from "./module/text.js";
 
 // 必須
 window.addEventListener("DOMContentLoaded", () => {
@@ -67,15 +69,19 @@ window.addEventListener("DOMContentLoaded", () => {
 // クラス実装
 window.addEventListener("DOMContentLoaded", function () {
   // 定数
-  const HEADER = document.querySelector(".header");
+  const HEADER = document.querySelector("#header");
 
-  // スライダー
-  const slider = new Slider(".mv-slider");
-  slider.mainSlider();
+  // // スライダー
+  // const slider = new Slider(".mv-slider");
+  // slider.mainSlider();
+
+  // 商品スライダー
+  const itemSlider = new Slider(".m-shop-slider .items");
+  itemSlider.itemSlider();
 
   // ハンバーガー
   // クラス名を変更して使用してください。
-  const HAMBURGER_NODE = document.querySelector(".hamburger");
+  const HAMBURGER_NODE = document.querySelector("#hednav");
   if (HAMBURGER_NODE) {
     const hamburger = new Hamburger(HAMBURGER_NODE);
     hamburger.toggleHamburger();
@@ -89,8 +95,8 @@ window.addEventListener("DOMContentLoaded", function () {
     breadcrumb.displayBreadCrumb("HOME");
   }
 
-  // アコーディオン
-  // クラス名を変更して使用してください。
+  // // アコーディオン
+  // // クラス名を変更して使用してください。
   const ACCRODIONS = document.querySelectorAll(".flex-faq");
   ACCRODIONS.forEach(function (item) {
     const accordion = new Accordion(item);
@@ -99,13 +105,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // ヘッダーの高さ分、margin-topを設ける。
   // クラス名を変更して使用してください。
-  // if (HEADER) {
-  //   const marginTop = new MarginTop(HEADER);
-  //   marginTop.bootMarginTop();
-  // }
+  if (HEADER) {
+    const marginTop = new MarginTop(HEADER);
+    marginTop.bootMarginTop();
+  }
 
-  // フッター位置まで来たらクラス付与する。
-  // クラス名を変更して使用してください。
+  // // フッター位置まで来たらクラス付与する。
+  // // クラス名を変更して使用してください。
   const FOOTER = document.querySelector(".footer");
   if (FOOTER) {
     const footer = new Scroller(FOOTER);
@@ -115,8 +121,8 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // スクロール時、ヘッダーにクラス付与する。
-  // クラス名を変更して使用してください。
+  // // スクロール時、ヘッダーにクラス付与する。
+  // // クラス名を変更して使用してください。
   if (HEADER) {
     const HEADER_SCROLLER = new Scroller(HEADER);
     HEADER_SCROLLER.scrolled({
@@ -125,61 +131,28 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // スムーズスクロール
+  // // スムーズスクロール
   const smoothScroller = new SmoothScroller(HEADER, 20);
   smoothScroller.smoothScroll();
-});
 
-// クラス実装以外
-window.addEventListener("DOMContentLoaded", function () {
-  try {
-    // sns等のスライダー
-    // $(".flex-slider, .sns-slider .sns_list").slick({
-    //   autoplay: true, // 自動でスクロール
-    //   autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
-    //   speed: 5000, // スライドが流れる速度を設定
-    //   cssEase: "linear", // スライドの流れ方を等速に設定
-    //   slidesToShow: 5, // 表示するスライドの数
-    //   swipe: false, // 操作による切り替えはさせない
-    //   arrows: false, // 矢印非表示
-    //   pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
-    //   pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
-    //   responsive: [
-    //     {
-    //       breakpoint: 834,
-    //       settings: {
-    //         slidesToShow: 3,
-    //       },
-    //     },
-    //     {
-    //       breakpoint: 640,
-    //       settings: {
-    //         slidesToShow: 1,
-    //       },
-    //     },
-    //   ],
-    // });
-  } catch (error) {
-    console.log(error);
+  // 文字数省略
+  const SNS_LIST = document.querySelectorAll(".sns_list > div");
+  if (SNS_LIST) {
+    SNS_LIST.forEach(function (sns) {
+      const SNS_TEXT = sns.querySelector(".caption");
+      const textSpliter = new Text(SNS_TEXT);
+      textSpliter.split(220);
+    });
   }
 
-  try {
-    // snsのテキスト制限
-    const LIMIT_STRING_LENGTH = 50; // 文字数
+  // オープニングアニメーション
+  const LOADER = document.querySelector(".loader");
+  if (LOADER) {
+    const op = new OpeningAnimation(LOADER);
 
-    const SNS_LIST = document.querySelectorAll(".sns_list .slick-slide");
+    // 来訪済みか判断。
+    op.checkVisited();
 
-    if (SNS_LIST) {
-      SNS_LIST.forEach(function (item) {
-        const TEXT = item.querySelector(".caption");
-        const TEXT_SPLIT = TEXT.textContent;
-
-        if (TEXT.textContent.length > LIMIT_STRING_LENGTH) {
-          TEXT.textContent = TEXT_SPLIT.substring(0, LIMIT_STRING_LENGTH) + "...";
-        }
-      });
-    }
-  } catch (error) {
-    console.log(error);
+    // 以下、アニメーションの詳細な記述を記載してください。
   }
 });
