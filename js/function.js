@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // クラス実装
 window.addEventListener("DOMContentLoaded", function () {
   // 定数
-  const HEADER = document.querySelector("#header");
+  const HEADER = document.querySelector(".header");
 
   // // スライダー
   // const slider = new Slider(".mv-slider");
@@ -81,7 +81,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // ハンバーガー
   // クラス名を変更して使用してください。
-  const HAMBURGER_NODE = document.querySelector("#hednav");
+  const HAMBURGER_NODE = document.querySelector(".hamburger");
   if (HAMBURGER_NODE) {
     const hamburger = new Hamburger(HAMBURGER_NODE);
     hamburger.toggleHamburger();
