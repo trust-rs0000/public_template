@@ -61,7 +61,7 @@
   line-height: 1;
 }
 
-@mixin shop-normal-button($color: $color-button-text, $color-bg: $color-shop-button-bg) {
+@mixin shop-normal-button($color: $color-shop-button-text, $color-bg: $color-shop-button-bg) {
   width: auto;
   min-width: rems(150px);
   height: auto;

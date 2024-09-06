@@ -10,11 +10,16 @@
     }
   }
 
+  &__wrapper {
+    flex: 1 0 0;
+  }
+
   &__image {
     flex: 0 0 percentage(div(550, 1200));
     margin-right: rems(50px);
 
     @include media-max(tab) {
+      flex: 0 0 100%;
       margin-right: 0;
       margin-bottom: rems(40px);
     }
@@ -27,6 +32,12 @@
       @include media-max(tab) {
         border-radius: 0 rems(30px) 0 rems(30px);
       }
+    }
+  }
+
+  &__text {
+    div {
+      line-height: div(22.4, 16);
     }
   }
 

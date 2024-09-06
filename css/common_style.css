@@ -15287,17 +15287,17 @@ select {
 }
 @media (max-width: 1200px) {
   .inner-600 {
-    max-width: 1000px;
+    max-width: 600px;
   }
 }
 @media (max-width: 1000px) {
   .inner-600 {
-    max-width: 834px;
+    max-width: 600px;
   }
 }
 @media (max-width: 834px) {
   .inner-600 {
-    max-width: 640px;
+    max-width: 600px;
   }
 }
 @media (max-width: 640px) {
@@ -15317,12 +15317,12 @@ select {
 }
 @media (max-width: 1200px) {
   .inner-700 {
-    max-width: 1000px;
+    max-width: 700px;
   }
 }
 @media (max-width: 1000px) {
   .inner-700 {
-    max-width: 834px;
+    max-width: 700px;
   }
 }
 @media (max-width: 834px) {
@@ -15347,12 +15347,12 @@ select {
 }
 @media (max-width: 1200px) {
   .inner-800 {
-    max-width: 1000px;
+    max-width: 800px;
   }
 }
 @media (max-width: 1000px) {
   .inner-800 {
-    max-width: 834px;
+    max-width: 800px;
   }
 }
 @media (max-width: 834px) {
@@ -15377,7 +15377,7 @@ select {
 }
 @media (max-width: 1200px) {
   .inner-900 {
-    max-width: 1000px;
+    max-width: 900px;
   }
 }
 @media (max-width: 1000px) {
@@ -16824,10 +16824,14 @@ div#builingual div.language select {
   counter-increment: flow 1;
   display: flex;
   align-items: flex-start;
+  width: 100%;
   margin-bottom: 3.75rem;
   overflow: visible !important;
   position: relative;
   z-index: 0;
+}
+.flex-flow .box:last-child {
+  margin-bottom: 0;
 }
 .flex-flow .box:before {
   content: counter(flow, decimal-leading-zero);
@@ -16836,11 +16840,18 @@ div#builingual div.language select {
   justify-content: center;
   width: 0;
   height: 0;
-  margin-right: 20px;
-  padding: 30px;
+  margin-right: 1.25rem;
+  padding: 1.875rem;
   color: white;
   background-color: "";
+  font-family: Jost, Noto Sans JP, sans-serif;
+  font-weight: 500;
   border-radius: 100%;
+}
+@media (max-width: 834px) {
+  .flex-flow .box:before {
+    margin-right: 0.9375rem;
+  }
 }
 .flex-flow .box:after {
   content: "";
@@ -16848,9 +16859,12 @@ div#builingual div.language select {
   height: 100%;
   background-color: "";
   position: absolute;
-  top: 60px;
-  left: 30px;
+  top: 3.75rem;
+  left: 1.875rem;
   z-index: -1;
+}
+.flex-flow .box > div {
+  flex: 1 0 0;
 }
 .flex-flow__title {
   margin-bottom: 0.5rem;
@@ -17480,12 +17494,16 @@ h3 {
     display: block;
   }
 }
+.media-text__wrapper {
+  flex: 1 0 0;
+}
 .media-text__image {
   flex: 0 0 45.8333333333%;
   margin-right: 3.125rem;
 }
 @media (max-width: 834px) {
   .media-text__image {
+    flex: 0 0 100%;
     margin-right: 0;
     margin-bottom: 2.5rem;
   }
@@ -17499,6 +17517,9 @@ h3 {
   .media-text__image img {
     border-radius: 0 1.875rem 0 1.875rem;
   }
+}
+.media-text__text div {
+  line-height: 1.4;
 }
 .media-text--reverse .media-text__inner {
   flex-direction: row-reverse;
