@@ -216,8 +216,8 @@
     & > dt {
       display: flex !important;
       margin-bottom: rems(10px);
-      background: transparent !important;
       padding-top: 0 !important;
+      background: transparent !important;
       font-size: rems(16px);
     }
 
@@ -266,99 +266,11 @@
     margin-right: rems(20px);
     margin-bottom: rems(10px);
     @include font-family(base, medium);
-  }
-}
-
-// formを使用したページ限定
-// ※は必須項目
-#TRANS_ANNOT {
-  color: $color-warn;
-}
-
-// フォーム使用したときに上に出てくるゴミデータ
-h2.mail.title {
-  display: none;
-}
-
-section .form p.annot {
-  margin: 0;
-  margin-bottom: rems(40px);
-  color: $color-warn;
-}
-
-// 確認ページ(入力不足)
-section div.form_wrap.error {
-  margin-top: calc($header-margin-top + 40px);
-  padding: em(16, 20);
-  background-color: $color-warn;
-
-  & > p {
-    padding: 0;
-    color: white;
-  }
-}
-
-// 確認ページ(確認ページ)
-section div.form_wrap.confirm {
-  padding-top: em(16, 40);
-}
-
-// ボタン
-.submit {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @include media-max(sp) {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  button {
-    width: 100%;
-    flex: 1 0 0;
-    margin-top: 0;
-    margin-right: 20px;
-    margin-bottom: rems(60px);
 
     @include media-max(sp) {
-      margin-top: 0;
-      margin-right: 0;
-      margin-bottom: rems(20px);
-    }
-
-    &:last-child {
       margin-right: 0;
     }
   }
-}
-
-%bt-reboot {
-  padding: em(10, 16);
-  @include font-family(base, medium);
-  border: 1px solid $color-main;
-  border-radius: 0;
-  background: none;
-  text-indent: 0;
-}
-
-.bt_confirm,
-.bt_back,
-.bt_send {
-  @extend %bt-reboot;
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 300px;
-  background-color: $color-main;
-}
-
-.bt_back,
-.bt_confirm,
-.bt_send {
-  color: white;
 }
 
 // カレンダー

@@ -17,17 +17,27 @@ export default class Hamburger {
 
     this.hamburger = hamburgerElement;
   }
+  static className = "js-drawer-open";
+
+  fadeDrawer() {
+    try {
+      if (!document.querySelector("html").classList.contains(Hamburger.className)) {
+        $(".drawer").fadeIn();
+      } else {
+        $(".drawer").fadeOut();
+      }
+      document.querySelector("html").classList.toggle(Hamburger.className);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   /**
    * ハンバーガーを開閉します。
    */
   toggleHamburger() {
-    this.hamburger.addEventListener("click", function () {
-      try {
-        document.querySelector("html").classList.toggle("js-drawer-open");
-      } catch (error) {
-        console.log(error);
-      }
+    this.hamburger.addEventListener("click", () => {
+      this.fadeDrawer();
     });
   }
 
@@ -36,14 +46,12 @@ export default class Hamburger {
    */
   clickAnchor() {
     const ANCHORS = document.querySelectorAll('a[href*="#"]');
-    ANCHORS.forEach(function (anchor) {
-      anchor.addEventListener("click", function () {
-        try {
-          document.querySelector("html").classList.remove("js-drawer-open");
-        } catch (error) {
-          console.log(error);
-        }
-      });
-    });
+    ANCHORS.forEach(
+      function (anchor) {
+        anchor.addEventListener("click", () => {
+          this.fadeDrawer();
+        });
+      }.bind(this)
+    );
   }
 }

@@ -97,6 +97,32 @@
   }
 }
 
+.sns-card {
+  @extend %sns-reboot;
+
+  @include media-max(sp) {
+    --gutter-y: 40px;
+  }
+
+  .sns_list {
+    & > div {
+      display: block;
+
+      .sns_photo {
+        margin-bottom: rems(18px);
+
+        & > a {
+          @include aspect-ratio(1, 1);
+        }
+      }
+
+      .sns_date {
+        display: none;
+      }
+    }
+  }
+}
+
 .sns-slider {
   @extend %sns-reboot;
 

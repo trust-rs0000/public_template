@@ -57,9 +57,9 @@ export default class MarginTop {
     }
 
     // mvがあるページの場合
-    // if (this.mv) {
-    //   this.mv.style.marginTop = `${this.headerHeight}px`;
-    // }
+    if (this.mv) {
+      this.mv.style.marginTop = `${this.headerHeight}px`;
+    }
 
     // ブログページの場合
     if (this.blogMarginTop) {
@@ -77,6 +77,7 @@ export default class MarginTop {
    */
   bootMarginTop() {
     try {
+      this.setHeaderHeight();
       this.setMarginTop();
 
       window.addEventListener("resize", () => {

@@ -41,7 +41,6 @@
     box-shadow: 0 0 5px rgba(black, 0.1);
 
     @include media-max(drawer) {
-      margin-left: rems(8px);
       background-color: transparent;
       padding: 0;
       box-shadow: none;
@@ -51,7 +50,7 @@
   &__list {
     width: 100%;
     min-width: max-content;
-    padding-top: em(20, 16);
+    padding-top: rems(20px);
     height: auto;
     opacity: 0;
     visibility: hidden;
@@ -65,9 +64,9 @@
     @include media-max(drawer) {
       display: block;
       width: 100%;
-      margin-top: rems(12px);
+      margin-top: rems(20px);
       padding-top: rems(30px);
-      border-top: 1px solid $color-dropdown-border;
+      border-top: 1px dotted $color-dropdown-border;
       transform: unset;
       position: static;
       transition: $transition-duration;
@@ -91,7 +90,6 @@
     @include media-max(drawer) {
       margin-bottom: rems(30px);
       padding-bottom: 0;
-      text-align: left;
       border-bottom: none;
     }
 

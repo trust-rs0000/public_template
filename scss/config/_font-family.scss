@@ -2,13 +2,11 @@
 $font-family: (
   base: #{"Noto Sans JP",
   sans-serif},
-  main: #{"Jost",
-  "Noto Sans JP",
-  sans-serif,
+  main: #{"Roboto",
+  system-ui,
   },
-  accent: #{"Jost",
-  "Noto Sans JP",
-  sans-serif},
+  accent: #{"Yanone Kaffeesatz",
+  system-ui},
 );
 
 $font-weights: (
@@ -26,14 +24,17 @@ $font-weights: (
 $font-family-base: base;
 $font-weight-base: regular;
 
-$font-family-header-nav-link: accent;
-$font-weight-header-nav-link: medium;
+$font-family-header-nav-link: base;
+$font-weight-header-nav-link: regular;
 
 $font-family-footer-nav-link: base;
 $font-weight-footer-nav-link: medium;
 
 $font-family-dropdown-nav-link: base;
 $font-weight-dropdown-nav-link: bold;
+
+$font-family-h1: base;
+$font-weight-h1: medium;
 
 $font-family-h2: base;
 $font-weight-h2: medium;

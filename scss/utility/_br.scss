@@ -1,6 +1,6 @@
 @use "../forward" as *;
 
-.br-sp {
+.br-max-sp {
   display: none;
 
   @include media-max(sp) {
@@ -8,10 +8,42 @@
   }
 }
 
-.br-tab {
+.br-max-tab {
   display: none;
 
   @include media-max(tab) {
     display: block;
+  }
+}
+
+.br-max-drawer {
+  display: none;
+
+  @include media-max(drawer) {
+    display: block;
+  }
+}
+
+.br-min-sp {
+  display: block;
+
+  @include media-max(sp) {
+    display: none;
+  }
+}
+
+.br-min-tab {
+  display: block;
+
+  @include media-max(tab) {
+    display: none;
+  }
+}
+
+.br-min-drawer {
+  display: block;
+
+  @include media-max(drawer) {
+    display: none;
   }
 }

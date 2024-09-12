@@ -16,6 +16,7 @@
 @use "module/buillingual";
 @use "module/button";
 @use "module/dl";
+@use "module/drawer";
 @use "module/dropdown";
 @use "module/flexbox";
 @use "module/form";
@@ -37,5 +38,6 @@
 @use "page/index";
 @use "page/policy";
 @use "page/style";
+@use "page/page-form";
 // @use "page/page-blog";
 // @use 'page/page-shop';

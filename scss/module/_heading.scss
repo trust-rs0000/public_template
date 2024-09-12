@@ -1,8 +1,19 @@
 @use "../forward" as *;
 
+h1 {
+  font-size: rems($font-size-h1);
+  @include font-family($font-family-h1, $font-weight-h1);
+  letter-spacing: 0.07em;
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h1-tab);
+  }
+}
+
 h2 {
   font-size: rems($font-size-h2);
   @include font-family($font-family-h2, $font-weight-h2);
+  letter-spacing: 0.07em;
 
   @include media-max(tab) {
     font-size: rems($font-size-h2-tab);
@@ -12,24 +23,25 @@ h2 {
 h3 {
   font-size: rems($font-size-h3);
   @include font-family($font-family-h3, $font-weight-h3);
+  letter-spacing: 0.07em;
 
   @include media-max(tab) {
     font-size: rems($font-size-h3-tab);
   }
 }
 
-.heading-fadein-animation {
-  overflow: hidden;
+// .heading-fadein-animation {
+//   overflow: hidden;
 
-  .js-span {
-    display: inline-block;
-    transform: translate(0, 100%);
-  }
+//   .js-span {
+//     display: inline-block;
+//     transform: translate(0, 100%);
+//   }
 
-  &.js-arrive-in .js-span {
-    animation: fade-in 0.5s ease forwards;
-  }
-}
+//   &.js-arrive-in .js-span {
+//     animation: fade-in 0.5s ease forwards;
+//   }
+// }
 
 .heading-sub-title {
   &__main {

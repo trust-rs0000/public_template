@@ -75,9 +75,9 @@ window.addEventListener("DOMContentLoaded", function () {
   // const slider = new Slider(".mv-slider");
   // slider.mainSlider();
 
-  // 商品スライダー
-  const itemSlider = new Slider(".m-shop-slider .items");
-  itemSlider.itemSlider();
+  // // 商品スライダー
+  // const itemSlider = new Slider(".m-shop-slider .items");
+  // itemSlider.itemSlider();
 
   // ハンバーガー
   // クラス名を変更して使用してください。
@@ -85,6 +85,7 @@ window.addEventListener("DOMContentLoaded", function () {
   if (HAMBURGER_NODE) {
     const hamburger = new Hamburger(HAMBURGER_NODE);
     hamburger.toggleHamburger();
+    hamburger.clickAnchor();
   }
 
   // ぱんくず
@@ -95,8 +96,8 @@ window.addEventListener("DOMContentLoaded", function () {
     breadcrumb.displayBreadCrumb("HOME");
   }
 
-  // // アコーディオン
-  // // クラス名を変更して使用してください。
+  // アコーディオン
+  // クラス名を変更して使用してください。
   const ACCRODIONS = document.querySelectorAll(".flex-faq");
   ACCRODIONS.forEach(function (item) {
     const accordion = new Accordion(item);
@@ -110,8 +111,8 @@ window.addEventListener("DOMContentLoaded", function () {
     marginTop.bootMarginTop();
   }
 
-  // // フッター位置まで来たらクラス付与する。
-  // // クラス名を変更して使用してください。
+  // フッター位置まで来たらクラス付与する。
+  // クラス名を変更して使用してください。
   const FOOTER = document.querySelector(".footer");
   if (FOOTER) {
     const footer = new Scroller(FOOTER);
@@ -121,8 +122,8 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // // スクロール時、ヘッダーにクラス付与する。
-  // // クラス名を変更して使用してください。
+  // スクロール時、ヘッダーにクラス付与する。
+  // クラス名を変更して使用してください。
   if (HEADER) {
     const HEADER_SCROLLER = new Scroller(HEADER);
     HEADER_SCROLLER.scrolled({
@@ -131,7 +132,7 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // // スムーズスクロール
+  // スムーズスクロール
   const smoothScroller = new SmoothScroller(HEADER, 20);
   smoothScroller.smoothScroll();
 
