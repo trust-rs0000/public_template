@@ -5,10 +5,10 @@
 .page-form-confirm,
 .page-form-complete {
   #contents_wrap {
-    margin-top: $header-contact-margin-top;
+    margin-top: $header-contact-margin-top !important;
 
     @include media-max(tab) {
-      margin-top: $header-contact-margin-top-drawer;
+      margin-top: $header-contact-margin-top-drawer !important;
     }
   }
 }
@@ -125,7 +125,7 @@ form + .submit {
   .bt_confirm,
   .bt_back,
   .bt_send {
-    min-width: rems(200px);
+    min-width: rems(220px);
     padding: rems(14px) rems(20px);
     @include font-family(base, medium);
     border-radius: rems(3px);

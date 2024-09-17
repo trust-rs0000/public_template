@@ -8,6 +8,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  background: rgb(243, 252, 255);
+  background: linear-gradient(
+    -45deg,
+    rgba(243, 252, 255, 1) 0%,
+    rgba(244, 250, 255, 1) 28%,
+    rgba(235, 252, 255, 1) 53%,
+    rgba(246, 253, 255, 1) 78%,
+    rgba(236, 251, 255, 1) 100%
+  );
   position: relative;
   z-index: 0;
 
@@ -19,40 +28,16 @@
     }
   }
 
-  &:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(black, 0.2);
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    z-index: -1;
+  &__sub {
+    margin-bottom: rems(20px);
+    color: $color-main;
+    @include font-family(accent, medium);
+    font-size: rems(60px);
+    line-height: 1;
   }
 
-  & > article > * {
-    color: white;
-    text-shadow: 1px 1px 4px rgba(black, 0.6);
-  }
-
-  & > article > h1,
-  & > article > p {
-    margin-bottom: rems(10px);
-    font-size: rems(36px);
-    @include font-family(base, medium);
-
-    @include media-max(bp1200) {
-      font-size: rems(30px);
-    }
-
-    @include media-max(tab) {
-      font-size: rems(26px);
-    }
-  }
-
-  & > article > div {
-    font-size: rems(16px);
-    @include font-family(main, bold);
+  &__main {
+    font-size: rems(18px);
+    @include font-family(main, medium);
   }
 }

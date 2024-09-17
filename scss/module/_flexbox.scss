@@ -151,8 +151,37 @@
   }
 }
 
-// 番号付きのリスト
+// 箇条書きリスト
 .flex-list {
+  .box {
+    margin-bottom: rems(32px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > div {
+      display: inline-flex;
+      @include font-family(base, medium);
+      font-size: rems(20px);
+
+      &:before {
+        content: "";
+        flex: 0 0 auto;
+        display: inline-block;
+        width: rems(12px);
+        height: rems(12px);
+        margin-top: rems(10px);
+        margin-right: rems(15px);
+        background-color: $color-main;
+        border-radius: rems(12px);
+      }
+    }
+  }
+}
+
+// 番号付きのリスト
+.flex-number-list {
   counter-reset: list 0;
 
   .box {

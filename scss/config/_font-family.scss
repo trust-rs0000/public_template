@@ -36,8 +36,8 @@ $font-weight-dropdown-nav-link: bold;
 $font-family-h1: base;
 $font-weight-h1: medium;
 
-$font-family-h2: base;
-$font-weight-h2: medium;
+$font-family-h2: $font-family-h1;
+$font-weight-h2: $font-weight-h1;
 
 $font-family-h3: $font-family-h2;
 $font-weight-h3: $font-weight-h2;
