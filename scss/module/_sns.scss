@@ -158,9 +158,7 @@
 
   .slick-slide {
     height: auto !important;
-    margin-right: 20px;
-    margin-left: 20px;
-    padding: em(30, 16);
-    background-color: #f5f6fa;
+    margin-right: rems(20px);
+    margin-left: rems(20px);
   }
 }

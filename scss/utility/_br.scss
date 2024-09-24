@@ -1,49 +1,19 @@
 @use "../forward" as *;
 
-.br-max-sp {
-  display: none;
+@each $dimension, $breakpoint in $breakpoints {
+  $infix: if($breakpoint == 0px, null, -#{$dimension});
 
-  @include media-max(sp) {
-    display: block;
-  }
-}
-
-.br-max-tab {
-  display: none;
-
-  @include media-max(tab) {
-    display: block;
-  }
-}
-
-.br-max-drawer {
-  display: none;
-
-  @include media-max(drawer) {
-    display: block;
-  }
-}
-
-.br-min-sp {
-  display: block;
-
-  @include media-max(sp) {
+  .br-max#{$infix} {
     display: none;
+
+    @include media-max($dimension) {
+      display: block;
+    }
   }
-}
 
-.br-min-tab {
-  display: block;
-
-  @include media-max(tab) {
-    display: none;
-  }
-}
-
-.br-min-drawer {
-  display: block;
-
-  @include media-max(drawer) {
-    display: none;
+  .br-min#{$infix} {
+    @include media-max($dimension) {
+      display: block;
+    }
   }
 }

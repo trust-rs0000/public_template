@@ -215,11 +215,12 @@
   }
 }
 
-.flex-category {
+// タグ
+.flex-tag {
   .box {
-    padding: em(15, 16) em(20, 16);
-    background-color: $color-custom-1;
-    border: 1px solid $color-main;
+    padding: rems(8px) rems(10px);
+    background-color: $color-accent;
+    border-radius: rems(4px);
     text-align: center;
 
     & > div {
@@ -227,6 +228,30 @@
       justify-content: center;
       align-items: center;
       height: 100%;
+      color: white;
+      @include font-family(base, medium);
+      font-size: rems(13px);
+    }
+  }
+}
+
+// カテゴリー
+.flex-category {
+  .box {
+    padding: rems(8px) rems(15px);
+    background-color: white;
+    border: 2px solid $color-accent;
+    border-radius: rems(5px);
+    text-align: center;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: $color-accent;
+      @include font-family(base, medium);
+      font-size: rems(18px);
     }
   }
 }

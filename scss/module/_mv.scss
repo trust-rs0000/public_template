@@ -1,15 +1,23 @@
 @use "../forward" as *;
 
-.mv {
-  position: relative;
-  z-index: 0;
-
-  @if $have-header-margin-top == "true" {
+.page-top #contents_wrap {
+  @if $have-header-margin-top == true {
     margin-top: $header-margin-top;
 
     @include media-max(drawer) {
       margin-top: $header-margin-top-drawer;
     }
+  }
+}
+
+.mv {
+  width: percentage((div(1560, 1920)));
+  margin-left: auto;
+  position: relative;
+  z-index: 0;
+
+  @include media-max(drawer) {
+    width: 100%;
   }
 }
 

@@ -121,17 +121,22 @@
 
   & > dl {
     margin-bottom: rems(18px);
+    padding-right: rems(10px);
     padding-bottom: rems(19px);
+    padding-left: rems(10px);
     border-bottom: 1px dotted $color-border;
 
     @include media-max(sp) {
       display: block !important;
     }
 
+    &:first-child {
+      padding-top: rems(19px);
+      border-top: 1px dotted $color-border;
+    }
+
     &:last-child {
       margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: 0;
     }
   }
 

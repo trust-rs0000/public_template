@@ -48,15 +48,14 @@
   }
 }
 
-.button-tel {
+.button-header-tel {
   @extend %button-reboot;
   @extend %button-reboot-hover;
 
   min-width: rems(220px);
   padding: rems(22px) rems(20px) rems(20px);
-  background: $color-button-bg;
+  background-color: #ccc;
   border-radius: 100vh;
-  transition: $transition-duration;
 
   &:before {
     margin-right: rems(4px);
@@ -75,13 +74,13 @@
   }
 }
 
-.button-mail {
+.button-header-mail {
   @extend %button-reboot;
   @extend %button-reboot-hover;
 
   min-width: rems(220px);
   padding: rems(18px) rems(20px);
-  background-color: $color-button-bg;
+  background-color: #ccc;
   border: 1px solid $color-main;
   border-radius: 100vh;
 
