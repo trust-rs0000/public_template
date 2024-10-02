@@ -18,13 +18,14 @@ export default class Hamburger {
     this.hamburger = hamburgerElement;
   }
   static className = "js-drawer-open";
+  static drawerName = ".drawer";
 
   fadeDrawer() {
     try {
       if (!document.querySelector("html").classList.contains(Hamburger.className)) {
-        $(".drawer").fadeIn();
+        $(Hamburger.drawerName).fadeIn();
       } else {
-        $(".drawer").fadeOut();
+        $(Hamburger.drawerName).fadeOut();
       }
       document.querySelector("html").classList.toggle(Hamburger.className);
     } catch (error) {
