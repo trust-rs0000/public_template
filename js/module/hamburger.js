@@ -50,7 +50,10 @@ export default class Hamburger {
     ANCHORS.forEach(
       function (anchor) {
         anchor.addEventListener("click", () => {
-          this.fadeDrawer();
+          const HTML = document.querySelector("html");
+          if (HTML.classList.contains(Hamburger.className)) {
+            HTML.classList.remove(Hamburger.className);
+          }
         });
       }.bind(this)
     );

@@ -64,9 +64,8 @@
     @include media-max(drawer) {
       display: block;
       width: 100%;
-      margin-top: rems(20px);
-      padding-top: rems(30px);
-      border-top: 1px dotted $color-dropdown-border;
+      margin-top: rems(30px);
+      padding-top: 0;
       transform: unset;
       position: static;
       transition: $transition-duration;
@@ -85,12 +84,13 @@
     margin-bottom: em(10, 12);
     padding-bottom: em(10, 12);
     text-align: center;
-    border-bottom: 1px solid $color-dropdown-border;
+    border-bottom: 1px dotted $color-dropdown-border;
 
     @include media-max(drawer) {
       margin-bottom: rems(30px);
       padding-bottom: 0;
       border-bottom: none;
+      text-align: left;
     }
 
     &:last-child {
@@ -105,12 +105,30 @@
     font-size: rems(15px);
     text-decoration: none;
 
+    @include media-max(drawer) {
+      display: inline-flex;
+      align-items: center;
+      font-size: rems(16px);
+    }
+
     &:link,
     &:visited {
       color: $color-dropdown-nav-link;
 
       @include media-max(drawer) {
         color: $color-dropdown-nav-link-drawer;
+      }
+    }
+
+    &:before {
+      @include media-max(drawer) {
+        content: "";
+        display: inline-block;
+        width: rems(7px);
+        height: rems(7px);
+        margin-right: rems(9px);
+        background-color: $color-border;
+        border-radius: rems(7px);
       }
     }
   }

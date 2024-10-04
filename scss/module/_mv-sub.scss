@@ -38,7 +38,7 @@ html:not(.page-top) #contents_wrap {
     }
   }
 
-  &__sub {
+  &__en {
     margin-bottom: rems(20px);
     color: $color-main;
     @include font-family(accent, medium);
@@ -46,7 +46,7 @@ html:not(.page-top) #contents_wrap {
     line-height: 1;
   }
 
-  &__main {
+  &__ja {
     font-size: rems(18px);
     @include font-family(main, medium);
   }

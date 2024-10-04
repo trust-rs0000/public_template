@@ -25,7 +25,7 @@
   @extend %button-reboot;
 
   min-width: rems(232px);
-  padding: em(21, 16) em(50, 16);
+  padding: rems(21px) rems(50px);
   background: $color-button-bg;
   font-size: rems(16px);
   @include font-family(base, bold);
@@ -58,9 +58,9 @@
   border-radius: 100vh;
 
   &:before {
+    @include font-awesome("\f095");
     margin-right: rems(4px);
     font-size: rems(15px);
-    @include font-awesome("\f095");
   }
 
   &:link,
@@ -85,8 +85,8 @@
   border-radius: 100vh;
 
   &:before {
-    margin-right: rems(5px);
     @include font-awesome("\f0e0");
+    margin-right: rems(5px);
     font-size: rems(20px);
   }
 

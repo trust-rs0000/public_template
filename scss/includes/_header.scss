@@ -96,19 +96,4 @@
       margin-right: 0;
     }
   }
-
-  .button-tel,
-  .button-mail {
-    &:before {
-      @include media-max(sp) {
-        margin-right: 0;
-      }
-    }
-
-    &__text {
-      @include media-max(sp) {
-        display: none;
-      }
-    }
-  }
 }

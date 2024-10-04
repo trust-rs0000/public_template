@@ -65,24 +65,17 @@
 
 .dl-news {
   @extend %dl-reboot;
-  max-height: rems(300px);
+  max-height: rems(320px);
   overflow-y: auto;
   @include scroll-bar;
 
   & > dl {
-    margin-bottom: rems(43px);
-    padding-right: rems(13px);
-    padding-bottom: rems(40px);
-    padding-left: rems(13px);
-    border-bottom: 1px solid $color-border;
+    margin-bottom: rems(25px);
+    padding-bottom: rems(25px);
+    border-bottom: 1px dotted $color-border;
 
-    @include media-max(bp1200) {
+    @include media-max(tab) {
       display: block !important;
-    }
-
-    &:first-child {
-      padding-top: rems(44px);
-      border-top: 1px solid $color-border;
     }
 
     &:last-child {
@@ -94,12 +87,16 @@
 
   & > dl > dt {
     flex: 0 0 auto;
-    margin-right: rems(12px);
-    @include font-family(roboto, regular);
+    margin-top: rems(5px);
+    margin-right: rems(21px);
+    color: $color-main;
+    @include font-family(main, bold);
     font-size: rems(16px);
+    line-height: 1;
 
-    @include media-max(bp1200) {
+    @include media-max(tab) {
       width: auto !important;
+      margin-top: 0;
       margin-right: 0;
       margin-bottom: rems(6px);
     }
@@ -108,9 +105,9 @@
   & > dl > dd {
     flex: 1 0 0;
     font-size: rems(16px);
-    line-height: div(26, 16);
+    line-height: div(25.6, 16);
 
-    @include media-max(bp1200) {
+    @include media-max(tab) {
       width: 100% !important;
     }
   }
