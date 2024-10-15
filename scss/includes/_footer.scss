@@ -1,6 +1,6 @@
 @use "../forward" as *;
 
-footer#global_footer {
+html:not(.page-top) footer#global_footer {
   margin-top: rems(100px);
 
   @include media-max(tab) {

@@ -36,7 +36,7 @@
   }
 
   &__wrapper {
-    padding: em(20, 16);
+    padding: rems(20px);
     background-color: $color-dropdown-bg;
     box-shadow: 0 0 5px rgba(black, 0.1);
 
@@ -55,7 +55,7 @@
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    top: 50%;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
@@ -81,8 +81,8 @@
   }
 
   &__item {
-    margin-bottom: em(10, 12);
-    padding-bottom: em(10, 12);
+    margin-bottom: rems(10px);
+    padding-bottom: rems(10px);
     text-align: center;
     border-bottom: 1px dotted $color-dropdown-border;
 

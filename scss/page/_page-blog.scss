@@ -37,12 +37,16 @@ $selector-blog-article: 'article[id^="page"]';
       .wrap {
         width: 100%;
         max-width: 100%;
-        margin-top: 80px;
+        margin-top: $header-blog-margin-top;
         margin-bottom: 100px;
         padding: 0;
         background-color: transparent;
         box-sizing: inherit;
         @include inner(1200px);
+
+        @include media-max(drawer) {
+          margin-top: $header-blog-margin-top-drawer;
+        }
 
         &:after {
           content: none;
@@ -501,7 +505,7 @@ $selector-blog-article: 'article[id^="page"]';
     .blog-heading-title {
       & > article h2,
       & > article h3 {
-        padding: 10px 20px;
+        padding: rems(10px) rems(20px);
         background-color: $color-blog-heading-bg;
       }
     }

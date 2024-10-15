@@ -5,8 +5,14 @@
   font-weight: map-get($font-weights, $weight);
 }
 
-@mixin font-awesome($uni) {
+@mixin font-awesome($uni, $type: solid) {
+  $style: --fa-font-solid;
+
+  @if $type == regular {
+    $style: --fa-font-regular;
+  }
+
   content: $uni;
-  font: var(--fa-font-solid);
+  font: var($style);
   line-height: 1;
 }

@@ -1,0 +1,59 @@
+@use "../forward" as *;
+
+.flow {
+  counter-reset: flow 0;
+
+  &__item {
+    counter-increment: flow 1;
+
+    display: flex;
+    margin-bottom: rems(30px);
+    padding-bottom: rems(30px);
+    border-bottom: 1px dotted $color-border;
+
+    @include media-max(sp) {
+      display: block;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    &:before {
+      content: counter(flow, decimal-leading-zero);
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: rems(80px);
+      height: rems(80px);
+      margin-right: rems(60px);
+      color: $color-accent;
+      @include font-family(accent, bold);
+      font-size: rems(36px);
+      border: 3px solid $color-accent;
+      border-radius: rems(60px);
+
+      @include media-max(sp) {
+        margin-right: 0;
+        margin-bottom: rems(30px);
+      }
+    }
+  }
+
+  &__wrapper {
+    flex: 1 0 0;
+    align-items: flex-start;
+  }
+}
+
+.flow-item {
+  &__title {
+    & > div {
+      @include font-family(base, bold);
+      font-size: rems(28px);
+    }
+  }
+}

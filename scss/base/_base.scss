@@ -17,11 +17,12 @@ body {
   line-height: $line-height;
 }
 
-body *:not(table *, i) {
+body *:not(i, b) {
   /* 
-        font-weightは<b>タグが機能しなくなるので指定しない。
-        line-heightは余計に高さが効いてしまうので指定しない。 => bxi.cssで効いてる可能性あり。
-    */
+  font-weightは<b>タグが機能しなくなるので指定しない。
+  line-heightは余計に高さが効いてしまうので指定しない。 => bxi.cssで効いてる可能性あり。
+  */
+  @include font-family($font-family-base, $font-weight-base);
 }
 
 #contents {

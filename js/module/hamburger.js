@@ -53,6 +53,7 @@ export default class Hamburger {
           const HTML = document.querySelector("html");
           if (HTML.classList.contains(Hamburger.className)) {
             HTML.classList.remove(Hamburger.className);
+            $(Hamburger.drawerName).fadeOut();
           }
         });
       }.bind(this)

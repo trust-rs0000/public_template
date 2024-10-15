@@ -1,19 +1,29 @@
 @use "../forward" as *;
 
-.megaphone {
-  display: inline-flex;
-  align-items: flex-end;
-  color: $color-main;
-  @include font-family(accent, regular);
-  font-size: rems(24px);
+@each $name, $code in $color-theme-list {
+  $code: if($code == "", #333, #333);
 
-  &:before {
-    content: url(/images/utility/megaphone_left.png);
-    margin-right: em(9px, 24px);
-  }
+  .megaphone-#{$name} {
+    display: inline-flex;
+    align-items: flex-end;
 
-  &:after {
-    content: url(/images/utility/megaphone_right.png);
-    margin-left: em(9px, 24px);
+    &:before,
+    &:after {
+      content: "";
+      width: rems(4px);
+      height: rems(45px);
+      border-radius: 100vh;
+      background-color: $code;
+    }
+
+    &:before {
+      margin-right: rems(18px);
+      transform: rotate(-15deg);
+    }
+
+    &:after {
+      margin-left: rems(18px);
+      transform: rotate(15deg);
+    }
   }
 }

@@ -72,7 +72,6 @@
   &__link {
     display: inline-block;
     @include font-family($font-family-header-nav-link, $font-weight-header-nav-link);
-    font-size: rems(16px);
     line-height: 1;
 
     @include media-max(drawer) {

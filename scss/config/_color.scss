@@ -12,6 +12,11 @@ $color-custom-5: "";
 
 $color-body-bg: white;
 
+$color-theme-list: (
+  main: $color-main,
+  accent: $color-accent,
+);
+
 // 全体的なデフォルトボーダー
 $color-border: #cccccc;
 
@@ -38,9 +43,7 @@ $color-dropdown-nav-link-drawer: $color-text;
 $color-dropdown-nav-link-scroll: $color-text;
 
 $color-button-text: "";
-$color-button-hover-text: $color-accent;
 $color-button-bg: $color-accent;
-$color-button-hover-bg: "";
 
 // フォーム
 $color-form: #eeeeee;

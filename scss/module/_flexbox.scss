@@ -128,26 +128,33 @@
 .flex-checkbox {
   .box {
     display: flex;
+    width: 100%;
     align-items: center;
     margin-bottom: rems(25px);
+    padding-bottom: rems(25px);
+    border-bottom: 1px dotted $color-border;
+
+    &:first-child {
+      padding-top: rems(25px);
+      border-top: 1px dotted $color-border;
+    }
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    & > img {
-      width: rems(40px) !important;
-      margin-right: 10px;
-
-      @include media-max(sp) {
-        width: rems(30px) !important;
-      }
-    }
-
     & > div {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       flex: 1 0 0;
+
+      &:before {
+        flex: 0 0 auto;
+        @include font-awesome("\f14a", regular);
+        margin-top: rems(4px);
+        margin-right: rems(15px);
+        color: $color-accent;
+      }
     }
   }
 }
@@ -254,71 +261,6 @@
       @include font-family(base, medium);
       font-size: rems(18px);
     }
-  }
-}
-
-// フロー
-.flex-flow {
-  counter-reset: flow 0;
-
-  .box {
-    counter-increment: flow 1;
-
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    margin-bottom: rems(60px);
-    overflow: visible !important;
-    position: relative;
-    z-index: 0;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &:before {
-      content: counter(flow, decimal-leading-zero);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 0;
-      height: 0;
-      margin-right: rems(20px);
-      padding: rems(30px);
-      color: white;
-      background-color: $color-main;
-      @include font-family(main, medium);
-      border-radius: 100%;
-
-      @include media-max(tab) {
-        margin-right: rems(15px);
-      }
-    }
-
-    &:after {
-      content: "";
-      width: 1px;
-      height: 100%;
-      background-color: $color-custom-1;
-      position: absolute;
-      top: rems(60px);
-      left: rems(30px);
-      z-index: -1;
-    }
-
-    & > div {
-      flex: 1 0 0;
-    }
-  }
-
-  &__title {
-    margin-bottom: rems(8px);
-    padding-bottom: em(8, 16);
-    border-bottom: 1px solid $color-border;
-  }
-
-  &__text {
-    line-height: 2;
   }
 }
 
