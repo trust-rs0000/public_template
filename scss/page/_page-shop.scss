@@ -84,7 +84,7 @@
   margin-top: 0;
   margin-bottom: 15px;
   padding-bottom: 15px;
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px dotted $color-border;
 
   @include media-max(sp) {
     display: block;
@@ -209,8 +209,6 @@ div.error {
 .page-shop {
   .select {
     @extend %shop-select;
-    padding: rems(10px) rems(30px) rems(10px) rems(15px);
-    background-color: $color-shop-form;
     border: 1px solid $color-shop-border;
 
     &::before {
@@ -220,13 +218,14 @@ div.error {
       line-height: 1;
       position: absolute;
       top: 50%;
-      right: 10px;
+      right: rems(15px);
       transform: translate(0, -50%);
       z-index: 1;
     }
 
-    select[name="category"] {
+    select {
       height: 100%;
+      padding: rems(10px) rems(30px) rems(10px) rems(15px);
       background-color: unset;
       font-size: rems(14px);
     }
@@ -255,8 +254,9 @@ div.error {
   .text {
     @extend %shop-search-text;
 
-    padding: rems(10px) rems(40px) rems(10px) rems(20px);
-    background-color: $color-shop-form;
+    display: flex;
+    align-items: center;
+    padding: rems(5px) rems(15px) rems(5px) rems(15px);
     border: 1px solid $color-shop-border;
     position: relative;
     z-index: 0;
@@ -267,6 +267,9 @@ div.error {
 
     & > button {
       @include font-family(base, regular);
+      flex: 0 0 auto;
+      padding: 0;
+      font-size: rems(14px);
 
       &:before {
         @include font-awesome("\f002");
@@ -302,6 +305,11 @@ div.error {
     background-position: unset;
     text-indent: unset;
     float: none;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
   }
 
   .off {
@@ -325,6 +333,10 @@ div.error {
     .select {
       margin-right: rems(30px);
       height: 100%;
+
+      &:before {
+        right: rems(10px);
+      }
     }
 
     .prev.off,
@@ -383,7 +395,7 @@ div.error {
     margin-top: rems(60px);
     margin-bottom: rems(20px);
     padding-bottom: rems(15px);
-    border-bottom: 1px solid $color-shop-border;
+    border-bottom: 1px dotted $color-shop-border;
 
     @include media-max(sp) {
       display: block;
@@ -543,7 +555,7 @@ div.error {
         @include shop-normal-button();
         display: inline-block;
         width: 100%;
-        background-color: $color-shop-purchase;
+        background-color: $color-shop-button-bg;
         font-size: rems(14px);
       }
 
@@ -864,7 +876,7 @@ div.error {
 // カートに入れるボタン start
 .page-shop {
   button.addcart {
-    @include shop-normal-button(white, $color-accent);
+    @include shop-normal-button(white, $color-shop-button-bg);
   }
 }
 // カートに入れるボタン end
@@ -938,7 +950,7 @@ div.error {
     margin-bottom: rems(20px);
     padding: 0;
     padding-bottom: rems(20px);
-    border-bottom: 1px solid $color-border;
+    border-bottom: 1px dotted $color-border;
 
     &:last-child {
       margin-bottom: 0;
@@ -1031,6 +1043,11 @@ div.error {
   .update {
     margin-right: rems(5px);
     border: 1px solid $color-border;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
   }
 
   .remove {
@@ -1128,10 +1145,6 @@ div.error {
     display: flex;
     flex-direction: row-reverse;
     margin-top: rems(40px);
-
-    @include media-max(sp) {
-      display: block;
-    }
   }
 
   .purchase,
@@ -1153,7 +1166,7 @@ div.error {
 
   .purchase {
     color: white;
-    background-color: $color-shop-purchase;
+    background-color: $color-shop-button-bg;
   }
 
   .back {
@@ -1765,16 +1778,11 @@ div.error {
 %shop-accept-button {
   .purchase.accept {
     width: auto;
-    min-width: max-content;
     height: auto;
-    padding: rems(15px) rems(20px);
+    min-width: max-content;
+    margin-top: 0;
+    padding: 0;
     background: unset !important;
-    background-position: unset !important;
-    background-size: unset !important;
-    color: white;
-    @include font-family(base, medium);
-    font-size: rems(16px);
-    text-indent: unset;
   }
 }
 
@@ -1782,16 +1790,15 @@ div.error {
   .purchase.accept {
     @extend %shop-accept-button;
     margin-top: rems(40px);
-    padding: 0;
     padding-top: rems(40px);
     background: unset;
-    border-top: 1px solid $color-border;
+    border-top: 1px dotted $color-border;
     @include inner;
 
     button.accept {
-      text-indent: unset;
       @include shop-normal-button();
-      background-color: $color-shop-purchase;
+      padding: rems(18px) rems(20px);
+      font-size: rems(20px);
       margin-right: auto;
       margin-left: auto;
     }

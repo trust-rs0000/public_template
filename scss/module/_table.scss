@@ -10,8 +10,11 @@
 .tbl {
 }
 
-.tbl-scroll {
+.tbl_scroll {
   table {
-    table-layout: unset;
+    table-layout: fixed;
+    @include media-max(sp) {
+      table-layout: auto;
+    }
   }
 }

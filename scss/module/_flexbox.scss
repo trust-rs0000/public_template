@@ -266,7 +266,7 @@
 
 // ドロップダウン
 .flex-faq {
-  border: 1px solid black;
+  border: 1px solid $color-border;
 
   .box {
     width: 100%;
@@ -290,7 +290,7 @@
     }
 
     &:first-child > div {
-      padding: em(15, 16) em(40, 16) em(15, 16) em(20, 16);
+      padding: rems(18px) rems(40px) rems(18px) rems(20px);
       position: relative;
       z-index: 0;
       cursor: pointer;
@@ -315,8 +315,8 @@
 
     &:last-child > div {
       font-size: rems(14px);
-      padding: em(15, 14) em(20, 14);
-      border-top: 1px dashed black;
+      padding: rems(18px) rems(20px);
+      border-top: 1px dashed $color-border;
     }
 
     & > div {
@@ -421,90 +421,6 @@
     color: $color-custom-2;
     @include font-family(base, medium);
     font-size: rems(15px);
-    line-height: 1;
-  }
-}
-
-// cta(画像の上にテキスト載っているタイプ)
-.flex-cta {
-  justify-content: center;
-
-  &__link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-
-    &:before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(white, 0.35);
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-  }
-
-  &__button {
-    color: white;
-    border: 1px solid white;
-    position: absolute;
-    right: rems(30px);
-    bottom: rems(25px);
-
-    @include media-max(bp1200) {
-      padding: rems(25px);
-      right: rems(20px);
-      bottom: rems(15px);
-    }
-  }
-
-  .box {
-    position: relative;
-    z-index: 0;
-
-    & > article > a {
-      @include aspect-ratio(4, 3);
-      pointer-events: none;
-
-      & > img {
-        display: inline-block;
-        object-fit: cover;
-      }
-    }
-
-    & > article > h3 {
-      display: none;
-    }
-  }
-}
-
-.flex-cta-title {
-  text-align: center;
-
-  * {
-    color: white;
-  }
-
-  &__en {
-    margin-bottom: rems(17px);
-    @include font-family(accent, medium);
-    font-size: rems(40px);
-    line-height: 1;
-  }
-
-  &__ja {
-    font-size: rems(16px);
     line-height: 1;
   }
 }

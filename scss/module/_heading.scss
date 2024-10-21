@@ -45,6 +45,21 @@ h3 {
   }
 }
 
+h4 {
+  font-size: rems($font-size-h4);
+  @include font-family($font-family-h4, $font-weight-h4);
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h4-tab);
+  }
+
+  @include media-max(sp) {
+    font-size: rems($font-size-h4-sp);
+  }
+}
+
 // .heading-fadein-animation {
 //   overflow: hidden;
 

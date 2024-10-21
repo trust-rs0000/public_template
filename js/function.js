@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // fancybox
     $(".fancybox").each(function (i) {
       $(this)
-        .find("a")
+        .find("a:has(img)")
         .attr({
           "data-fancybox": "group" + i,
           "data-type": "image",

@@ -30,10 +30,10 @@
       width: rems(80px);
       height: rems(80px);
       margin-right: rems(60px);
-      color: $color-accent;
-      @include font-family(accent, bold);
+      color: $color-main;
+      @include font-family(accent, semibold);
       font-size: rems(36px);
-      border: 3px solid $color-accent;
+      border: 3px solid $color-main;
       border-radius: rems(60px);
 
       @include media-max(sp) {
@@ -42,17 +42,17 @@
       }
     }
   }
+}
 
+.flow-item {
   &__wrapper {
     flex: 1 0 0;
     align-items: flex-start;
   }
-}
 
-.flow-item {
   &__title {
     & > div {
-      @include font-family(base, bold);
+      @include font-family(main, semibold);
       font-size: rems(28px);
     }
   }

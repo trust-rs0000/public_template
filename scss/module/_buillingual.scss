@@ -1,8 +1,10 @@
+@use "../forward" as *;
+
 #builingual {
   position: fixed;
   bottom: 5px;
   right: 5px;
-  z-index: 1;
+  z-index: $z-fixed;
   padding: 5px 10px !important;
   background: rgba(255, 255, 255, 0.7) !important;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);

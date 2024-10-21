@@ -25,8 +25,8 @@
   @extend %button-reboot;
 
   min-width: rems(232px);
-  padding: rems(21px) rems(50px);
-  background: $color-button-bg;
+  padding: rems(19px) rems(40px) rems(19px) rems(20px);
+  background: $color-main;
   font-size: rems(16px);
   @include font-family(base, bold);
   border-radius: 100vh;
@@ -36,7 +36,7 @@
 
   &:link,
   &:visited {
-    color: $color-button-text;
+    color: $color-text;
   }
 
   &:after {
@@ -65,7 +65,7 @@
 
   &:link,
   &:visited {
-    color: $color-button-text;
+    color: $color-text;
   }
 
   &__text {
@@ -92,7 +92,7 @@
 
   &:link,
   &:visited {
-    color: $color-button-text;
+    color: $color-text;
   }
 
   &__text {
