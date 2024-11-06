@@ -71,10 +71,6 @@
   justify-content: flex-end;
   transition: $transition-duration;
 
-  @include media-max(drawer) {
-    display: flex;
-  }
-
   &.js-arrive-in-out {
     @include media-max(drawer) {
       opacity: 0;

@@ -73,6 +73,39 @@ h4 {
 //   }
 // }
 
+@each $color, $code in $color-theme-list {
+  .heading-dot-#{$color} {
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: "";
+      flex: 0 0 auto;
+      display: inline-block;
+      width: rems(15px);
+      height: rems(15px);
+      margin-right: rems(15px);
+      background-color: $code;
+      border-radius: rems(15px);
+    }
+  }
+
+  .heading-bg-#{$color} {
+    padding: rems(15px) rems(20px);
+    background-color: $code;
+    border-radius: rems(4px);
+
+    * {
+      color: white;
+    }
+  }
+}
+
+.heading-border-bottom {
+  padding-bottom: rems(20px);
+  border-bottom: 1px dotted $color-border;
+}
+
 .heading-subtitle {
   &__en {
     margin-bottom: rems(7px);

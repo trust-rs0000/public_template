@@ -227,7 +227,7 @@
 .flex-tag {
   .box {
     padding: rems(8px) rems(10px);
-    background-color: $color-accent;
+    background-color: $color-main;
     border-radius: rems(4px);
     text-align: center;
 
@@ -248,7 +248,7 @@
   .box {
     padding: rems(8px) rems(15px);
     background-color: white;
-    border: 2px solid $color-accent;
+    border: 2px solid $color-main;
     border-radius: rems(5px);
     text-align: center;
 

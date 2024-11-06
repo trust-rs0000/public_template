@@ -289,27 +289,18 @@ div.error {
     float: none !important;
   }
 
-  .prev.off,
-  .next.off {
-    background-image: none;
-    font-size: 0;
-  }
-
   & > a {
     margin-left: 0;
     width: auto;
     height: auto;
+    font-size: 0;
     border: none;
     border-radius: 0;
     background-repeat: unset;
     background-position: unset;
+    background-image: none !important;
     text-indent: unset;
     float: none;
-
-    &:link,
-    &:visited {
-      color: $color-text;
-    }
   }
 
   .off {
@@ -339,9 +330,10 @@ div.error {
       }
     }
 
-    .prev.off,
-    .next.off {
+    .prev,
+    .next {
       &::before {
+        color: $color-text;
         font-size: rems(16px) !important;
       }
     }
