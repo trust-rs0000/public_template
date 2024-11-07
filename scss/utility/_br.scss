@@ -12,7 +12,9 @@
   }
 
   .br-min#{$infix} {
-    @include media-max($dimension) {
+    display: none;
+
+    @include media-min($dimension) {
       display: block;
     }
   }

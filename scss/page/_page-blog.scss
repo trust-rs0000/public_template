@@ -282,7 +282,7 @@ $selector-blog-article: 'article[id^="page"]';
 
       // メインコンテンツ部分
       #contents {
-        width: auto;
+        width: 100%;
         flex: 1 0 0;
         min-width: 0 !important;
         background-color: white;

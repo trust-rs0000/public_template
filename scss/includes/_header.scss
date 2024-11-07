@@ -34,7 +34,7 @@
     transition: $transition-duration;
 
     @include media-max(drawer) {
-      padding: em(15, 16) em(20, 16);
+      padding: rems(15px) rems(20px);
       background-color: $color-header-bg-scroll;
     }
   }
