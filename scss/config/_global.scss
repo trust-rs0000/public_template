@@ -1,0 +1,27 @@
+// letter-spacing
+$letter-spacing: 0.06em;
+
+$line-height: 1.6;
+
+// z-index
+$z-fixed: 800;
+$z-header: 900;
+$z-drawer: 1000;
+$z-hamburger: 1100;
+$z-header-logo: 2000;
+
+// transition
+$transition-duration: 0.4s;
+
+// ヘッダーマージン
+$have-header-margin-top: false;
+$have-kaso-header-margin-top: true;
+$header-contact-margin-top: 220px;
+$header-contact-margin-top-drawer: 110px;
+$header-margin-top: 90px;
+$header-margin-top-drawer: 78px;
+$header-blog-margin-top: $header-contact-margin-top;
+$header-blog-margin-top-drawer: $header-contact-margin-top-drawer;
+
+// サイドバー使用時、trueにする
+$has-sidebar: false;

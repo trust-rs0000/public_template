@@ -1,0 +1,55 @@
+@use "../forward" as *;
+
+.page-top #contents_wrap {
+  @if $have-header-margin-top == true {
+    margin-top: $header-margin-top;
+
+    @include media-max(drawer) {
+      margin-top: $header-margin-top-drawer;
+    }
+  }
+}
+
+.mv {
+  position: relative;
+  z-index: 0;
+
+  @include media-max(drawer) {
+    width: 100%;
+  }
+}
+
+.mv-slider {
+  &__list {
+    // 読み込み時、崩れを防ぐ
+    &:not(:first-child) {
+      display: none;
+    }
+
+    @at-root .slick-initialized {
+      .slider {
+        &__list {
+          &:not(:first-child) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__picture {
+    display: block;
+    position: relative;
+    z-index: 0;
+  }
+
+  .slick-slide {
+    height: auto;
+  }
+}

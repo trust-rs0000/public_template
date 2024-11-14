@@ -1,0 +1,156 @@
+@use "../forward" as *;
+
+%shop-reboot {
+  // /shopと同じクラス名なので、一旦リセット
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .items {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+
+    & > article {
+      align-items: flex-start;
+      width: auto;
+      margin-bottom: 0;
+      margin-left: 0;
+
+      @include media-max(sp) {
+        margin-right: 0;
+      }
+    }
+    .photo {
+      width: 100%;
+      height: auto;
+      background-image: unset !important;
+
+      & > img {
+        display: block;
+      }
+    }
+
+    .name {
+      padding-top: 0;
+    }
+
+    .summary {
+      padding-top: 0;
+      text-align: left;
+    }
+
+    .price {
+      padding-top: 0;
+    }
+
+    button {
+      margin-top: 0;
+      width: auto;
+      height: auto;
+      @include font-family(base, regular);
+      background: unset;
+      background-size: unset;
+      border: none;
+      border-radius: 0;
+      text-indent: unset;
+    }
+  }
+}
+
+.m-shop {
+  @extend %shop-reboot;
+
+  .items {
+    display: flex !important;
+    justify-content: center;
+    margin-bottom: rems(-20px);
+
+    & > article {
+      flex: 0 0 calc((100% - (rems(20px) * 2)) / 3);
+      margin-right: rems(20px);
+      margin-bottom: rems(20px);
+      border: 1px solid $color-border;
+
+      @include media-max(tab) {
+        flex: 0 0 calc((100% - rems(20px)) / 2);
+      }
+
+      @include media-max(sp) {
+        flex: 0 0 100%;
+        margin-right: 0;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 0;
+
+        @include media-max(tab) {
+          margin-right: 0;
+        }
+      }
+
+      &:nth-child(2n) {
+        @include media-max(tab) {
+          margin-right: 0;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      max-width: rems(120px);
+      margin-right: auto;
+      margin-left: auto;
+      padding: em(8px, 12px) em(10px, 12px) em(10px, 12px);
+      color: white;
+      background-color: $color-accent;
+      font-size: rems(12px);
+      border-radius: 100vh;
+      line-height: 1;
+    }
+  }
+
+  .js-m-shop-wrapper {
+    padding: rems(22px) rems(10px) rems(26px);
+  }
+
+  .photo {
+    display: block;
+
+    @include aspect-ratio(276, 209);
+  }
+
+  .name {
+    width: 100%;
+    margin-bottom: rems(14px);
+    @include font-family(base, medium);
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none !important;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
+  }
+
+  .summary {
+    margin-bottom: rems(9px);
+    font-size: rems(14px);
+    line-height: 1.2;
+  }
+
+  .price {
+    margin-bottom: rems(20px);
+    @include font-family(base, medium);
+    font-size: rems(14px);
+    text-align: center;
+    line-height: 1;
+  }
+}

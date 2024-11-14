@@ -1,0 +1,17 @@
+@use "../forward" as *;
+
+html:not(.page-top) footer#global_footer {
+  margin-top: rems(100px);
+
+  @include media-max(tab) {
+    margin-top: rems(80px);
+  }
+}
+
+.copyright {
+  display: block;
+  padding-top: rems(20px);
+  padding-bottom: rems(20px);
+  font-size: rems(14px);
+  text-align: center;
+}

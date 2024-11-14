@@ -1,0 +1,119 @@
+@use "../forward" as *;
+
+// bxiでid指定されているcssのリセット
+header#global_header {
+  min-width: 0 !important;
+
+  width: 100%;
+}
+
+#contents_wrap {
+  min-width: 0 !important;
+
+  width: 100%;
+}
+
+#contents {
+  // デザイン設定 > 基本設定 > サイズ構成 > 全体幅で指定
+
+  width: 100%;
+}
+
+#main {
+  // デザイン設定 > 基本設定 > サイズ構成 > メイン幅で指定
+  width: 100%;
+  min-width: 0;
+  @include inner(1200px);
+}
+
+#main #col_main {
+  // デザイン設定 > 基本設定 > サイズ構成 > コンテンツ幅で指定
+  float: none;
+  width: 100%;
+
+  @include media-max(sp) {
+    min-width: 0;
+  }
+}
+
+#main #col_side1 {
+  // デザイン設定 > 基本設定 > 左メニューで指定
+}
+
+footer#global_footer {
+  min-width: 0;
+}
+
+// サイドバー使用時
+@if ($has-sidebar) {
+  #main {
+    display: flex;
+    flex-direction: row-reverse;
+
+    @include media-max(tab) {
+      display: block;
+    }
+  }
+
+  #main #col_side1 {
+    width: 100%;
+    flex: 0 0 percentage(div(260, 1200));
+    margin-right: percentage(div(70, 1200));
+    float: none;
+
+    @include media-max(tab) {
+      margin-top: rems(100px);
+      margin-right: 0;
+    }
+  }
+}
+
+// 以下、個人的リセット
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+}
+
+body *:not(table *, i) {
+  /* 
+        font-weightは<b>タグが機能しなくなるので指定しない。
+        line-heightは余計に高さが効いてしまうので指定しない。 => bxi.cssで効いてる可能性あり。
+    */
+  margin: 0;
+}
+
+i {
+  line-height: 1;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+body {
+  button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  b {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  span {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+}

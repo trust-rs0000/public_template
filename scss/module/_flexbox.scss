@@ -1,0 +1,426 @@
+@use "../forward" as *;
+
+// アンカーリンク系の横並びボタン等
+.flex-link {
+  .box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: visible !important;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    & > div > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-width: 0;
+      line-height: 1.6;
+    }
+  }
+}
+
+// カード型のレイアウト
+.flex-card {
+  justify-content: center;
+
+  .box {
+    background-color: white;
+    padding: 20px;
+
+    & > article > h3 {
+      display: none;
+    }
+
+    & > article > img {
+      width: 100% !important;
+      margin-bottom: rems(14px);
+    }
+
+    & > article > div {
+      & > * {
+        margin-bottom: rems(10px);
+      }
+
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: rems(14px);
+    font-size: rems(18px);
+    @include font-family(base, bold);
+    text-align: center;
+  }
+
+  &__text {
+    @include font-family(base, regular);
+    font-size: rems(16px);
+    text-align: center;
+    line-height: 2;
+  }
+}
+
+// スライダー:slick使用
+.flex-slider {
+  display: block !important;
+
+  .box {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+// dotが画像タイプのスライダー:slick使用
+.flex-gallery {
+  display: block !important;
+  margin-bottom: 0 !important;
+
+  .slick-slide {
+    @include aspect-ratio(1, 1);
+
+    img {
+      border-radius: 0 rems(30px) 0 rems(30px);
+      object-fit: cover;
+
+      @include media-max(tab) {
+        border-radius: 0 rems(30px) 0 rems(30px);
+      }
+    }
+  }
+
+  .slick-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-top: rems(7px);
+    position: static;
+    margin-bottom: rems(-10px);
+
+    & > li {
+      width: calc((100% - (rems(10px) * 4)) / 5);
+      margin: 0;
+      margin-right: rems(10px);
+      margin-bottom: rems(10px);
+      height: auto;
+      @include aspect-ratio(1, 1);
+
+      &:nth-child(5n) {
+        margin-right: 0;
+      }
+
+      img {
+        border-radius: rems(8px);
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// チェックボックスアイコン付きのリスト
+.flex-checkbox {
+  .box {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: rems(25px);
+    padding-bottom: rems(25px);
+    border-bottom: 1px dotted $color-border;
+
+    &:first-child {
+      padding-top: rems(25px);
+      border-top: 1px dotted $color-border;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > div {
+      display: flex;
+      align-items: flex-start;
+      flex: 1 0 0;
+
+      &:before {
+        flex: 0 0 auto;
+        @include font-awesome("\f14a", regular);
+        margin-top: rems(4px);
+        margin-right: rems(15px);
+        color: $color-accent;
+      }
+    }
+  }
+}
+
+// 箇条書きリスト
+.flex-list {
+  .box {
+    display: inline-flex;
+    margin-bottom: rems(32px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:before {
+      content: "";
+      flex: 0 0 auto;
+      display: inline-block;
+      width: rems(12px);
+      height: rems(12px);
+      margin-top: rems(10px);
+      margin-right: rems(15px);
+      background-color: $color-main;
+      border-radius: rems(12px);
+    }
+
+    & > div {
+      @include font-family(base, medium);
+      font-size: rems(20px);
+    }
+  }
+}
+
+// 番号付きのリスト
+.flex-number-list {
+  counter-reset: list 0;
+
+  .box {
+    counter-increment: list 1;
+
+    margin-bottom: rems(20px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+
+      &:before {
+        content: counter(list, decimal-leading-zero);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 0;
+        height: 0;
+        margin-right: 8px;
+        padding: em(20, 16);
+        color: white;
+        background-color: $color-accent;
+        @include font-family(base, medium);
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+// タグ
+.flex-tag {
+  .box {
+    padding: rems(8px) rems(10px);
+    background-color: $color-main;
+    border-radius: rems(4px);
+    text-align: center;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: white;
+      @include font-family(base, medium);
+      font-size: rems(13px);
+    }
+  }
+}
+
+// カテゴリー
+.flex-category {
+  .box {
+    padding: rems(8px) rems(15px);
+    background-color: white;
+    border: 2px solid $color-main;
+    border-radius: rems(5px);
+    text-align: center;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: $color-accent;
+      @include font-family(base, medium);
+      font-size: rems(18px);
+    }
+  }
+}
+
+// ドロップダウン
+.flex-faq {
+  border: 1px solid $color-border;
+
+  .box {
+    width: 100%;
+
+    &:last-child {
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.8s;
+    }
+
+    @at-root .js-accordion-open .box:last-child {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.8s;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+    }
+
+    &:first-child > div {
+      padding: rems(18px) rems(40px) rems(18px) rems(20px);
+      position: relative;
+      z-index: 0;
+      cursor: pointer;
+
+      &:after {
+        @include font-awesome("\2b");
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0, -50%);
+        z-index: 1;
+        transition: 0.8s;
+      }
+    }
+
+    @at-root .js-accordion-open .box:first-child > div {
+      &:after {
+        transform: translate(0, -50%) rotate(-45deg);
+        transition: 0.8s;
+      }
+    }
+
+    &:last-child > div {
+      font-size: rems(14px);
+      padding: rems(18px) rems(20px);
+      border-top: 1px dashed $color-border;
+    }
+
+    & > div {
+      flex: 1 0 0;
+    }
+  }
+}
+
+//
+.flex-cta {
+  &__link {
+    display: block;
+    padding: rems(56px) rems(40px) rems(52px);
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    z-index: 0;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    margin-bottom: rems(12px);
+  }
+
+  &__text {
+    @include font-family(base, medium);
+    font-size: rems(20px);
+  }
+}
+
+// お客様の声
+.flex-voice {
+  .box {
+    padding: em(30, 16) em(20, 16);
+    background-color: white;
+  }
+
+  &__title {
+    margin-bottom: em(12, 18);
+    padding-bottom: em(10, 18);
+    font-size: rems(18px);
+    font-weight: bold;
+    border-bottom: 1px solid $color-main;
+  }
+
+  &__text {
+    margin-bottom: rems(10px);
+  }
+
+  &__user {
+    color: $color-accent;
+    font-size: rems(14px);
+    text-align: right;
+
+    &:before {
+      margin-right: 7px;
+      @include font-awesome("\f007");
+    }
+  }
+}
+
+// スタッフ紹介
+.flex-staff {
+  .box {
+    & > article > img {
+      display: block;
+    }
+
+    & > article > h3 {
+      display: none;
+    }
+
+    & > article > div {
+      padding: 20px;
+      background-color: white;
+    }
+  }
+
+  &__english {
+    margin-bottom: rems(7px);
+    color: $color-main;
+    font-size: rems(14px);
+    @include font-family(accent, semibold);
+    line-height: 1;
+  }
+
+  &__title {
+    margin-bottom: rems(21px);
+    @include font-family(base, medium);
+    font-size: rems(22px);
+    line-height: 1;
+  }
+
+  &__roll {
+    margin-bottom: rems(15px);
+    color: $color-custom-2;
+    @include font-family(base, medium);
+    font-size: rems(15px);
+    line-height: 1;
+  }
+}

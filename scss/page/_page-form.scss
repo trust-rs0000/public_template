@@ -1,0 +1,215 @@
+@use "../forward" as *;
+
+// お問い合わせページの上余白
+.page-form-error,
+.page-form-confirm,
+.page-form-complete {
+  #contents_wrap {
+    margin-top: $header-contact-margin-top !important;
+
+    @include media-max(tab) {
+      margin-top: $header-contact-margin-top-drawer !important;
+    }
+  }
+}
+
+// フォーム使用したときに上に出てくるゴミデータ
+h2.mail.title {
+  display: none;
+}
+
+// ※は必須項目
+#TRANS_ANNOT {
+  color: $color-warn;
+}
+
+section p.annot,
+section form p.annot {
+  margin: 0;
+  margin-top: rems(20px);
+  color: $color-warn;
+}
+
+// 入力不足ページ
+%reset-error {
+  color: unset;
+  background: unset;
+  margin-top: 0;
+  padding: 0;
+
+  p {
+    padding: 0;
+  }
+}
+
+.page-form-error {
+  div.form_wrap.error {
+    @extend %reset-error;
+
+    margin-bottom: rems(30px);
+
+    & > p {
+      color: $color-warn;
+      @include font-family(base, bold);
+      font-size: rems(20px);
+    }
+  }
+
+  form {
+    margin-bottom: rems(80px);
+  }
+}
+
+// 送信ボタン等
+.annot + .submit,
+form + .submit {
+  margin-top: rems(60px);
+}
+
+%reset-submit-c {
+  font-size: initial;
+  min-width: 0;
+}
+
+.submit_c {
+  @extend %reset-submit-c;
+}
+
+%reset-submit-l {
+  font-size: initial;
+  min-width: 0;
+  float: unset;
+}
+
+.submit_l {
+  @extend %reset-submit-l;
+}
+
+%reset-submit-r {
+  font-size: initial;
+  min-width: 0;
+  float: unset;
+}
+
+.submit_r {
+  @extend %reset-submit-r;
+}
+
+%reset-submit {
+  width: auto;
+  margin: 0;
+
+  button {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: auto;
+    height: auto;
+    background: unset;
+    border: unset;
+    border-radius: unset;
+    text-indent: unset;
+  }
+}
+
+.submit {
+  @extend %reset-submit;
+
+  display: flex;
+  justify-content: center;
+
+  @include media-max(sp) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bt_confirm,
+  .bt_back,
+  .bt_send {
+    min-width: rems(220px);
+    padding: rems(14px) rems(20px);
+    @include font-family(base, medium);
+    border-radius: rems(3px);
+  }
+
+  .bt_confirm,
+  .bt_send {
+    color: white;
+    background-color: $color-main;
+  }
+
+  .bt_back {
+    color: $color-text;
+    border: 1px solid $color-border;
+  }
+}
+
+// 確認ページ
+.page-form-confirm {
+  .submit {
+    & > * {
+      margin-right: rems(20px);
+
+      @include media-max(sp) {
+        margin-right: 0;
+        margin-bottom: rems(20px);
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        @include media-max(sp) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// 入力完了ページ
+%reset-message {
+  margin: 0;
+  padding: 0;
+  background-color: unset;
+  border: unset;
+  border-radius: 0;
+
+  & > ul > li {
+    margin-bottom: 0;
+    font-size: initial;
+  }
+
+  & > p {
+    & > span {
+      width: auto;
+      margin-top: 0;
+      font-size: initial;
+    }
+  }
+}
+
+.page-form-complete {
+  .form_wrap.message {
+    @extend %reset-message;
+
+    & > ul > li {
+      margin-bottom: rems(25px);
+      padding-bottom: rems(12px);
+      @include font-family(base, medium);
+      font-size: rems(20px);
+      border-bottom: 1px solid $color-border;
+    }
+
+    & > p {
+      & > a {
+        margin-top: rems(15px);
+        display: block;
+        text-align: left;
+      }
+
+      & > span {
+        margin-top: rems(25px);
+        font-size: rems(14px);
+      }
+    }
+  }
+}

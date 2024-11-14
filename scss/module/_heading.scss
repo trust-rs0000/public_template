@@ -1,0 +1,125 @@
+@use "../forward" as *;
+
+h1 {
+  font-size: rems($font-size-h1);
+  @include font-family($font-family-h1, $font-weight-h1);
+  letter-spacing: 0.07em;
+  line-height: div(84, 60);
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h1-tab);
+  }
+
+  @include media-max(sp) {
+    font-size: rems($font-size-h1-sp);
+  }
+}
+
+h2 {
+  font-size: rems($font-size-h2);
+  @include font-family($font-family-h2, $font-weight-h2);
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h2-tab);
+  }
+
+  @include media-max(sp) {
+    font-size: rems($font-size-h2-sp);
+  }
+}
+
+h3 {
+  font-size: rems($font-size-h3);
+  @include font-family($font-family-h3, $font-weight-h3);
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h3-tab);
+  }
+
+  @include media-max(sp) {
+    font-size: rems($font-size-h3-sp);
+  }
+}
+
+h4 {
+  font-size: rems($font-size-h4);
+  @include font-family($font-family-h4, $font-weight-h4);
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+
+  @include media-max(tab) {
+    font-size: rems($font-size-h4-tab);
+  }
+
+  @include media-max(sp) {
+    font-size: rems($font-size-h4-sp);
+  }
+}
+
+// .heading-fadein-animation {
+//   overflow: hidden;
+
+//   .js-span {
+//     display: inline-block;
+//     transform: translate(0, 100%);
+//   }
+
+//   &.js-arrive-in .js-span {
+//     animation: fade-in 0.5s ease forwards;
+//   }
+// }
+
+@each $color, $code in $color-theme-list {
+  .heading-dot-#{$color} {
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: "";
+      flex: 0 0 auto;
+      display: inline-block;
+      width: rems(15px);
+      height: rems(15px);
+      margin-right: rems(15px);
+      background-color: $code;
+      border-radius: rems(15px);
+    }
+  }
+
+  .heading-bg-#{$color} {
+    padding: rems(15px) rems(20px);
+    background-color: $code;
+    border-radius: rems(4px);
+
+    * {
+      color: white;
+    }
+  }
+}
+
+.heading-border-bottom {
+  padding-bottom: rems(20px);
+  border-bottom: 1px dotted $color-border;
+}
+
+.heading-subtitle {
+  &__en {
+    margin-bottom: rems(7px);
+    color: $color-main;
+    @include font-family(main, semibold);
+    font-size: rems(48px);
+  }
+
+  &__ja {
+    font-size: rems(20px);
+    line-height: 1.2;
+
+    @include media-max(tab) {
+      font-size: rems(18px);
+    }
+  }
+}

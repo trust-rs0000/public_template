@@ -1,0 +1,57 @@
+// font-family
+$font-family: (
+  base: #{"Noto Sans JP",
+  sans-serif},
+  main: #{"Noto Serif",
+  serif,
+  },
+  accent: #{"Oswald",
+  sans-serif},
+  roboto: #{"Roboto",
+  sans-serif},
+);
+
+$font-weights: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  black: 900,
+);
+
+// font-family
+// bodyに対するフォント
+$font-family-base: base;
+$font-weight-base: regular;
+
+$font-family-header-nav-link: base;
+$font-weight-header-nav-link: regular;
+
+$font-family-dropdown-nav-link: $font-family-header-nav-link;
+$font-weight-dropdown-nav-link: $font-weight-header-nav-link;
+
+$font-family-footer-nav-link: base;
+$font-weight-footer-nav-link: medium;
+
+$font-family-h1: base;
+$font-weight-h1: medium;
+
+$font-family-h2: $font-family-h1;
+$font-weight-h2: $font-weight-h1;
+
+$font-family-h3: $font-family-h2;
+$font-weight-h3: $font-weight-h2;
+
+$font-family-h4: $font-family-h2;
+$font-weight-h4: $font-weight-h2;
+
+$font-family-blog-h1: $font-family-h2;
+$font-weight-blog-h1: $font-weight-h2;
+
+$font-family-blog-h2: $font-family-h2;
+$font-weight-blog-h2: $font-weight-h2;
+
+$font-family-blog-h3: $font-family-h2;
+$font-weight-blog-h3: $font-weight-h2;

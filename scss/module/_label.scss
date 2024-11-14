@@ -1,0 +1,15 @@
+@use "../forward" as *;
+
+@each $color, $code in $color-theme-list {
+  .label-#{$color} {
+    display: inline-block;
+    padding: rems(7px) rems(20px);
+    color: $code;
+    background-color: white;
+    font-size: rems(16px);
+    @include font-family(base, medium);
+    border: 2px solid $code;
+    border-radius: 100vh;
+    line-height: 1;
+  }
+}

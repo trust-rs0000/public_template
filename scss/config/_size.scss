@@ -1,0 +1,30 @@
+// font-size
+$font-size-denominator: 16px; // rems()を計算するときの分母。制作時のみ、$font-size-baseと数値を合わせる。
+
+$font-size-base: 16px;
+$font-size-base-tab: 14px;
+
+$font-size-h1: 60px;
+$font-size-h1-tab: 48px;
+$font-size-h1-sp: 38px;
+
+$font-size-h2: 36px;
+$font-size-h2-tab: 30px;
+$font-size-h2-sp: 26px;
+
+$font-size-h3: 26px;
+$font-size-h3-tab: 20px;
+$font-size-h3-sp: 18px;
+
+$font-size-h4: 19px;
+$font-size-h4-tab: 17px;
+$font-size-h4-sp: 15px;
+
+$font-size-blog-h1: 28px;
+$font-size-blog-h1-tab: 24px;
+
+$font-size-blog-h2: 24px;
+$font-size-blog-h2-tab: 20px;
+
+$font-size-blog-h3: 20px;
+$font-size-blog-h3-tab: 16px;

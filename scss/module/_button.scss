@@ -1,0 +1,102 @@
+@use "../forward" as *;
+
+%button-reboot {
+  display: inline-block;
+  max-width: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+
+  * {
+    font-size: rems(16px);
+  }
+}
+
+%button-reboot-hover {
+  transition: $transition-duration;
+
+  &:hover {
+    opacity: 0.7;
+    transition: $transition-duration;
+  }
+}
+
+.button-arrow {
+  @extend %button-reboot;
+
+  min-width: rems(232px);
+  padding: rems(19px) rems(40px) rems(19px) rems(20px);
+  background: $color-main;
+  font-size: rems(16px);
+  @include font-family(base, bold);
+  border-radius: 100vh;
+  line-height: 1;
+  position: relative;
+  z-index: 0;
+
+  &:link,
+  &:visited {
+    color: $color-text;
+  }
+
+  &:after {
+    @include font-awesome("\f105");
+    position: absolute;
+    top: 51%;
+    right: calc(50% - percentage(div(88, 230)));
+    transform: translate(0, -50%);
+  }
+}
+
+.button-header-tel {
+  @extend %button-reboot;
+  @extend %button-reboot-hover;
+
+  min-width: rems(220px);
+  padding: rems(22px) rems(20px) rems(20px);
+  background-color: #ccc;
+  border-radius: 100vh;
+
+  &:before {
+    @include font-awesome("\f095");
+    margin-right: rems(4px);
+    font-size: rems(15px);
+  }
+
+  &:link,
+  &:visited {
+    color: $color-text;
+  }
+
+  &__text {
+    @include font-family(main, medium);
+    font-size: rems(18px);
+  }
+}
+
+.button-header-mail {
+  @extend %button-reboot;
+  @extend %button-reboot-hover;
+
+  min-width: rems(220px);
+  padding: rems(18px) rems(20px);
+  background-color: #ccc;
+  border: 1px solid $color-main;
+  border-radius: 100vh;
+
+  &:before {
+    @include font-awesome("\f0e0");
+    margin-right: rems(5px);
+    font-size: rems(20px);
+  }
+
+  &:link,
+  &:visited {
+    color: $color-text;
+  }
+
+  &__text {
+    @include font-family(base, medium);
+    font-size: rems(17px);
+  }
+}

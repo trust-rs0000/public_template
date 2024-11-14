@@ -1,0 +1,20 @@
+@use "../forward" as *;
+
+%tbl-reboot {
+  tr > td {
+    padding: 0 !important;
+    border: none;
+  }
+}
+
+.tbl {
+}
+
+.tbl_scroll {
+  table {
+    table-layout: fixed;
+    @include media-max(sp) {
+      table-layout: auto;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@use "../forward" as *;
+
+html {
+  font-size: $font-size-base;
+
+  @include media-max(tab) {
+    font-size: $font-size-base-tab;
+  }
+}
+
+body {
+  color: $color-text;
+  background-color: $color-body-bg;
+  font-size: inherit;
+  @include font-family($font-family-base, $font-weight-base);
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+}
+
+body *:not(i, b) {
+  /* 
+  font-weightは<b>タグが機能しなくなるので指定しない。
+  line-heightは余計に高さが効いてしまうので指定しない。 => bxi.cssで効いてる可能性あり。
+  */
+}
+
+#contents {
+  background-color: $color-body-bg;
+}
+
+img {
+  vertical-align: baseline;
+}
+
+img.imgL,
+img.imgC,
+img.imgR {
+  max-width: 100% !important;
+}
+
+a {
+  transition: $transition-duration;
+  overflow-wrap: break-word;
+
+  &:hover {
+    opacity: 0.7;
+    transition: $transition-duration;
+  }
+}
+
+a.itext {
+  width: auto !important;
+  height: auto !important;
+}
+
+input,
+textarea,
+select {
+  @include font-family(base, regular);
+}

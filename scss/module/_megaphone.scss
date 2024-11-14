@@ -1,0 +1,29 @@
+@use "../forward" as *;
+
+@each $name, $code in $color-theme-list {
+  $code: if($code == "", #333, #333);
+
+  .megaphone-#{$name} {
+    display: inline-flex;
+    align-items: flex-end;
+
+    &:before,
+    &:after {
+      content: "";
+      width: rems(4px);
+      height: rems(45px);
+      border-radius: 100vh;
+      background-color: $code;
+    }
+
+    &:before {
+      margin-right: rems(18px);
+      transform: rotate(-15deg);
+    }
+
+    &:after {
+      margin-left: rems(18px);
+      transform: rotate(15deg);
+    }
+  }
+}

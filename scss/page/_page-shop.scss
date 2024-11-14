@@ -1,0 +1,1902 @@
+@use "../forward" as *;
+
+// 例のごとくよく分からないクラスのつけ方されているので、注意。
+// >>> 役割の違うモジュールに同じクラスが付いていたり
+
+// BXIのショッピング設定次第でコンテンツがあったり、無かったりするので、基本的にmarginは上方向につけると吉
+
+// ショッピングページ一覧
+// /shop
+// /shop/detail.html?category=&item_number=1
+// /shop/?tag=テストテスト
+// /shop/?category=%231&keyword=&tag=テストテスト&order=index&page=1
+// /shop/purchase_cart.html
+// /shop/purchase_payment.html
+// /customer/purchase_entry.html?mode=purchase
+// /shop/purchase_confirm.html
+// /shop/purchase_complete.html
+// /shop/purchase_deliver.html
+// /shop/purchase_items.html
+
+@mixin inner($width: 700px) {
+  max-width: $width;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin reset-field() {
+  display: inline-block;
+  padding: rems(5px) rems(8px);
+  background: unset;
+  font-size: unset;
+  text-indent: unset;
+  text-align: left;
+  border-radius: 0;
+  border: 1px solid #e4e4e4;
+  line-height: 1;
+  @content;
+}
+
+@mixin reset-select() {
+  display: inline-block;
+  padding: 0;
+  background: unset;
+  font-size: unset;
+  text-indent: unset;
+  text-align: left;
+  border-radius: 0;
+  border: none;
+  line-height: 1;
+  @content;
+}
+
+@mixin page-title {
+  margin: 0;
+  margin-top: rems(70px);
+  margin-bottom: rems(25px);
+  color: $color-text;
+  @include font-family(base, medium);
+  font-size: rems(22px);
+  border-bottom: none;
+  line-height: 1;
+}
+
+@mixin shop-normal-button($color: $color-shop-button-text, $color-bg: $color-shop-button-bg) {
+  width: auto;
+  min-width: rems(150px);
+  height: auto;
+  margin: 0;
+  padding: rems(11px) rems(20px) rems(13px);
+  background: unset;
+  background-position: unset;
+  background-size: unset;
+  color: $color;
+  background-color: $color-bg;
+  font-size: unset;
+  border: none;
+  border-radius: 0;
+  @include font-family(base, medium);
+  line-height: 1;
+  text-indent: unset;
+}
+
+@mixin shop-dl {
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px dotted $color-border;
+
+  @include media-max(sp) {
+    display: block;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  & > dt {
+    flex: 0 0 25%;
+    min-width: 0;
+    max-width: 100%;
+    margin-right: 20px;
+    padding: 0;
+    @include font-family(base, medium);
+
+    @include media-max(sp) {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  & > dd {
+    flex: 1 0 0;
+    width: auto;
+    padding: 0;
+  }
+}
+
+.page-shop {
+  body,
+  #contents {
+    background-color: $color-shop-body;
+  }
+
+  #col_main {
+    margin-bottom: rems(100px);
+
+    @include media-max(tab) {
+      margin-bottom: rems(80px);
+    }
+  }
+}
+
+// エラー start
+div.error {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: $color-shop-bg;
+}
+// エラー end
+
+// 検索欄 start
+%shop-search {
+  margin-top: 0;
+}
+
+.page-shop {
+  .search {
+    @extend %shop-search;
+    display: flex;
+
+    @include media-max(tab) {
+      display: block;
+    }
+
+    &:last-child {
+      justify-content: flex-end;
+      margin-top: rems(70px);
+    }
+  }
+}
+// 検索欄 end
+
+// カテゴリー & 検索窓 start
+%shop-keyword {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  float: none;
+}
+
+.page-shop {
+  #keyword {
+    @extend %shop-keyword;
+    display: flex;
+
+    @include media-max(sp) {
+      display: block;
+    }
+
+    .select {
+      margin-right: rems(10px);
+
+      @include media-max(sp) {
+        margin-right: 0;
+        margin-bottom: rems(10px);
+      }
+    }
+  }
+}
+// カテゴリー & 検索窓 end
+
+// セレクトボタン start
+%shop-select {
+  width: auto;
+  min-width: max-content !important;
+
+  &:after {
+    content: none;
+  }
+
+  select {
+    @include reset-select();
+  }
+}
+
+.page-shop {
+  .select {
+    @extend %shop-select;
+    border: 1px solid $color-shop-border;
+
+    &::before {
+      content: "\f107";
+      font: var(--fa-font-solid);
+      pointer-events: none;
+      line-height: 1;
+      position: absolute;
+      top: 50%;
+      right: rems(15px);
+      transform: translate(0, -50%);
+      z-index: 1;
+    }
+
+    select {
+      height: 100%;
+      padding: rems(10px) rems(30px) rems(10px) rems(15px);
+      background-color: unset;
+      font-size: rems(14px);
+    }
+  }
+}
+
+// セレクトボタン end
+
+// 検索窓 start
+%shop-search-text {
+  button {
+    width: auto;
+    height: auto;
+    background: unset;
+    background-size: unset;
+    background-position: unset;
+    text-indent: unset;
+    position: absolute;
+    top: 48%;
+    right: rems(15px);
+    transform: translate(0, -50%);
+  }
+}
+
+.page-shop {
+  .text {
+    @extend %shop-search-text;
+
+    display: flex;
+    align-items: center;
+    padding: rems(5px) rems(15px) rems(5px) rems(15px);
+    border: 1px solid $color-shop-border;
+    position: relative;
+    z-index: 0;
+
+    input[type="text"] {
+      @include reset-select();
+    }
+
+    & > button {
+      @include font-family(base, regular);
+      flex: 0 0 auto;
+      padding: 0;
+      font-size: rems(14px);
+
+      &:before {
+        @include font-awesome("\f002");
+        margin-right: rems(3px);
+      }
+    }
+  }
+}
+// 検索窓 end
+
+// ページャー start
+%shop-pager {
+  width: auto !important;
+  float: none !important;
+
+  .select {
+    float: none !important;
+  }
+
+  & > a {
+    margin-left: 0;
+    width: auto;
+    height: auto;
+    font-size: 0;
+    border: none;
+    border-radius: 0;
+    background-repeat: unset;
+    background-position: unset;
+    background-image: none !important;
+    text-indent: unset;
+    float: none;
+  }
+
+  .off {
+    background-color: unset;
+  }
+}
+
+.page-shop {
+  .pager {
+    @extend %shop-pager;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: rems(30px);
+
+    @include media-max(tab) {
+      margin-top: rems(10px) !important;
+      margin-left: 0;
+    }
+
+    .select {
+      margin-right: rems(30px);
+      height: 100%;
+
+      &:before {
+        right: rems(10px);
+      }
+    }
+
+    .prev,
+    .next {
+      &::before {
+        color: $color-text;
+        font-size: rems(16px) !important;
+      }
+    }
+
+    .prev {
+      margin-right: rems(25px);
+      &:before {
+        @include font-awesome("\f104");
+      }
+    }
+
+    .next {
+      &:before {
+        @include font-awesome("\f105");
+      }
+    }
+  }
+}
+// ページャー end
+
+// オーダー start
+%shop-order {
+  &:after {
+    content: none;
+  }
+
+  & > p {
+    float: none;
+    line-height: 1;
+  }
+
+  & > ul {
+    flex-wrap: wrap;
+    justify-content: unset;
+    float: none;
+  }
+
+  & > ul > li {
+    margin: 0;
+  }
+}
+
+.page-shop {
+  .order {
+    @extend %shop-order;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: rems(60px);
+    margin-bottom: rems(20px);
+    padding-bottom: rems(15px);
+    border-bottom: 1px dotted $color-shop-border;
+
+    @include media-max(sp) {
+      display: block;
+    }
+
+    & > p {
+      margin-right: rems(25px);
+      font-size: rems(14px);
+
+      @include media-max(sp) {
+        margin-bottom: rems(10px);
+      }
+    }
+
+    & > ul {
+      flex-wrap: wrap;
+      margin-bottom: rems(-7px);
+      float: none;
+    }
+
+    & > ul > li {
+      margin: 0 rems(20px) rems(7px) 0;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    & > ul > li > a {
+      font-size: rems(14px);
+
+      &:link,
+      &:visited {
+        color: $color-text;
+      }
+    }
+  }
+}
+// オーダー end
+
+// /shop/detail.html?category=&item_number=1
+// アイテム(一覧) start
+%shop-items {
+  margin-top: 0;
+  margin-left: 0;
+
+  & > article {
+    align-items: unset;
+    width: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+
+    // カートに入れる
+    & > button {
+      width: unset;
+      height: unset;
+      border: unset;
+      border-radius: unset;
+      background: unset;
+      text-indent: unset;
+    }
+  }
+
+  .photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: none !important;
+  }
+
+  .name {
+    padding-top: 0;
+  }
+
+  .summary {
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .price {
+    width: 100%;
+    padding-top: 0;
+    text-align: right;
+  }
+
+  .soldout {
+    width: 100%;
+    padding-top: 0;
+    color: $color-shop-negative;
+    text-align: center;
+  }
+}
+
+.page-shop {
+  .items {
+    @extend %shop-items;
+    margin-bottom: rems(70px);
+
+    $margin: rems(30px); // 余白
+    $cols: 4; // 列数
+
+    margin-bottom: $margin * -2;
+
+    & > article {
+      flex: 0 0 calc((100% - ($margin * ($cols - 1))) / $cols);
+      align-items: flex-start;
+      margin-right: $margin;
+      margin-bottom: $margin * 2;
+
+      @include media-max(bp1200) {
+        flex: 0 0 calc((100% - ($margin * 2)) / 3);
+      }
+
+      @include media-max(tab) {
+        flex: 0 0 calc((100% - (($margin / 2) * 1)) / 2);
+        margin-right: calc($margin / 2);
+      }
+
+      @include media-max(sp) {
+        flex: 0 0 100%;
+        margin-right: auto !important;
+        margin-left: auto;
+      }
+
+      &:nth-child(#{$cols}n) {
+        margin-right: 0;
+
+        @include media-max(bp1200) {
+          margin-right: $margin;
+        }
+      }
+
+      &:nth-child(3n) {
+        @include media-max(bp1200) {
+          margin-right: 0;
+        }
+
+        @include media-max(tab) {
+          margin-right: 20px;
+        }
+      }
+
+      &:nth-child(2n) {
+        @include media-max(tab) {
+          margin-right: 0;
+        }
+      }
+
+      & > *:last-child {
+        margin-top: auto !important;
+        margin-bottom: 0px;
+      }
+
+      & > button {
+        @include shop-normal-button();
+        display: inline-block;
+        width: 100%;
+        background-color: $color-shop-button-bg;
+        font-size: rems(14px);
+      }
+
+      .photo {
+        margin-bottom: rems(13px);
+        @include aspect-ratio(4, 3);
+
+        & > img {
+          display: block;
+          object-fit: contain;
+        }
+      }
+
+      .name {
+        display: block;
+        margin-bottom: rems(7px);
+        @include font-family(base, medium);
+        font-size: rems(16px);
+
+        &:link,
+        &:visited {
+          color: $color-text;
+        }
+      }
+
+      .summary {
+        margin-bottom: rems(8px);
+        font-size: rems(14px);
+        line-height: 1.4;
+      }
+
+      .price {
+        margin-bottom: rems(20px);
+        @include font-family(base, medium);
+        font-size: rems(16px);
+        text-align: right;
+      }
+    }
+  }
+}
+// アイテム(一覧) end
+
+// shop/detail.html?item_number=1
+// カテゴリーぱんくず start
+%shop-crumb {
+  margin-top: 0px;
+
+  & > ul > li {
+    margin-right: 0;
+    line-height: 1;
+    float: none;
+  }
+
+  & > ul > li > a {
+    line-height: 1;
+    float: none;
+  }
+}
+
+.page-shop-detail {
+  .crumb {
+    @extend %shop-crumb;
+    margin-top: rems(30px);
+
+    & > ul {
+      display: flex;
+    }
+
+    & > ul > li {
+      &:after {
+        @include font-awesome("\f105");
+        margin-left: rems(10px);
+        margin-right: rems(10px);
+        color: $color-text;
+        font-size: rems(14px);
+      }
+    }
+
+    & > ul > li > a {
+      font-size: rems(14px);
+
+      &:link,
+      &:visited {
+        color: $color-text;
+      }
+    }
+  }
+}
+// カテゴリーぱんくず end
+
+// アイテム 詳細 start
+%shop-item {
+  margin-top: 0;
+
+  @include media-max(tab) {
+    display: block;
+  }
+}
+
+.page-shop-detail {
+  .item {
+    @extend %shop-item;
+    margin-top: rems(50px);
+  }
+}
+// アイテム 詳細 end
+
+// アイテム 詳細 写真 start
+%shop-item-photo {
+  display: unset;
+  margin-left: 0;
+
+  .large,
+  .small {
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  .large {
+    margin-left: 0;
+  }
+
+  .small {
+    min-width: 0;
+    max-width: 100%;
+
+    & > ul > li {
+      margin-left: 0;
+    }
+  }
+}
+
+.page-shop-detail {
+  .photo {
+    @extend %shop-item-photo;
+
+    flex: 0 0 40%;
+    margin-right: rems(40px);
+
+    @include media-max(tab) {
+      margin-right: 0;
+      margin-bottom: rems(60px);
+    }
+
+    .large {
+      margin-bottom: rems(6px);
+    }
+
+    .small {
+      & > ul > li {
+        flex-basis: unset;
+        flex: 0 0 calc((100% - (rems(5px) * 4)) / 5);
+        max-width: rems(100px);
+        margin-bottom: rems(5px);
+        margin-right: rems(5px);
+        @include aspect-ratio(4, 3);
+
+        &:nth-child(5n) {
+          margin-right: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        & > img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+// アイテム 詳細 写真 end
+
+// アイテム 詳細 説明 start
+%shop-item-detail {
+  display: block;
+  flex: 1 0 0;
+  min-width: 0;
+  max-width: 100%;
+  margin-left: 0;
+  font-size: rems(16px);
+
+  & > h2 {
+    margin-bottom: 10px;
+    @include font-family(base, medium);
+    font-size: rems(22px);
+    line-height: 1.6;
+
+    @include media-max(tab) {
+      font-size: rems(19px);
+    }
+
+    & > span {
+      display: none;
+    }
+  }
+
+  // タグ
+  & > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: rems(40px);
+  }
+
+  & > ul > li {
+    float: none;
+    margin-bottom: rems(10px);
+  }
+
+  & > ul > li > a {
+    padding: em(3px, 14px) rems(10px);
+    background-color: $color-shop-tag;
+    @include font-family(base, medium);
+    font-size: rems(14px);
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
+  }
+
+  .struct {
+    display: block;
+    margin-top: 0;
+  }
+
+  .sku {
+    width: 100%;
+    margin-bottom: rems(40px);
+    text-align: right;
+  }
+
+  .price {
+    font-size: rems(20px);
+
+    & > label {
+      font-size: rems(12px);
+    }
+  }
+
+  // オプション
+  .item_option {
+    width: 100%;
+    margin-left: auto;
+  }
+
+  .item_option > form > dl,
+  .count {
+    display: block;
+    margin-bottom: rems(20px);
+    border: none;
+  }
+
+  .count {
+    display: block;
+    margin-bottom: rems(40px);
+    border: none;
+  }
+
+  .item_option > form > dl > dt,
+  .count > dt {
+    display: block;
+    min-height: 0;
+    margin-bottom: rems(5px);
+    padding: 0;
+    background: unset;
+    font-size: rems(14px);
+  }
+
+  .item_option > form > dl > dd,
+  .count > dd {
+    padding: 0;
+  }
+
+  button.addcart {
+    margin-bottom: rems(20px);
+  }
+
+  .addcart > a {
+    margin-top: 0;
+    font-size: rems(14px);
+    text-align: end;
+  }
+
+  .detail {
+    margin-top: rems(40px);
+    padding: rems(15px) rems(20px);
+    background-color: $color-shop-bg;
+    font-size: rems(16px);
+  }
+}
+
+.page-shop-detail {
+  .item_view {
+    @extend %shop-item-detail;
+  }
+
+  .detail2 {
+    margin-top: rems(20px);
+    padding: rems(15px) rems(20px);
+    background-color: $color-shop-bg;
+    font-size: rems(16px);
+
+    @include media-max(tab) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+// アイテム 詳細 説明 end
+
+// カートに入れるボタン start
+.page-shop {
+  button.addcart {
+    @include shop-normal-button(white, $color-shop-button-bg);
+  }
+}
+// カートに入れるボタン end
+
+// アイテム 詳細 スクロール start
+%shop-item-scroll {
+  margin-bottom: rems(100px);
+
+  h3 {
+    display: none;
+  }
+
+  .flip {
+    width: 100%;
+  }
+
+  .flip > ul > li {
+    width: auto;
+    height: auto;
+    margin-right: rems(20px);
+  }
+
+  .photo {
+    margin-right: 0;
+    margin-bottom: rems(20px);
+    height: auto;
+    background-image: unset !important;
+    background-size: auto;
+  }
+
+  .photo > img {
+    display: block;
+  }
+
+  .name {
+    margin-bottom: rems(20px);
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .price {
+    padding-top: 0;
+    text-align: left;
+  }
+}
+
+.page-shop-detail {
+  .relay {
+    @extend %shop-item-scroll;
+
+    display: none;
+  }
+}
+// アイテム 詳細 スクロール end
+
+// /shop/purchase_cart.html
+// ショッピングカート start
+%shop-cart {
+  & > h2 {
+    @include page-title;
+  }
+
+  & > ul {
+    display: block;
+    margin-top: rems(40px);
+    margin-bottom: rems(70px);
+  }
+
+  & > ul > li {
+    justify-content: space-between;
+    margin-bottom: rems(20px);
+    padding: 0;
+    padding-bottom: rems(20px);
+    border-bottom: 1px dotted $color-border;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    @include media-max(sp) {
+      display: block;
+    }
+  }
+
+  .photo {
+    width: auto;
+    height: auto;
+    background-size: contain;
+    flex: unset;
+  }
+
+  .item {
+    flex: 0 0 60%;
+    width: unset;
+    margin-top: 0;
+    margin-right: rems(40px);
+
+    @include media-max(tab) {
+      max-width: 100%;
+      margin-left: unset;
+    }
+
+    @include media-max(sp) {
+      margin-right: 0;
+      margin-bottom: rems(20px);
+    }
+  }
+
+  .name {
+    display: inline-block;
+    margin-bottom: rems(10px);
+    padding: 0;
+    line-height: 1.4;
+    font-size: rems(16px);
+    @include font-family(base, medium);
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
+  }
+
+  .number {
+    display: none;
+  }
+
+  .price {
+    padding: 0;
+    font-size: rems(14px);
+  }
+
+  .count {
+    flex: 1 0 0;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: flex-end;
+
+    input[type="text"] {
+      width: auto;
+      max-width: rems(50px);
+      height: auto;
+      margin-right: rems(20px);
+      padding: rems(6px) rems(15px);
+      background-color: $color-shop-form;
+      border: none;
+      border-radius: 0;
+
+      @include media-max(tab) {
+        width: auto !important;
+      }
+    }
+  }
+
+  .update,
+  .remove {
+    flex: 0 0 auto;
+    padding: rems(9px) rems(15px) rems(7px);
+    font-size: rems(14px);
+    line-height: 1;
+  }
+
+  .update {
+    margin-right: rems(5px);
+    border: 1px solid $color-border;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
+  }
+
+  .remove {
+    color: white;
+    border: 1px solid $color-shop-negative;
+    background-color: $color-shop-negative;
+  }
+}
+
+.page-shop-purchase-cart {
+  #sumcart {
+    @extend %shop-cart;
+    // @include inner;
+
+    .photo {
+      display: none;
+    }
+  }
+}
+// ショッピングカート end
+
+// ショッピングカート合計 start
+%shop-cart-sum {
+  display: block;
+  padding: rems(30px) rems(20px);
+  background-color: $color-shop-bg;
+
+  & > div {
+    display: block;
+    text-align: end;
+  }
+
+  // カート(数量)
+  & > div > div:nth-child(1) {
+    width: auto;
+    margin-bottom: rems(10px);
+  }
+
+  & > div > div:nth-child(2) {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  & > div > div .sum_count {
+    width: auto;
+    margin-bottom: rems(20px);
+    background: unset !important;
+    background-position: unset !important;
+    background-size: unset !important;
+    font-size: rems(24px) !important;
+    text-align: end;
+    text-indent: unset !important;
+    line-height: 1 !important;
+
+    &::before {
+      margin-right: rems(8px);
+      font-size: rems(21px) !important;
+      @include font-awesome("\f07a");
+    }
+  }
+
+  & > div > div .sum_price {
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: rems(10px);
+  }
+
+  & > div > div .sum_price > dt {
+    min-width: 0;
+    max-width: 100%;
+    color: $color-text;
+    font-size: rems(14px);
+    line-height: 1 !important;
+  }
+
+  & > div > div .sum_price > dd {
+    width: auto;
+    color: $color-shop-price;
+    font-size: rems(24px);
+    text-align: left;
+    line-height: 1;
+  }
+
+  .deliv {
+    width: auto;
+    margin-bottom: rems(40px);
+    font-size: rems(14px);
+  }
+
+  p:not(.deliv) > a {
+    font-size: rems(14px);
+  }
+
+  .button {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: rems(40px);
+  }
+
+  .purchase,
+  .back {
+    display: inline-block;
+    align-items: center;
+    width: auto;
+    min-width: rems(150px);
+    height: auto;
+    margin: 0;
+    padding: rems(10px) rems(20px);
+    background: unset;
+    background-position: unset;
+    font-size: rems(16px);
+    @include font-family(base, medium);
+    text-indent: unset;
+    text-align: center;
+  }
+
+  .purchase {
+    color: white;
+    background-color: $color-shop-button-bg;
+  }
+
+  .back {
+    margin-right: rems(10px);
+    color: white;
+    background-color: $color-shop-negative;
+
+    @include media-max(sp) {
+      margin-top: rems(10px);
+      margin-right: 0;
+    }
+  }
+}
+
+.page-shop-purchase-cart {
+  #sumcart {
+    div.sum {
+      @extend %shop-cart-sum;
+    }
+  }
+}
+// ショッピングカート合計 end
+
+// 送料について start
+.page-shop-purchase-cart {
+  .postage {
+    // @include inner();
+    // padding: rems(15px) rems(20px);
+    background-color: transparent;
+  }
+}
+// 送料について end
+
+// /customer/purchase_entry.html?mode=purchase
+// メンバーログイン start
+%shop-login {
+  & > h2 {
+    @include page-title;
+  }
+
+  & > dl {
+    @include shop-dl();
+  }
+
+  & > dl > dd > input {
+    width: 100% !important;
+    border: none;
+    border-radius: 0;
+
+    @include reset-field();
+  }
+
+  .passwd > input {
+    @include reset-field();
+  }
+
+  & > button.login {
+    @include shop-normal-button;
+    margin-top: rems(50px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  & > p {
+    margin-top: rems(20px);
+    font-size: rems(14px);
+  }
+}
+
+.page-customer-purchase-entry {
+  #login {
+    @extend %shop-login;
+    // @include inner();
+  }
+}
+// メンバーログイン end
+
+// ご注文者情報 start
+%shop-entry {
+  & > h2 {
+    @include page-title;
+  }
+
+  & > dl {
+    @include shop-dl();
+  }
+
+  & > dl:last-of-type {
+    .is_entry {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      & > div {
+        height: auto;
+        text-align: center;
+
+        & > input[type="checkbox"] {
+          margin: 0;
+        }
+
+        & > label {
+          @include font-family(base, medium);
+          font-size: rems(14px);
+        }
+      }
+
+      .passwd {
+        margin-right: 0;
+        float: unset;
+      }
+
+      p {
+        flex: 0 0 100%;
+        margin-top: rems(10px);
+        padding-top: 0;
+        font-size: rems(14px);
+      }
+    }
+  }
+
+  & > dl > dd > div {
+    display: block;
+  }
+
+  & > dl > dd > div > input {
+    width: 100% !important;
+    border: none;
+    border-radius: 0;
+
+    @include reset-field();
+  }
+
+  .alert {
+    padding: 0;
+    background-color: unset;
+  }
+
+  .birthday {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: rems(-10px);
+  }
+
+  .birthday > div {
+    display: flex;
+    align-items: flex-end;
+    margin-right: rems(10px);
+    margin-bottom: rems(10px);
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .birthday > div > select {
+    width: unset !important;
+    margin-bottom: 0;
+    padding: 0;
+
+    @include reset-field();
+  }
+
+  .birthday > div > input {
+    margin-bottom: 0;
+  }
+
+  .birthday > div > span {
+    margin-right: 0;
+  }
+
+  // 住所:郵便番号
+  .ship_addr > div:first-child {
+    display: flex;
+    align-items: center;
+  }
+
+  .ship_addr > div > select {
+    width: auto !important;
+    @include reset-field();
+  }
+
+  .next {
+    @include shop-normal-button;
+    margin-top: rems(70px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.page-customer-purchase-entry {
+  #entry {
+    @extend %shop-entry;
+
+    // @include inner();
+  }
+}
+// ご注文者情報 end
+
+// /shop/purchase_payment.html
+// お支払方法 start
+%shop-payment {
+  & > h2 {
+    @include page-title;
+  }
+
+  .payment_type {
+    margin-top: 0;
+    margin-bottom: rems(30px);
+
+    & > *:nth-last-child(2) {
+      margin-bottom: rems(30px);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > dl {
+      @include shop-dl;
+    }
+
+    & > div {
+      margin-bottom: rems(12px) !important;
+
+      & > input[type="radio"] {
+        margin: 0;
+        margin-right: rems(8px);
+      }
+
+      & > label {
+        flex: 1 0 0;
+        @include font-family(base, medium);
+      }
+    }
+
+    & > p {
+      margin-top: 0;
+    }
+  }
+
+  .payment_type.cash {
+    & > dl {
+      display: none;
+    }
+  }
+
+  .payment_type.bank {
+    & > dl {
+      &:last-of-type {
+        margin-bottom: rems(20px);
+      }
+
+      & > dt {
+        @include font-family(base, medium);
+      }
+    }
+  }
+
+  .payment_type.kuro {
+    .kuroneko {
+      width: rems(338px);
+      height: rems(46px);
+      margin: 0;
+    }
+  }
+}
+
+.page-shop-purchase-payment {
+  .purchase.payment {
+    @extend %shop-payment;
+    @include inner;
+  }
+}
+// お支払方法 end
+
+// 配送について start
+%shop-shipment {
+  & > h3 {
+    @include page-title;
+  }
+
+  & > button {
+    @include shop-normal-button();
+    margin-top: rems(70px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.page-shop-purchase-payment {
+  .purchase.shipment {
+    @extend %shop-shipment;
+    @include inner;
+  }
+}
+// 配送について end
+
+// /shop/purchase_deliver.html
+%shop-purchase_deliver {
+  display: flex;
+  flex-direction: column;
+
+  .addrs.deliver {
+    order: 0;
+    margin-bottom: rems(70px);
+
+    & > h2 {
+      @include page-title;
+    }
+
+    & > ul {
+      display: block;
+
+      & > li {
+        width: auto;
+        margin: 0;
+        margin-bottom: rems(15px);
+        padding: rems(20px);
+        background-color: $color-form;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      & > li > dl {
+        margin: 0;
+        @include shop-dl();
+      }
+    }
+
+    .link {
+      margin-top: rems(30px);
+
+      .deliver {
+        @include shop-normal-button();
+        margin-right: rems(10px);
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .addrs.list {
+    display: none;
+  }
+
+  .next,
+  .add_deliver {
+    @include shop-normal-button();
+    min-width: rems(150px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .next {
+    order: 100;
+  }
+
+  .add_deliver {
+    order: 1;
+    margin-bottom: rems(20px);
+  }
+
+  .remove {
+    background-color: $color-shop-negative !important;
+  }
+}
+
+.page-shop-purchase-deliver {
+  .purchase {
+    @extend %shop-purchase_deliver;
+    @include inner;
+  }
+}
+
+// /shop/purchase_items.html
+%shop-purchase-items {
+  .delivers {
+    & > h3 {
+      @include page-title();
+    }
+
+    & > dl {
+      @include shop-dl();
+    }
+  }
+
+  .sub_total {
+    & > dd > ul > li > div:nth-child(4n) {
+      margin-right: 0 !important;
+    }
+  }
+
+  .total {
+    & > h3 {
+      @include page-title;
+      margin-top: 0;
+    }
+
+    .total {
+      @include shop-dl();
+    }
+  }
+}
+
+.page-shop-purchase-items {
+  .purchase.confirm {
+    @extend %shop-purchase-items;
+  }
+}
+
+// /shop/purchase_confirm.html
+// 注文内容確認 start
+%shop-confirm {
+  margin-top: 0;
+
+  & > h2,
+  & > h3 {
+    @include page-title;
+  }
+
+  & > h2 {
+    margin-top: 0;
+    margin-bottom: rems(30px);
+    text-align: center;
+  }
+
+  & > h3 {
+    margin-top: rems(70px);
+    font-size: rems(20px);
+  }
+
+  // 注文内容確認直下のh3
+  & > h2 + h3 {
+    margin-top: 0;
+  }
+
+  & > button {
+    @include shop-normal-button();
+    margin-top: rems(50px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  & > dl {
+    @include shop-dl;
+  }
+
+  & > dl > dt {
+    display: block;
+    flex: 0 0 25%;
+    align-items: flex-start;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: center;
+    padding: 0;
+    @include font-family(base, medium);
+    text-align: left;
+
+    @include media-max(sp) {
+      margin-bottom: rems(10px);
+    }
+  }
+
+  & > dl > dd {
+    flex: 1 0 0;
+    padding: 0;
+  }
+
+  .deliver_item > dd > ul > li {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: rems(20px);
+    padding-bottom: rems(20px);
+    border-bottom: 1px dashed $color-border;
+
+    &:last-of-type {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  .deliver_item .photo {
+    min-width: 0;
+    max-width: 0;
+  }
+
+  .deliver_item .item {
+    margin-top: 0;
+    margin-bottom: rems(3px);
+
+    @include media-max(tab) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .deliver_item .item .number {
+    display: none;
+  }
+
+  .deliver_item .price,
+  .deliver_item .count,
+  .deliver_item .subtotal {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+
+    @include media-max(tab) {
+      padding-right: 0;
+      background: unset;
+      line-height: 1;
+    }
+  }
+
+  .deliver_item .price,
+  .deliver_item .count,
+  .deliver_item .subtotal {
+    font-size: rems(14px);
+  }
+
+  .deliver_item .count {
+    margin-right: rems(10px);
+  }
+
+  .deliver_item .subtotal > p {
+    @include font-family(base, medium);
+
+    &:before {
+      content: "=";
+      margin-right: rems(10px);
+    }
+  }
+
+  .sub_total {
+    border-top: none;
+  }
+
+  .sub_total .item {
+    width: auto;
+    margin-top: 0;
+  }
+
+  .sub_total > dd > ul > li {
+    justify-content: flex-end;
+  }
+
+  .sub_total > dd > ul > li > div {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+
+    &:nth-child(4) {
+      margin-right: rems(20px);
+    }
+  }
+
+  .sub_total > dd > ul > li > div > p {
+    font-size: rems(16px);
+    @include font-family(base, bold);
+  }
+
+  .sub_deliv .item {
+    margin-top: 0;
+  }
+
+  // お支払いのご案内
+  .total > dd > div {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .total.amount {
+    border-top: none;
+  }
+
+  .total.amount > dd > div > p {
+    color: $color-shop-price;
+  }
+
+  .edit_payment {
+    &:before {
+      content: "お支払方法の変更";
+      @include font-family(base, medium);
+    }
+  }
+}
+
+.page-shop-purchase-confirm {
+  .purchase.confirm {
+    @extend %shop-confirm;
+    @include inner;
+
+    .deliver_item .photo {
+      display: none;
+    }
+  }
+}
+// 注文内容確認 end
+
+// この内容で注文するボタン start
+%shop-accept-button {
+  .purchase.accept {
+    width: auto;
+    height: auto;
+    min-width: max-content;
+    margin-top: 0;
+    padding: 0;
+    background: unset !important;
+  }
+}
+
+.page-shop-purchase-confirm {
+  .purchase.accept {
+    @extend %shop-accept-button;
+    margin-top: rems(40px);
+    padding-top: rems(40px);
+    background: unset;
+    border-top: 1px dotted $color-border;
+    @include inner;
+
+    button.accept {
+      @include shop-normal-button();
+      padding: rems(18px) rems(20px);
+      font-size: rems(20px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+// この内容で注文するボタン end
+
+// /shop/purchase_complete.html
+// 購入完了 start
+%shop-complete {
+  & > h2 {
+    @include page-title;
+  }
+
+  & > dl {
+    margin-top: 0;
+  }
+
+  & > dl > dt {
+    display: block;
+    flex: 0 0 25%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  & > dl > dd {
+    flex: 1 0 0;
+    width: auto;
+    padding: 0;
+  }
+
+  & > div {
+    margin-top: rems(20px);
+    padding: rems(15px) rems(20px);
+    background-color: $color-shop-form;
+  }
+
+  .movetop {
+    @include shop-normal-button();
+    margin-top: rems(70px);
+    margin-left: auto;
+  }
+}
+
+.page-shop-purchase-complete {
+  .purchase.complete {
+    @extend %shop-complete;
+    @include inner;
+  }
+}
+// 購入完了 end
+
+%shop-customer-login {
+  & > h2 {
+    @include page-title;
+    margin-top: 0;
+  }
+
+  & > dl {
+    @include media-max(sp) {
+      display: block;
+    }
+
+    & > dt {
+      flex: 0 0 30%;
+      min-width: 0;
+      max-width: 100%;
+      margin-right: rems(10px);
+
+      @include media-max(sp) {
+        margin-right: 0;
+        margin-bottom: rems(6px);
+      }
+    }
+
+    & > dd > input {
+      @include reset-field();
+      width: 100%;
+    }
+
+    .passwd {
+      width: 100%;
+
+      input[type="password"] {
+        width: 100%;
+        padding: rems(5px) rems(25px) rems(5px) rems(5px);
+        border-radius: 0;
+      }
+    }
+  }
+
+  button.login {
+    @include shop-normal-button();
+    margin-top: rems(70px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  & > p {
+    margin-top: rems(30px);
+  }
+}
+
+.page-customer-login {
+  .purchase {
+    @extend %shop-customer-login;
+  }
+}

@@ -1,0 +1,95 @@
+@use "../forward" as *;
+
+.header {
+  width: 100%;
+  padding: rems(20px) rems(40px);
+  background-color: $color-header-bg;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: $z-header;
+  transition: $transition-duration;
+
+  @include media-max(drawer) {
+    padding: rems(15px) rems(20px);
+    background-color: $color-header-bg-drawer !important;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    margin-right: rems(30px);
+
+    @include media-max(drawer) {
+      margin-right: 0;
+    }
+  }
+
+  @at-root .js-scrolled-header & {
+    background-color: lighten($color-header-bg-scroll, 10%);
+    transition: $transition-duration;
+
+    @include media-max(drawer) {
+      padding: rems(15px) rems(20px);
+      background-color: $color-header-bg-scroll;
+    }
+  }
+}
+
+.header-logo {
+  display: inline-block;
+  margin-right: rems(20px);
+  text-decoration: none;
+  line-height: 1;
+  position: relative;
+  z-index: $z-header-logo;
+
+  @include media-max(bp1400) {
+    max-width: rems(200px);
+  }
+
+  @include media-max(tab) {
+    max-width: rems(180px);
+  }
+
+  &__text {
+    margin-bottom: rems(6px);
+    color: #505050;
+    font-size: rems(14px);
+    @include font-family(base, medium);
+    text-align: left;
+  }
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: $transition-duration;
+
+  &.js-arrive-in-out {
+    @include media-max(drawer) {
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition-duration;
+    }
+  }
+
+  &__item {
+    min-width: 0;
+    margin-right: rems(20px);
+
+    @include media-max(drawer) {
+      flex: 1 0 0;
+      margin-right: rems(10px);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

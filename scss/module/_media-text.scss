@@ -1,0 +1,133 @@
+@use "../forward" as *;
+
+.media-text {
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    @include media-max(tab) {
+      display: block;
+    }
+  }
+
+  &__wrapper {
+    margin-left: rems(50px);
+
+    @include media-max(tab) {
+      margin-left: 0;
+    }
+  }
+
+  &__image {
+    flex: 0 0 percentage(div(550, 1200));
+
+    @include media-max(tab) {
+      width: 100%;
+      margin-bottom: rems(60px);
+    }
+
+    img {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+
+  &__text {
+    div {
+      line-height: div(22.4, 16);
+    }
+  }
+
+  &--reverse {
+    .media-text {
+      &__inner {
+        flex-direction: row-reverse;
+      }
+
+      &__wrapper {
+        margin-left: 0;
+        margin-right: rems(50px);
+
+        @include media-max(tab) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.media-text-image-full {
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    @include media-max(tab) {
+      display: block;
+    }
+  }
+
+  &__wrapper {
+    flex: 1 0 0;
+    margin-left: percentage(div(100, 1200));
+
+    @include media-max(bp1200) {
+      margin-left: rems(50px);
+    }
+
+    @include media-max(tab) {
+      margin-left: 0;
+    }
+  }
+
+  &__image {
+    width: 50vw;
+    margin-left: calc(50% - 50vw);
+
+    @include media-max(tab) {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      margin-bottom: rems(60px);
+    }
+
+    img {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+
+  &__text {
+    div {
+      line-height: div(32, 16);
+    }
+  }
+
+  &--reverse & {
+    &__inner {
+      flex-direction: row-reverse;
+    }
+
+    &__wrapper {
+      flex: 0 0 1;
+      margin-left: 0;
+      margin-right: rems(100px);
+
+      @include media-max(bp1200) {
+        margin-right: rems(50px);
+      }
+
+      @include media-max(tab) {
+        margin-right: 0;
+      }
+    }
+
+    &__image {
+      margin-right: calc(50% - 50vw);
+      margin-left: 0;
+
+      @include media-max(tab) {
+        margin-right: 0;
+      }
+    }
+  }
+}

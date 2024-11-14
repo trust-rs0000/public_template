@@ -1,0 +1,13 @@
+@use "../forward" as *;
+
+// 親のwidthはみ出して表示する。
+.inner-full {
+  margin-right: calc(50% - 50vw) !important;
+  margin-left: calc(50% - 50vw) !important;
+}
+
+@each $key, $inner in $inners {
+  .inner-#{$key} {
+    @include inner($inner);
+  }
+}

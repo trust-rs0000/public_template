@@ -1,0 +1,18 @@
+@use "../config/font-family" as *;
+
+@mixin font-family($type: base, $weight: 400) {
+  font-family: map-get($font-family, $type);
+  font-weight: map-get($font-weights, $weight);
+}
+
+@mixin font-awesome($uni, $type: solid) {
+  $style: --fa-font-solid;
+
+  @if $type == regular {
+    $style: --fa-font-regular;
+  }
+
+  content: $uni;
+  font: var($style);
+  line-height: 1;
+}
