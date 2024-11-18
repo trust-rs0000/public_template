@@ -26,7 +26,7 @@
 
   min-width: rems(232px);
   padding: rems(19px) rems(40px) rems(19px) rems(20px);
-  background: $color-main;
+  background-color: $color-main;
   font-size: rems(16px);
   @include font-family(base, bold);
   border-radius: 100vh;

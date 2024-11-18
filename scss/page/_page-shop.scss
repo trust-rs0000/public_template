@@ -1165,11 +1165,6 @@ div.error {
     margin-right: rems(10px);
     color: white;
     background-color: $color-shop-negative;
-
-    @include media-max(sp) {
-      margin-top: rems(10px);
-      margin-right: 0;
-    }
   }
 }
 
