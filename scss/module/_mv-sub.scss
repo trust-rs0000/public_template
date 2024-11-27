@@ -30,7 +30,7 @@ html:not(.page-top) #contents_wrap {
   position: relative;
   z-index: 0;
 
-  @if $have-kaso-header-margin-top == "true" {
+  @if $have-kaso-header-margin-top == true {
     margin-top: $header-margin-top;
 
     @include media-max(drawer) {

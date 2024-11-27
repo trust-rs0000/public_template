@@ -58,3 +58,7 @@ textarea,
 select {
   @include font-family(base, regular);
 }
+
+iframe {
+  max-width: 100%;
+}

@@ -130,30 +130,29 @@
     display: flex;
     width: 100%;
     align-items: center;
-    margin-bottom: rems(25px);
-    padding-bottom: rems(25px);
-    border-bottom: 1px dotted $color-border;
-
-    &:first-child {
-      padding-top: rems(25px);
-      border-top: 1px dotted $color-border;
-    }
+    margin-bottom: rems(15px);
+    overflow: visible !important;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     & > div {
-      display: flex;
-      align-items: flex-start;
-      flex: 1 0 0;
+      @include font-family(base, medium);
+      font-size: rems(20px);
+      line-height: 1.2;
+      padding-left: rems(30px);
+      position: relative;
 
       &:before {
         flex: 0 0 auto;
         @include font-awesome("\f14a", regular);
-        margin-top: rems(4px);
-        margin-right: rems(15px);
-        color: $color-accent;
+        color: $color-main;
+        font-size: rems(26px);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
       }
     }
   }
@@ -267,6 +266,10 @@
 // ドロップダウン
 .flex-faq {
   border: 1px solid $color-border;
+
+  .translate {
+    margin-top: 0;
+  }
 
   .box {
     width: 100%;

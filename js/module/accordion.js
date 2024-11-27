@@ -27,12 +27,28 @@ export default class Accordion {
     this.accordionElement.addEventListener("click", () => {
       try {
         // 閉じているアコーディオンコンテンツの高さを取得します。
-        const LAST_BOX_HEIGHT = this.accordionElementLast.querySelector("div").clientHeight;
+        // バイリンガル対応済み。スタイルのdisplay取得して、バイリンガル使用しているのかで切り分け。
+        let lastBoxHeight;
+
+        const DIV_NORMAL = this.accordionElement.querySelector(".box:last-child>div:first-child");
+        let isDivNormalDisplay = window.getComputedStyle(DIV_NORMAL).display;
+
+        const DIV_TRANSLATE = this.accordionElementLast.querySelector(".translate");
+
+        // 通常のDIVがnoneの場合は、バイリンガルがONの時。
+        if (isDivNormalDisplay === "none") {
+          lastBoxHeight = DIV_TRANSLATE.clientHeight;
+          console.log("trans");
+        } else {
+          // それ以外は、バイリンガルがOFFの時。
+          lastBoxHeight = DIV_NORMAL.clientHeight;
+          console.log("normal");
+        }
 
         this.accordionElement.classList.toggle("js-accordion-open");
 
         // アニメーションを利かせるため、高さを設定します。
-        this.accordionElementLast.style.height = `${LAST_BOX_HEIGHT}px`;
+        this.accordionElementLast.style.height = `${lastBoxHeight}px`;
 
         if (!this.accordionElement.classList.contains("js-accordion-open")) {
           this.accordionElementLast.style.height = "0px";

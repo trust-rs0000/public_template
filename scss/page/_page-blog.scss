@@ -465,6 +465,11 @@ $selector-blog-article: 'article[id^="page"]';
 .page-blog {
   @extend %blogpage-reboot;
 
+  // footer
+  footer {
+    background: unset;
+  }
+
   // 共通
   #contents {
   }

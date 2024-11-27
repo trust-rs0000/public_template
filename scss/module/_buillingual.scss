@@ -66,12 +66,3 @@ div#builingual div.language select {
     padding: 4px 2px !important;
   }
 }
-@media screen and (max-width: 640px) {
-  #builingual {
-    top: auto;
-    bottom: 60px;
-    right: 0;
-    padding: 5px !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-  }
-}
