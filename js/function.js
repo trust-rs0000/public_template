@@ -149,18 +149,16 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// バイリンガルでヘッダーを翻訳したときも動作するように、loadイベントに記載。
 window.addEventListener("load", function () {
-  // バイリンガルでヘッダーを翻訳したときも動作するように、loadイベントに記載。
-  window.addEventListener("load", function () {
-    // ハンバーガー
-    // クラス名を変更して使用してください。
-    const HAMBURGER_NODE = document.querySelectorAll(".hamburger");
-    HAMBURGER_NODE.forEach(function (element) {
-      if (element) {
-        const hamburger = new Hamburger(element);
-        hamburger.toggleHamburger();
-        hamburger.clickAnchor();
-      }
-    });
+  // ハンバーガー
+  // クラス名を変更して使用してください。
+  const HAMBURGER_NODE = document.querySelectorAll(".hamburger");
+  HAMBURGER_NODE.forEach(function (element) {
+    if (element) {
+      const hamburger = new Hamburger(element);
+      hamburger.toggleHamburger();
+      hamburger.clickAnchor();
+    }
   });
 });
