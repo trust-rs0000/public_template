@@ -1,5 +1,8 @@
+// BXIリセットCSS
 @use "base/bxi-reset";
 @use "base/base";
+
+// ユーティリティクラス
 @use "utility/aspect-rario";
 @use "utility/bg";
 @use "utility/br";
@@ -10,19 +13,28 @@
 @use "utility/letter-spacing";
 @use "utility/position";
 @use "utility/text-align";
+
+// ブロック用クラス(ブロック単体で実現できるデザインのCSS)
+@use "block/blog";
+@use "block/dl";
+@use "block/flexbox";
+@use "block/form";
+// @use 'block/shop';
+@use "block/sns";
+@use "block/table";
+@use "block/ul";
+
+// モジュール用クラス(ブロッククラス以外のCSS)
+// 不要であれば削除可能
 @use "module/anime";
-@use "module/blog";
 @use "module/breadcrumb";
 @use "module/buillingual";
 @use "module/button";
 @use "module/card";
 @use "module/column";
-@use "module/dl";
 @use "module/drawer";
 @use "module/dropdown";
-@use "module/flexbox";
 @use "module/flow";
-@use "module/form";
 @use "module/hamburger";
 @use "module/heading";
 @use "module/label";
@@ -32,12 +44,12 @@
 @use "module/mv";
 @use "module/mv-sub";
 @use "module/nav";
-@use "module/sns";
-// @use 'module/shop';
-@use "module/table";
-@use "module/ul";
+
+// 全ページ共通のパーツ用CSS
 @use "includes/header";
 @use "includes/footer";
+
+// 固定ページ用CSS
 @use "page/index";
 @use "page/policy";
 @use "page/style";

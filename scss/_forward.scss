@@ -1,10 +1,14 @@
 @forward "sass:math";
+
+// 設定
 @forward "./config/breakpoints";
 @forward "./config/color";
 @forward "./config/font-family";
 @forward "./config/global";
 @forward "./config/inner";
 @forward "./config/size";
+
+// mixin
 @forward "./mixin/aspect-ratio";
 @forward "./mixin/breakpoints";
 @forward "./mixin/font-family";
@@ -14,4 +18,6 @@
 @forward "./mixin/keyframe";
 @forward "./mixin/mixin";
 @forward "./mixin/scroll-bar";
+
+// keyframe
 @forward "./keyframes/fadein";
