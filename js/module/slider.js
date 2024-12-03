@@ -53,4 +53,23 @@ export default class Slider {
       console.log(error);
     }
   }
+
+  dotImageSlider() {
+    try {
+      // ドットが画像タイプのスライダー
+      $(this.slider).slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        infinite: true,
+        dots: true,
+        arrows: false,
+        customPaging: function (slick, index) {
+          var targetImage = slick.$slides.eq(index).find("img").attr("src");
+          return "<img src=" + targetImage + ">";
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

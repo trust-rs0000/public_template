@@ -96,6 +96,17 @@
     }
   }
 
+  // 株式会社八ッ場ふるさと館
+  // yanbamarket.html
+  &__gallery {
+    width: 50%;
+
+    @include media-max(tab) {
+      width: 100%;
+      margin-bottom: rems(60px) !important;
+    }
+  }
+
   &__text {
     div {
       line-height: div(32, 16);

@@ -71,13 +71,17 @@ window.addEventListener("DOMContentLoaded", function () {
   // 定数
   const HEADER = document.querySelector(".header");
 
-  // // スライダー
-  // const slider = new Slider(".mv-slider");
-  // slider.mainSlider();
+  // スライダー
+  const slider = new Slider(".mv-slider");
+  slider.mainSlider();
 
-  // // 商品スライダー
-  // const itemSlider = new Slider(".m-shop-slider .items");
-  // itemSlider.itemSlider();
+  // SNSスライダー
+  const itemSlider = new Slider(".sns-slider .sns_list");
+  itemSlider.itemSlider();
+
+  // ドットが画像のスライダー
+  const flexGallery = new Slider(".flex-gallery");
+  flexGallery.dotImageSlider();
 
   // ぱんくず
   // クラス名を変更して使用してください。

@@ -24,8 +24,8 @@
 .button-arrow {
   @extend %button-reboot;
 
-  min-width: rems(232px);
-  padding: rems(19px) rems(40px) rems(19px) rems(20px);
+  min-width: rems(300px);
+  padding: rems(20px) rems(40px);
   background-color: $color-main;
   font-size: rems(16px);
   @include font-family(base, bold);

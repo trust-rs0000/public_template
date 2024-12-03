@@ -25,50 +25,44 @@
   }
 }
 
-// カード型のレイアウト
-.flex-card {
-  justify-content: center;
-
+// キャプション付き画像
+.flex-caption {
   .box {
-    background-color: white;
-    padding: 20px;
-
     & > article > h3 {
       display: none;
     }
 
     & > article > img {
       width: 100% !important;
-      margin-bottom: rems(14px);
+      margin-bottom: rems(15px);
     }
 
     & > article > div {
-      & > * {
-        margin-bottom: rems(10px);
-      }
-
-      & > *:last-child {
-        margin-bottom: 0;
-      }
+      text-align: center;
     }
-  }
-
-  &__title {
-    margin-bottom: rems(14px);
-    font-size: rems(18px);
-    @include font-family(base, bold);
-    text-align: center;
-  }
-
-  &__text {
-    @include font-family(base, regular);
-    font-size: rems(16px);
-    text-align: center;
-    line-height: 2;
   }
 }
 
-// スライダー:slick使用
+// カード型(見出し・テキスト)
+.flex-card {
+  .box {
+    & > article > img {
+      width: 100% !important;
+    }
+
+    & > article > h3 {
+      margin-top: rems(15px);
+      font-size: rems(22px);
+      text-align: center;
+    }
+
+    & > article > div {
+      margin-top: rems(12px);
+    }
+  }
+}
+
+// スライダー(slick使用)
 .flex-slider {
   display: block !important;
 
@@ -78,7 +72,7 @@
   }
 }
 
-// dotが画像タイプのスライダー:slick使用
+// dotが画像タイプのスライダー(slick使用)
 .flex-gallery {
   display: block !important;
   margin-bottom: 0 !important;
@@ -87,12 +81,7 @@
     @include aspect-ratio(1, 1);
 
     img {
-      border-radius: 0 rems(30px) 0 rems(30px);
       object-fit: cover;
-
-      @include media-max(tab) {
-        border-radius: 0 rems(30px) 0 rems(30px);
-      }
     }
   }
 
@@ -117,7 +106,6 @@
       }
 
       img {
-        border-radius: rems(8px);
         object-fit: cover;
       }
     }
@@ -162,7 +150,7 @@
 .flex-list {
   .box {
     display: inline-flex;
-    margin-bottom: rems(32px);
+    margin-bottom: rems(15px);
 
     &:last-child {
       margin-bottom: 0;
@@ -172,17 +160,17 @@
       content: "";
       flex: 0 0 auto;
       display: inline-block;
-      width: rems(12px);
-      height: rems(12px);
-      margin-top: rems(10px);
+      width: rems(10px);
+      height: rems(10px);
+      margin-top: rems(6px);
       margin-right: rems(15px);
       background-color: $color-main;
       border-radius: rems(12px);
     }
 
     & > div {
-      @include font-family(base, medium);
-      font-size: rems(20px);
+      @include font-family(base, regular);
+      font-size: rems(16px);
     }
   }
 }
