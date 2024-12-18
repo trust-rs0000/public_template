@@ -3,9 +3,10 @@
 .breadcrumb {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   &__li {
-    margin-right: 10px;
+    margin-right: rems(10px);
     line-height: 1;
 
     &:last-child {
@@ -14,7 +15,7 @@
   }
 
   &__divide {
-    margin-right: 10px;
+    margin-right: rems(10px);
     font-size: rems(14px);
   }
 

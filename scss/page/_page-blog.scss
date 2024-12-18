@@ -193,7 +193,7 @@ $selector-blog-article: 'article[id^="page"]';
           }
 
           table > tbody > tr > td:hover {
-            background-color: $color-calendar-hover !important;
+            background-color: $color-blog-calendar-bg-hover !important;
           }
 
           dl.open > dt > label,
@@ -503,15 +503,6 @@ $selector-blog-article: 'article[id^="page"]';
 
       @include media-max(tab) {
         font-size: rems($font-size-blog-h3-tab);
-      }
-    }
-
-    // ブログ用見出し
-    .blog-heading-title {
-      & > article h2,
-      & > article h3 {
-        padding: rems(10px) rems(20px);
-        background-color: $color-blog-heading-bg;
       }
     }
   }

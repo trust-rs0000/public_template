@@ -1,7 +1,7 @@
 @use "../forward" as *;
 
 @each $name, $code in $color-theme-list {
-  $code: if($code == "", #333, #333);
+  $code: if($code == "", #333, $code);
 
   .megaphone-#{$name} {
     display: inline-flex;

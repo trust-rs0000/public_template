@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// リブートCSS
+
 html {
   font-size: $font-size-base;
 
@@ -15,6 +17,7 @@ body {
   @include font-family($font-family-base, $font-weight-base);
   letter-spacing: $letter-spacing;
   line-height: $line-height;
+  overflow-x: hidden;
 }
 
 body *:not(i, b) {
@@ -28,14 +31,19 @@ body *:not(i, b) {
   background-color: $color-body-bg;
 }
 
-img {
-  vertical-align: baseline;
+// 固定ヘッダー用マージン
+#contents_wrap {
+  @if $have-header-margin-top == true {
+    margin-top: $header-margin-top;
+
+    @include media-max(drawer) {
+      margin-top: $header-margin-top-drawer;
+    }
+  }
 }
 
-img.imgL,
-img.imgC,
-img.imgR {
-  max-width: 100% !important;
+img {
+  vertical-align: baseline;
 }
 
 a {
@@ -48,17 +56,8 @@ a {
   }
 }
 
-a.itext {
-  width: auto !important;
-  height: auto !important;
-}
-
 input,
 textarea,
 select {
   @include font-family(base, regular);
-}
-
-iframe {
-  max-width: 100%;
 }

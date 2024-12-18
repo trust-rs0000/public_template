@@ -1,6 +1,7 @@
 // letter-spacing
 $letter-spacing: 0.06em;
 
+// line-height
 $line-height: 1.6;
 
 // z-index
@@ -13,9 +14,10 @@ $z-header-logo: 2000;
 // transition
 $transition-duration: 0.4s;
 
-// ヘッダーマージン
+// 固定ヘッダー用マージン
+// ヘッダーとコンテンツが被らないようにするためのマージン
 $have-header-margin-top: false;
-$have-kaso-header-margin-top: true;
+
 $header-contact-margin-top: 220px;
 $header-contact-margin-top-drawer: 110px;
 $header-margin-top: 90px;

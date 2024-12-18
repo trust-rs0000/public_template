@@ -64,6 +64,17 @@ window.addEventListener("DOMContentLoaded", () => {
   } catch (error) {
     console.log(error);
   }
+
+  // scroll-hint
+  try {
+    new ScrollHint(".tbl_scroll", {
+      i18n: {
+        scrollable: "スクロールできます",
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // クラス実装

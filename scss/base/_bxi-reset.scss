@@ -1,21 +1,20 @@
 @use "../forward" as *;
 
+// BXIリセットCSS
+
 // bxiでid指定されているcssのリセット
 header#global_header {
   min-width: 0 !important;
-
   width: 100%;
 }
 
 #contents_wrap {
   min-width: 0 !important;
-
   width: 100%;
 }
 
 #contents {
   // デザイン設定 > 基本設定 > サイズ構成 > 全体幅で指定
-
   width: 100%;
 }
 
@@ -68,7 +67,7 @@ footer#global_footer {
   }
 }
 
-// 以下、個人的リセット
+// 以下、カスタムリセット
 * {
   box-sizing: border-box;
 }
@@ -97,6 +96,12 @@ img {
   vertical-align: bottom;
 }
 
+img.imgL,
+img.imgC,
+img.imgR {
+  max-width: 100% !important;
+}
+
 body {
   button {
     padding: 0;
@@ -116,4 +121,13 @@ body {
     font-family: inherit;
     font-weight: inherit;
   }
+}
+
+iframe {
+  max-width: 100%;
+}
+
+a.itext {
+  width: auto !important;
+  height: auto !important;
 }

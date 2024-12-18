@@ -1,58 +1,55 @@
-// BXIリセットCSS
-@use "base/bxi-reset";
-@use "base/base";
+// BXIリセット・リブートCSS
+@use "base/bxi-reset"; // リセット
+@use "base/base"; // リブート
 
 // ユーティリティクラス
-@use "utility/aspect-rario";
-@use "utility/bg";
-@use "utility/br";
-@use "utility/font-family";
-@use "utility/grid";
-@use "utility/inner";
-@use "utility/line-height";
-@use "utility/letter-spacing";
-@use "utility/position";
-@use "utility/text-align";
+@use "utility/aspect-rario"; // アスペクト比
+@use "utility/border-radius"; // border-radius
+@use "utility/background"; // バックグラウンド
+@use "utility/br"; // 改行
+@use "utility/font-family"; // フォントファミリー
+@use "utility/grid"; // グリッドレイアウト
+@use "utility/inner"; // インナー
+@use "utility/line-height"; // line-height
+@use "utility/letter-spacing"; // letter-spacing
+@use "utility/marker"; // マーカー
+@use "utility/text-align"; // text-align
 
 // ブロック用クラス(ブロック単体で実現できるデザインのCSS)
-@use "block/blog";
-@use "block/dl";
-@use "block/flexbox";
-@use "block/form";
-// @use 'block/shop';
-@use "block/sns";
-@use "block/table";
-@use "block/ul";
+// @use "block/blog"; // ブログ
+@use "block/dl"; // dl
+@use "block/flexbox"; // flexbox
+@use "block/form"; // フォーム
+// @use 'block/shop'; // ショップ
+// @use "block/sns"; // SNS
+@use "block/table"; // テーブル
+@use "block/ul"; // ul
 
 // モジュール用クラス(ブロッククラス以外のCSS)
-// 不要であれば削除可能
-@use "module/anime";
-@use "module/breadcrumb";
-@use "module/buillingual";
-@use "module/button";
-@use "module/card";
-@use "module/column";
-@use "module/drawer";
-@use "module/dropdown";
-@use "module/flow";
-@use "module/hamburger";
-@use "module/heading";
-@use "module/label";
-@use "module/marker";
-@use "module/media-text";
-@use "module/megaphone";
-@use "module/mv";
-@use "module/mv-sub";
-@use "module/nav";
+@use "module/breadcrumb"; // ぱんくず
+@use "module/buillingual"; // バイリンガル(js記述必須)
+@use "module/button"; // ボタン
+@use "module/card"; // カード型レイアウト
+@use "module/drawer"; // ドロワー
+@use "module/dropdown"; // ドロップダウン
+@use "module/flow"; // フローレイアウト(流れ)
+@use "module/hamburger"; // ハンバーガー
+@use "module/heading"; // 見出し
+@use "module/label"; // ラベル
+@use "module/media-text"; // メディア型レイアウト
+@use "module/megaphone"; // メガホン
+@use "module/mv"; // メインビジュアル
+@use "module/mv-sub"; // ページヘッダー
+@use "module/nav"; // ナビゲーション
 
 // 全ページ共通のパーツ用CSS
-@use "includes/header";
-@use "includes/footer";
+@use "includes/header"; // ヘッダー
+@use "includes/footer"; // フッター
 
 // 固定ページ用CSS
-@use "page/index";
-@use "page/policy";
-@use "page/style";
-@use "page/page-form";
-// @use "page/page-blog";
-// @use 'page/page-shop';
+@use "page/index"; // TOPページ
+@use "page/policy"; // プライバシーポリシー
+@use "page/style"; // 下層ページ(page/conceptのようにファイルに分けてもらっても大丈夫です)
+@use "page/page-form"; // フォームページ(送信エラー、送信確認ページ等)
+// @use "page/page-blog"; // ブログページ
+// @use 'page/page-shop'; // ショップページ

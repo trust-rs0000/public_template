@@ -36,7 +36,7 @@
   }
 
   &__wrapper {
-    padding: rems(20px);
+    padding: rems(20px) rems(25px);
     background-color: $color-dropdown-bg;
     box-shadow: 0 0 5px rgba(black, 0.1);
 
@@ -81,8 +81,8 @@
   }
 
   &__item {
-    margin-bottom: rems(10px);
-    padding-bottom: rems(10px);
+    margin-bottom: rems(14px);
+    padding-bottom: rems(13px);
     text-align: center;
     border-bottom: 1px dotted $color-dropdown-border;
 

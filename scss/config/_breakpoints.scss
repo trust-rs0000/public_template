@@ -1,8 +1,10 @@
-// メディアクエリ
+// メディアクエリ設定
 $breakpoints: (
   xsp: 0px,
   ssp: 400px,
+  // BXIのスマホ
   sp: 640px,
+  // BXIのタブレット
   tab: 834px,
   bp1000: 1000px,
   bp1100: 1100px,
@@ -14,5 +16,6 @@ $breakpoints: (
   bp1700: 1700px,
   bp1800: 1800px,
   bp1900: 1900px,
+  // ドロワー/ハンバーガー表示
   drawer: 1200px,
 );

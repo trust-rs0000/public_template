@@ -23,6 +23,8 @@ export default class Scroller {
    * @param {*} param0
    */
   in({ className = "js-arrive-in", gaveClassElement = this.targetElement, ratio = 1 }) {
+    if (gaveClassElement === null) return;
+
     if (this.position.isArrive(ratio)) {
       gaveClassElement.classList.add(className);
     }
@@ -35,6 +37,8 @@ export default class Scroller {
   }
 
   inOut({ className = "js-arrive-in-out", gaveClassElement = this.targetElement, ratio = 1 }) {
+    if (gaveClassElement === null) return;
+
     if (this.position.isArrive(ratio)) {
       gaveClassElement.classList.add(className);
     }

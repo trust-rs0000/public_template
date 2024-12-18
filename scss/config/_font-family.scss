@@ -1,4 +1,4 @@
-// font-family
+// フォントファミリー設定
 $font-family: (
   base: #{"Noto Sans JP",
   sans-serif},
@@ -9,6 +9,7 @@ $font-family: (
   sans-serif},
 );
 
+// フォントウェイト設定
 $font-weights: (
   thin: 100,
   light: 300,
@@ -19,37 +20,46 @@ $font-weights: (
   black: 900,
 );
 
-// font-family
-// bodyに対するフォント
+// 標準フォント
 $font-family-base: base;
 $font-weight-base: regular;
 
+// ヘッダーナビゲーション
 $font-family-header-nav-link: base;
 $font-weight-header-nav-link: regular;
 
+// ドロップダウンナビゲーション
 $font-family-dropdown-nav-link: $font-family-header-nav-link;
 $font-weight-dropdown-nav-link: $font-weight-header-nav-link;
 
+// フッターナビゲーション
 $font-family-footer-nav-link: base;
 $font-weight-footer-nav-link: medium;
 
+// h1タグ
 $font-family-h1: base;
 $font-weight-h1: medium;
 
+// h2タグ
 $font-family-h2: $font-family-h1;
 $font-weight-h2: $font-weight-h1;
 
+// h3タグ
 $font-family-h3: $font-family-h2;
 $font-weight-h3: $font-weight-h2;
 
+// h4タグ
 $font-family-h4: $font-family-h2;
 $font-weight-h4: $font-weight-h2;
 
+// ブログページのh1タグ
 $font-family-blog-h1: $font-family-h2;
 $font-weight-blog-h1: $font-weight-h2;
 
+// ブログページのh2タグ
 $font-family-blog-h2: $font-family-h2;
 $font-weight-blog-h2: $font-weight-h2;
 
+// ブログページのh3タグ
 $font-family-blog-h3: $font-family-h2;
 $font-weight-blog-h3: $font-weight-h2;

@@ -149,8 +149,10 @@
 // 箇条書きリスト
 .flex-list {
   .box {
-    display: inline-flex;
     margin-bottom: rems(15px);
+    padding-left: 1.8em;
+    position: relative;
+    overflow: visible !important;
 
     &:last-child {
       margin-bottom: 0;
@@ -158,14 +160,14 @@
 
     &:before {
       content: "";
-      flex: 0 0 auto;
       display: inline-block;
-      width: rems(10px);
-      height: rems(10px);
-      margin-top: rems(6px);
-      margin-right: rems(15px);
+      width: 0.7em;
+      height: 0.7em;
       background-color: $color-main;
-      border-radius: rems(12px);
+      border-radius: 0.7em;
+      position: absolute;
+      top: 0.38em;
+      left: 0;
     }
 
     & > div {
@@ -182,15 +184,18 @@
   .box {
     counter-increment: list 1;
 
-    margin-bottom: rems(20px);
+    margin-bottom: rems(40px);
+    overflow: visible !important;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     & > div {
-      display: flex;
-      align-items: center;
+      padding-top: 0.8em;
+      padding-left: 4.5em;
+      position: relative;
+      z-index: 0;
 
       &:before {
         content: counter(list, decimal-leading-zero);
@@ -199,12 +204,16 @@
         align-items: center;
         width: 0;
         height: 0;
-        margin-right: 8px;
-        padding: em(20, 16);
+        margin-right: 1.1em;
+        padding: 1.6em;
         color: white;
-        background-color: $color-accent;
-        @include font-family(base, medium);
+        background-color: $color-main;
+        @include font-family(base, semibold);
         border-radius: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
       }
     }
   }

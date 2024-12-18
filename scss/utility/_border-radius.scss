@@ -1,0 +1,13 @@
+@use "../forward" as *;
+
+.border-radius-small {
+  border-radius: rems(5px);
+}
+
+.border-radius-medium {
+  border-radius: rems(10px);
+}
+
+.border-radius-large {
+  border-radius: rems(15px);
+}

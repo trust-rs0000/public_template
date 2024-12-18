@@ -4,23 +4,32 @@
   counter-reset: flow 0;
 
   &__item {
+    padding-left: rems(120px);
+    padding-bottom: rems(70px);
     counter-increment: flow 1;
+    position: relative;
+    z-index: 0;
+
+    @include media-max(sp) {
+      padding-left: rems(90px);
+    }
 
     &:before {
       content: counter(flow, decimal-leading-zero);
-      flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: rems(80px);
       height: rems(80px);
-      margin-right: rems(60px);
       color: $color-main;
       background-color: white;
       @include font-family(main, semibold);
       font-size: rems(36px);
       border: 3px solid $color-main;
       border-radius: rems(80px);
+      position: absolute;
+      top: 0;
+      left: 0;
 
       @include media-max(sp) {
         width: rems(60px);
@@ -36,18 +45,18 @@
       display: inline-block;
       width: 1px;
       height: 100%;
-      background-color: $color-main;
+      border-right: 1px dashed $color-main;
       position: absolute;
       bottom: 0;
-      left: 43px;
+      left: rems(43px);
       z-index: -1;
 
       @include media-max(tab) {
-        left: 38px;
+        left: rems(42px);
       }
 
       @include media-max(sp) {
-        left: 29px;
+        left: rems(34px);
       }
     }
 
@@ -58,27 +67,13 @@
 }
 
 .flow-item {
-  display: flex;
-  padding-bottom: rems(70px);
-  position: relative;
-  z-index: 0;
-
   &:last-child {
     padding-bottom: 0;
   }
 
-  &__wrapper {
-    flex: 1 0 0;
-    align-items: flex-start;
-  }
-
-  &__title {
-    @include font-family(base, medium);
-  }
-
   &__text {
     padding: rems(20px);
-    background-color: #f3f3f3;
+    background-color: $color-grey-light;
     border-radius: rems(5px);
   }
 }
@@ -130,6 +125,60 @@
 
     @include media-max(tab) {
       font-size: rems(20px);
+    }
+  }
+}
+
+// 画像矢印フロー
+.flow-image-arrow {
+  display: flex;
+  align-items: center;
+
+  @include media-max(sp) {
+    display: block;
+  }
+
+  &__image {
+    & > img {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: rems(10px);
+    }
+
+    & > div {
+      margin-top: rems(15px);
+      @include font-family(base, semibold);
+      font-size: rems(18px);
+      line-height: 1.2;
+    }
+  }
+
+  &__arrow {
+    margin-right: rems(15px);
+    margin-bottom: rems(20px);
+    margin-left: rems(15px);
+
+    @include media-max(sp) {
+      margin-top: rems(25px);
+      margin-right: 0;
+      margin-bottom: rems(28px);
+      margin-left: 0;
+    }
+
+    & > div {
+      @include media-max(sp) {
+        text-align: center !important;
+      }
+
+      &:before {
+        @include font-awesome("\f061");
+        color: $color-main;
+        font-size: rems(20px);
+
+        @include media-max(sp) {
+          @include font-awesome("\f063");
+        }
+      }
     }
   }
 }

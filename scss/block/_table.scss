@@ -8,10 +8,9 @@
 }
 
 .tbl_scroll {
+  white-space: nowrap;
+
   table {
-    table-layout: fixed;
-    @include media-max(sp) {
-      table-layout: auto;
-    }
+    table-layout: auto;
   }
 }

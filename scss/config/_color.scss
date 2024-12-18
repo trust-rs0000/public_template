@@ -1,80 +1,104 @@
-// color-setting
+// サイトカラー設定
+
+// ベースカラー
 $color-base: white;
+
+// メインカラー
 $color-main: "";
+$color-main-deep: "";
+$color-main-light: "";
+
+// アクセントカラー
 $color-accent: "";
-$color-text: "";
-$color-warn: red;
+$color-accent-deep: "";
+$color-accent-light: "";
+
+// カスタム
 $color-custom-1: "";
 $color-custom-2: "";
 $color-custom-3: "";
 $color-custom-4: "";
 $color-custom-5: "";
 
+// 各カラー
+$color-grey: #aaaaaa;
+$color-grey-light: #f2f2f2;
+
+// サイト背景
 $color-body-bg: white;
 
+// テキストカラー
+$color-text: "";
+
+// ワーニングカラー
+$color-warn: red;
+
+// 電話番号
+$color-tel: $color-main;
+
+// メール
+$color-mail: $color-main;
+
+// 各コンポーネントで使用できるカラーリスト
 $color-theme-list: (
   main: $color-main,
   accent: $color-accent,
 );
 
-// 全体的なデフォルトボーダー
+// サイト全体のボーダー
 $color-border: #cccccc;
 
+// ハンバーガー
 $color-hamburger: $color-text;
 
-$color-header-bg: white;
-$color-header-bg-drawer: white;
-$color-header-bg-scroll: white;
+// ヘッダーカラー
+$color-header-bg: white; // 通常時
+$color-header-bg-drawer: white; // ドロワー表示幅以下時のヘッダー背景
+$color-header-bg-scroll: white; // スクロール時のヘッダー背景
 
-$color-header-nav-link: $color-text;
-$color-header-nav-link-scroll: $color-text;
-$color-header-nav-link-drawer: $color-text;
+// ヘッダーナビゲーションのリンクカラー
+$color-header-nav-link: $color-text; // 通常時
+$color-header-nav-link-scroll: $color-text; // スクロール時のリンク
+$color-header-nav-link-drawer: $color-text; // ドロワー表示時のリンク
 $color-header-nav-link-subtitle: "";
-$color-header-nav-bg: white;
 
-$color-footer-bg: "";
+// ドロップダウン
+$color-dropdown-bg: white; // 背景
+$color-dropdown-border: $color-border; // ボーダー
+$color-dropdown-nav-link: $color-text; // リンク
+$color-dropdown-nav-link-drawer: $color-text; // ドロワー表示時のリンク
+$color-dropdown-nav-link-scroll: $color-text; // スクロール時のリンク
 
+// ドロワー
+$color-drawer-bg: white; // ドロワー背景
+
+// フッター
+$color-footer-bg: ""; // フッター背景
+
+// フッターナビゲーションのリンクテキスト
 $color-footer-nav-link: $color-text;
 
-$color-dropdown-bg: white;
-$color-dropdown-border: $color-border;
-$color-dropdown-nav-link: $color-text;
-$color-dropdown-nav-link-drawer: $color-text;
-$color-dropdown-nav-link-scroll: $color-text;
+// ブログページのカテゴリーラベル
+$color-blog-category-label-bg: $color-main; // 背景
+$color-blog-category-label-text: white; // テキスト
 
-$color-button-text: "";
-$color-button-bg: $color-accent;
+// ブログページのカレンダー
+$color-blog-calendar-open-bg: #ffffff; // 営業日背景
+$color-blog-calendar-close-bg: #efefef; // 休日背景
+$color-blog-calendar-holiday-bg: #ffffff; // 祝日背景
+$color-blog-calendar-other-bg: #f9f9f9; // 通常時
+$color-blog-calendar-bg-hover: white; // カレンダーホバー時
 
-// フォーム
-$color-form: #eeeeee;
-
-// ブログ
-$color-blog-category-label-bg: $color-main;
-$color-blog-category-label-text: white;
-
-// ブログ用見出し
-$color-blog-heading-bg: $color-main;
-
-// ブログカレンダー
-$color-blog-calendar-open-bg: #ffffff;
-$color-blog-calendar-close-bg: #efefef;
-$color-blog-calendar-holiday-bg: #ffffff;
-$color-blog-calendar-other-bg: #f9f9f9;
-$color-calendar-hover: white;
-
-// ショップ
-$color-shop-body: white;
-$color-shop-bg: #eeeeee;
-$color-shop-border: $color-border;
-$color-shop-form: #eeeeee;
-$color-shop-tag: $color-form;
-$color-shop-pager: $color-form;
-$color-shop-negative: #aaaaaa;
-$color-shop-price: #cb3d3d;
-$color-shop-purchase: $color-main;
-$color-shop-button-text: #fff;
-$color-shop-button-bg: $color-main;
+// ショップページ
+$color-shop-body: white; // 全体の背景
+$color-shop-component-bg: #eeeeee; // コンポーネントの背景
+$color-shop-input-bg: #eeeeee; // 入力欄の背景
+$color-shop-tag-bg: $color-shop-component-bg; // タグの背景
+$color-shop-negative: #aaaaaa; // 戻るボタンや非表示系
+$color-shop-price-text: #cb3d3d; // 金額
+$color-shop-button-text: #fff; // ボタンテキスト
+$color-shop-button-bg: $color-main; // ボタン背景
 
 // フォームカレンダー
-$color-form-calendar-close-bg: $color-blog-calendar-close-bg;
-$color-form-calendar-other-bg: $color-blog-calendar-other-bg;
+$color-form-calendar-close-bg: $color-blog-calendar-close-bg; // 休日背景
+$color-form-calendar-other-bg: $color-blog-calendar-other-bg; // 通常時

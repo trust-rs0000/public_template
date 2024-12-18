@@ -1,15 +1,5 @@
 @use "../forward" as *;
 
-.page-top #contents_wrap {
-  @if $have-header-margin-top == true {
-    margin-top: $header-margin-top;
-
-    @include media-max(drawer) {
-      margin-top: $header-margin-top-drawer;
-    }
-  }
-}
-
 .mv {
   position: relative;
   z-index: 0;

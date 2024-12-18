@@ -1,20 +1,9 @@
 @use "../forward" as *;
 
-// 下層用アイキャッチ
-html:not(.page-top) #contents_wrap {
-  @if $have-kaso-header-margin-top == true {
-    margin-top: $header-margin-top;
-
-    @include media-max(drawer) {
-      margin-top: $header-margin-top-drawer;
-    }
-  }
-}
-
+// 下層ページヘッダー
 .mv-sub {
   position: relative;
   z-index: 0;
-  margin-top: $header-margin-top;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -29,14 +18,6 @@ html:not(.page-top) #contents_wrap {
   );
   position: relative;
   z-index: 0;
-
-  @if $have-kaso-header-margin-top == true {
-    margin-top: $header-margin-top;
-
-    @include media-max(drawer) {
-      margin-top: $header-margin-top-drawer;
-    }
-  }
 
   &__en {
     margin-bottom: rems(20px);

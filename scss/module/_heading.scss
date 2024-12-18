@@ -75,18 +75,19 @@ h4 {
 
 @each $color, $code in $color-theme-list {
   .heading-dot-#{$color} {
-    display: flex;
-    align-items: center;
+    position: relative;
+    padding-left: 1.5em;
 
     &:before {
       content: "";
-      flex: 0 0 auto;
       display: inline-block;
-      width: rems(15px);
-      height: rems(15px);
-      margin-right: rems(15px);
+      width: 0.6em;
+      height: 0.6em;
       background-color: $code;
-      border-radius: rems(15px);
+      border-radius: 0.6em;
+      position: absolute;
+      top: 0.28em;
+      left: 0;
     }
   }
 

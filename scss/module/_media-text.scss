@@ -32,6 +32,15 @@
     }
   }
 
+  &__gallery {
+    width: 50%;
+
+    @include media-max(tab) {
+      width: 100%;
+      margin-bottom: rems(60px) !important;
+    }
+  }
+
   &__text {
     div {
       line-height: div(22.4, 16);
