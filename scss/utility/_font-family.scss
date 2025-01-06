@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// フォントファミリー
+
 .font-family-main {
   @include font-family(main, regular);
 }

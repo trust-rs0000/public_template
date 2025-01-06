@@ -1,4 +1,5 @@
-// スクロールバーのデフォルト変更
+// スクロールバー
+
 @mixin scroll-bar($width: 5px, $cThumb: #dadada) {
   &::-webkit-scrollbar {
     width: $width;

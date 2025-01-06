@@ -1,9 +1,11 @@
 @use "../forward" as *;
 
+// ラベル
+
 @each $color, $code in $color-theme-list {
   .label-#{$color} {
     display: inline-block;
-    padding: rems(7px) rems(20px);
+    padding: 0.55em 1em 0.4em;
     color: $code;
     background-color: white;
     font-size: rems(16px);

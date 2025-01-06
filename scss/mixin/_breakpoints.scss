@@ -1,5 +1,7 @@
 @use "../config/breakpoints" as *;
 
+// ブレイクポイント
+
 @mixin media-max($breakpoint) {
   $dimension: map-get(
     $map: $breakpoints,

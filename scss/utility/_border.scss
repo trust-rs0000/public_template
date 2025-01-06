@@ -1,0 +1,17 @@
+@use "../forward" as *;
+
+// ボーダー色
+
+$type-list: "solid", "dotted", "double";
+
+@each $color, $code in $color-theme-list {
+  @each $type in $type-list {
+    $code: if($code == "", #333, $code);
+
+    @for $i from 1 through 4 {
+      .border-#{$color}-#{$i} {
+        border: #{$i}px solid $code;
+      }
+    }
+  }
+}

@@ -1,5 +1,8 @@
 @use "../forward" as *;
 
+// フッター
+
+// トップページを除いたトップページは、上方向に余白
 html:not(.page-top) footer#global_footer {
   margin-top: rems(100px);
 

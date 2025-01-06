@@ -43,25 +43,6 @@
   }
 }
 
-// カード型(見出し・テキスト)
-.flex-card {
-  .box {
-    & > article > img {
-      width: 100% !important;
-    }
-
-    & > article > h3 {
-      margin-top: rems(15px);
-      font-size: rems(22px);
-      text-align: center;
-    }
-
-    & > article > div {
-      margin-top: rems(12px);
-    }
-  }
-}
-
 // スライダー(slick使用)
 .flex-slider {
   display: block !important;
@@ -116,20 +97,14 @@
 .flex-checkbox {
   .box {
     display: flex;
-    width: 100%;
     align-items: center;
-    margin-bottom: rems(15px);
     overflow: visible !important;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
 
     & > div {
       @include font-family(base, medium);
       font-size: rems(20px);
       line-height: 1.2;
-      padding-left: rems(30px);
+      padding-left: 2em;
       position: relative;
 
       &:before {
@@ -222,7 +197,7 @@
 // タグ
 .flex-tag {
   .box {
-    padding: rems(8px) rems(10px);
+    padding: 0.7em 0.8em 0.5em;
     background-color: $color-main;
     border-radius: rems(4px);
     text-align: center;
@@ -234,7 +209,8 @@
       height: 100%;
       color: white;
       @include font-family(base, medium);
-      font-size: rems(13px);
+      font-size: rems(14px);
+      line-height: 1.2;
     }
   }
 }
@@ -322,34 +298,6 @@
     & > div {
       flex: 1 0 0;
     }
-  }
-}
-
-//
-.flex-cta {
-  &__link {
-    display: block;
-    padding: rems(56px) rems(40px) rems(52px);
-    background-color: white;
-    text-align: center;
-    text-decoration: none;
-    position: relative;
-    z-index: 0;
-
-    &:link,
-    &:visited {
-      color: $color-text;
-    }
-  }
-
-  &__image {
-    display: inline-block;
-    margin-bottom: rems(12px);
-  }
-
-  &__text {
-    @include font-family(base, medium);
-    font-size: rems(20px);
   }
 }
 

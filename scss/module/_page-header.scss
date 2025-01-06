@@ -1,0 +1,21 @@
+@use "../forward" as *;
+
+// 下層ページヘッダー
+
+.page-header {
+  position: relative;
+  z-index: 0;
+
+  &__en {
+    margin-bottom: rems(20px);
+    color: $color-main;
+    @include font-family(accent, medium);
+    font-size: rems(60px);
+    line-height: 1;
+  }
+
+  &__ja {
+    font-size: rems(18px);
+    @include font-family(main, medium);
+  }
+}

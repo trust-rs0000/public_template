@@ -1,6 +1,7 @@
 @use "sass:math" as *;
 
 // アスペクト比
+
 @mixin aspect-ratio($width: 4, $height: 3) {
   position: relative;
   display: block;
@@ -22,7 +23,5 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: 100% !important;
-    height: 100% !important;
   }
 }

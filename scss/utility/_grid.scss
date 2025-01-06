@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// グリッドシステム
+
 @for $col from 1 through 12 {
   @each $dimension, $breakpoint in $breakpoints {
     $infix: if($breakpoint == 0px, null, -#{$dimension});
@@ -20,7 +22,7 @@
       }
     }
 
-    // blog
+    // blogブロック・グリッドシステム
     .blog#{$infix}-#{$col} {
       --gutter-x: 0px;
       --gutter-y: 0px;
@@ -39,7 +41,7 @@
       }
     }
 
-    // sns
+    // snsブロック・グリッドシステム
     .sns#{$infix}-#{$col} {
       --gutter-x: 0px;
       --gutter-y: 0px;

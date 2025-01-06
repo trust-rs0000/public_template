@@ -1,3 +1,5 @@
+// バックグランド
+
 .bg-repeat-no {
   background-repeat: no-repeat;
 }
@@ -12,43 +14,4 @@
 
 .bg-position-center {
   background-position: center;
-}
-
-.bg-overlay-black {
-  position: relative;
-  z-index: 0;
-
-  &:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(black, 0.3);
-    z-index: -1;
-  }
-}
-
-.bg-linear {
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 55%,
-    rgba(235, 235, 235, 1) 55%,
-    rgba(235, 235, 235, 1) 100%
-  );
-}
-
-.bg-linear2 {
-  background: rgb(235, 235, 235);
-  background: linear-gradient(
-    180deg,
-    rgba(235, 235, 235, 1) 0%,
-    rgba(235, 235, 235, 1) 46%,
-    rgba(255, 255, 255, 1) 46%,
-    rgba(255, 255, 255, 1) 100%
-  );
 }

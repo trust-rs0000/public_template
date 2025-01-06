@@ -177,3 +177,8 @@ window.addEventListener("load", function () {
     }
   });
 });
+
+// カスタム記述
+window.addEventListener("DOMContentLoaded", function () {
+  // 追加で記述する際はここから記載してください
+});

@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// カード型
+
 .card {
   &__price {
     & > div {

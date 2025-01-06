@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// マーカー
+
 @each $color, $code in $color-theme-list {
   $code: if($code == "", #333, $code);
 

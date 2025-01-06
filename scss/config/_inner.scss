@@ -1,13 +1,13 @@
-// inner-size
-$inner-size: 1280px;
-$inner-size-bp1200: 1000px;
-$inner-size-bp1000: 834px;
-$inner-size-tab: 640px;
-$inner-size-sp: 375px;
+// インナーサイズ
+$inner-size: 1280px; // 1200px以上のときのインナーサイズ
+$inner-size-bp1200: 1000px; // 1200px以下のときのインナーサイズ
+$inner-size-bp1000: 834px; // 834px以下のときのインナーサイズ
+$inner-size-tab: 640px; // 640px以下のときのインナーサイズ
+$inner-size-sp: 375px; // 375px以下のときのインナーサイズ
 
 // inner-padding
-$inner-padding: 40px;
-$inner-padding-sp: 20px;
+$inner-padding: 40px; // 画面サイドの余白
+$inner-padding-sp: 20px; // 画面サイドの余白(sp時)
 
 $inners: (
   600: 600px,

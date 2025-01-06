@@ -1,9 +1,3 @@
-// letter-spacing
-$letter-spacing: 0.06em;
-
-// line-height
-$line-height: 1.6;
-
 // z-index
 $z-fixed: 800;
 $z-header: 900;
@@ -16,14 +10,14 @@ $transition-duration: 0.4s;
 
 // 固定ヘッダー用マージン
 // ヘッダーとコンテンツが被らないようにするためのマージン
-$have-header-margin-top: false;
-
-$header-contact-margin-top: 220px;
-$header-contact-margin-top-drawer: 110px;
-$header-margin-top: 90px;
-$header-margin-top-drawer: 78px;
-$header-blog-margin-top: $header-contact-margin-top;
-$header-blog-margin-top-drawer: $header-contact-margin-top-drawer;
+$have-header-margin-top: false; // trueにすると#contents_wrapの上方向にマージントップを付ける
+$header-contact-margin-top: 220px; // お問い合わせページのマージントップ
+$header-contact-margin-top-drawer: 110px; // お問い合わせページのマージントップ(drawerブレイクポイント時)
+$header-margin-top: 90px; // 全ページのマージントップ
+$header-margin-top-drawer: 78px; // 全ページのマージントップ(drawerブレイクポイント時)
+$header-margin-top-sp: 78px; // 全ページのマージントップ(spブレイクポイント時)
+$header-blog-margin-top: $header-contact-margin-top; // ブログページのマージントップ
+$header-blog-margin-top-drawer: $header-contact-margin-top-drawer; // ブログページのマージントップ(drawerブレイクポイント時)
 
 // サイドバー使用時、trueにする
 $has-sidebar: false;

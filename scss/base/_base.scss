@@ -12,12 +12,93 @@ html {
 
 body {
   color: $color-text;
-  background-color: $color-body-bg;
+  background-color: $color-base;
   font-size: inherit;
-  @include font-family($font-family-base, $font-weight-base);
   letter-spacing: $letter-spacing;
   line-height: $line-height;
   overflow-x: hidden;
+}
+
+// bxi.css上書き用
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  @include font-family($font-family-base, $font-weight-base);
 }
 
 body *:not(i, b) {
@@ -28,16 +109,21 @@ body *:not(i, b) {
 }
 
 #contents {
-  background-color: $color-body-bg;
+  background-color: $color-base;
 }
 
 // 固定ヘッダー用マージン
+// ヘッダーとコンテンツが被らないようにするためのマージン
 #contents_wrap {
   @if $have-header-margin-top == true {
     margin-top: $header-margin-top;
 
     @include media-max(drawer) {
       margin-top: $header-margin-top-drawer;
+    }
+
+    @include media-max(sp) {
+      margin-top: $header-margin-top-sp;
     }
   }
 }

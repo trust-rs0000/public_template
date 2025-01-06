@@ -1,7 +1,8 @@
 @use "../forward" as *;
 
-// dpdn = dropdown
-%dpdn-reset {
+// ドロップダウン
+
+%dropdown-reset {
   .dropdown {
     &__list {
       list-style: none;
@@ -10,7 +11,7 @@
 }
 
 .dropdown {
-  @extend %dpdn-reset;
+  @extend %dropdown-reset;
   position: relative;
   z-index: 0;
 

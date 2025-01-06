@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// 水平方向の配置
+
 @each $dimension, $breakpoint in $breakpoints {
   $infix: if($breakpoint == 0px, null, -#{$dimension});
 }

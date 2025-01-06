@@ -1,8 +1,11 @@
 @use "../forward" as *;
 
+// 改行
+
 @each $dimension, $breakpoint in $breakpoints {
   $infix: if($breakpoint == 0px, null, -#{$dimension});
 
+  // $infix以下の場合、改行される
   .br-max#{$infix} {
     display: none;
 
@@ -11,6 +14,7 @@
     }
   }
 
+  // $infix以上の場合、改行される
   .br-min#{$infix} {
     display: none;
 

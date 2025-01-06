@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// 見出し
+
 h1 {
   font-size: rems($font-size-h1);
   @include font-family($font-family-h1, $font-weight-h1);

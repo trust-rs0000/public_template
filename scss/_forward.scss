@@ -1,23 +1,24 @@
 @forward "sass:math";
 
 // 設定
-@forward "./config/breakpoints";
-@forward "./config/color";
-@forward "./config/font-family";
-@forward "./config/global";
-@forward "./config/inner";
-@forward "./config/size";
+@forward "./config/breakpoints"; // ブレイクポイント
+@forward "./config/color"; // テーマカラー
+@forward "./config/font"; // 文字組み
+@forward "./config/font-family"; // フォントファミリー
+@forward "./config/font-size"; // フォントサイズ
+@forward "./config/global"; // その他変数
+@forward "./config/inner"; // インナーサイズ
 
 // mixin
-@forward "./mixin/aspect-ratio";
-@forward "./mixin/breakpoints";
-@forward "./mixin/font-family";
-@forward "./mixin/size";
-@forward "./mixin/grid";
-@forward "./mixin/inner";
-@forward "./mixin/keyframe";
-@forward "./mixin/mixin";
-@forward "./mixin/scroll-bar";
+@forward "./mixin/aspect-ratio"; // アスペクト比
+@forward "./mixin/breakpoints"; // ブレイクポイント
+@forward "./mixin/font-family"; // フォントファミリー
+@forward "./mixin/size"; // サイズ単位
+@forward "./mixin/grid"; // グリッドシステム
+@forward "./mixin/inner"; // インナーサイズ
+@forward "./mixin/keyframe"; // キーフレーム
+@forward "./mixin/mixin"; // 先輩から引き継いだmixin(使ってないけど一応)
+@forward "./mixin/scroll-bar"; // スクロールバー
 
 // keyframe
-@forward "./keyframes/fadein";
+@forward "./keyframes/fadein"; // フェードイン

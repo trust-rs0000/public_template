@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// インナーサイズ
+
 // 親のwidthはみ出して表示する。
 .inner-full {
   margin-right: calc(50% - 50vw) !important;

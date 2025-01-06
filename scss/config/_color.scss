@@ -1,17 +1,17 @@
 // サイトカラー設定
 
-// ベースカラー
+// ベースカラー(サイト背景色)
 $color-base: white;
 
 // メインカラー
-$color-main: "";
-$color-main-deep: "";
-$color-main-light: "";
+$color-main: transparent;
+$color-main-deep: darken($color-main, 10%);
+$color-main-light: lighten($color-main, 10%);
 
 // アクセントカラー
-$color-accent: "";
-$color-accent-deep: "";
-$color-accent-light: "";
+$color-accent: transparent;
+$color-accent-deep: darken($color-accent, 10%);
+$color-accent-light: lighten($color-accent, 10%);
 
 // カスタム
 $color-custom-1: "";
@@ -23,12 +23,10 @@ $color-custom-5: "";
 // 各カラー
 $color-grey: #aaaaaa;
 $color-grey-light: #f2f2f2;
-
-// サイト背景
-$color-body-bg: white;
+$color-yellow: #ffd725;
 
 // テキストカラー
-$color-text: "";
+$color-text: #222222;
 
 // ワーニングカラー
 $color-warn: red;
@@ -43,6 +41,7 @@ $color-mail: $color-main;
 $color-theme-list: (
   main: $color-main,
   accent: $color-accent,
+  yellow: $color-yellow,
 );
 
 // サイト全体のボーダー

@@ -3,6 +3,9 @@
 @use "../config/inner" as *;
 @use "../config/breakpoints" as *;
 
+// インナーサイズ
+
+// 1200px以下の時、インナーサイズを$inner-size-bp1200に固定する。
 @mixin inner-fixed-max-bp1200($max-width) {
   @include media-max(bp1200) {
     @if $max-width > $inner-size-bp1200 {
@@ -34,18 +37,18 @@
     } @else {
       max-width: $max-width;
     }
-    padding-right: em($inner-padding-sp, 16);
-    padding-left: em($inner-padding-sp, 16);
+    padding-right: rems($inner-padding-sp);
+    padding-left: rems($inner-padding-sp);
   }
 }
 
 // インナーサイズを設定する。
-@mixin inner($max-width, $padding: $inner-padding) {
-  max-width: calc($max-width + ($padding * 2));
-  margin-left: auto !important;
+@mixin inner($max-width) {
+  max-width: calc($max-width + (rems($inner-padding) * 2));
   margin-right: auto !important;
-  padding-right: em($padding, 16);
-  padding-left: em($padding, 16);
+  margin-left: auto !important;
+  padding-right: rems($inner-padding);
+  padding-left: rems($inner-padding);
 
   @include inner-fixed-max-bp1200($max-width);
 }

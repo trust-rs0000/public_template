@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// ボーダー角丸
+
 .border-radius-small {
   border-radius: rems(5px);
 }

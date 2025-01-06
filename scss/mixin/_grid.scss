@@ -1,5 +1,7 @@
 @use "sass:math" as *;
 
+// グリッドシステム
+
 @mixin flex($gutter-x, $gutter-y, $col) {
   flex: 0 0 calc((100% - (var($gutter-x)) * ($col - 1)) / $col);
   margin-right: var(--gutter-x);

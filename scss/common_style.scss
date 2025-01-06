@@ -3,17 +3,18 @@
 @use "base/base"; // リブート
 
 // ユーティリティクラス
-@use "utility/aspect-rario"; // アスペクト比
 @use "utility/border-radius"; // border-radius
+@use "utility/border"; // border
 @use "utility/background"; // バックグラウンド
 @use "utility/br"; // 改行
+@use "utility/display"; // 表示・非表示
 @use "utility/font-family"; // フォントファミリー
 @use "utility/grid"; // グリッドレイアウト
 @use "utility/inner"; // インナー
-@use "utility/line-height"; // line-height
-@use "utility/letter-spacing"; // letter-spacing
+@use "utility/line-height"; // 行間
+@use "utility/letter-spacing"; // 字間
 @use "utility/marker"; // マーカー
-@use "utility/text-align"; // text-align
+@use "utility/text-align"; // 水平方向の配置
 
 // ブロック用クラス(ブロック単体で実現できるデザインのCSS)
 // @use "block/blog"; // ブログ
@@ -39,8 +40,8 @@
 @use "module/media-text"; // メディア型レイアウト
 @use "module/megaphone"; // メガホン
 @use "module/mv"; // メインビジュアル
-@use "module/mv-sub"; // ページヘッダー
-@use "module/nav"; // ナビゲーション
+@use "module/nav"; // ヘッダーナビゲーション
+@use "module/page-header"; // ページヘッダー
 
 // 全ページ共通のパーツ用CSS
 @use "includes/header"; // ヘッダー

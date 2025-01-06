@@ -1,5 +1,29 @@
 @use "../forward" as *;
 
+// メディア型
+
+%media-text {
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    @include media-max(tab) {
+      display: block;
+    }
+  }
+
+  &__image {
+    @include media-max(tab) {
+      width: 100%;
+    }
+
+    img {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+}
+
 .media-text {
   &__inner {
     display: flex;
@@ -41,26 +65,64 @@
     }
   }
 
-  &__text {
-    div {
-      line-height: div(22.4, 16);
+  &--reverse & {
+    &__inner {
+      flex-direction: row-reverse;
+    }
+
+    &__wrapper {
+      margin-left: 0;
+      margin-right: rems(50px);
+
+      @include media-max(tab) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.media-text-overlap {
+  &__inner {
+    @extend %media-text__inner;
+  }
+
+  &__wrapper {
+    flex: 0 0 percentage(div(650, 1200));
+    margin-right: rems(-50px);
+    padding: rems(60px) rems(50px);
+    background-color: white;
+    box-shadow: 4px 4px 6px 0 rgba(black, 0.08);
+    border-radius: rems(20px);
+    position: relative;
+    z-index: 1;
+
+    @include media-max(tab) {
+      width: calc(100% - rems(40px));
+      margin-top: rems(-30px);
+      margin-right: auto;
+      margin-left: auto;
+      padding: rems(60px) rems(30px);
     }
   }
 
-  &--reverse {
-    .media-text {
-      &__inner {
-        flex-direction: row-reverse;
-      }
+  &__image {
+    @extend %media-text__image;
 
-      &__wrapper {
-        margin-left: 0;
-        margin-right: rems(50px);
+    flex: 0 0 percentage(div(650, 1200));
+    margin-left: rems(-50px);
 
-        @include media-max(tab) {
-          margin-right: 0;
-        }
-      }
+    @include media-max(tab) {
+      margin-left: 0;
+    }
+
+    & > img {
+      border-radius: rems(20px);
+    }
+  }
+
+  &--reverse & {
+    &__inner {
+      flex-direction: row-reverse;
     }
   }
 }

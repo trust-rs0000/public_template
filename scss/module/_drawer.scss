@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// ドロワー
+
 .drawer {
   @include media-min(drawer) {
     display: block !important;

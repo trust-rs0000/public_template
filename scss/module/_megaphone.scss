@@ -1,5 +1,7 @@
 @use "../forward" as *;
 
+// メガフォン
+
 @each $name, $code in $color-theme-list {
   $code: if($code == "", #333, $code);
 
@@ -10,19 +12,19 @@
     &:before,
     &:after {
       content: "";
-      width: rems(4px);
-      height: rems(45px);
+      width: 0.2em;
+      height: 2.5em;
       border-radius: 100vh;
       background-color: $code;
     }
 
     &:before {
-      margin-right: rems(18px);
+      margin-right: 1.2em;
       transform: rotate(-15deg);
     }
 
     &:after {
-      margin-left: rems(18px);
+      margin-left: 1.2em;
       transform: rotate(15deg);
     }
   }
