@@ -17,6 +17,16 @@
     background-color: $color-header-bg-drawer !important;
   }
 
+  @at-root .js-scrolled-header & {
+    background-color: lighten($color-header-bg-scroll, 10%);
+    transition: $transition-duration;
+
+    @include media-max(drawer) {
+      padding: rems(15px) rems(20px);
+      background-color: $color-header-bg-scroll;
+    }
+  }
+
   &__inner {
     display: flex;
     align-items: center;
@@ -28,16 +38,6 @@
 
     @include media-max(drawer) {
       margin-right: 0;
-    }
-  }
-
-  @at-root .js-scrolled-header & {
-    background-color: lighten($color-header-bg-scroll, 10%);
-    transition: $transition-duration;
-
-    @include media-max(drawer) {
-      padding: rems(15px) rems(20px);
-      background-color: $color-header-bg-scroll;
     }
   }
 }
