@@ -1,6 +1,7 @@
 @use "../forward" as *;
 
-// snsのリセット
+// instagram連動
+
 %sns-reboot {
   .sns_list {
     border: none;
@@ -40,10 +41,12 @@
   }
 }
 
+// BXIのCSSを打ち消した状態
 .sns {
   @extend %sns-reboot;
 }
 
+// 画像のみ
 .sns-image {
   @extend %sns-reboot;
 
@@ -62,62 +65,39 @@
   }
 }
 
-.sns-gallery {
-  @extend %sns-reboot;
-
-  --gutter-y: 60px;
-
-  .sns_list {
-    & > div {
-      display: block;
-    }
-
-    .sns_photo {
-      margin-bottom: rems(15px);
-
-      & > a {
-        @include aspect-ratio(1, 1);
-      }
-
-      img {
-        object-fit: cover;
-      }
-    }
-
-    .sns_date {
-      margin-bottom: rems(5px);
-      color: $color-main;
-      font-size: rems(24px);
-      @include font-family(main, medium);
-    }
-
-    .sns_text {
-      font-size: rems(16px);
-    }
-  }
-}
-
+// カード型
 .sns-card {
   @extend %sns-reboot;
 
-  @include media-max(sp) {
-    --gutter-y: 40px;
-  }
-
   .sns_list {
     & > div {
       display: block;
+      overflow: hidden;
 
       .sns_photo {
-        margin-bottom: rems(18px);
-
         & > a {
-          @include aspect-ratio(1, 1);
+          @include aspect-ratio(1, 1) {
+            & > :first-child {
+              width: 100% !important;
+              height: 100% !important;
+            }
+          }
         }
       }
 
+      .sns_text {
+        padding: rems(15px) rems(15px) rems(20px);
+      }
+
       .sns_date {
-        display: none;
+        color: $color-main-2;
+        @include font-family(accent, medium);
+        font-size: rems(14px);
+      }
+
+      .caption {
+        color: $color-main-2;
+        font-size: rems(14px);
       }
     }
   }

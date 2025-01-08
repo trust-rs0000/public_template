@@ -2,8 +2,8 @@
 
 // フッター
 
-// トップページを除いたトップページは、上方向に余白
-html:not(.page-top) footer#global_footer {
+// 上方向に余白
+footer#global_footer {
   margin-top: rems(100px);
 
   @include media-max(tab) {

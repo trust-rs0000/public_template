@@ -30,5 +30,5 @@
 // @param 変換する数値(px)
 // @param 分母の数値(px)
 @function vw($size, $base-size: $font-size-denominator) {
-  @return div(strip-unit($size), strip-unit($base-size)) * 100vw;
+  @return div(strip-unit($size), strip-unit($base-size)) * 1vw;
 }

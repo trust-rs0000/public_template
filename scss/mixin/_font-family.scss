@@ -7,6 +7,7 @@
   font-weight: map-get($font-weights, $weight);
 }
 
+// font-awesome
 @mixin font-awesome($uni, $type: solid) {
   $style: --fa-font-solid;
 
@@ -16,5 +17,12 @@
 
   content: $uni;
   font: var($style);
+  line-height: 1;
+}
+
+// line-awesome
+@mixin line-awesome($uni) {
+  content: $uni;
+  font-family: "Line Awesome Free";
   line-height: 1;
 }

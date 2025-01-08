@@ -3,9 +3,13 @@
 // 行間
 
 .line-height-1_4 {
-  line-height: 1.4;
+  * {
+    line-height: 1.4;
+  }
 }
 
 .line-height-2 {
-  line-height: 2;
+  * {
+    line-height: 2;
+  }
 }

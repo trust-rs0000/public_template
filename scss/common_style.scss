@@ -21,8 +21,8 @@
 @use "block/dl"; // dl
 @use "block/flexbox"; // flexbox
 @use "block/form"; // フォーム
-// @use 'block/shop'; // ショップ
-// @use "block/sns"; // SNS
+@use "block/shop"; // ショップ
+@use "block/sns"; // SNS
 @use "block/table"; // テーブル
 @use "block/ul"; // ul
 
@@ -52,5 +52,5 @@
 @use "page/policy"; // プライバシーポリシー
 @use "page/style"; // 下層ページ(page/conceptのようにファイルに分けてもらっても大丈夫です)
 @use "page/page-form"; // フォームページ(送信エラー、送信確認ページ等)
-// @use "page/page-blog"; // ブログページ
-// @use 'page/page-shop'; // ショップページ
+@use "page/page-blog"; // ブログページ
+@use "page/page-shop"; // ショップページ

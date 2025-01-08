@@ -96,10 +96,10 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // ぱんくず
   // クラス名を変更して使用してください。
-  const BREADCRUMB_NODE = document.querySelector(".mv-sub h1");
+  const BREADCRUMB_NODE = document.querySelector(".page-header h1");
   if (BREADCRUMB_NODE) {
     const breadcrumb = new Breadcrumb(BREADCRUMB_NODE);
-    breadcrumb.displayBreadCrumb("HOME");
+    breadcrumb.displayBreadCrumb("ホーム");
   }
 
   // アコーディオン
@@ -148,7 +148,7 @@ window.addEventListener("DOMContentLoaded", function () {
     SNS_LIST.forEach(function (sns) {
       const SNS_TEXT = sns.querySelector(".caption");
       const textSpliter = new Text(SNS_TEXT);
-      textSpliter.split(220);
+      textSpliter.split(30);
     });
   }
 

@@ -2,6 +2,7 @@
 
 // フロー
 
+// 番号付き
 .flow {
   counter-reset: flow 0;
 
@@ -123,56 +124,42 @@
   }
 }
 
-// 画像矢印フロー
-.flow-image-arrow {
+// https://cosmoquark-int.co.jp/eyewave.html
+// 横並びフロー(矢印画像使用)
+.flow-row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 
-  @include media-max(sp) {
+  @include media-max(tab) {
     display: block;
   }
 
-  &__image {
-    & > img {
-      width: 100% !important;
-      height: auto !important;
-      border-radius: rems(10px);
-    }
-
-    & > div {
-      margin-top: rems(15px);
-      @include font-family(base, semibold);
-      font-size: rems(18px);
-      line-height: 1.2;
-    }
+  &__item {
+    margin-bottom: rems(15px);
   }
 
   &__arrow {
-    margin-right: rems(15px);
-    margin-bottom: rems(20px);
-    margin-left: rems(15px);
+    margin-right: rems(20px);
+    margin-bottom: rems(15px);
+    margin-left: rems(20px);
 
-    @include media-max(sp) {
-      margin-top: rems(25px);
-      margin-right: 0;
-      margin-bottom: rems(28px);
-      margin-left: 0;
-    }
+    img {
+      width: rems(30px) !important;
+      height: auto !important;
 
-    & > div {
-      @include media-max(sp) {
-        text-align: center !important;
-      }
-
-      &:before {
-        @include font-awesome("\f061");
-        color: $color-main;
-        font-size: rems(20px);
-
-        @include media-max(sp) {
-          @include font-awesome("\f063");
-        }
+      @include media-max(tab) {
+        transform: rotate(90deg);
       }
     }
   }
+}
+
+.flow-row-item {
+  padding: rems(15px) rems(20px) rems(13px);
+  background-color: white;
+  font-size: rems(17px);
+  border: 1px solid $color-main-2;
+  border-radius: rems(5px);
 }
