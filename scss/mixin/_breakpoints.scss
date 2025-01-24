@@ -8,7 +8,7 @@
     $key: $breakpoint,
   );
 
-  @media (max-width: #{$dimension}) {
+  @media (max-width: calc(#{$dimension} - 0.02px)) {
     @content;
   }
 }
@@ -35,7 +35,7 @@
     $key: $breakpoint-max,
   );
 
-  @media (min-width: #{$dimension-min}) and (max-width: #{$dimension-max}) {
+  @media (min-width: #{$dimension-min}) and (max-width: #{$dimension-max - 0.02px}) {
     @content;
   }
 }
