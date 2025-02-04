@@ -831,7 +831,9 @@ div.error {
   }
 
   button.addcart {
+    display: block;
     margin-bottom: rems(20px);
+    margin-left: auto;
   }
 
   .addcart > a {

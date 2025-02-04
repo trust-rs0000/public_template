@@ -68,9 +68,17 @@
     color: $color-text;
   }
 
+  &--large:before {
+    font-size: rems(18px);
+  }
+
   &__text {
     @include font-family(main, medium);
     font-size: rems(18px);
+  }
+
+  &--large &__text {
+    font-size: rems(21px);
   }
 }
 
@@ -94,8 +102,16 @@
     color: $color-text;
   }
 
+  &--large:before {
+    font-size: rems(18px);
+  }
+
   &__text {
     @include font-family(base, medium);
     font-size: rems(17px);
+  }
+
+  &--large &__text {
+    font-size: rems(21px);
   }
 }

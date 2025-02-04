@@ -138,6 +138,15 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // スクロール時、バイリンガルにクラス付与
+  const BUILINGUAL = this.document.querySelector("#builingual");
+  if (BUILINGUAL) {
+    const HEADER_SCROLLER = new Scroller(BUILINGUAL);
+    HEADER_SCROLLER.scrolled({
+      className: "js-scrolled",
+    });
+  }
+
   // スムーズスクロール
   const smoothScroller = new SmoothScroller(HEADER, 20);
   smoothScroller.smoothScroll();

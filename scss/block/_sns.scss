@@ -90,13 +90,13 @@
       }
 
       .sns_date {
-        color: $color-main-2;
+        color: $color-main;
         @include font-family(accent, medium);
         font-size: rems(14px);
       }
 
       .caption {
-        color: $color-main-2;
+        color: $color-main;
         font-size: rems(14px);
       }
     }
