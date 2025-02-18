@@ -19078,11 +19078,13 @@ select {
 }
 .form_wrap.dl-news::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 .form_wrap.dl-news::-webkit-scrollbar-track {
   background-color: transparent;
 }
 .form_wrap.dl-news::-webkit-scrollbar-thumb {
+  width: 3px;
   background-color: #dadada;
   border-radius: 5px;
 }
@@ -19317,6 +19319,29 @@ select {
   width: 100%;
   min-width: 0;
   line-height: 1.6;
+}
+
+.flex-card .box {
+  padding: 0.9375rem 0.9375rem 1.875rem;
+  background-color: white;
+}
+.flex-card .box > article > img {
+  width: 100% !important;
+  height: auto !important;
+  margin-bottom: 1.25rem;
+}
+.flex-card .box > article > h3 {
+  margin-bottom: 0.625rem;
+  font-family: Noto Sans JP, sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 1.2;
+}
+@media (max-width: calc(1200px - 0.02px)) {
+  .flex-card .box > article > h3 {
+    font-size: 1.125rem;
+  }
 }
 
 .flex-caption .box > article > h3 {
@@ -19588,32 +19613,6 @@ select {
   flex: 1 0 0;
 }
 
-.flex-voice .box {
-  padding: 1.875em 1.25em;
-  background-color: white;
-}
-.flex-voice__title {
-  margin-bottom: 0.6666666667em;
-  padding-bottom: 0.5555555556em;
-  font-size: 1.125rem;
-  font-weight: bold;
-  border-bottom: 1px solid transparent;
-}
-.flex-voice__text {
-  margin-bottom: 0.625rem;
-}
-.flex-voice__user {
-  color: transparent;
-  font-size: 0.875rem;
-  text-align: right;
-}
-.flex-voice__user:before {
-  margin-right: 7px;
-  content: "\f007";
-  font: var(--fa-font-solid);
-  line-height: 1;
-}
-
 .form.form_wrap select,
 .form.form_wrap input,
 .form.form_wrap textarea,
@@ -19658,6 +19657,9 @@ select {
 .form.form_wrap .addr > div:last-of-type,
 .form.form_wrap .email > div:last-of-type {
   margin-bottom: 0;
+}
+.form.form_wrap .date .date {
+  display: flex;
 }
 .form.form_wrap .date .date > div {
   display: inline-flex;
@@ -19706,6 +19708,11 @@ select {
 }
 .form.form_wrap .addr .addr > div:first-child {
   align-items: center;
+}
+.form.form_wrap .addr .addr > div:first-child > input {
+  width: auto !important;
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 .form.form_wrap .addr .addr > div:nth-child(2) > select {
   margin-bottom: 0;
@@ -20413,11 +20420,13 @@ div#builingual .switch #cmn-toggle-1:checked + label span:after {
   }
   .drawer::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
   }
   .drawer::-webkit-scrollbar-track {
     background-color: transparent;
   }
   .drawer::-webkit-scrollbar-thumb {
+    width: 3px;
     background-color: #dadada;
     border-radius: 5px;
   }
@@ -20714,7 +20723,7 @@ div#builingual .switch #cmn-toggle-1:checked + label span:after {
 }
 
 .hamburger {
-  width: 2.5rem;
+  width: 2.1875rem;
   height: 1.875rem;
   position: relative;
   z-index: 1100;

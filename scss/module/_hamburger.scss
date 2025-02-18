@@ -9,7 +9,7 @@
 
 .hamburger {
   @extend %hamburger-reboot;
-  width: rems(40px);
+  width: rems(35px);
   height: rems(30px);
   position: relative;
   z-index: $z-hamburger;

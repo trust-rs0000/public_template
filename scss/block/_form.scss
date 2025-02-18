@@ -69,6 +69,8 @@
 
   .date {
     .date {
+      display: flex;
+
       & > div {
         display: inline-flex;
         align-items: center;
@@ -140,6 +142,11 @@
       & > div {
         &:first-child {
           align-items: center;
+
+          & > input {
+            width: auto !important;
+            min-width: max-content;
+          }
         }
 
         &:nth-child(2) {
