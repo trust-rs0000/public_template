@@ -4,14 +4,14 @@
 
 .policy {
   h2 {
-    margin-bottom: em(8, 18);
-    padding-bottom: em(8, 18);
+    margin-bottom: rems(9px);
+    padding-bottom: rems(7px);
     font-size: rems(18px);
     border-bottom: 1px solid $color-border;
-    @include font-family(base, medium);
+    @include font-family($font-family-h1, $font-weight-h1);
   }
 
   p {
-    margin-bottom: rems(60px);
+    margin-bottom: rems(40px);
   }
 }

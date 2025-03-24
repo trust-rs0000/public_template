@@ -16,9 +16,5 @@
 @forward "./mixin/size"; // サイズ単位
 @forward "./mixin/grid"; // グリッドシステム
 @forward "./mixin/inner"; // インナーサイズ
-@forward "./mixin/keyframe"; // キーフレーム
 @forward "./mixin/mixin"; // 先輩から引き継いだmixin(使ってないけど一応)
 @forward "./mixin/scroll-bar"; // スクロールバー
-
-// keyframe
-@forward "./keyframes/fadein"; // フェードイン

@@ -4,25 +4,29 @@
 export default class BreadCrumb {
   /**
    *
-   * @param {node} h1Element h1要素
+   * @param {text} topText トップページへのテキスト
+   * @param {text} divider ぱんくずの区切り文字
+   * @param {text} h1Text 現在ページのテキスト
    */
-  constructor(h1Element) {
-    try {
-      if (!h1Element) {
-        throw new Error("ERROR: h1 is null");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  constructor({
+    topText = "トップページへ",
+    divider = "/",
+    h1Text = document.querySelector(".page-header h1").textContent,
+  } = {}) {
+    // フロントページへのURL
+    this.topURL = `https://${location.host}`;
 
-    // ぱんくずの現在ページとして表示する文字列
-    this.h1Text = h1Element;
+    // フロントページのテキスト
+    this.topText = topText;
+
+    // 区切り文字
+    this.divider = divider;
 
     // 現在のURL
     this.currentURL = location.href;
 
-    // フロントページへのURL
-    this.topURL = `https://${location.host}`;
+    // ぱんくずの現在ページとして表示する文字列
+    this.h1Text = h1Text;
 
     const panElement = document.querySelector("pan");
 
@@ -42,29 +46,23 @@ export default class BreadCrumb {
    * ぱんくずを表示します。
    * @param {string} topText トップページ用のテキスト
    */
-  displayBreadCrumb(topText = "トップページへ") {
+  displayBreadCrumb() {
     try {
-      // トップページのリンクテキストを設定
-      const HOME_TEXT = topText;
-
-      // 現在のh1テキストからリンクテキストを設定
-      const H1_TEXT = this.h1Text.textContent;
-
       const BREADCRUMB_HTML = `
-      <ul class="breadcrumb" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList" class="pankuzu">
+      <ul class="breadcrumb__list" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
           <li class="breadcrumb__li" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
               <meta itemprop="position" content="1">
               <a class="breadcrumb__link" itemprop="item" itemscope="itemscope" itemtype="http://schema.org/Thing" href="${this.topURL}" itemid="${this.topURL}">
-                  <meta itemprop="name" content="${HOME_TEXT}">
-                  ${HOME_TEXT}
+                  <meta itemprop="name" content="${this.topText}">
+                  ${this.topText}
               </a>
           </li>
-          <li class="breadcrumb__divide"><i class="fa-solid fa-angle-right"></i></li>
+          <li class="breadcrumb__divide">${this.divider}</li>
           <li class="breadcrumb__li" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem" class="kasou">
               <meta itemprop="position" content="2">
               <a class="breadcrumb__link" itemprop="item" itemscope="itemscope" itemtype="http://schema.org/Thing" href="${this.currentURL}" itemid="${this.currentURL}">
-                  <meta itemprop="name" content="${H1_TEXT}">
-                  ${H1_TEXT}
+                  <meta itemprop="name" content="${this.h1Text}">
+                  ${this.h1Text}
               </a>
           </li>
       </ul>

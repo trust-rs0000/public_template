@@ -85,13 +85,13 @@
     />
     <script src="https://unpkg.com/scroll-hint@1.1.10/js/scroll-hint.js"></script>
 
+    <!-- smooth-scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+
     <!-- gsap -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <!-- プラグイン end -->
 
     <!-- メインjs -->
@@ -137,7 +137,7 @@
             class="header-logo header__logo"
           >
             <img
-              src="images/utility/header_logo.png"
+              src="images/logo/header_logo.png"
               class="header-logo__image"
               alt="企業ロゴ"
             />
@@ -226,13 +226,13 @@
                 <div class="header-contact header__contact">
                   <a
                     href="tel:"
-                    class="button-tel header-contact-tel header-contact__item"
+                    class="button-tel header-contact__tel header-contact__item"
                   >
                     <span class="button-tel__text">000-0000-0000</span>
                   </a>
                   <a
                     href="{#path}contact.html"
-                    class="button-mail header-contact-mail header-contact__item"
+                    class="button-mail header-contact__mail header-contact__item"
                   >
                     <span class="button-mail__text">お問い合わせ</span>
                   </a>
@@ -330,7 +330,9 @@
         <div class="footer__inner inner-1200"></div>
       </div>
       <!-- .footer -->
-      <small class="inner-1200 copyright">{#copy}</small>
+      <div class="copyright">
+        <small class="inner-1200 copyright__text">{#copy}</small>
+      </div>
       <!-- ローカルでコーディングした際は、この行以上をBXIに記載してください。 -->
     </footer>
   </body>

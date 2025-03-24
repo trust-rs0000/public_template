@@ -104,10 +104,10 @@
 
     & > li {
       width: calc((100% - (rems(10px) * 4)) / 5);
+      height: auto;
       margin: 0;
       margin-right: rems(10px);
       margin-bottom: rems(10px);
-      height: auto;
       @include aspect-ratio(1, 1);
 
       &:nth-child(5n) {
@@ -115,6 +115,7 @@
       }
 
       img {
+        height: 100% !important;
         object-fit: cover;
       }
     }
@@ -294,16 +295,33 @@
     }
 
     &:first-child > div {
-      padding: rems(18px) rems(40px) rems(18px) rems(20px);
+      padding: rems(20px) rems(40px) rems(20px) rems(55px);
+      @include font-family(main, medium);
+      font-size: rems(18px);
+      line-height: 1.2;
       position: relative;
       z-index: 0;
       cursor: pointer;
 
+      &:before {
+        content: "Q";
+        display: inline-block;
+        margin-right: rems(15px);
+        color: $color-accent;
+        @include font-family(montserrat, medium);
+        font-size: rems(24px);
+        line-height: 1;
+        position: absolute;
+        top: rems(19px);
+        left: rems(20px);
+      }
+
       &:after {
         @include font-awesome("\2b");
+        color: $color-grey;
         position: absolute;
-        top: 50%;
-        right: 20px;
+        top: rems(32px);
+        right: rems(20px);
         transform: translate(0, -50%);
         z-index: 1;
         transition: 0.8s;
@@ -318,7 +336,7 @@
     }
 
     &:last-child > div {
-      font-size: rems(14px);
+      font-size: rems(16px);
       padding: rems(18px) rems(20px);
       border-top: 1px dashed $color-border;
     }

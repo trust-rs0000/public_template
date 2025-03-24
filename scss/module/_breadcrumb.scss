@@ -3,12 +3,15 @@
 // ぱんくず
 
 .breadcrumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  &__list {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
   &__li {
     margin-right: rems(10px);
+    margin-bottom: rems(3px);
     line-height: 1;
 
     &:last-child {
@@ -23,8 +26,13 @@
 
   &__link {
     display: inline-block;
-    margin-bottom: rems(3px);
     font-size: rems(14px);
     @include font-family(main, regular);
+    text-decoration: none;
+
+    &:link,
+    &:visited {
+      color: $color-text;
+    }
   }
 }

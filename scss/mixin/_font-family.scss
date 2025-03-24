@@ -24,5 +24,6 @@
 @mixin line-awesome($uni) {
   content: $uni;
   font-family: "Line Awesome Free";
+  font-weight: 900;
   line-height: 1;
 }

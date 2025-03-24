@@ -2,24 +2,27 @@
 
 // ブログページ
 
-// /blog/article.html
 // 全記事表示。カテゴリーページバージョンもある。
+// /blog/article.html
+// /blog/article.html?category=カテゴリー1
 
-// /blog/article.html?page=?????
 // 個別投稿ページ
+// /blog/article.html?page=?????
 $selector-blog-article: 'article[id^="page"]';
 
-// /blog/search.html
 // 過去の記事から飛べるページ。カテゴリーページバージョンもある。
+// /blog/search.html
+// /blog/search.html?tag=?????
 
 // モジュール
 // カテゴリーラベル
 @mixin blog-category-label {
-  padding: em(3px, 12px) em(7px, 12px) em(4px, 12px);
+  padding: rems(3px) rems(6px) rems(2px);
   background-color: $color-blog-category-label-bg;
-  font-size: rems(12px);
-  @include font-family(base, bold);
+  font-size: rems(13px);
+  @include font-family(base, medium);
   text-decoration: unset;
+  line-height: 1;
 
   &:link,
   &:visited {
@@ -40,7 +43,7 @@ $selector-blog-article: 'article[id^="page"]';
         width: 100%;
         max-width: 100%;
         margin-top: $header-blog-margin-top;
-        margin-bottom: 100px;
+        margin-bottom: rems(100px);
         padding: 0;
         background-color: transparent;
         box-sizing: inherit;
@@ -48,6 +51,10 @@ $selector-blog-article: 'article[id^="page"]';
 
         @include media-max(drawer) {
           margin-top: $header-blog-margin-top-drawer;
+        }
+
+        @include media-max(tab) {
+          flex-direction: column-reverse;
         }
 
         &:after {
@@ -60,44 +67,32 @@ $selector-blog-article: 'article[id^="page"]';
         flex: 0 0 30%;
         width: auto;
         min-width: 0;
-        margin-right: 40px;
+        margin-right: rems(40px);
         padding: 0;
         overflow: unset;
 
-        @include media-max(sp) {
+        @include media-max(tab) {
           margin-right: 0;
         }
 
         & > nav {
           padding: 0;
           text-align: left;
-        }
 
-        & > nav > div {
-          color: $color-text;
-          margin-bottom: 15px;
-          padding-bottom: 5px;
-          border-bottom: 1px solid $color-border;
-          font-size: rems(16px);
-          line-height: 1.6;
-
-          &:nth-of-type(2) {
-            margin-top: 0;
+          & > a {
+            padding-right: 0;
+            margin-top: rems(20px);
+            text-decoration: unset;
           }
         }
 
-        // 過去の記事
-        & > nav > a {
-          padding-right: 0;
-          margin-top: 20px;
+        // カレンダー領域
+        #calendar {
+          margin: 0;
+          margin-bottom: rems(25px);
         }
 
         // カレンダー
-        #calendar {
-          margin: 0;
-          margin-bottom: 40px;
-        }
-
         #form_calendar {
           max-width: 100%;
           min-width: 0;
@@ -107,177 +102,270 @@ $selector-blog-article: 'article[id^="page"]';
           text-align: end;
 
           .head {
-            margin-bottom: 10px;
+            margin-bottom: rems(15px);
+            height: auto;
 
             span {
               color: $color-text;
             }
-          }
 
-          .head span:nth-of-type(1),
-          .head span:nth-of-type(5) {
-            width: unset;
-            font-size: 10px;
-          }
+            // 矢印
+            span.prev,
+            span.next {
+              width: unset;
+              font-size: 0 !important;
+              line-height: unset;
 
-          .head span:nth-of-type(2) {
-            left: 55px;
-
-            &:after {
-              content: ".";
+              &:after {
+                color: $color-text-grey;
+                font-size: rems(16px) !important;
+              }
             }
-          }
 
-          .head span:nth-of-type(2),
-          .head span:nth-of-type(3) {
-            font-size: rems(14px);
-          }
+            span.prev {
+              &:after {
+                @include font-awesome("\f104");
+              }
+            }
 
-          .head span:nth-of-type(3) {
-            left: 100px;
-            transform: unset;
-          }
+            span.next {
+              &:after {
+                @include font-awesome("\f105");
+              }
+            }
 
-          .head span:nth-of-type(4) {
-            display: none;
+            // 年数
+            span:nth-of-type(2) {
+              font-size: rems(14px);
+              font-weight: 400;
+              line-height: 1;
+              top: auto;
+              bottom: 0;
+              left: rems(55px);
+            }
+
+            // 月
+            span:nth-of-type(3) {
+              font-weight: 400;
+              font-size: rems(20px);
+              line-height: 1;
+              position: static;
+              transform: unset;
+            }
+
+            // 月(英語)
+            span:nth-of-type(4) {
+              display: none;
+            }
           }
 
           & > table {
             margin-bottom: 0;
             border-bottom: 1px solid $color-border;
-          }
 
-          & > table > thead > tr > th {
-            font-size: rems(8px);
-          }
+            // 曜日
+            & > thead > tr > th {
+              font-size: rems(11px);
+            }
 
-          & > table > tbody > tr > td {
-            border-top: 1px solid $color-border;
-            border-right: 1px solid $color-border;
-          }
+            // 表
+            & > tbody {
+              & > tr {
+                // 日付
+                & > td {
+                  border-top: 1px solid $color-border;
+                  border-right: 1px solid $color-border;
 
-          & > table > tbody > tr > td > label {
-            font-size: rems(8px) !important;
+                  &:hover {
+                    background-color: $color-blog-calendar-bg-hover !important;
+                  }
 
-            @include media-max(sp) {
-              font-size: rems(10px) !important;
+                  &:first-child {
+                    background: $color-blog-calendar-holiday-bg;
+                    border-left: 1px solid $color-border;
+                  }
+
+                  & > label {
+                    font-size: rems(10px) !important;
+                    top: rems(3px);
+                    left: rems(3px);
+                    line-height: 1;
+                  }
+
+                  &.open {
+                    margin-top: unset;
+                    background-color: $color-blog-calendar-open-bg;
+                  }
+
+                  &.close {
+                    background-color: $color-blog-calendar-close-bg;
+                  }
+
+                  &.other {
+                    background-color: $color-blog-calendar-other-bg !important;
+                  }
+
+                  // ブログ投稿日？本日？
+                  &.blog > label {
+                    height: unset;
+                    background: unset;
+                    border-radius: unset;
+                    line-height: 1;
+                    z-index: 0;
+
+                    &:before {
+                      content: "";
+                      display: inline-block;
+                      width: rems(10px);
+                      height: rems(10px);
+                      border-radius: rems(10px);
+                      background-color: $color-blog-calendar-blog-bg;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      z-index: -1;
+                    }
+                  }
+                }
+              }
             }
           }
 
-          & > table > tbody > tr > td.blog > label {
-            height: unset;
-            line-height: unset;
-          }
-
-          & > table > tbody > tr > td:first-of-type {
-            background: $color-blog-calendar-holiday-bg;
-            border-left: 1px solid $color-border;
-          }
-
+          // 営業日、休業日
           dl.open,
           dl.close {
             display: inline-flex;
-            margin-top: 10px;
-          }
+            align-items: center;
+            display: none; // 表示させたい場合はコメントアウト
+            margin-top: rems(10px);
 
-          dl.open > dt > label,
-          td.open {
-            background-color: $color-blog-calendar-open-bg;
-          }
+            & > dt {
+              line-height: 1;
 
-          dl.close > dt > label,
-          td.close {
-            background-color: $color-blog-calendar-close-bg;
-          }
+              & > label {
+                width: rems(18px);
+                height: rems(12px);
+                margin-right: rems(6px);
+                font-size: unset;
+                border: 1px solid $color-border;
+              }
+            }
 
-          td.other {
-            background-color: $color-blog-calendar-other-bg !important;
-          }
-
-          table > tbody > tr > td:hover {
-            background-color: $color-blog-calendar-bg-hover !important;
-          }
-
-          dl.open > dt > label,
-          dl.close > dt > label {
-            width: 18px;
-            height: 18px;
-            margin-right: 6px;
+            & > dd {
+              line-height: 1;
+            }
           }
 
           dl.open {
-            margin-right: 20px;
+            margin-right: rems(20px);
+
+            & > dt {
+              & > label {
+                background-color: $color-blog-calendar-open-bg;
+              }
+            }
           }
 
-          .open {
-            margin-top: 10px;
+          dl.close {
+            & > dt {
+              & > label {
+                background-color: $color-blog-calendar-close-bg;
+              }
+            }
           }
         }
 
         // 検索
         #search {
-          margin-bottom: 50px;
+          margin-bottom: rems(50px);
 
-          & > form > button {
-            top: 50%;
-            right: rems(5px);
-            transform: translate(0, -50%);
-          }
+          & > form {
+            & > button {
+              top: 50%;
+              right: rems(5px);
+              transform: translate(0, -50%);
+            }
 
-          & > form > input {
-            border-radius: 0;
-            border: 1px solid $color-border;
-          }
+            & > input {
+              border-radius: 0;
+              border: 1px solid $color-border;
+            }
 
-          & > form > button {
-            background-size: 15px;
-          }
-        }
-
-        // 見出し：カテゴリー、過去記事
-        .category > li,
-        .pages > li {
-          margin-bottom: 10px;
-          padding: 0;
-          border-bottom: none;
-
-          &:first-child {
-            border-top: 0;
+            & > button {
+              background-size: rems(15px);
+            }
           }
         }
 
-        // カテゴリーラベル
+        // 見出し：カテゴリー、最新記事
+        & > nav > div {
+          color: $color-text;
+          margin-bottom: rems(15px);
+          padding-bottom: rems(5px);
+          border-bottom: 1px solid $color-border;
+          font-size: rems(16px);
+          line-height: 1.2;
+
+          &:nth-of-type(2) {
+            margin-top: 0;
+          }
+        }
+
+        // カテゴリー、最新記事 各記事
+        .category,
+        .pages {
+          & > li {
+            margin-bottom: rems(10px);
+            padding: 0;
+            border-bottom: none;
+
+            &:first-child {
+              border-top: 0;
+            }
+          }
+        }
+
+        // カテゴリー
         .category {
-          margin-bottom: 60px;
+          margin-bottom: rems(40px);
 
           & > li {
             padding-bottom: 0;
+            line-height: 1;
 
             &:last-child {
               margin-bottom: 0;
             }
-          }
 
-          & > li > a {
-            font-size: rems(14px);
-            text-decoration: unset;
+            & > a {
+              display: inline-block;
+              font-size: rems(14px);
+              text-decoration: unset;
+              line-height: 1.2;
+            }
           }
         }
 
-        // 最新記事、過去記事
+        // 最新記事
         .pages {
           & > li {
-            margin-bottom: 10px;
+            margin-bottom: rems(10px);
             text-align: left;
-          }
 
-          & > li > a {
-            font-size: rems(11px);
-            text-decoration: unset;
-          }
+            & > a {
+              display: inline-block;
+              font-size: rems(11px);
+              text-decoration: unset;
+              line-height: 1.2;
 
-          & > li > a > span {
-            font-size: rems(14px) !important;
+              & > span {
+                display: inline-block;
+                margin-top: rems(5px);
+                font-size: rems(14px) !important;
+                text-decoration: underline;
+              }
+            }
           }
         }
       }
@@ -287,18 +375,34 @@ $selector-blog-article: 'article[id^="page"]';
         width: 100%;
         flex: 1 0 0;
         min-width: 0 !important;
+        padding: unset;
         background-color: white;
         overflow: unset;
 
-        @include media-max(sp) {
-          margin-bottom: 80px;
+        @include media-max(tab) {
+          margin-bottom: rems(80px);
         }
 
+        & > article {
+          margin-top: rems(-4px);
+
+          @include media-max(tab) {
+            margin-top: 0;
+          }
+
+          // bxi.cssでそういう作りをされているので、h2見出し全部に余白できてしまう。
+          h2 {
+            padding-bottom: unset;
+            line-height: 1.2;
+          }
+        }
+
+        // 投稿日
         .date {
           display: inline-block;
-          margin-bottom: 7px;
-          color: $color-text;
-          @include font-family(main, medium);
+          margin-bottom: rems(10px);
+          color: $color-text-grey;
+          @include font-family(base, medium);
           font-size: rems(14px);
           line-height: 1;
         }
@@ -308,71 +412,89 @@ $selector-blog-article: 'article[id^="page"]';
         }
       }
 
+      // バイリンガルのテキストが折り返すようにする。
       span[id*="TRANS_"] {
         padding-right: 0;
         overflow-wrap: break-word;
       }
     }
 
+    // /blog
     // /blog/article.html?page=?????
     .blog #contents #{$selector-blog-article} {
       padding: 0;
 
+      // タイトル
       & > h1 {
-        margin-bottom: 50px;
+        margin-bottom: 0;
         padding-bottom: 0;
-        line-height: 1.6;
-        font-size: rems(16px);
-        color: initial;
+        color: $color-text;
+        @include font-family($font-family-blog-h1, $font-weight-blog-h1);
+        font-size: rems($font-size-blog-h1);
+        line-height: 1.4;
+
+        @include media-max(bp1200) {
+          font-size: rems($font-size-blog-h1-bp1200);
+        }
+
+        @include media-max(tab) {
+          font-size: rems($font-size-blog-h1-tab);
+        }
+
+        @include media-max(sp) {
+          font-size: rems($font-size-blog-h1-sp);
+        }
       }
 
       // カテゴリーラベル
       & > ul {
-        margin-bottom: 0;
-        margin-bottom: 30px;
-      }
+        margin-top: rems(25px);
+        margin-bottom: rems(50px);
 
-      & > ul > li {
-        margin-right: 10px;
-        margin-bottom: 5px;
+        & > li {
+          margin-right: rems(10px);
+          margin-bottom: rems(5px);
 
-        &:last-child {
-          margin-right: 0;
+          &:last-child {
+            margin-right: 0;
+          }
+
+          & > a {
+            margin-right: 0;
+            @include blog-category-label();
+          }
         }
       }
 
-      & > ul > li > a {
-        margin-right: 0;
-        @include blog-category-label();
-      }
-
-      & > div > article {
+      & > div {
         padding: 0;
       }
 
       & > dl {
         margin: 0;
-        margin-bottom: 20px;
-        padding: 20px;
+        margin-bottom: rems(20px);
+        padding: rems(20px);
         border: none;
         border-radius: 0;
-      }
 
-      & > dl > dt {
-        margin: 0;
-        padding: 0;
-        font-size: rems(16px);
-        line-height: 1.6;
-        border: none;
-        border-radius: 0;
-      }
+        & > dt {
+          margin: 0;
+          padding: 0;
+          font-size: rems(16px);
+          line-height: 1.6;
+          border: none;
+          border-radius: 0;
 
-      & > dl > dt > div > a {
-        font-size: rems(16px);
-      }
+          & > div {
+            & > a {
+              font-size: rems(16px);
 
-      & > dl > dt > div > a > .translate {
-        font-size: rems(16px);
+              .translate {
+                font-size: rems(16px);
+              }
+            }
+          }
+        }
       }
 
       .clearfix {
@@ -387,12 +509,6 @@ $selector-blog-article: 'article[id^="page"]';
       .box article {
         padding: 0;
       }
-
-      // h2に効いてるスタイル
-      & article h2 {
-        padding-bottom: 0;
-        line-height: 1.6;
-      }
     }
 
     // /blog/search.html
@@ -400,11 +516,11 @@ $selector-blog-article: 'article[id^="page"]';
       // 投稿リスト
       & > dl {
         margin: unset;
-        margin-bottom: 20px;
+        margin-bottom: rems(35px);
         padding: unset;
-        padding-bottom: 20px;
+        padding-bottom: rems(40px);
         border: unset;
-        border-bottom: 1px solid $color-border;
+        border-bottom: 1px dashed $color-border;
         border-radius: unset;
 
         &:last-child {
@@ -412,52 +528,66 @@ $selector-blog-article: 'article[id^="page"]';
           padding-bottom: 0;
           border-bottom: none;
         }
-      }
 
-      & > dl > dt {
-        margin-bottom: 0;
-        font-size: unset;
-        line-height: 1.6;
-      }
+        & > dt {
+          margin-bottom: 0;
+          font-size: unset;
+          line-height: 1.6;
 
-      // ブログタイトル
-      & > dl > dt > div > a {
-        color: $color-text;
-        text-decoration: none;
-      }
+          & > div {
+            // ブログタイトル
+            & > a {
+              color: $color-text;
+              text-decoration: none;
+              line-height: 1.2;
 
-      & > dl > dt > div > a > span {
-        @include font-family(base, bold);
-        font-size: rems(20px);
-      }
+              & > span {
+                @include font-family($font-family-blog-h1, $font-weight-blog-h1);
+                font-size: rems(20px);
+              }
+            }
+          }
 
-      // カテゴリーラベル
-      & > dl > dd > ul {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 10px;
-        margin-bottom: -10px;
-      }
+          .summary {
+            // display: block !important; // 表示する際はコメントアウトを外す
+            margin-top: rems(15px);
+          }
+        }
 
-      & > dl > dd > ul > li {
-        margin-right: 10px;
-        margin-bottom: 10px;
-        float: unset;
-      }
+        // カテゴリーラベル
+        & > dd {
+          & > ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: rems(25px);
+            margin-bottom: rems(-10px);
 
-      & > dl > dd > ul > li > a {
-        margin: unset;
-        line-height: 1;
-        @include blog-category-label();
+            & > li {
+              margin-right: rems(10px);
+              margin-bottom: rems(10px);
+              float: unset;
+
+              & > a {
+                margin: unset;
+                line-height: 1;
+                @include blog-category-label();
+              }
+            }
+          }
+        }
       }
     }
 
     // /blog/article.html?category=?????
     .blog #contents #{$selector-blog-article} {
-      margin-bottom: 100px;
+      margin-bottom: rems(70px);
+      padding-bottom: rems(70px);
+      border-bottom: 1px dashed $color-border;
 
       &:last-child {
         margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
       }
     }
   }
@@ -472,48 +602,43 @@ $selector-blog-article: 'article[id^="page"]';
     background: unset;
   }
 
-  // 共通
-  #contents {
-  }
-
   // /blog/article.html?page=?????
+  // bxi.cssと競合しているので、再度こちらで定義。
   #contents #{$selector-blog-article} {
-    & > h1 {
-      color: $color-text;
-      font-size: rems($font-size-blog-h1);
-      @include font-family($font-size-blog-h1, $font-weight-blog-h1);
-
-      @include media-max(tab) {
-        font-size: rems($font-size-blog-h1-tab);
-      }
-    }
-
     & h2 {
       color: $color-text;
       font-size: rems($font-size-blog-h2);
-      @include font-family($font-size-blog-h2, $font-weight-blog-h2);
+      @include font-family($font-family-blog-h2, $font-weight-blog-h2);
+
+      @include media-max(bp1200) {
+        font-size: rems($font-size-blog-h2-bp1200);
+      }
 
       @include media-max(tab) {
         font-size: rems($font-size-blog-h2-tab);
+      }
+
+      @include media-max(sp) {
+        font-size: rems($font-size-blog-h2-sp);
       }
     }
 
     & h3 {
       color: $color-text;
       font-size: rems($font-size-blog-h3);
-      @include font-family($font-size-blog-h3, $font-weight-blog-h3);
+      @include font-family($font-family-blog-h3, $font-weight-blog-h3);
+
+      @include media-max(bp1200) {
+        font-size: rems($font-size-blog-h3-bp1200);
+      }
 
       @include media-max(tab) {
         font-size: rems($font-size-blog-h3-tab);
       }
-    }
-  }
 
-  // カレンダー
-  #calendar {
-    dl.open {
-      // 営業日の色要らないかなと思ったので、非表示
-      display: none;
+      @include media-max(sp) {
+        font-size: rems($font-size-blog-h3-sp);
+      }
     }
   }
 }

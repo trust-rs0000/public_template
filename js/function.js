@@ -1,11 +1,7 @@
 ﻿import Accordion from "./module/accordion.js";
 import Breadcrumb from "./module/breadcrumb.js";
 import Hamburger from "./module/hamburger.js";
-import MarginTop from "./module/margin-top.js";
 import OpeningAnimation from "./module/opening-animation.js";
-import Scroller from "./module/scroller.js";
-import Slider from "./module/slider.js";
-import SmoothScroller from "./module/smooth-scroll.js";
 import Text from "./module/text.js";
 
 // 必須
@@ -75,31 +71,57 @@ window.addEventListener("DOMContentLoaded", () => {
   } catch (error) {
     console.log(error);
   }
+
+  // smooth-scroll
+  try {
+    new SmoothScroll('a[href*="#"]', {
+      speed: 1000,
+      easing: "easeInOutQuint",
+      header: ".header",
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-// クラス実装
+// smooth-scroll 外部アンカーリンク
+// 公式サイトにも掲載されているが、外部アンカーリンクの実装は不可能らしい。
+// なので、一瞬ページトップに戻ってからスクロールしている。
 window.addEventListener("DOMContentLoaded", function () {
-  // 定数
-  const HEADER = document.querySelector(".header");
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1);
 
-  // スライダー
-  const slider = new Slider(".mv-slider");
-  slider.mainSlider();
+    if (targetId) {
+      // ターゲット要素の画面上の位置を取得して調整
+      window.scrollTo({ top: 0, behavior: "auto" });
 
-  // SNSスライダー
-  const itemSlider = new Slider(".sns-slider .sns_list");
-  itemSlider.itemSlider();
+      const SCROLL = new SmoothScroll();
+      SCROLL.animateScroll(this.document.querySelector(`#${targetId}`), "", {
+        speed: 1000,
+        easing: "easeInOutQuint",
+        header: ".header",
+      });
+    }
+  }
+});
 
-  // ドットが画像のスライダー
-  const flexGallery = new Slider(".flex-gallery");
-  flexGallery.dotImageSlider();
-
+// 準必須
+window.addEventListener("DOMContentLoaded", function () {
   // ぱんくず
   // クラス名を変更して使用してください。
-  const BREADCRUMB_NODE = document.querySelector(".page-header h1");
-  if (BREADCRUMB_NODE) {
-    const breadcrumb = new Breadcrumb(BREADCRUMB_NODE);
-    breadcrumb.displayBreadCrumb("ホーム");
+  try {
+    const H1_TEXT = document.querySelector(".page-header h1").textContent;
+
+    if (H1_TEXT) {
+      const breadcrumb = new Breadcrumb({
+        topText: "トップページへ",
+        divider: "/",
+        h1Text: H1_TEXT,
+      });
+      breadcrumb.displayBreadCrumb();
+    }
+  } catch (error) {
+    console.log(error);
   }
 
   // アコーディオン
@@ -109,47 +131,6 @@ window.addEventListener("DOMContentLoaded", function () {
     const accordion = new Accordion(item);
     accordion.click();
   });
-
-  // ヘッダーの高さ分、margin-topを設ける。
-  // クラス名を変更して使用してください。
-  // if (HEADER) {
-  //   const marginTop = new MarginTop(HEADER);
-  //   marginTop.bootMarginTop();
-  // }
-
-  // フッター位置まで来たらクラス付与する。
-  // クラス名を変更して使用してください。
-  const FOOTER = document.querySelector(".footer");
-  if (FOOTER) {
-    const footer = new Scroller(FOOTER);
-    footer.inOut({
-      className: "js-arrive-in-out",
-      gaveClassElement: document.querySelector(".header-contact"),
-    });
-  }
-
-  // スクロール時、ヘッダーにクラス付与する。
-  // クラス名を変更して使用してください。
-  if (HEADER) {
-    const HEADER_SCROLLER = new Scroller(HEADER);
-    HEADER_SCROLLER.scrolled({
-      className: "js-scrolled-header",
-      gaveClassElement: document.querySelector(".header"),
-    });
-  }
-
-  // スクロール時、バイリンガルにクラス付与
-  const BUILINGUAL = this.document.querySelector("#builingual");
-  if (BUILINGUAL) {
-    const HEADER_SCROLLER = new Scroller(BUILINGUAL);
-    HEADER_SCROLLER.scrolled({
-      className: "js-scrolled",
-    });
-  }
-
-  // スムーズスクロール
-  const smoothScroller = new SmoothScroller(HEADER, 20);
-  smoothScroller.smoothScroll();
 
   // 文字数省略
   const SNS_LIST = document.querySelectorAll(".sns_list > div");
@@ -171,6 +152,18 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // 以下、アニメーションの詳細な記述を記載してください。
   }
+
+  // headerお問い合わせボタンの複製
+  try {
+    const DRAWER_WRAPPER = this.document.querySelector(".drawer__wrapper");
+    const HEADER_CONTACT = this.document.querySelector(".header-contact");
+    const CLONED_HEADER_CONTACT = HEADER_CONTACT.cloneNode(true);
+
+    CLONED_HEADER_CONTACT.classList.add("js-cloned-header-contact");
+    DRAWER_WRAPPER.appendChild(CLONED_HEADER_CONTACT);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // バイリンガルでヘッダーを翻訳したときも動作するように、loadイベントに記載。
@@ -184,6 +177,73 @@ window.addEventListener("load", function () {
       hamburger.toggleHamburger();
       hamburger.clickAnchor();
     }
+  });
+});
+
+// gsap
+window.addEventListener("load", function () {
+  gsap.utils.toArray(".heading-subtitle").forEach((target) => {
+    gsap.fromTo(
+      target,
+      {
+        y: 20,
+        autoAlpha: 0,
+        durarion: 1,
+      },
+      {
+        y: 0,
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: target,
+          start: "top center",
+        },
+      }
+    );
+  });
+});
+
+// slick
+window.addEventListener("DOMContentLoaded", function () {
+  // メインビジュアルスライダー
+  $(".mv-slider").slick({
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 3000,
+    fade: true,
+  });
+
+  // instagramスライダー
+  $(".sns-slider").slick({
+    autoplay: true, // 自動でスクロール
+    autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
+    speed: 5000, // スライドが流れる速度を設定
+    slidesToShow: 4, // 表示するスライドの数
+    swipe: false, // 操作による切り替えはさせない
+    arrows: false, // 矢印非表示
+    pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
+    pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
+    responsive: [
+      {
+        breakpoint: 834,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  });
+
+  // ドットが画像タイプのスライダー
+  $(".flex-gallery").slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+    dots: true,
+    arrows: false,
+    customPaging: function (slick, index) {
+      var targetImage = slick.$slides.eq(index).find("img").attr("src");
+      return "<img src=" + targetImage + ">";
+    },
   });
 });
 

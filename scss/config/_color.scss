@@ -27,6 +27,7 @@ $color-yellow: #ffd725;
 
 // テキストカラー
 $color-text: #222222;
+$color-text-grey: #888;
 
 // ワーニングカラー
 $color-warn: red;
@@ -85,6 +86,7 @@ $color-blog-category-label-bg: $color-main; // 背景
 $color-blog-category-label-text: white; // テキスト
 
 // ブログページのカレンダー
+$color-blog-calendar-blog-bg: #ffd100; // ブログ投稿日？本日？背景
 $color-blog-calendar-open-bg: #ffffff; // 営業日背景
 $color-blog-calendar-close-bg: #efefef; // 休日背景
 $color-blog-calendar-holiday-bg: #ffffff; // 祝日背景

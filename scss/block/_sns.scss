@@ -103,6 +103,64 @@
   }
 }
 
+// メディア型
+.sns-media {
+  @extend %sns-reboot;
+  max-height: rems(430px);
+  overflow-y: auto;
+  @include scroll-bar;
+
+  .sns_list {
+    & > div {
+      align-items: center;
+      margin-bottom: rems(20px);
+      padding-bottom: rems(20px);
+      border-bottom: 1px dashed $color-border;
+      overflow: hidden;
+
+      @include media-max(tab) {
+        flex-direction: row;
+      }
+
+      .sns_photo {
+        flex: 0 0 percentage(div(180, 550));
+        margin-right: rems(33px);
+
+        @include media-max(tab) {
+          margin-right: rems(20px);
+        }
+
+        & > a {
+          @include aspect-ratio(1, 1) {
+            & > :first-child {
+              width: 100% !important;
+              height: 100% !important;
+            }
+          }
+        }
+      }
+
+      .sns_text {
+        flex: 1 0 0;
+      }
+
+      .sns_date {
+        color: $color-accent-deep;
+        @include font-family(base, medium);
+        font-size: rems(18px);
+        line-height: 1;
+      }
+
+      .caption {
+        margin-top: rems(8px);
+        color: $color-text;
+        font-size: rems(16px);
+      }
+    }
+  }
+}
+
+// snsスライダー
 .sns-slider {
   @extend %sns-reboot;
 
