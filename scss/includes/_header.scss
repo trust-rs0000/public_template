@@ -17,16 +17,6 @@
     background-color: $color-header-bg-drawer !important;
   }
 
-  @at-root .js-scrolled-header & {
-    background-color: lighten($color-header-bg-scroll, 10%);
-    transition: $transition-duration;
-
-    @include media-max(drawer) {
-      padding: rems(15px) rems(20px);
-      background-color: $color-header-bg-scroll;
-    }
-  }
-
   &__inner {
     display: flex;
     align-items: center;
@@ -65,12 +55,8 @@
   justify-content: flex-end;
   transition: $transition-duration;
 
-  &.js-arrive-in-out {
-    @include media-max(drawer) {
-      opacity: 0;
-      visibility: hidden;
-      transition: $transition-duration;
-    }
+  @include media-max(drawer) {
+    display: none;
   }
 
   &__item {
@@ -83,9 +69,11 @@
 }
 
 .js-cloned-header-contact {
-  flex-wrap: wrap;
-  justify-content: unset;
-  margin-bottom: rems(-20px);
+  display: none;
+
+  @include media-max(drawer) {
+    display: block;
+  }
 
   .header-contact {
     &__item {
@@ -94,8 +82,8 @@
       margin-right: rems(15px);
       margin-bottom: rems(20px);
 
-      @include media-max(sp) {
-        flex: 0 0 100%;
+      @include media-max(drawer) {
+        display: block;
         margin-right: 0;
       }
 
@@ -104,7 +92,7 @@
       }
 
       &:last-child {
-        @include media-max(sp) {
+        @include media-max(drawer) {
           margin-bottom: 0;
         }
       }
