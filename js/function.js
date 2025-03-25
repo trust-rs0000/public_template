@@ -73,10 +73,12 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   // smooth-scroll
+  // https://github.com/cferdinandi/smooth-scroll
   try {
     new SmoothScroll('a[href*="#"]', {
-      speed: 1000,
-      easing: "easeInOutQuint",
+      speed: 100,
+      // easing: "easeInOutQuint",
+      speedAsDuration: true,
       header: ".header",
     });
   } catch (error) {
@@ -97,8 +99,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
       const SCROLL = new SmoothScroll();
       SCROLL.animateScroll(this.document.querySelector(`#${targetId}`), "", {
-        speed: 1000,
-        easing: "easeInOutQuint",
+        speed: 100,
+        // easing: "easeInOutQuint",
+        speedAsDuration: true,
         header: ".header",
       });
     }
