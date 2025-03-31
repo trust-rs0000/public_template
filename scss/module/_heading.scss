@@ -7,6 +7,10 @@ h1 {
   @include font-family($font-family-h1, $font-weight-h1);
   line-height: 1.2;
 
+  @include media-max(bp1200) {
+    font-size: rems($font-size-h1-bp1200);
+  }
+
   @include media-max(tab) {
     font-size: rems($font-size-h1-tab);
   }
@@ -20,6 +24,10 @@ h2 {
   font-size: rems($font-size-h2);
   @include font-family($font-family-h2, $font-weight-h2);
   line-height: 1.2;
+
+  @include media-max(bp1200) {
+    font-size: rems($font-size-h2-bp1200);
+  }
 
   @include media-max(tab) {
     font-size: rems($font-size-h2-tab);
@@ -35,6 +43,10 @@ h3 {
   @include font-family($font-family-h3, $font-weight-h3);
   line-height: 1.2;
 
+  @include media-max(bp1200) {
+    font-size: rems($font-size-h3-bp1200);
+  }
+
   @include media-max(tab) {
     font-size: rems($font-size-h3-tab);
   }
@@ -48,6 +60,10 @@ h4 {
   font-size: rems($font-size-h4);
   @include font-family($font-family-h4, $font-weight-h4);
   line-height: 1.2;
+
+  @include media-max(bp1200) {
+    font-size: rems($font-size-h4-bp1200);
+  }
 
   @include media-max(tab) {
     font-size: rems($font-size-h4-tab);

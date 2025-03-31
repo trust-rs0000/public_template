@@ -2,16 +2,40 @@
 
 // ボーダー色
 
-$type-list: "solid", "dotted", "double";
+$type-list: solid, dotted, double, dashed;
 
 @each $color, $code in $color-theme-list {
   @each $type in $type-list {
     $code: if($code == "", #333, $code);
 
     @for $i from 1 through 4 {
-      .border-#{$color}-#{$i} {
-        border: #{$i}px solid $code;
+      .border-#{$type}-#{$color}-#{$i} {
+        border: #{$i}px $type $code;
       }
     }
+  }
+}
+
+.border-double {
+  padding: rems(45px) rems(65px);
+  border: 2px solid $color-main;
+  position: relative;
+  z-index: 0;
+
+  @include media-max(tab) {
+    padding: rems(40px) rems(25px);
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border: 1px solid $color-main;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
   }
 }

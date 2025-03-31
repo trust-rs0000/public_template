@@ -13,7 +13,7 @@
   transition: $transition-duration;
 
   @include media-max(drawer) {
-    padding: rems(15px) rems(20px);
+    padding: rems(10px) rems(20px);
     background-color: $color-header-bg-drawer !important;
   }
 

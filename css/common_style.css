@@ -262,148 +262,220 @@ select {
   border-radius: 0.9375rem;
 }
 
-.border-main-1 {
+.border-solid-main-1 {
   border: 1px solid transparent;
 }
 
-.border-main-2 {
+.border-solid-main-2 {
   border: 2px solid transparent;
 }
 
-.border-main-3 {
+.border-solid-main-3 {
   border: 3px solid transparent;
 }
 
-.border-main-4 {
+.border-solid-main-4 {
   border: 4px solid transparent;
 }
 
-.border-main-1 {
+.border-dotted-main-1 {
+  border: 1px dotted transparent;
+}
+
+.border-dotted-main-2 {
+  border: 2px dotted transparent;
+}
+
+.border-dotted-main-3 {
+  border: 3px dotted transparent;
+}
+
+.border-dotted-main-4 {
+  border: 4px dotted transparent;
+}
+
+.border-double-main-1 {
+  border: 1px double transparent;
+}
+
+.border-double-main-2 {
+  border: 2px double transparent;
+}
+
+.border-double-main-3 {
+  border: 3px double transparent;
+}
+
+.border-double-main-4 {
+  border: 4px double transparent;
+}
+
+.border-dashed-main-1 {
+  border: 1px dashed transparent;
+}
+
+.border-dashed-main-2 {
+  border: 2px dashed transparent;
+}
+
+.border-dashed-main-3 {
+  border: 3px dashed transparent;
+}
+
+.border-dashed-main-4 {
+  border: 4px dashed transparent;
+}
+
+.border-solid-accent-1 {
   border: 1px solid transparent;
 }
 
-.border-main-2 {
+.border-solid-accent-2 {
   border: 2px solid transparent;
 }
 
-.border-main-3 {
+.border-solid-accent-3 {
   border: 3px solid transparent;
 }
 
-.border-main-4 {
+.border-solid-accent-4 {
   border: 4px solid transparent;
 }
 
-.border-main-1 {
-  border: 1px solid transparent;
+.border-dotted-accent-1 {
+  border: 1px dotted transparent;
 }
 
-.border-main-2 {
-  border: 2px solid transparent;
+.border-dotted-accent-2 {
+  border: 2px dotted transparent;
 }
 
-.border-main-3 {
-  border: 3px solid transparent;
+.border-dotted-accent-3 {
+  border: 3px dotted transparent;
 }
 
-.border-main-4 {
-  border: 4px solid transparent;
+.border-dotted-accent-4 {
+  border: 4px dotted transparent;
 }
 
-.border-accent-1 {
-  border: 1px solid transparent;
+.border-double-accent-1 {
+  border: 1px double transparent;
 }
 
-.border-accent-2 {
-  border: 2px solid transparent;
+.border-double-accent-2 {
+  border: 2px double transparent;
 }
 
-.border-accent-3 {
-  border: 3px solid transparent;
+.border-double-accent-3 {
+  border: 3px double transparent;
 }
 
-.border-accent-4 {
-  border: 4px solid transparent;
+.border-double-accent-4 {
+  border: 4px double transparent;
 }
 
-.border-accent-1 {
-  border: 1px solid transparent;
+.border-dashed-accent-1 {
+  border: 1px dashed transparent;
 }
 
-.border-accent-2 {
-  border: 2px solid transparent;
+.border-dashed-accent-2 {
+  border: 2px dashed transparent;
 }
 
-.border-accent-3 {
-  border: 3px solid transparent;
+.border-dashed-accent-3 {
+  border: 3px dashed transparent;
 }
 
-.border-accent-4 {
-  border: 4px solid transparent;
+.border-dashed-accent-4 {
+  border: 4px dashed transparent;
 }
 
-.border-accent-1 {
-  border: 1px solid transparent;
-}
-
-.border-accent-2 {
-  border: 2px solid transparent;
-}
-
-.border-accent-3 {
-  border: 3px solid transparent;
-}
-
-.border-accent-4 {
-  border: 4px solid transparent;
-}
-
-.border-yellow-1 {
+.border-solid-yellow-1 {
   border: 1px solid #ffd725;
 }
 
-.border-yellow-2 {
+.border-solid-yellow-2 {
   border: 2px solid #ffd725;
 }
 
-.border-yellow-3 {
+.border-solid-yellow-3 {
   border: 3px solid #ffd725;
 }
 
-.border-yellow-4 {
+.border-solid-yellow-4 {
   border: 4px solid #ffd725;
 }
 
-.border-yellow-1 {
-  border: 1px solid #ffd725;
+.border-dotted-yellow-1 {
+  border: 1px dotted #ffd725;
 }
 
-.border-yellow-2 {
-  border: 2px solid #ffd725;
+.border-dotted-yellow-2 {
+  border: 2px dotted #ffd725;
 }
 
-.border-yellow-3 {
-  border: 3px solid #ffd725;
+.border-dotted-yellow-3 {
+  border: 3px dotted #ffd725;
 }
 
-.border-yellow-4 {
-  border: 4px solid #ffd725;
+.border-dotted-yellow-4 {
+  border: 4px dotted #ffd725;
 }
 
-.border-yellow-1 {
-  border: 1px solid #ffd725;
+.border-double-yellow-1 {
+  border: 1px double #ffd725;
 }
 
-.border-yellow-2 {
-  border: 2px solid #ffd725;
+.border-double-yellow-2 {
+  border: 2px double #ffd725;
 }
 
-.border-yellow-3 {
-  border: 3px solid #ffd725;
+.border-double-yellow-3 {
+  border: 3px double #ffd725;
 }
 
-.border-yellow-4 {
-  border: 4px solid #ffd725;
+.border-double-yellow-4 {
+  border: 4px double #ffd725;
+}
+
+.border-dashed-yellow-1 {
+  border: 1px dashed #ffd725;
+}
+
+.border-dashed-yellow-2 {
+  border: 2px dashed #ffd725;
+}
+
+.border-dashed-yellow-3 {
+  border: 3px dashed #ffd725;
+}
+
+.border-dashed-yellow-4 {
+  border: 4px dashed #ffd725;
+}
+
+.border-double {
+  padding: 2.8125rem 4.0625rem;
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 0;
+}
+@media (max-width: calc(834px - 0.02px)) {
+  .border-double {
+    padding: 2.5rem 1.5625rem;
+  }
+}
+.border-double:before {
+  content: "";
+  display: block;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border: 1px solid transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 .bg-repeat-no {
@@ -19176,7 +19248,7 @@ select {
   top: 50%;
   z-index: 0;
   width: 100%;
-  border-bottom: dotted 1px #000;
+  border-bottom: 1px solid rgba(26, 26, 26, 0);
 }
 .form_wrap.dl-menu > dl > dt, .form_wrap.dl-menu > dl > dd {
   width: auto !important;
@@ -19189,7 +19261,7 @@ select {
   text-align: left;
 }
 .form_wrap.dl-menu > dl > dd {
-  padding-left: 0.5em !important;
+  padding-left: 0.75rem !important;
   text-align: right;
 }
 
@@ -20031,6 +20103,8 @@ div#form_calendar > dl.open, div#form_calendar > dl.close {
 .sns-card .sns_list > div .sns_photo > a > :first-child {
   width: 100% !important;
   height: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .sns-card .sns_list > div .sns_text {
   padding: 0.9375rem 0.9375rem 1.25rem;
@@ -20618,8 +20692,8 @@ div#builingual .switch #cmn-toggle-1:checked + label span:after {
 }
 
 .hamburger {
-  width: 2.1875rem;
-  height: 1.875rem;
+  width: 1.5625rem;
+  height: 1.375rem;
   position: relative;
   z-index: 1100;
 }
@@ -20629,26 +20703,39 @@ div#builingual .switch #cmn-toggle-1:checked + label span:after {
     z-index: 1100;
   }
 }
+.hamburger:before {
+  content: "";
+  display: inline-block;
+  width: 2.8125rem;
+  height: 2.8125rem;
+  background-color: transparent;
+  border-radius: 2.8125rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: -1;
+}
 .hamburger__line {
   display: block;
   width: 100%;
-  height: 1px;
-  border-radius: 1px;
-  background-color: #222222;
+  height: 2px;
+  border-radius: 2px;
+  background-color: white;
   transition: 0.4s;
 }
 .hamburger .line1 {
-  transform: translate(0, -7px);
+  transform: translate(0, -4px);
 }
 .hamburger .line2 {
   transform: translate(0, 0px);
 }
 .hamburger .line3 {
-  transform: translate(0, 7px);
+  transform: translate(0, 4px);
 }
 
 .js-drawer-open .hamburger .line1 {
-  transform: translateY(0px) rotate(-35deg);
+  transform: translateY(2px) rotate(-35deg);
 }
 .js-drawer-open .hamburger .line2 {
   opacity: 0;
@@ -20663,6 +20750,11 @@ h1 {
   font-family: Noto Sans JP, sans-serif;
   font-weight: 500;
   line-height: 1.2;
+}
+@media (max-width: calc(1200px - 0.02px)) {
+  h1 {
+    font-size: 2.125rem;
+  }
 }
 @media (max-width: calc(834px - 0.02px)) {
   h1 {
@@ -20681,6 +20773,11 @@ h2 {
   font-weight: 500;
   line-height: 1.2;
 }
+@media (max-width: calc(1200px - 0.02px)) {
+  h2 {
+    font-size: 1.75rem;
+  }
+}
 @media (max-width: calc(834px - 0.02px)) {
   h2 {
     font-size: 1.6875rem;
@@ -20698,6 +20795,11 @@ h3 {
   font-weight: 500;
   line-height: 1.2;
 }
+@media (max-width: calc(1200px - 0.02px)) {
+  h3 {
+    font-size: 1.625rem;
+  }
+}
 @media (max-width: calc(834px - 0.02px)) {
   h3 {
     font-size: 1.5rem;
@@ -20714,6 +20816,11 @@ h4 {
   font-family: Noto Sans JP, sans-serif;
   font-weight: 500;
   line-height: 1.2;
+}
+@media (max-width: calc(1200px - 0.02px)) {
+  h4 {
+    font-size: 1.3125rem;
+  }
 }
 @media (max-width: calc(834px - 0.02px)) {
   h4 {
@@ -21198,7 +21305,7 @@ h4 {
 }
 @media (max-width: calc(1200px - 0.02px)) {
   .header {
-    padding: 0.9375rem 1.25rem;
+    padding: 0.625rem 1.25rem;
     background-color: white !important;
   }
 }
