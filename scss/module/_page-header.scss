@@ -17,5 +17,20 @@
   &__ja {
     font-size: rems(18px);
     @include font-family(main, medium);
+
+    font-size: $font-size-h1;
+    @include font-family(accent, regular);
+
+    @include media-max(bp1200) {
+      font-size: $font-size-h1-bp1200;
+    }
+
+    @include media-max(tab) {
+      font-size: $font-size-h1-tab;
+    }
+
+    @include media-max(sp) {
+      font-size: $font-size-h1-sp;
+    }
   }
 }

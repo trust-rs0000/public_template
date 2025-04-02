@@ -24,6 +24,53 @@
   }
 }
 
+// 会社概要
+.form_wrap.dl {
+  @extend %dl-reboot;
+
+  & > dl {
+    margin-bottom: rems(18px);
+    padding-right: rems(10px);
+    padding-bottom: rems(19px);
+    padding-left: rems(10px);
+    border-bottom: 1px dotted $color-border;
+
+    @include media-max(sp) {
+      display: block !important;
+    }
+
+    &:first-child {
+      padding-top: rems(19px);
+      border-top: 1px dotted $color-border;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & > dl > dt,
+  & > dl > dd {
+    font-size: rems(16px);
+
+    @include media-max(sp) {
+      width: 100% !important;
+    }
+  }
+
+  & > dl > dt {
+    display: block;
+    margin-right: rems(10px);
+    @include font-family(base, medium);
+
+    @include media-max(sp) {
+      margin-right: 0;
+      margin-bottom: rems(7px);
+      text-align: left;
+    }
+  }
+}
+
 // 新着情報
 .form_wrap.dl-news {
   @extend %dl-reboot;
@@ -71,53 +118,6 @@
 
     @include media-max(tab) {
       width: 100% !important;
-    }
-  }
-}
-
-// 会社概要
-.form_wrap.dl-company {
-  @extend %dl-reboot;
-
-  & > dl {
-    margin-bottom: rems(18px);
-    padding-right: rems(10px);
-    padding-bottom: rems(19px);
-    padding-left: rems(10px);
-    border-bottom: 1px dotted $color-border;
-
-    @include media-max(sp) {
-      display: block !important;
-    }
-
-    &:first-child {
-      padding-top: rems(19px);
-      border-top: 1px dotted $color-border;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  & > dl > dt,
-  & > dl > dd {
-    font-size: rems(16px);
-
-    @include media-max(sp) {
-      width: 100% !important;
-    }
-  }
-
-  & > dl > dt {
-    display: block;
-    margin-right: rems(10px);
-    @include font-family(base, medium);
-
-    @include media-max(sp) {
-      margin-right: 0;
-      margin-bottom: rems(7px);
-      text-align: left;
     }
   }
 }

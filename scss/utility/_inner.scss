@@ -13,3 +13,16 @@
     @include inner($inner);
   }
 }
+
+// ページ全体のinnerサイズ
+@each $key, $inner in $inners {
+  .page-inner-#{$key} {
+    #main {
+      @include inner($inner);
+    }
+  }
+
+  .inner-#{$key} {
+    @include inner($inner);
+  }
+}

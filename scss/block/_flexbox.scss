@@ -72,7 +72,7 @@
 }
 
 // スライダー(slick使用)
-.flex-slider {
+.flex-slick {
   display: block !important;
 
   .box {
@@ -82,7 +82,7 @@
 }
 
 // dotが画像タイプのスライダー(slick使用)
-.flex-gallery {
+.flex-slick-gallery {
   display: block !important;
   margin-bottom: 0 !important;
 
@@ -98,7 +98,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    margin-top: rems(7px);
+    margin-top: rems(10px);
     position: static;
     margin-bottom: rems(-10px);
 

@@ -75,8 +75,10 @@
       overflow: hidden;
 
       .sns_photo {
+        margin-bottom: rems(17px);
+
         & > a {
-          @include aspect-ratio(1, 1) {
+          @include aspect-ratio(3, 2) {
             & > :first-child {
               width: 100% !important;
               height: 100% !important;
@@ -87,18 +89,18 @@
       }
 
       .sns_text {
-        padding: rems(15px) rems(15px) rems(20px);
       }
 
       .sns_date {
+        display: block;
         color: $color-main;
-        @include font-family(accent, medium);
-        font-size: rems(14px);
+        @include font-family(base, regular);
+        font-size: rems(16px);
       }
 
       .caption {
-        color: $color-main;
-        font-size: rems(14px);
+        color: $color-text;
+        font-size: rems(16px);
       }
     }
   }
@@ -162,42 +164,103 @@
 }
 
 // snsスライダー
-.sns-slider {
+.sns-slick {
   @extend %sns-reboot;
 
   .sns_list {
     display: block;
+  }
 
-    .sns_photo {
-      margin-bottom: rems(20px);
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: rems(18px);
+    margin-top: rems(30px);
 
-      & > a {
-        @include aspect-ratio(4, 3);
-      }
-
-      img {
-        object-fit: cover;
+    & > li {
+      & > button {
+        display: inline-block;
+        width: rems(12px);
+        height: rems(12px);
+        background-color: $color-border;
+        border-radius: rems(12px);
+        position: relative;
+        text-indent: -9999px;
       }
     }
 
-    .sns_text {
-      .sns_date {
-        display: none;
+    .slick-active {
+      & > button {
+        background-color: $color-accent;
       }
     }
   }
 
   .slick-list {
-    display: block;
-  }
-
-  .slick-track {
-    display: flex;
+    overflow: visible !important;
   }
 
   .slick-slide {
-    height: auto !important;
+    width: rems(360px);
     margin-right: rems(20px);
-    margin-left: rems(20px);
+
+    @include media-max(sp) {
+      width: auto;
+      margin-right: rems(40px);
+      margin-left: rems(40px);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .slick-arrow {
+    width: auto;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0, -175%);
+    z-index: 1;
+
+    @include media-max(sp) {
+      top: 50%;
+      bottom: auto;
+      transform: translate(0, -50%);
+    }
+
+    i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: rems(34px);
+      height: rems(34px);
+      font-size: rems(14px);
+      border-radius: rems(34px);
+      background-color: $color-accent;
+
+      @include media-max(sp) {
+        width: rems(40px);
+        height: rems(40px);
+        font-size: rems(18px);
+        border-radius: rems(40px);
+      }
+    }
+  }
+
+  .slick-prev-arrow {
+    right: rems(70px);
+
+    @include media-max(sp) {
+      right: auto;
+      left: rems(-15px);
+    }
+  }
+
+  .slick-next-arrow {
+    @include media-max(sp) {
+      right: rems(-15px);
+    }
   }
 }

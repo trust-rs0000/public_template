@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // https://github.com/cferdinandi/smooth-scroll
   try {
     new SmoothScroll('a[href*="#"]', {
-      speed: 100,
+      speed: 500,
       // easing: "easeInOutQuint",
       speedAsDuration: true,
       header: ".header",
@@ -99,7 +99,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
       const SCROLL = new SmoothScroll();
       SCROLL.animateScroll(this.document.querySelector(`#${targetId}`), "", {
-        speed: 100,
+        speed: 500,
         // easing: "easeInOutQuint",
         speedAsDuration: true,
         header: ".header",
@@ -208,7 +208,7 @@ window.addEventListener("load", function () {
 // slick
 window.addEventListener("DOMContentLoaded", function () {
   // メインビジュアルスライダー
-  $(".mv-slider").slick({
+  $(".mv-slick").slick({
     arrows: false,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -217,27 +217,38 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // instagramスライダー
-  $(".sns-slider").slick({
-    autoplay: true, // 自動でスクロール
-    autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
-    speed: 5000, // スライドが流れる速度を設定
-    slidesToShow: 4, // 表示するスライドの数
-    swipe: false, // 操作による切り替えはさせない
-    arrows: false, // 矢印非表示
-    pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
-    pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
+  $(".sns-slick").slick({
+    infinite: false,
+    dots: false,
+    arrows: true,
+    prevArrow:
+      '<div class="slick-arrow slick-prev-arrow"><i class="fa-solid fa-arrow-left"></i></div>',
+    nextArrow:
+      '<div class="slick-arrow slick-next-arrow"><i class="fa-solid fa-arrow-right"></i></div>',
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+    pauseOnHover: false,
+    swipeToSlide: true,
+    variableWidth: true,
+    // waitForAnimate: false,
+
     responsive: [
       {
-        breakpoint: 834,
+        breakpoint: 640,
         settings: {
-          slidesToShow: 2,
+          infinite: true,
+          dots: true,
+          dotsClass: "sns-slick__dots",
+          variableWidth: false,
         },
       },
     ],
   });
 
   // ドットが画像タイプのスライダー
-  $(".flex-gallery").slick({
+  $(".flex-slick-gallery").slick({
     autoplay: true,
     autoplaySpeed: 3000,
     infinite: true,

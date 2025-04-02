@@ -27,7 +27,7 @@
   @extend %button-reboot;
 
   min-width: rems(300px);
-  padding: 1.2em 0.85em 1.25em;
+  padding: 1.2em 1.7em 1.25em;
   background-color: $color-main;
   font-size: rems(16px);
   @include font-family(base, bold);
