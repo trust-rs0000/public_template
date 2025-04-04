@@ -217,7 +217,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // instagramスライダー
-  $(".sns-slick").slick({
+  $(".sns-slick .sns_list").slick({
     infinite: false,
     dots: false,
     arrows: true,
