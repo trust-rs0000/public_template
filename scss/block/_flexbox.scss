@@ -75,9 +75,33 @@
 .flex-slick {
   display: block !important;
 
-  .box {
-    margin-right: 10px;
-    margin-left: 10px;
+  &__dots {
+    display: flex;
+    justify-content: flex-start;
+    gap: rems(18px);
+    margin-top: rems(23px);
+
+    @include media-max(tab) {
+      justify-content: center;
+    }
+
+    & > li {
+      & > button {
+        display: inline-block;
+        width: rems(10px);
+        height: rems(10px);
+        background-color: $color-border;
+        border-radius: rems(10px);
+        position: relative;
+        text-indent: -9999px;
+      }
+    }
+
+    .slick-active {
+      & > button {
+        background-color: $color-main;
+      }
+    }
   }
 }
 
@@ -128,23 +152,38 @@
     display: flex;
     align-items: center;
     overflow: visible !important;
+    margin-bottom: rems(20px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     & > div {
       @include font-family(base, medium);
-      font-size: rems(20px);
+      font-size: rems(16px);
       line-height: 1.2;
-      padding-left: 2em;
+      padding-top: rems(2px);
+      padding-left: rems(32px);
       position: relative;
 
       &:before {
         flex: 0 0 auto;
-        @include font-awesome("\f14a", regular);
+        @include font-awesome("\f058", regular);
         color: $color-main;
-        font-size: rems(26px);
+        font-size: rems(22px);
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 0;
-        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  &--accent {
+    .box {
+      & > div {
+        &:before {
+          color: $color-accent;
+        }
       }
     }
   }

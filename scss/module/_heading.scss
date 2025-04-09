@@ -93,7 +93,7 @@ h4 {
   }
 
   .heading-bg-#{$color} {
-    padding: rems(15px) rems(20px);
+    padding: 0.4em 1em 0.5em 1.2em;
     background-color: $code;
     border-radius: rems(4px);
 
@@ -103,7 +103,7 @@ h4 {
   }
 
   .heading-border-bottom-#{$color} {
-    padding-bottom: rems(20px);
+    padding-bottom: 0.4em;
     border-bottom: 1px solid $code;
   }
 }

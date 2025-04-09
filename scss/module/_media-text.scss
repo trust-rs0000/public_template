@@ -21,10 +21,6 @@
     width: 100% !important;
     margin-bottom: rems(70px) !important;
     text-align: center;
-
-    @include media-max(tab) {
-      margin-bottom: rems(50px) !important;
-    }
   }
 
   img {
@@ -38,10 +34,6 @@
   flex: 1 0 0;
   margin-left: percentage(div(100, 1200));
 
-  @include media-max(bp1200) {
-    margin-left: rems(70px);
-  }
-
   @include media-max(tab) {
     margin-left: 0;
   }
@@ -50,10 +42,6 @@
 %media-text--reverse__wrapper {
   margin-left: 0;
   margin-right: percentage(div(100, 1200));
-
-  @include media-max(bp1200) {
-    margin-right: rems(70px);
-  }
 
   @include media-max(tab) {
     margin-right: 0;
@@ -72,8 +60,13 @@
 
   &__image {
     @extend %media-text__image;
-
     flex: 0 0 50%;
+  }
+
+  &--image-size_auto & {
+    &--image {
+      flex: 0 0 auto;
+    }
   }
 
   &__gallery {

@@ -1,0 +1,21 @@
+@use "breakpoints" as *;
+@use "size" as *;
+@use "../config/font-size" as *;
+
+@mixin font-size-heading($heading) {
+  $font-size-list: map-get($font-size-heading-list, $heading);
+
+  font-size: rems(map-get($font-size-list, normal));
+
+  @include media-max(bp1200) {
+    font-size: rems(map-get($font-size-list, bp1200));
+  }
+
+  @include media-max(tab) {
+    font-size: rems(map-get($font-size-list, tab));
+  }
+
+  @include media-max(sp) {
+    font-size: rems(map-get($font-size-list, sp));
+  }
+}

@@ -1,0 +1,8 @@
+@use "../forward" as *;
+
+// 見出しレベルのフォントサイズ(レスポンシブ対応)
+@each $heading, $size-list in $font-size-heading-list {
+  .font-size-#{$heading} {
+    @include font-size-heading($heading);
+  }
+}

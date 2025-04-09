@@ -6,6 +6,16 @@
   position: relative;
   z-index: 0;
 
+  &:after {
+    @include font-awesome("\f107");
+    margin-left: rems(3px);
+
+    @include media-max(drawer) {
+      content: unset;
+      margin-left: 0;
+    }
+  }
+
   // hover時
   @include media-min(drawer) {
     &:hover {
@@ -28,13 +38,14 @@
   }
 
   &__wrapper {
-    padding: rems(20px) rems(15px);
+    padding: rems(20px) 0 rems(19px);
     background-color: $color-dropdown-bg;
-    box-shadow: 0 0 5px rgba(black, 0.1);
+    border-radius: rems(3px);
 
     @include media-max(drawer) {
-      background-color: transparent;
       padding: 0;
+      background-color: transparent;
+      border-radius: unset;
       box-shadow: none;
     }
   }
@@ -74,33 +85,40 @@
   }
 
   &__item {
-    margin-bottom: rems(14px);
-    padding-bottom: rems(13px);
-    text-align: center;
-    border-bottom: 1px dashed $color-dropdown-border;
+    margin-bottom: rems(25px);
+    padding-right: rems(17px);
+    // padding-bottom: rems(16px);
+    padding-left: rems(17px);
+    text-align: left;
+    // border-bottom: 1px dashed $color-dropdown-border;
 
     @include media-max(drawer) {
       margin-bottom: rems(30px);
+      padding-right: 0;
       padding-bottom: 0;
+      padding-left: 0;
       border-bottom: none;
       text-align: left;
     }
 
     &:last-child {
       margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: 0;
+      // padding-bottom: 0;
+      // border-bottom: 0;
     }
   }
 
   &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     @include font-family($font-family-dropdown-nav-link, $font-weight-dropdown-nav-link);
     font-size: rems(15px);
     text-decoration: none;
 
     @include media-max(drawer) {
       display: inline-flex;
-      align-items: center;
+      justify-content: flex-start;
       font-size: rems(16px);
     }
 
@@ -119,9 +137,21 @@
         display: inline-block;
         width: rems(7px);
         height: rems(7px);
-        margin-right: rems(9px);
+        margin-right: rems(12px);
         background-color: $color-main;
         border-radius: rems(7px);
+        position: relative;
+        top: rems(-2px);
+      }
+    }
+
+    &:after {
+      @include font-awesome("\f061");
+      margin-left: rems(16px);
+
+      @include media-max(drawer) {
+        content: unset;
+        margin-left: 0;
       }
     }
   }

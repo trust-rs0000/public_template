@@ -63,9 +63,9 @@ $color-header-nav-link-drawer: $color-text; // ドロワー表示時のリンク
 $color-header-nav-link-subtitle: ""; // サブタイトル
 
 // ドロップダウン
-$color-dropdown-bg: white; // 背景
+$color-dropdown-bg: $color-main; // 背景
 $color-dropdown-border: $color-border; // ボーダー
-$color-dropdown-nav-link: $color-text; // リンク
+$color-dropdown-nav-link: white; // リンク
 $color-dropdown-nav-link-drawer: $color-text; // ドロワー表示時のリンク
 $color-dropdown-nav-link-scroll: $color-text; // スクロール時のリンク
 

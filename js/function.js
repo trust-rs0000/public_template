@@ -247,6 +247,16 @@ window.addEventListener("DOMContentLoaded", function () {
     ],
   });
 
+  // ドット付スライダー
+  $(".flex-slick").slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+    dots: true,
+    dotsClass: "flex-slick__dots",
+    arrows: false,
+  });
+
   // ドットが画像タイプのスライダー
   $(".flex-slick-gallery").slick({
     autoplay: true,
