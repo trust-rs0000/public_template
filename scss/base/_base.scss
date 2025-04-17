@@ -128,6 +128,40 @@ body *:not(i, b) {
   }
 }
 
+// お問い合わせページの上余白
+.page-form-error,
+.page-form-confirm,
+.page-form-complete {
+  #contents_wrap {
+    margin-top: $header-contact-margin-top !important;
+
+    @include media-max(drawer) {
+      margin-top: $header-contact-margin-top-drawer !important;
+    }
+
+    @include media-max(sp) {
+      margin-top: $header-contact-margin-top-sp !important;
+    }
+  }
+}
+
+// shopページの固定ヘッダー用マージン
+.page-shop {
+  #contents_wrap {
+    @if $have-header-margin-top == true {
+      margin-top: $header-margin-top;
+
+      @include media-max(drawer) {
+        margin-top: $header-margin-top-drawer;
+      }
+
+      @include media-max(sp) {
+        margin-top: $header-margin-top-sp;
+      }
+    }
+  }
+}
+
 img {
   vertical-align: baseline;
 }

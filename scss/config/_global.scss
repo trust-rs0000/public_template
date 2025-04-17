@@ -10,12 +10,30 @@ $transition-duration: 0.4s;
 
 // 固定ヘッダー用マージン
 // ヘッダーとコンテンツが被らないようにするためのマージン
-$have-header-margin-top: false; // trueにすると#contents_wrapの上方向にマージントップを付ける
+$have-header-margin-top: true; // trueにすると#contents_wrapの上方向にマージントップを付ける
+
+// お問い合わせ
 $header-contact-margin-top: 220px; // お問い合わせページのマージントップ
 $header-contact-margin-top-drawer: 110px; // お問い合わせページのマージントップ(drawerブレイクポイント時)
-$header-margin-top: 90px; // 全ページのマージントップ(ショッピングがある場合は、+2pxするとヘッダーと被らない)
+$header-contact-margin-top-sp: 110px; // 全ページのマージントップ(spブレイクポイント時)
+
+// 全ページ
+$header-margin-top: 90px; // 全ページのマージントップ
 $header-margin-top-drawer: 78px; // 全ページのマージントップ(drawerブレイクポイント時)
 $header-margin-top-sp: 78px; // 全ページのマージントップ(spブレイクポイント時)
+
+// ショップページ
+$header-shop-margin-top: calc(
+  $header-margin-top + 20px
+); // ショップのマージントップ(ショッピングがある場合は、+2pxするとヘッダーと被らない)
+$header-shop-margin-top-drawer: calc(
+  $header-margin-top + 20px
+); // ショップのマージントップ(drawerブレイクポイント時)
+$header-shop-margin-top-sp: calc(
+  $header-margin-top + 20px
+); // ショップのマージントップ(spブレイクポイント時)
+
+// ブログページ
 $header-blog-margin-top: $header-contact-margin-top; // ブログページのマージントップ
 $header-blog-margin-top-drawer: $header-contact-margin-top-drawer; // ブログページのマージントップ(drawerブレイクポイント時)
 

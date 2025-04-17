@@ -12,15 +12,15 @@
       display: flex;
       justify-content: center;
       width: 100%;
-    }
 
-    & > div > a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      min-width: 0;
-      line-height: 1.6;
+      & > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+        line-height: 1.6;
+      }
     }
   }
 }
@@ -56,17 +56,19 @@
 // キャプション付き画像
 .flex-caption {
   .box {
-    & > article > h3 {
-      display: none;
-    }
+    & > article {
+      & > h3 {
+        display: none;
+      }
 
-    & > article > img {
-      width: 100% !important;
-      margin-bottom: rems(15px);
-    }
+      & > img {
+        width: 100% !important;
+        margin-bottom: rems(15px);
+      }
 
-    & > article > div {
-      text-align: center;
+      & > div {
+        text-align: center;
+      }
     }
   }
 }

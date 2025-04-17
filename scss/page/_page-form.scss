@@ -2,19 +2,6 @@
 
 // フォームページ
 
-// お問い合わせページの上余白
-.page-form-error,
-.page-form-confirm,
-.page-form-complete {
-  #contents_wrap {
-    margin-top: $header-contact-margin-top !important;
-
-    @include media-max(tab) {
-      margin-top: $header-contact-margin-top-drawer !important;
-    }
-  }
-}
-
 // フォーム使用したときに上に出てくるゴミデータ
 h2.mail.title {
   display: none;
@@ -193,12 +180,14 @@ form + .submit {
   .form_wrap.message {
     @extend %reset-message;
 
-    & > ul > li {
-      margin-bottom: rems(25px);
-      padding-bottom: rems(12px);
-      @include font-family(base, medium);
-      font-size: rems(20px);
-      border-bottom: 1px solid $color-border;
+    & > ul {
+      & > li {
+        margin-bottom: rems(25px);
+        padding-bottom: rems(12px);
+        @include font-family(base, medium);
+        font-size: rems(20px);
+        border-bottom: 1px solid $color-border;
+      }
     }
 
     & > p {

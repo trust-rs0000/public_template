@@ -118,9 +118,10 @@
 
       & > a {
         @include aspect-ratio(4, 3);
-      }
-      & > a > img {
-        object-fit: cover;
+
+        & > img {
+          object-fit: cover;
+        }
       }
     }
 
@@ -133,15 +134,14 @@
     .blog_text {
       & > h3 {
         margin-bottom: rems(15px);
-      }
 
-      & > h3 > a {
-        &:link,
-        &:visited {
-          color: $color-main;
+        & > a {
+          &:link,
+          &:visited {
+            color: $color-main;
+          }
         }
       }
-
       .detail {
         font-size: rems(14px);
       }

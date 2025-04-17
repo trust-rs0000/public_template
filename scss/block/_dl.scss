@@ -47,26 +47,22 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
 
-  & > dl > dt,
-  & > dl > dd {
-    font-size: rems(16px);
-
-    @include media-max(sp) {
-      width: 100% !important;
+    & > dt,
+    & > dd {
+      font-size: res;
     }
-  }
 
-  & > dl > dt {
-    display: block;
-    margin-right: rems(10px);
-    @include font-family(base, medium);
+    & > dt {
+      display: block;
+      margin-right: rems(10px);
+      @include font-family(base, medium);
 
-    @include media-max(sp) {
-      margin-right: 0;
-      margin-bottom: rems(7px);
-      text-align: left;
+      @include media-max(sp) {
+        margin-right: 0;
+        margin-bottom: rems(7px);
+        text-align: left;
+      }
     }
   }
 }
@@ -92,32 +88,32 @@
       padding-bottom: 0;
       border-bottom: 0;
     }
-  }
 
-  & > dl > dt {
-    flex: 0 0 auto;
-    margin-top: rems(5px);
-    margin-right: rems(21px);
-    color: $color-main;
-    @include font-family(main, bold);
-    font-size: rems(16px);
-    line-height: 1;
+    & > dt {
+      flex: 0 0 auto;
+      margin-top: rems(5px);
+      margin-right: rems(21px);
+      color: $color-main;
+      @include font-family(main, bold);
+      font-size: rems(16px);
+      line-height: 1;
 
-    @include media-max(tab) {
-      width: auto !important;
-      margin-top: 0;
-      margin-right: 0;
-      margin-bottom: rems(6px);
+      @include media-max(tab) {
+        width: auto !important;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: rems(6px);
+      }
     }
-  }
 
-  & > dl > dd {
-    flex: 1 0 0;
-    font-size: rems(16px);
-    line-height: div(25.6, 16);
+    & > dd {
+      flex: 1 0 0;
+      font-size: rems(16px);
+      line-height: div(25.6, 16);
 
-    @include media-max(tab) {
-      width: 100% !important;
+      @include media-max(tab) {
+        width: 100% !important;
+      }
     }
   }
 }
@@ -185,23 +181,23 @@
       width: 100%;
       border-bottom: 1px solid $color-main-light;
     }
-  }
 
-  & > dl > dt,
-  & > dl > dd {
-    width: auto !important;
-    background-color: white !important;
-    z-index: 1;
-  }
+    & > dt,
+    & > dd {
+      width: auto !important;
+      background-color: white !important;
+      z-index: 1;
+    }
 
-  & > dl > dt {
-    margin-right: rems(20px);
-    padding-right: rems(10px) !important;
-    text-align: left;
-  }
+    & > dt {
+      margin-right: rems(20px);
+      padding-right: rems(10px) !important;
+      text-align: left;
+    }
 
-  & > dl > dd {
-    padding-left: rems(12px) !important;
-    text-align: right;
+    & > dd {
+      padding-left: rems(12px) !important;
+      text-align: right;
+    }
   }
 }

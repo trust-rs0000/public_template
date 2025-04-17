@@ -20,39 +20,43 @@
     &:last-of-type > dd {
       border: none;
     }
-  }
 
-  & > dl > dt,
-  & > dl > dd {
-    padding: 0;
-    background-color: transparent;
-    border: none;
-  }
+    & > dt,
+    & > dd {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+    }
 
-  & > dl > dt {
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color: transparent;
-  }
+    & > dt {
+      flex-direction: row;
+      justify-content: flex-start;
+      background-color: transparent;
 
-  & > dl > dt > label {
-    font-size: rems(10px);
-    color: $color-warn;
-  }
+      & > label {
+        font-size: rems(10px);
+        color: $color-warn;
+      }
+    }
 
-  & > dl > dd > input {
-    font-size: rems(16px);
-  }
+    & > dd {
+      &:not(.date, .addr, .email, .drop) {
+        // 注釈
+        & > div {
+          margin-top: rems(6px);
+        }
+      }
 
-  // 注釈
-  & > dl > dd > div {
-    font-size: rems(14px);
-    line-height: 1.2;
-  }
+      & > input {
+        font-size: rems(16px);
+      }
 
-  // 注釈
-  & > dl > dd:not(.date, .addr, .email, .drop) > div {
-    margin-top: rems(6px);
+      // 注釈
+      & > div {
+        font-size: rems(14px);
+        line-height: 1.2;
+      }
+    }
   }
 
   .date,
@@ -80,37 +84,37 @@
         &:last-of-type {
           width: 100%;
           margin-right: 0;
+
+          & > select {
+            margin-bottom: 0;
+          }
         }
-      }
 
-      & > div:last-of-type > select {
-        margin-bottom: 0;
-      }
+        & > input,
+        & > select {
+          width: 0 !important;
+          min-width: rems(75px);
+          max-height: rems(42px);
+        }
 
-      & > div > input,
-      & > div > select {
-        width: 0 !important;
-        min-width: rems(75px);
-        max-height: rems(42px);
-      }
+        & > input {
+          margin-bottom: 0;
+          font-size: rems(16px);
+          text-align: left;
+          @include border;
+        }
 
-      & > div > input {
-        margin-bottom: 0;
-        font-size: rems(16px);
-        text-align: left;
-        @include border;
-      }
+        & > select {
+          margin-bottom: 0;
+          font-size: rems(16px);
+        }
 
-      & > div > select {
-        margin-bottom: 0;
-        font-size: rems(16px);
-      }
-
-      & > div > span {
-        margin-right: 0;
-        margin-left: rems(5px);
-        font-size: rems(16px);
-        line-height: 1;
+        & > span {
+          margin-right: 0;
+          margin-left: rems(5px);
+          font-size: rems(16px);
+          line-height: 1;
+        }
       }
     }
   }
@@ -128,11 +132,11 @@
         &:last-of-type {
           margin-bottom: 0;
         }
-      }
 
-      & > div > input {
-        margin-bottom: 0;
-        font-size: rems(16px);
+        & > input {
+          margin-bottom: 0;
+          font-size: rems(16px);
+        }
       }
     }
   }
@@ -154,20 +158,20 @@
             margin-bottom: 0;
           }
         }
-      }
 
-      & > div > span {
-        margin-right: rems(10px);
-        line-height: 1;
-      }
+        & > span {
+          margin-right: rems(10px);
+          line-height: 1;
+        }
 
-      & > div > input {
-        margin-bottom: 0;
-        font-size: rems(16px);
-      }
+        & > input {
+          margin-bottom: 0;
+          font-size: rems(16px);
+        }
 
-      & > div > select {
-        font-size: rems(16px);
+        & > select {
+          font-size: rems(16px);
+        }
       }
     }
   }
@@ -195,11 +199,11 @@
       &:last-of-type {
         margin-right: 0;
       }
-    }
 
-    & > label > input {
-      margin: 0;
-      margin-right: rems(5px);
+      & > input {
+        margin: 0;
+        margin-right: rems(5px);
+      }
     }
   }
 
@@ -216,8 +220,10 @@
     border-top: none !important;
     border-bottom: none !important;
 
-    .file > label {
-      top: -37px;
+    .file {
+      & > label {
+        top: -37px;
+      }
     }
 
     & > dt {
@@ -228,8 +234,10 @@
       font-size: rems(16px);
     }
 
-    & > dd > label {
-      right: 0;
+    & > dd {
+      & > label {
+        right: 0;
+      }
     }
 
     .drop {
@@ -267,15 +275,15 @@
       padding-bottom: 0;
       border-bottom: none;
     }
-  }
 
-  & > dl > dt {
-    margin-right: rems(20px);
-    margin-bottom: rems(10px);
-    @include font-family(base, medium);
+    & > dt {
+      margin-right: rems(20px);
+      margin-bottom: rems(10px);
+      @include font-family(base, medium);
 
-    @include media-max(sp) {
-      margin-right: 0;
+      @include media-max(sp) {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -326,62 +334,69 @@ div#form_calendar {
 
   table {
     // 曜日
-    & > thead > tr > th {
-      font-size: rems(12px);
-      font-weight: 500;
+
+    & > thead {
+      & > tr {
+        & > th {
+          font-size: rems(12px);
+          font-weight: 500;
+        }
+      }
     }
 
     // ボディ
     & > tbody {
       background-color: white;
 
-      & > tr > td {
-        &:first-of-type {
-          background: unset;
+      & > tr {
+        & > td {
+          &:first-of-type {
+            background: unset;
+          }
+
+          &.past {
+            background: unset;
+          }
+
+          &.open,
+          &.close {
+            display: none !important;
+          }
+
+          &.close {
+            background-color: $color-form-calendar-close-bg;
+            position: relative;
+            z-index: 0;
+
+            &::after {
+              content: "休";
+              font-size: rems(11px);
+              line-height: 1;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 1;
+            }
+          }
+
+          &.other {
+            background-color: $color-form-calendar-other-bg;
+          }
+
+          & > label {
+            font-size: rems(10px) !important;
+            font-weight: 500 !important;
+          }
         }
-      }
-
-      & > tr > td > label {
-        font-size: rems(10px) !important;
-        font-weight: 500 !important;
-      }
-
-      & > tr > td.past {
-        background: unset;
-      }
-
-      & > tr > td.open,
-      & > tr > td.close {
-        & > span {
-          display: none !important;
-        }
-      }
-
-      & > tr > td.close {
-        background-color: $color-form-calendar-close-bg;
-        position: relative;
-        z-index: 0;
-
-        &::after {
-          content: "休";
-          font-size: rems(11px);
-          line-height: 1;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-        }
-      }
-
-      & > tr > td.other {
-        background-color: $color-form-calendar-other-bg;
       }
     }
   }
 
-  & > dl.open,
-  & > dl.close {
-    display: none !important;
+  & > dl {
+    &.open,
+    &.close {
+      display: none !important;
+    }
   }
 }
