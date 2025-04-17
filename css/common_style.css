@@ -20185,7 +20185,7 @@ select {
   padding: 0.9375rem 0.9375rem 1.875rem;
   background-color: white;
 }
-.flex-card .box > article > img {
+.flex-card .box > article img {
   width: 100% !important;
   height: auto !important;
   margin-bottom: 1.25rem;
@@ -20207,7 +20207,7 @@ select {
 .flex-caption .box > article > h3 {
   display: none;
 }
-.flex-caption .box > article > img {
+.flex-caption .box > article img {
   width: 100% !important;
   margin-bottom: 0.9375rem;
 }
