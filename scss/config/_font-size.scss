@@ -8,7 +8,7 @@ $font-size-base-tab: 14px;
 
 $font-size-config: (
   h1: 60px,
-  h1-top: 70px,
+  h1-top: 40px,
   h2: 44px,
   h2-top: 48px,
   h3: 36px,
@@ -36,6 +36,13 @@ $font-size-h1-top: map-get($font-size-config, h1-top);
 $font-size-h1-top-bp1200: calc($font-size-h1-top - 12px);
 $font-size-h1-top-tab: calc($font-size-h1-top-bp1200 - 12px);
 $font-size-h1-top-sp: calc($font-size-h1-top-tab - 12px);
+
+$font-size-h1-top-list: (
+  normal: $font-size-h1-top,
+  bp1200: $font-size-h1-top-bp1200,
+  tab: $font-size-h1-top-tab,
+  sp: $font-size-h1-top-sp,
+);
 
 // h2
 // 下層
@@ -120,6 +127,7 @@ $font-size-h4-top-list: (
 // heading-list
 $font-size-heading-list: (
   h1: $font-size-h1-list,
+  h1-top: $font-size-h1-top-list,
   h2: $font-size-h2-list,
   h2-top: $font-size-h2-top-list,
   h3: $font-size-h3-list,
