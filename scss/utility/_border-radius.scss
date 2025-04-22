@@ -2,14 +2,14 @@
 
 // ボーダー角丸
 
-.border-radius-small {
-  border-radius: rems(5px);
-}
+@each $size, $value in $border-radius-list {
+  .border-radius-#{$size} {
+    border-radius: rems($value);
+  }
 
-.border-radius-medium {
-  border-radius: rems(10px);
-}
-
-.border-radius-large {
-  border-radius: rems(15px);
+  .border-radius-image-#{$size} {
+    img {
+      border-radius: rems($value);
+    }
+  }
 }

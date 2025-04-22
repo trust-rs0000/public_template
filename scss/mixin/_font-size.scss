@@ -2,7 +2,7 @@
 @use "size" as *;
 @use "../config/font-size" as *;
 
-@mixin font-size-heading($heading) {
+@mixin font-size($heading) {
   $font-size-list: map-get($font-size-heading-list, $heading);
 
   font-size: rems(map-get($font-size-list, normal));
@@ -17,5 +17,21 @@
 
   @include media-max(sp) {
     font-size: rems(map-get($font-size-list, sp));
+  }
+}
+
+@mixin font-size-responsive($number, $interval) {
+  font-size: rems($number);
+
+  @include media-max(bp1200) {
+    font-size: rems(calc($number - $interval));
+  }
+
+  @include media-max(tab) {
+    font-size: rems(calc($number - ($interval * 2)));
+  }
+
+  @include media-max(sp) {
+    font-size: rems(calc($number - ($interval * 2.5)));
   }
 }

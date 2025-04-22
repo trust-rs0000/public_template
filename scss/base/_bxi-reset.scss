@@ -22,7 +22,7 @@ header#global_header {
   // デザイン設定 > 基本設定 > サイズ構成 > メイン幅で指定
   width: 100%;
   min-width: 0;
-  @include inner($page-inner);
+  @include inner($inner-global);
 }
 
 #main #col_main {

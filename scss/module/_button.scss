@@ -2,7 +2,7 @@
 
 // ボタン
 
-%button-reboot {
+%reboot-button {
   display: inline-block;
   max-width: 100%;
   text-decoration: none;
@@ -14,7 +14,7 @@
   }
 }
 
-%button-reboot-hover {
+%reboot-button-hover {
   transition: $transition-duration;
 
   &:hover {
@@ -24,7 +24,7 @@
 }
 
 .button-arrow {
-  @extend %button-reboot;
+  @extend %reboot-button;
 
   min-width: rems(300px);
   padding: 1.2em 1.7em 1.25em;
@@ -49,34 +49,84 @@
   }
 }
 
+%reboot-button-tel {
+  background-color: $color-tel;
+
+  &:before {
+    @include font-awesome("\f1e4");
+  }
+
+  &:link,
+  &:visited {
+    color: white;
+  }
+}
+
+%reboot-button-tel__text {
+  @include font-family(base, bold);
+}
+
 .button-tel {
-  @extend %button-reboot;
-  @extend %button-reboot-hover;
+  @extend %reboot-button;
+  @extend %reboot-button-hover;
+  @extend %reboot-button-tel;
 
   min-width: rems(220px);
   padding: 1em 1.05em 0.9em;
   background-color: $color-tel;
 
   &:before {
-    @include font-awesome("\f095");
     margin-right: rems(4px);
     font-size: rems(15px);
   }
 
-  &:link,
-  &:visited {
-    color: $color-text;
-  }
-
   &__text {
-    @include font-family(main, medium);
+    @extend %reboot-button-tel__text;
     font-size: rems(18px);
   }
 }
 
+.button-header-tel {
+  @extend %reboot-button;
+  @extend %reboot-button-hover;
+  @extend %reboot-button-tel;
+
+  min-width: rems(220px);
+  padding: 1em 1.05em 0.9em;
+  background-color: $color-tel;
+
+  &:before {
+    margin-right: rems(4px);
+    font-size: rems(15px);
+  }
+
+  &__text {
+    @extend %reboot-button-tel__text;
+    font-size: rems(18px);
+  }
+}
+
+%reboot-button-mail {
+  background-color: $color-mail;
+
+  &:before {
+    @include font-awesome("\f1e4");
+  }
+
+  &:link,
+  &:visited {
+    color: white;
+  }
+}
+
+%reboot-button-mail__text {
+  @include font-family(base, bold);
+}
+
 .button-mail {
-  @extend %button-reboot;
-  @extend %button-reboot-hover;
+  @extend %reboot-button;
+  @extend %reboot-button-hover;
+  @extend %reboot-button-mail;
 
   min-width: rems(220px);
   padding: 1em 1.05em 0.9em;
@@ -84,18 +134,33 @@
   border: 1px solid $color-mail;
 
   &:before {
-    @include font-awesome("\f0e0");
     margin-right: rems(5px);
     font-size: rems(20px);
   }
 
-  &:link,
-  &:visited {
-    color: $color-text;
+  &__text {
+    @extend %reboot-button-mail__text;
+    font-size: rems(17px);
+  }
+}
+
+.button-header-mail {
+  @extend %reboot-button;
+  @extend %reboot-button-hover;
+  @extend %reboot-button-mail;
+
+  min-width: rems(220px);
+  padding: 1em 1.05em 0.9em;
+  background-color: #ccc;
+  border: 1px solid $color-mail;
+
+  &:before {
+    margin-right: rems(5px);
+    font-size: rems(20px);
   }
 
   &__text {
-    @include font-family(base, medium);
+    @extend %reboot-button-mail__text;
     font-size: rems(17px);
   }
 }

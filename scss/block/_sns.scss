@@ -167,13 +167,30 @@
 
   .sns_list {
     display: block;
+    margin-bottom: 0 !important;
+
+    .sns_photo {
+      margin-bottom: rems(18px);
+
+      & > a {
+        @include aspect-ratio(1, 1);
+
+        & > img {
+          object-fit: cover;
+        }
+      }
+    }
+
+    .sns_date {
+      display: none;
+    }
   }
 
   &__dots {
     display: flex;
     justify-content: center;
     gap: rems(18px);
-    margin-top: rems(30px);
+    margin-top: rems(10px);
 
     & > li {
       & > button {
@@ -195,6 +212,7 @@
   }
 
   .slick-list {
+    display: block;
     overflow: visible !important;
   }
 

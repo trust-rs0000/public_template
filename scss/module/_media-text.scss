@@ -4,7 +4,7 @@
 
 %media-text__inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 
   @include media-max(tab) {
@@ -19,7 +19,7 @@
 %media-text__image {
   @include media-max(tab) {
     width: 100% !important;
-    margin-bottom: rems(70px) !important;
+    margin-bottom: rems(50px) !important;
     text-align: center;
   }
 
@@ -30,9 +30,11 @@
   }
 }
 
+$media-text-gap: 100;
+
 %media-text__wrapper {
   flex: 1 0 0;
-  margin-left: percentage(div(100, 1200));
+  margin-left: percentage(div($media-text-gap, strip-unit($inner-global)));
 
   @include media-max(tab) {
     margin-left: 0;
@@ -41,11 +43,36 @@
 
 %media-text--reverse__wrapper {
   margin-left: 0;
-  margin-right: percentage(div(100, 1200));
+  margin-right: percentage(div($media-text-gap, strip-unit($inner-global)));
 
   @include media-max(tab) {
     margin-right: 0;
   }
+}
+
+// 画像の大きさ割合
+@for $i from 1 through 9 {
+  .media-text-basis-#{$i} {
+    flex: 0 0 calc($i * 10%);
+  }
+}
+
+// 等倍の大きさ
+.media-text-basis-auto {
+  flex: 0 0 auto;
+}
+
+// 垂直方向の揃え
+.media-text-align-start {
+  align-items: flex-start;
+}
+
+.media-text-align-center {
+  align-items: center;
+}
+
+.media-text-align-end {
+  align-items: flex-end;
 }
 
 // 通常のメディア型
@@ -60,19 +87,10 @@
 
   &__image {
     @extend %media-text__image;
-    flex: 0 0 50%;
-  }
-
-  &--image-size_auto & {
-    &--image {
-      flex: 0 0 auto;
-    }
   }
 
   &__gallery {
     @extend %media-text__image;
-
-    width: 50%;
   }
 
   &--reverse & {
@@ -131,49 +149,6 @@
       @include media-max(tab) {
         margin-right: 0;
       }
-    }
-  }
-}
-
-// 画像とテキストが重なっているデザイン
-.media-text-overlap {
-  &__inner {
-    @extend %media-text__inner;
-  }
-
-  &__wrapper {
-    flex: 1 0 0;
-    margin-right: rems(-50px);
-    padding: rems(60px) rems(50px);
-    background-color: white;
-    box-shadow: 4px 4px 6px 0 rgba(black, 0.08);
-    border-radius: rems(20px);
-    position: relative;
-    z-index: 1;
-
-    @include media-max(tab) {
-      width: calc(100% - rems(40px));
-      margin-top: rems(-30px);
-      margin-right: auto;
-      margin-left: auto;
-      padding: rems(60px) rems(30px);
-    }
-  }
-
-  &__image {
-    @extend %media-text__image;
-
-    flex: 0 0 percentage(div(650, 1200));
-    margin-left: rems(-50px);
-
-    @include media-max(tab) {
-      margin-left: 0;
-    }
-  }
-
-  &--reverse & {
-    &__inner {
-      @extend %media-text--reverse__inner;
     }
   }
 }

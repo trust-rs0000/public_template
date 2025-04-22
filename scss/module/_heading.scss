@@ -3,125 +3,77 @@
 // 見出し
 
 h1 {
-  font-size: rems($font-size-h1);
+  @include font-size(h1);
   @include font-family($font-family-h1, $font-weight-h1);
   line-height: 1.2;
-
-  @include media-max(bp1200) {
-    font-size: rems($font-size-h1-bp1200);
-  }
-
-  @include media-max(tab) {
-    font-size: rems($font-size-h1-tab);
-  }
-
-  @include media-max(sp) {
-    font-size: rems($font-size-h1-sp);
-  }
 }
 
 h2 {
-  font-size: rems($font-size-h2);
+  @include font-size(h2);
   @include font-family($font-family-h2, $font-weight-h2);
   line-height: 1.2;
-
-  @include media-max(bp1200) {
-    font-size: rems($font-size-h2-bp1200);
-  }
-
-  @include media-max(tab) {
-    font-size: rems($font-size-h2-tab);
-  }
-
-  @include media-max(sp) {
-    font-size: rems($font-size-h2-sp);
-  }
 }
 
 h3 {
-  font-size: rems($font-size-h3);
+  @include font-size(h3);
   @include font-family($font-family-h3, $font-weight-h3);
   line-height: 1.2;
-
-  @include media-max(bp1200) {
-    font-size: rems($font-size-h3-bp1200);
-  }
-
-  @include media-max(tab) {
-    font-size: rems($font-size-h3-tab);
-  }
-
-  @include media-max(sp) {
-    font-size: rems($font-size-h3-sp);
-  }
 }
 
 h4 {
-  font-size: rems($font-size-h4);
+  @include font-size(h4);
   @include font-family($font-family-h4, $font-weight-h4);
   line-height: 1.2;
+}
 
-  @include media-max(bp1200) {
-    font-size: rems($font-size-h4-bp1200);
+.heading-dot {
+  position: relative;
+  padding-left: 1.5em;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    background-color: $color-main;
+    border-radius: 0.6em;
+    position: absolute;
+    top: 0.28em;
+    left: 0;
   }
 
-  @include media-max(tab) {
-    font-size: rems($font-size-h4-tab);
-  }
-
-  @include media-max(sp) {
-    font-size: rems($font-size-h4-sp);
+  @each $color, $code in $color-theme-list {
+    &--#{$color} {
+      &:before {
+        background-color: $code;
+      }
+    }
   }
 }
 
-@each $color, $code in $color-theme-list {
-  .heading-dot-#{$color} {
-    position: relative;
-    padding-left: 1.5em;
+.heading-bg {
+  padding: 0.4em 1em 0.5em 1.2em;
+  background-color: $color-main;
+  border-radius: rems(4px);
 
-    &:before {
-      content: "";
-      display: inline-block;
-      width: 0.6em;
-      height: 0.6em;
+  * {
+    color: white;
+  }
+
+  @each $color, $code in $color-theme-list {
+    &--#{$color} {
       background-color: $code;
-      border-radius: 0.6em;
-      position: absolute;
-      top: 0.28em;
-      left: 0;
     }
-  }
-
-  .heading-bg-#{$color} {
-    padding: 0.4em 1em 0.5em 1.2em;
-    background-color: $code;
-    border-radius: rems(4px);
-
-    * {
-      color: white;
-    }
-  }
-
-  .heading-border-bottom-#{$color} {
-    padding-bottom: 0.4em;
-    border-bottom: 1px solid $code;
   }
 }
 
-.heading-subtitle {
-  &__en {
-    margin-bottom: rems(7px);
-    color: $color-main;
-    @include font-family(main, semibold);
-    font-size: rems(48px);
-  }
+.heading-border-bottom {
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid $color-main;
 
-  &__ja {
-    font-size: rems(20px);
-    line-height: 1.2;
-
-    @include media-max(tab) {
-      font-size: rems(18px);
+  @each $color, $code in $color-theme-list {
+    &--#{$color} {
+      border-bottom: 1px solid $code;
     }
   }
 }

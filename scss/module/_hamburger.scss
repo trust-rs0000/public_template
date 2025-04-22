@@ -12,6 +12,7 @@
   width: rems(25px);
   height: rems(22px);
   position: relative;
+  right: rems(10px);
   z-index: $z-hamburger;
 
   @include media-max(drawer) {
