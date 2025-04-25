@@ -56,3 +56,6 @@
 @use "page/page-form"; // フォームページ(送信エラー、送信確認ページ等)
 @use "page/page-blog"; // ブログページ
 @use "page/page-shop"; // ショップページ
+
+// プラグイン
+@use "plugin/slick"; // slick

@@ -1,0 +1,52 @@
+@use "../forward" as *;
+
+.slick-arrow {
+  width: auto;
+  color: white;
+  position: absolute;
+  z-index: 1;
+
+  i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rems(45px);
+    height: rems(45px);
+    font-size: rems(16px);
+    border-radius: rems(45px);
+    background-color: $color-main;
+
+    @include media-max(sp) {
+      width: rems(40px);
+      height: rems(40px);
+      border-radius: rems(40px);
+    }
+  }
+}
+
+.slick-dotted {
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    gap: rems(18px);
+    margin-top: rems(10px);
+
+    & > li {
+      & > button {
+        display: inline-block;
+        width: rems(12px);
+        height: rems(12px);
+        background-color: $color-border;
+        border-radius: rems(12px);
+        position: relative;
+        text-indent: -9999px;
+      }
+    }
+
+    .slick-active {
+      & > button {
+        background-color: $color-accent;
+      }
+    }
+  }
+}

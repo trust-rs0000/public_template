@@ -5,11 +5,22 @@
 @each $size, $value in $border-radius-list {
   .border-radius-#{$size} {
     border-radius: rems($value);
+    overflow: hidden;
   }
 
+  // 画像のみ
   .border-radius-image-#{$size} {
     img {
       border-radius: rems($value);
     }
+  }
+}
+
+// セクション
+.border-radius-section {
+  border-radius: rems(60px) rems(60px) 0 0;
+
+  @include media-max(tab) {
+    border-radius: rems(35px) rems(35px) 0 0;
   }
 }

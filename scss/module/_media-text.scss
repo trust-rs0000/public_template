@@ -55,10 +55,19 @@ $media-text-gap: 100;
   .media-text-basis-#{$i} {
     flex: 0 0 calc($i * 10%);
   }
+
+  .media-text-image-full-basis-#{$i} {
+    width: calc($i * 10vw);
+  }
 }
 
 // 等倍の大きさ
 .media-text-basis-auto {
+  flex: 0 0 auto;
+}
+
+// 片方フルワイドの画像の大きさ割合
+.media-text-image-full-basis-auto {
   flex: 0 0 auto;
 }
 
@@ -122,6 +131,10 @@ $media-text-gap: 100;
 
     @include media-max(tab) {
       margin-left: 0;
+    }
+
+    img {
+      width: 100% !important;
     }
   }
 

@@ -8,6 +8,22 @@
   margin-left: calc(50% - 50vw) !important;
 }
 
+// インナー設定しない
+.inner-only-side-padding {
+  padding-right: $inner-padding;
+  padding-left: $inner-padding;
+
+  @include media-max(sp) {
+    padding-right: $inner-padding-sp;
+    padding-left: $inner-padding-sp;
+  }
+}
+
+// config/innerで設定したインナーサイズ
+.inner-global {
+  @include inner($inner-global);
+}
+
 @each $key, $inner in $inners {
   .inner-#{$key} {
     @include inner($inner);
