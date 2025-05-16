@@ -89,7 +89,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // smooth-scroll 外部アンカーリンク
 // 公式サイトにも掲載されているが、外部アンカーリンクの実装は不可能らしい。
 // なので、一瞬ページトップに戻ってからスクロールしている。
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
   if (window.location.hash) {
     const targetId = window.location.hash.substring(1);
 
@@ -113,9 +113,9 @@ window.addEventListener("DOMContentLoaded", function () {
   // ぱんくず
   // クラス名を変更して使用してください。
   try {
-    const H1_TEXT = document.querySelector(".page-header h1").textContent;
-
-    if (H1_TEXT) {
+    const H1 = document.querySelector(".page-header h1");
+    if (H1) {
+      const H1_TEXT = H1.textContent;
       const breadcrumb = new Breadcrumb({
         topText: "トップページへ",
         divider: "/",

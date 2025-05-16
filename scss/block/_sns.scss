@@ -280,3 +280,45 @@
     }
   }
 }
+
+// snsスライダー(自動)
+.sns-slick-infinite {
+  @extend %sns-reboot;
+
+  .sns_list {
+    display: block;
+
+    & > div {
+      display: block;
+    }
+
+    .sns_photo {
+      & > a {
+        @include aspect-ratio(1, 1);
+      }
+
+      img {
+        object-fit: cover;
+        border-radius: rems(6px);
+      }
+    }
+
+    .sns_text {
+      display: none;
+    }
+  }
+
+  .slick-list {
+    display: block;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: auto !important;
+    margin-right: rems(12px);
+    margin-left: rems(12px);
+  }
+}

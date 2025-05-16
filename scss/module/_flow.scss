@@ -7,68 +7,22 @@
   counter-reset: flow 0;
 
   &__item {
-    padding-left: 9em;
-    padding-bottom: 4.5em;
     counter-increment: flow 1;
-    position: relative;
-    z-index: 0;
-
-    @include media-max(sp) {
-      padding-left: 6em;
-    }
+    margin-bottom: rems(20px);
 
     &:before {
       content: counter(flow, decimal-leading-zero);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.4em;
-      height: 2.4em;
       color: $color-main;
-      background-color: white;
-      @include font-family(main, semibold);
-      font-size: rems(36px);
-      border: 3px solid $color-main;
-      border-radius: rems(80px);
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      @include media-max(sp) {
-        font-size: rems(26px);
-      }
+      @include font-family(base, bold);
+      @include font-size-responsive(72px, 12px);
+      line-height: 1;
     }
 
-    &:after {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 100%;
-      border-right: 1px solid $color-main;
-      position: absolute;
-      bottom: 0;
-      left: 2.8em;
-      z-index: -1;
-
-      @include media-max(sp) {
-        left: 2.2em;
-      }
-    }
-
-    &:last-child:after {
-      content: none;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
 
 .flow-item {
-  &:last-child {
-    padding-bottom: 0;
-  }
-
-  &__text {
-    padding: rems(20px);
-    background-color: $color-grey-light;
-    border-radius: rems(5px);
-  }
 }

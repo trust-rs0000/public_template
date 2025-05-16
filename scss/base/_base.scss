@@ -153,14 +153,14 @@ body *:not(i, b) {
 .page-shop {
   #contents_wrap {
     @if $have-header-margin-top == true {
-      margin-top: $header-margin-top;
+      margin-top: $header-shop-margin-top;
 
       @include media-max(drawer) {
-        margin-top: $header-margin-top-drawer;
+        margin-top: $header-shop-margin-top-drawer;
       }
 
       @include media-max(sp) {
-        margin-top: $header-margin-top-sp;
+        margin-top: $header-shop-margin-top-sp;
       }
     }
   }
