@@ -141,7 +141,7 @@ window.addEventListener("DOMContentLoaded", function () {
     SNS_LIST.forEach(function (sns) {
       const SNS_TEXT = sns.querySelector(".caption");
       const textSpliter = new Text(SNS_TEXT);
-      textSpliter.split(30);
+      textSpliter.split(60);
     });
   }
 

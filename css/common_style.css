@@ -312,21 +312,21 @@ select {
 }
 
 .border-radius-medium {
-  border-radius: 0.625rem;
+  border-radius: 0.3125rem;
   overflow: hidden;
 }
 
 .border-radius-image-medium img {
-  border-radius: 0.625rem;
+  border-radius: 0.3125rem;
 }
 
 .border-radius-large {
-  border-radius: 0.9375rem;
+  border-radius: 0.3125rem;
   overflow: hidden;
 }
 
 .border-radius-image-large img {
-  border-radius: 0.9375rem;
+  border-radius: 0.3125rem;
 }
 
 .border-radius-section {
@@ -20206,7 +20206,7 @@ select {
   border-bottom: 1px solid #cccccc;
 }
 .form_wrap.dl-cell > dl > dt {
-  padding: 1.1em 1em 1em;
+  padding: 1.1em 1em 0.8em;
   background-color: #f2f2f2;
   border-right: 1px solid #cccccc;
   line-height: 1.2;
@@ -20219,7 +20219,7 @@ select {
   }
 }
 .form_wrap.dl-cell > dl > dd {
-  padding: 0.9em 1em 1em;
+  padding: 0.9em 1em 0.8em;
 }
 @media (max-width: calc(640px - 0.02px)) {
   .form_wrap.dl-cell > dl > dd {
@@ -21585,7 +21585,6 @@ div#builingual .switch #cmn-toggle-1:checked + label span:after {
 .button-tel {
   min-width: 13.75rem;
   padding: 1em 1.05em 0.9em;
-  background-color: transparent;
 }
 .button-tel:before {
   margin-right: 0.25rem;
@@ -21598,7 +21597,6 @@ div#builingual .switch #cmn-toggle-1:checked + label span:after {
 .button-header-tel {
   min-width: 13.75rem;
   padding: 1em 1.05em 0.9em;
-  background-color: transparent;
 }
 .button-header-tel:before {
   margin-right: 0.25rem;
@@ -22518,11 +22516,6 @@ h4 {
   position: relative;
   z-index: 2000;
 }
-@media (max-width: calc(1400px - 0.02px)) {
-  .header-logo {
-    max-width: 12.5rem;
-  }
-}
 @media (max-width: calc(834px - 0.02px)) {
   .header-logo {
     max-width: 11.25rem;
@@ -22587,8 +22580,8 @@ h4 {
 
 .copyright {
   display: block;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   font-size: 0.875rem;
   text-align: center;
 }

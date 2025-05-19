@@ -40,10 +40,6 @@
   position: relative;
   z-index: $z-header-logo;
 
-  @include media-max(bp1400) {
-    max-width: rems(200px);
-  }
-
   @include media-max(tab) {
     max-width: rems(180px);
   }

@@ -40,9 +40,13 @@ $header-blog-margin-top-drawer: $header-contact-margin-top-drawer; ////// ブロ
 // サイドバー使用時、trueにする
 $has-sidebar: false;
 
+$border-radius-small: 5px;
+$border-radius-medium: 5px;
+$border-radius-large: 5px;
+
 // 角丸
 $border-radius-list: (
-  small: 5px,
-  medium: 10px,
-  large: 15px,
+  small: $border-radius-small,
+  medium: $border-radius-medium,
+  large: $border-radius-large,
 );

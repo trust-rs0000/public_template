@@ -135,7 +135,7 @@
     }
 
     & > dt {
-      padding: 1.1em 1em 1em;
+      padding: 1.1em 1em 0.8em;
       background-color: $color-grey-light;
       border-right: 1px solid $color-border;
       line-height: 1.2;
@@ -148,7 +148,7 @@
     }
 
     & > dd {
-      padding: 0.9em 1em 1em;
+      padding: 0.9em 1em 0.8em;
 
       @include media-max(sp) {
         width: 100% !important;
