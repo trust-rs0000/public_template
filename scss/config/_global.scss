@@ -13,14 +13,16 @@ $transition-duration: 0.4s;
 $have-header-margin-top: true; ////// trueにすると#contents_wrapの上方向にマージントップを付ける
 
 //// 全ページ
-$header-margin-top: 90px; ////// 全ページのマージントップ
-$header-margin-top-drawer: 78px; ////// 全ページのマージントップ(drawerブレイクポイント時)
-$header-margin-top-sp: 78px; ////// 全ページのマージントップ(spブレイクポイント時)
+$header-margin-top: 102px; ////// 全ページのマージントップ
+$header-margin-top-drawer: 75px; ////// 全ページのマージントップ(drawerブレイクポイント時)
+$header-margin-top-tab: 66px; ////// 全ページのマージントップ(tabブレイクポイント時)
+$header-margin-top-sp: 66px; ////// 全ページのマージントップ(spブレイクポイント時)
 
 //// お問い合わせ
 $header-contact-margin-top: 220px; ////// お問い合わせページのマージントップ
 $header-contact-margin-top-drawer: 110px; ////// お問い合わせページのマージントップ(drawerブレイクポイント時)
-$header-contact-margin-top-sp: 110px; ////// 全ページのマージントップ(spブレイクポイント時)
+$header-contact-margin-top-tab: 110px; ////// お問い合わせページのマージントップ(tabブレイクポイント時)
+$header-contact-margin-top-sp: 110px; ////// お問い合わせページのマージントップ(spブレイクポイント時)
 
 //// ショップページ
 ////// ショップのマージントップ(ショッピングがある場合は、+2pxするとヘッダーと被らない)
@@ -28,21 +30,26 @@ $header-shop-margin-top-margin: 2px;
 $header-shop-margin-top: calc($header-margin-top + $header-shop-margin-top-margin);
 
 ////// ショップのマージントップ(drawerブレイクポイント時)
-$header-shop-margin-top-drawer: calc($header-margin-top + $header-shop-margin-top-margin);
+$header-shop-margin-top-drawer: calc($header-margin-top-drawer + $header-shop-margin-top-margin);
+
+////// ショップのマージントップ(tabブレイクポイント時)
+$header-shop-margin-top-tab: calc($header-margin-top-tab + $header-shop-margin-top-margin);
 
 ////// ショップのマージントップ(spブレイクポイント時)
-$header-shop-margin-top-sp: calc($header-margin-top + $header-shop-margin-top-margin);
+$header-shop-margin-top-sp: calc($header-margin-top-sp + $header-shop-margin-top-margin);
 
 //// ブログページ
 $header-blog-margin-top: $header-contact-margin-top; ////// ブログページのマージントップ
 $header-blog-margin-top-drawer: $header-contact-margin-top-drawer; ////// ブログページのマージントップ(drawerブレイクポイント時)
+$header-blog-margin-top-tab: $header-contact-margin-top-tab; ////// ブログページのマージントップ(tabブレイクポイント時)
+$header-blog-margin-top-sp: $header-contact-margin-top-sp; ////// ブログページのマージントップ(spブレイクポイント時)
 
 // サイドバー使用時、trueにする
 $has-sidebar: false;
 
 $border-radius-small: 5px;
-$border-radius-medium: 5px;
-$border-radius-large: 5px;
+$border-radius-medium: 8px;
+$border-radius-large: 10px;
 
 // 角丸
 $border-radius-list: (

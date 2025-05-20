@@ -126,6 +126,10 @@ body *:not(i, b) {
       margin-top: $header-margin-top-drawer;
     }
 
+    @include media-max(tab) {
+      margin-top: $header-margin-top-tab;
+    }
+
     @include media-max(sp) {
       margin-top: $header-margin-top-sp;
     }
@@ -143,6 +147,10 @@ body *:not(i, b) {
       margin-top: $header-contact-margin-top-drawer !important;
     }
 
+    @include media-max(tab) {
+      margin-top: $header-contact-margin-top-tab;
+    }
+
     @include media-max(sp) {
       margin-top: $header-contact-margin-top-sp !important;
     }
@@ -157,6 +165,10 @@ body *:not(i, b) {
 
       @include media-max(drawer) {
         margin-top: $header-shop-margin-top-drawer;
+      }
+
+      @include media-max(tab) {
+        margin-top: $header-shop-margin-top-tab;
       }
 
       @include media-max(sp) {
