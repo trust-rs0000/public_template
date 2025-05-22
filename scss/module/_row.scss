@@ -1,0 +1,92 @@
+@use "../forward" as *;
+
+.row {
+  display: flex;
+
+  @include media-max(tab) {
+    display: block;
+  }
+}
+
+.row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+
+  @include media-max(tab) {
+    display: block;
+  }
+}
+
+// flexの大きさ
+@for $i from 1 through 10 {
+  .row-basis-#{$i} {
+    flex: 0 0 calc(#{$i}* 10%);
+  }
+
+  .row-gap-#{$i} {
+    gap: rems(calc($i * 10px));
+
+    @include media-max(tab) {
+      gap: 0;
+    }
+  }
+
+  .row-basis-full-#{$i} {
+    width: calc($i * 10vw);
+
+    @include media-max(row) {
+      width: 100%;
+    }
+  }
+}
+
+// 等倍の大きさ
+.media-text-basis-auto {
+  flex: 0 0 auto;
+}
+
+// 片側はみ出し
+.row-overflow-left {
+  margin-left: calc(50% - 50vw) !important;
+
+  @include media-max(row) {
+    margin-left: unset !important;
+  }
+}
+
+.row-overflow-right {
+  margin-right: calc(50% - 50vw) !important;
+
+  @include media-max(row) {
+    margin-right: unset !important;
+  }
+}
+
+.row-glow {
+  flex: 1 0 0;
+}
+
+$align: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+);
+
+@each $key, $value in $align {
+  .align-items-#{$key} {
+    align-items: $value;
+  }
+}
+
+$justify-content: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+);
+
+@each $key, $value in $justify-content {
+  .justify-content-#{$key} {
+    justify-content: $value;
+  }
+}

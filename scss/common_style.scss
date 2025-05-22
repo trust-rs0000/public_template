@@ -37,12 +37,14 @@
 @use "module/flow"; // フローレイアウト(流れ)
 @use "module/hamburger"; // ハンバーガー
 @use "module/heading"; // 見出し
+@use "module/history"; // 沿革
 @use "module/hr"; // hr
 @use "module/label"; // ラベル
 @use "module/media-text"; // メディア型レイアウト
 @use "module/megaphone"; // メガホン
 @use "module/mv"; // メインビジュアル
 @use "module/nav"; // ヘッダーナビゲーション
+@use "module/row"; // 横並びシステム
 @use "module/page-header"; // ページヘッダー
 
 // 全ページ共通のパーツ用CSS

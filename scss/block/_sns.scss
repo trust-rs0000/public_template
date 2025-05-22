@@ -285,6 +285,9 @@
 .sns-slick-infinite {
   @extend %sns-reboot;
 
+  margin-right: calc(50% - 50vw) !important;
+  margin-left: calc(50% - 50vw) !important;
+
   .sns_list {
     display: block;
 
@@ -298,13 +301,19 @@
       }
 
       img {
+        height: 100% !important;
         object-fit: cover;
-        border-radius: rems(6px);
       }
     }
 
     .sns_text {
-      display: none;
+      .sns_date {
+        display: none;
+      }
+
+      .caption {
+        margin-top: rems(15px);
+      }
     }
   }
 
@@ -318,7 +327,7 @@
 
   .slick-slide {
     height: auto !important;
-    margin-right: rems(12px);
-    margin-left: rems(12px);
+    margin-right: rems(20px);
+    margin-left: rems(20px);
   }
 }

@@ -3,12 +3,16 @@
 // フッター
 
 // 上方向に余白
-.page-footer-margin-top footer#global_footer {
+footer#global_footer {
   margin-top: rems(100px);
 
   @include media-max(tab) {
     margin-top: rems(80px);
   }
+}
+
+.page-footer-not-margin-top footer#global_footer {
+  margin-top: 0;
 }
 
 .copyright {

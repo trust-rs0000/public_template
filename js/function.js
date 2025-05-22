@@ -185,24 +185,33 @@ window.addEventListener("load", function () {
 
 // gsap
 window.addEventListener("load", function () {
-  gsap.utils.toArray(".heading-subtitle").forEach((target) => {
-    gsap.fromTo(
-      target,
-      {
-        y: 20,
-        autoAlpha: 0,
-        durarion: 1,
-      },
-      {
-        y: 0,
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: target,
-          start: "top center",
-        },
-      }
-    );
-  });
+  // gsap.to(".button-fixed", {
+  //   autoAlpha: 0,
+  //   scrollTrigger: {
+  //     trigger: "footer",
+  //     scrub: true,
+  //     start: "top bottom",
+  //     end: "bottom bottom",
+  //   },
+  // });
+  // gsap.utils.toArray(".js-fadein").forEach((target) => {
+  //   gsap.fromTo(
+  //     target,
+  //     {
+  //       y: 20,
+  //       autoAlpha: 0,
+  //       durarion: 1,
+  //     },
+  //     {
+  //       y: 0,
+  //       autoAlpha: 1,
+  //       scrollTrigger: {
+  //         trigger: target,
+  //         start: "top center",
+  //       },
+  //     }
+  //   );
+  // });
 });
 
 // slick
@@ -268,6 +277,27 @@ window.addEventListener("DOMContentLoaded", function () {
       var targetImage = slick.$slides.eq(index).find("img").attr("src");
       return "<img src=" + targetImage + ">";
     },
+  });
+
+  // 無限スライダー
+  $(".sns-slick-infinite .sns_list").slick({
+    autoplay: true, // 自動でスクロール
+    autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
+    speed: 6000, // スライドが流れる速度を設定
+    slidesToShow: 5, // 表示するスライドの数
+    swipe: false, // 操作による切り替えはさせない
+    arrows: false, // 矢印非表示
+    cssEase: "linear",
+    pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
+    pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   });
 });
 

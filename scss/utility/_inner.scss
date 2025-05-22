@@ -8,6 +8,14 @@
   margin-left: calc(50% - 50vw) !important;
 }
 
+.inner-full-right {
+  margin-right: calc(50% - 50vw) !important;
+}
+
+.inner-full-left {
+  margin-left: calc(50% - 50vw) !important;
+}
+
 // インナー設定しない
 .inner-only-side-padding {
   padding-right: $inner-padding;
