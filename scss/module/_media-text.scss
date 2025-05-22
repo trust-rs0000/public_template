@@ -2,27 +2,7 @@
 
 // メディア型
 
-%media-text__inner {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  @include media-max(tab) {
-    display: block;
-  }
-}
-
-%media-text--reverse__inner {
-  flex-direction: row-reverse;
-}
-
 %media-text__image {
-  @include media-max(tab) {
-    width: 100% !important;
-    margin-bottom: rems(50px) !important;
-    text-align: center;
-  }
-
   img {
     height: auto !important;
     margin-right: auto;
@@ -30,138 +10,19 @@
   }
 }
 
-$media-text-gap: 100;
-
-%media-text__wrapper {
-  flex: 1 0 0;
-  margin-left: percentage(div($media-text-gap, strip-unit($inner-global)));
-
-  @include media-max(tab) {
-    margin-left: 0;
-  }
-}
-
-%media-text--reverse__wrapper {
-  margin-left: 0;
-  margin-right: percentage(div($media-text-gap, strip-unit($inner-global)));
-
-  @include media-max(tab) {
-    margin-right: 0;
-  }
-}
-
-// 画像の大きさ割合
-@for $i from 1 through 9 {
-  .media-text-basis-#{$i} {
-    flex: 0 0 calc($i * 10%);
-  }
-
-  .media-text-image-full-basis-#{$i} {
-    width: calc($i * 10vw);
-  }
-}
-
-// 等倍の大きさ
-.media-text-basis-auto {
-  flex: 0 0 auto;
-}
-
-// 片方フルワイドの画像の大きさ割合
-.media-text-image-full-basis-auto {
-  flex: 0 0 auto;
-}
-
-// 垂直方向の揃え
-.media-text-align-start {
-  align-items: flex-start;
-}
-
-.media-text-align-center {
-  align-items: center;
-}
-
-.media-text-align-end {
-  align-items: flex-end;
-}
-
 // 通常のメディア型
 .media-text {
-  &__inner {
-    @extend %media-text__inner;
-  }
-
-  &__wrapper {
-    @extend %media-text__wrapper;
-  }
-
   &__image {
     @extend %media-text__image;
-  }
-
-  &__gallery {
-    @extend %media-text__image;
-  }
-
-  &--reverse & {
-    &__inner {
-      @extend %media-text--reverse__inner;
-    }
-
-    &__wrapper {
-      @extend %media-text--reverse__wrapper;
-    }
   }
 }
 
-// 画像がフルワイドのデザイン
 .media-text-image-full {
-  &__inner {
-    @extend %media-text__inner;
-  }
-
-  &__wrapper {
-    @extend %media-text__wrapper;
-  }
-
   &__image {
     @extend %media-text__image;
 
-    width: 50vw;
-    margin-left: calc(50% - 50vw);
-
-    @include media-max(tab) {
-      margin-left: 0;
-    }
-
     img {
-      width: 100% !important;
-    }
-  }
-
-  // 株式会社八ッ場ふるさと館
-  // yanbamarket.html
-  &__gallery {
-    @extend %media-text__image;
-
-    width: 50%;
-  }
-
-  &--reverse & {
-    &__inner {
-      @extend %media-text--reverse__inner;
-    }
-
-    &__wrapper {
-      @extend %media-text--reverse__wrapper;
-    }
-
-    &__image {
-      margin-right: calc(50% - 50vw);
-      margin-left: 0;
-
-      @include media-max(tab) {
-        margin-right: 0;
-      }
+      border-radius: 0 rems($border-radius-large) rems($border-radius-large) 0;
     }
   }
 }
