@@ -161,21 +161,23 @@
     }
 
     & > div {
+      width: 100%;
+      padding: rems(15px) rems(20px) rems(13px) rems(45px);
+      background-color: white;
+      border: 1px solid $color-main;
       @include font-family(base, medium);
       font-size: rems(16px);
-      line-height: 1.2;
-      padding-top: rems(2px);
-      padding-left: rems(32px);
+      line-height: 1.6;
       position: relative;
 
       &:before {
         flex: 0 0 auto;
-        @include font-awesome("\f058", regular);
+        @include font-awesome("\f14a", regular);
         color: $color-main;
-        font-size: rems(22px);
+        font-size: rems(18px);
         position: absolute;
-        top: 0;
-        left: 0;
+        top: rems(19px);
+        left: rems(15px);
       }
     }
   }
@@ -349,7 +351,7 @@
         display: inline-block;
         margin-right: rems(15px);
         color: $color-accent;
-        @include font-family(montserrat, medium);
+        @include font-family(main, medium);
         font-size: rems(24px);
         line-height: 1;
         position: absolute;
