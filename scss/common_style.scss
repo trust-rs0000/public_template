@@ -16,6 +16,7 @@
 @use "utility/letter-spacing"; // 字間
 @use "utility/marker"; // マーカー
 @use "utility/text-align"; // 水平方向の配置
+@use "utility/width"; // 最大幅
 
 // ブロック用クラス(ブロック単体で実現できるデザインのCSS)
 // @use "block/blog"; // ブログ
@@ -60,4 +61,5 @@
 @use "page/page-shop"; // ショップページ
 
 // プラグイン
+@use "plugin/fancybox"; // fancybox
 @use "plugin/slick"; // slick

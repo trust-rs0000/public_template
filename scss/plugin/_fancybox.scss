@@ -1,0 +1,11 @@
+@use "../forward" as *;
+
+.fancybox {
+  a {
+    line-height: 1;
+
+    img {
+      vertical-align: bottom;
+    }
+  }
+}

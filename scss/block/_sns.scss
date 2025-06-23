@@ -143,6 +143,30 @@
 
       .sns_text {
         flex: 1 0 0;
+
+        & > ul {
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: rems(25px);
+
+          & > li {
+            margin-right: rems(4px);
+            margin-top: rems(3px);
+
+            & > a {
+              margin-right: 0;
+              padding: rems(2px) rems(4px);
+              background-color: $color-accent;
+              text-decoration: none;
+              line-height: 1;
+
+              &:link,
+              &:visited {
+                color: white;
+              }
+            }
+          }
+        }
       }
 
       .sns_date {
@@ -153,9 +177,14 @@
       }
 
       .caption {
-        margin-top: rems(8px);
+        margin-top: rems(15px);
         color: $color-text;
-        font-size: rems(16px);
+        @include font-family(base, medium);
+        font-size: rems(18px);
+
+        @include media-max(sp) {
+          font-size: rems(15px);
+        }
       }
     }
   }

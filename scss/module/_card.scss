@@ -3,10 +3,4 @@
 // カード型
 
 .card {
-  &__price {
-    & > div {
-      @include font-family(base, medium);
-      font-size: rems(24px);
-    }
-  }
 }

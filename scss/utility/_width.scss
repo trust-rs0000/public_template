@@ -1,0 +1,11 @@
+@use "../forward" as *;
+
+// 最大幅
+
+@each $inner, $value in $inners {
+  .max-width-#{$inner} {
+    max-width: $value;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}

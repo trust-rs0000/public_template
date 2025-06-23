@@ -214,8 +214,7 @@ div.error {
     border: 1px solid $color-border;
 
     &::before {
-      content: "\f107";
-      font: var(--fa-font-solid);
+      @include font-awesome("\f107");
       pointer-events: none;
       line-height: 1;
       position: absolute;
@@ -560,6 +559,7 @@ div.error {
         & > img {
           display: block;
           object-fit: contain;
+          height: 100%;
         }
       }
 
@@ -717,6 +717,7 @@ div.error {
         }
 
         & > img {
+          height: 100%;
           object-fit: cover;
         }
       }
