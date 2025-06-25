@@ -29,11 +29,9 @@
   @extend %reboot-dl;
 
   & > dl {
-    margin-bottom: rems(18px);
-    padding-right: rems(10px);
-    padding-bottom: rems(19px);
-    padding-left: rems(10px);
-    border-bottom: 1px dotted $color-border;
+    margin-bottom: rems(14px);
+    padding-bottom: rems(15px);
+    border-bottom: 1px solid $color-border;
 
     @include media-max(sp) {
       display: block !important;
@@ -41,7 +39,7 @@
 
     &:first-child {
       padding-top: rems(19px);
-      border-top: 1px dotted $color-border;
+      border-top: 1px solid $color-border;
     }
 
     &:last-child {
@@ -63,6 +61,10 @@
         margin-bottom: rems(7px);
         text-align: left;
       }
+    }
+
+    & > dd {
+      padding-top: rems(2px);
     }
   }
 }

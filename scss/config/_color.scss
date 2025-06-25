@@ -38,15 +38,16 @@ $color-tel: $color-main;
 // メール
 $color-mail: $color-main;
 
+// サイト全体のボーダー
+$color-border: #cccccc;
+
 // 各コンポーネントで使用できるカラーリスト
 $color-theme-list: (
   main: $color-main,
   accent: $color-accent,
   yellow: $color-yellow,
+  border: $color-border,
 );
-
-// サイト全体のボーダー
-$color-border: #cccccc;
 
 // ハンバーガー
 $color-hamburger: $color-text;
@@ -78,6 +79,7 @@ $color-footer-bg: ""; // フッター背景
 
 // お問い合わせページ
 $color-form-button-positive: $color-accent; // 送信ボタン
+$color-form-button-negative: #bbb; // 戻るボタン
 
 // フッターナビゲーションのリンクテキスト
 $color-footer-nav-link: $color-text;

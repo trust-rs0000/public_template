@@ -19,10 +19,10 @@ $header-margin-top-tab: 66px; ////// 全ページのマージントップ(tabブ
 $header-margin-top-sp: 66px; ////// 全ページのマージントップ(spブレイクポイント時)
 
 //// お問い合わせ
-$header-contact-margin-top: 220px; ////// お問い合わせページのマージントップ
-$header-contact-margin-top-drawer: 110px; ////// お問い合わせページのマージントップ(drawerブレイクポイント時)
-$header-contact-margin-top-tab: 110px; ////// お問い合わせページのマージントップ(tabブレイクポイント時)
-$header-contact-margin-top-sp: 110px; ////// お問い合わせページのマージントップ(spブレイクポイント時)
+$header-contact-margin-top: $header-margin-top + 100px; ////// お問い合わせページのマージントップ
+$header-contact-margin-top-drawer: $header-margin-top + 80px; ////// お問い合わせページのマージントップ(drawerブレイクポイント時)
+$header-contact-margin-top-tab: $header-margin-top + 80px; ////// お問い合わせページのマージントップ(tabブレイクポイント時)
+$header-contact-margin-top-sp: $header-margin-top + 80px; ////// お問い合わせページのマージントップ(spブレイクポイント時)
 
 //// ショップページ
 ////// ショップのマージントップ(ショッピングがある場合は、+2pxするとヘッダーと被らない)

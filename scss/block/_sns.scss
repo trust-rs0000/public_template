@@ -113,7 +113,7 @@
 
   .sns_list {
     & > div {
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: rems(20px);
       padding-bottom: rems(20px);
       border-bottom: 1px dashed $color-border;
@@ -172,19 +172,19 @@
       .sns_date {
         color: $color-accent-deep;
         @include font-family(base, medium);
-        font-size: rems(18px);
+        font-size: rems(16px);
         line-height: 1;
       }
 
       .caption {
         margin-top: rems(15px);
         color: $color-text;
-        @include font-family(base, medium);
-        font-size: rems(18px);
+        @include font-family(base, regular);
+        font-size: rems(16px);
 
-        @include media-max(sp) {
-          font-size: rems(15px);
-        }
+        // @include media-max(sp) {
+        //   font-size: rems(15px);
+        // }
       }
     }
   }

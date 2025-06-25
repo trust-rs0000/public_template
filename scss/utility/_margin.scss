@@ -1,0 +1,11 @@
+@use "../forward" as *;
+
+@for $i from 1 through 12 {
+  .mt-#{$i * 10} {
+    margin-top: rems(calc($i * 10));
+  }
+
+  .mb-#{$i * 10} {
+    margin-bottom: rems(calc($i * 10));
+  }
+}
