@@ -280,7 +280,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // 無限スライダー
-  $(".sns-slick-infinite .sns_list").slick({
+  $(".flex-slick-infinite , .sns-slick-infinite .sns_list").slick({
     autoplay: true, // 自動でスクロール
     autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
     speed: 6000, // スライドが流れる速度を設定

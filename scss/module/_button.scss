@@ -44,7 +44,7 @@
     @include font-awesome("\f105");
     position: absolute;
     top: 51%;
-    right: calc(50% - percentage(div(88, 230)));
+    right: calc(50% - percentage(div(120, 300)));
     transform: translate(0, -50%);
   }
 }
@@ -53,7 +53,7 @@
   background-color: $color-tel;
 
   &:before {
-    @include font-awesome("\f1e4");
+    @include font-awesome("\f2a0");
   }
 
   &:link,
@@ -93,14 +93,26 @@
   min-width: rems(220px);
   padding: 1em 1.05em 0.9em;
 
+  @include media-max(drawer) {
+    padding: 1.15em 1.05em 1.1em;
+  }
+
   &:before {
     margin-right: rems(4px);
     font-size: rems(15px);
+
+    @include media-max(drawer) {
+      font-size: rems(15px);
+    }
   }
 
   &__text {
     @extend %reboot-button-tel__text;
     font-size: rems(18px);
+
+    @include media-max(drawer) {
+      font-size: rems(18px);
+    }
   }
 }
 
@@ -108,7 +120,7 @@
   background-color: $color-mail;
 
   &:before {
-    @include font-awesome("\f1e4");
+    @include font-awesome("\f0e0");
   }
 
   &:link,
@@ -148,13 +160,25 @@
   min-width: rems(220px);
   padding: 1em 1.05em 0.9em;
 
+  @include media-max(drawer) {
+    padding: 1.15em 1.05em 1.1em;
+  }
+
   &:before {
     margin-right: rems(5px);
     font-size: rems(20px);
+
+    @include media-max(drawer) {
+      font-size: rems(16px);
+    }
   }
 
   &__text {
     @extend %reboot-button-mail__text;
     font-size: rems(17px);
+
+    @include media-max(drawer) {
+      font-size: rems(18px);
+    }
   }
 }
