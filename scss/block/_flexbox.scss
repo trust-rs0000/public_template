@@ -25,6 +25,31 @@
   }
 }
 
+// 外部サービス用
+.flex-link-logo {
+  .box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: rems(12px) rems(15px);
+    border: 1px solid $color-border;
+
+    & > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-width: 0;
+
+      & > img {
+        max-width: 90% !important;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
 // タイトル・キャプション付き画像
 .flex-card {
   .box {
@@ -108,32 +133,31 @@
 }
 
 // dotが画像タイプのスライダー(slick使用)
-.flex-slick-gallery {
+.flex-slick-gallery.slick-dotted {
   display: block !important;
-  margin-bottom: 0 !important;
 
   .slick-slide {
-    @include aspect-ratio(1, 1);
+    @include aspect-ratio(4, 3);
 
     img {
       object-fit: cover;
     }
   }
 
+  $gap: 8px;
+
   .slick-dots {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    margin-top: rems(10px);
+    gap: rems($gap);
+    margin-top: rems($gap);
     position: static;
-    margin-bottom: rems(-10px);
 
     & > li {
-      width: calc((100% - (rems(10px) * 4)) / 5);
+      width: calc((100% - (rems($gap) * 4)) / 5);
       height: auto;
       margin: 0;
-      margin-right: rems(10px);
-      margin-bottom: rems(10px);
       @include aspect-ratio(1, 1);
 
       &:nth-child(5n) {

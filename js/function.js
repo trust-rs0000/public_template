@@ -185,33 +185,46 @@ window.addEventListener("load", function () {
 
 // gsap
 window.addEventListener("load", function () {
-  // gsap.to(".button-fixed", {
-  //   autoAlpha: 0,
-  //   scrollTrigger: {
-  //     trigger: "footer",
-  //     scrub: true,
-  //     start: "top bottom",
-  //     end: "bottom bottom",
-  //   },
-  // });
-  // gsap.utils.toArray(".js-fadein").forEach((target) => {
-  //   gsap.fromTo(
-  //     target,
-  //     {
-  //       y: 20,
-  //       autoAlpha: 0,
-  //       durarion: 1,
-  //     },
-  //     {
-  //       y: 0,
-  //       autoAlpha: 1,
-  //       scrollTrigger: {
-  //         trigger: target,
-  //         start: "top center",
-  //       },
-  //     }
-  //   );
-  // });
+  // 固定ボタンがフッターと被らないように
+  gsap.to(".header-contact", {
+    autoAlpha: 0,
+    scrollTrigger: {
+      trigger: "footer",
+      scrub: true,
+      start: "top bottom",
+      end: "bottom bottom",
+    },
+  });
+
+  // スクロール時、下からフェードイン
+  gsap.utils.toArray(".gsap-fadein").forEach((target) => {
+    gsap.fromTo(
+      target,
+      {
+        y: 20,
+        autoAlpha: 0,
+        durarion: 1,
+      },
+      {
+        y: 0,
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: target,
+          start: "top center",
+        },
+      }
+    );
+  });
+
+  // 画像にカーテンアニメーション
+  gsap.utils.toArray(".gsap-image-overlay").forEach((target) => {
+    ScrollTrigger.create({
+      trigger: target,
+      start: "top center",
+      toggleClass: { targets: target, className: "gsap-scrollIn" },
+      once: true,
+    });
+  });
 });
 
 // slick
