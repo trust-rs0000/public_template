@@ -2,10 +2,11 @@
 
 // フォントファミリー
 
-.font-family-main {
-  @include font-family(main, regular);
-}
-
-.font-family-accent {
-  @include font-family(accent, regular);
+@each $font-family-role, $font-family-type in $font-family {
+  @each $font-weight-thickness, $font-weight in $font-weights {
+    .font-family-#{$font-family-role}-#{$font-weight-thickness} {
+      font-family: $font-family-type;
+      font-weight: $font-weight;
+    }
+  }
 }

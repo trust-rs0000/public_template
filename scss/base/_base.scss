@@ -148,7 +148,7 @@ body *:not(i, b) {
     }
 
     @include media-max(tab) {
-      margin-top: $header-contact-margin-top-tab;
+      margin-top: $header-contact-margin-top-tab !important;
     }
 
     @include media-max(sp) {

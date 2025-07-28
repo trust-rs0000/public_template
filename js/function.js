@@ -183,18 +183,32 @@ window.addEventListener("load", function () {
   });
 });
 
+// masonry
+window.addEventListener("DOMContentLoaded", function () {
+  const FLEX_MASONRY = $(".flex-masonry");
+  FLEX_MASONRY.imagesLoaded(function () {
+    FLEX_MASONRY.masonry({
+      itemSelector: ".box",
+      // columnWidth: 320,
+      // fitWidth: true,
+      percentPosition: true,
+      gutter: 18,
+    });
+  });
+});
+
 // gsap
 window.addEventListener("load", function () {
   // 固定ボタンがフッターと被らないように
-  gsap.to(".header-contact", {
-    autoAlpha: 0,
-    scrollTrigger: {
-      trigger: "footer",
-      scrub: true,
-      start: "top bottom",
-      end: "bottom bottom",
-    },
-  });
+  // gsap.to(".header-contact", {
+  //   autoAlpha: 0,
+  //   scrollTrigger: {
+  //     trigger: "footer",
+  //     scrub: true,
+  //     start: "top bottom",
+  //     end: "bottom bottom",
+  //   },
+  // });
 
   // スクロール時、下からフェードイン
   gsap.utils.toArray(".gsap-fadein").forEach((target) => {
@@ -239,14 +253,14 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // instagramスライダー
-  $(".sns-slick .sns_list").slick({
-    infinite: false,
+  $(".flex-slick-side-overflow, .sns-slick .sns_list").slick({
+    // infinite: false,
+    autoplay: true,
+    autoplaySpeed: 1500,
     dots: false,
     arrows: true,
-    prevArrow:
-      '<div class="slick-arrow slick-prev-arrow"><i class="fa-solid fa-arrow-left"></i></div>',
-    nextArrow:
-      '<div class="slick-arrow slick-next-arrow"><i class="fa-solid fa-arrow-right"></i></div>',
+    prevArrow: '<div class="slick-arrow slick-prev-arrow"><i class="las la-angle-left"></i></div>',
+    nextArrow: '<div class="slick-arrow slick-next-arrow"><i class="las la-angle-right"></i></div>',
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -262,7 +276,7 @@ window.addEventListener("DOMContentLoaded", function () {
         settings: {
           infinite: true,
           dots: true,
-          dotsClass: "sns-slick__dots",
+          dotsClass: "js-slick-dots",
           variableWidth: false,
         },
       },

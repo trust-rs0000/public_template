@@ -132,6 +132,160 @@
   }
 }
 
+// 片側オーバースライダー
+.flex-slick-side-overflow {
+  display: block !important;
+  margin-right: calc(50% - 50vw);
+
+  @include media-max(tab) {
+    margin-right: auto;
+  }
+
+  .box {
+    width: rems(400px);
+    margin-right: rems(30px);
+
+    @include media-max(sp) {
+      width: auto;
+      margin-right: rems(40px);
+      margin-left: rems(40px);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    & > article {
+      & > h3 {
+        display: none;
+      }
+
+      & > div {
+        margin-top: rems(8px);
+        @include font-family(base, bold);
+        font-size: rems(20px);
+      }
+    }
+  }
+
+  .js-slick-dots {
+    display: flex;
+    justify-content: center;
+    gap: rems(18px);
+    margin-top: rems(30px);
+
+    & > li {
+      & > button {
+        display: inline-block;
+        width: rems(12px);
+        height: rems(12px);
+        background-color: $color-border;
+        border-radius: rems(12px);
+        position: relative;
+        text-indent: -9999px;
+      }
+    }
+
+    .slick-active {
+      & > button {
+        background-color: $color-accent;
+      }
+    }
+  }
+
+  .slick-list {
+    display: block;
+    overflow: visible !important;
+  }
+
+  .slick-slide {
+    width: rems(360px);
+    margin-right: rems(20px);
+
+    @include media-max(sp) {
+      width: auto;
+      margin-right: rems(40px);
+      margin-left: rems(40px);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .slick-arrow {
+    display: none !important;
+    width: auto;
+    color: $color-accent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0, -175%);
+    z-index: 1;
+
+    @include media-max(sp) {
+      display: block !important;
+      top: 50%;
+      bottom: auto;
+      transform: translate(0, -50%);
+    }
+
+    i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: rems(34px);
+      height: rems(34px);
+      font-size: rems(14px);
+      border-radius: rems(34px);
+      background-color: white;
+
+      @include media-max(sp) {
+        width: rems(40px);
+        height: rems(40px);
+        font-size: rems(18px);
+        border-radius: rems(40px);
+      }
+    }
+  }
+
+  .slick-prev-arrow {
+    right: rems(70px);
+
+    @include media-max(sp) {
+      right: auto;
+      left: rems(-15px);
+    }
+  }
+
+  .slick-next-arrow {
+    @include media-max(sp) {
+      right: rems(-15px);
+    }
+  }
+}
+
+.flex-slick-side-overflow-reverse {
+  @extend .flex-slick-side-overflow;
+
+  margin-right: auto;
+  margin-left: calc(50% - 50vw);
+
+  @include media-max(tab) {
+    margin-left: auto;
+  }
+
+  .box {
+    margin-right: 0;
+    margin-left: rems(30px);
+
+    @include media-max(sp) {
+      margin-right: rems(40px);
+      margin-left: rems(40px);
+    }
+  }
+}
+
 // dotが画像タイプのスライダー(slick使用)
 .flex-slick-gallery.slick-dotted {
   display: block !important;
@@ -186,36 +340,73 @@
   }
 }
 
+// グリッドレイアウト(masonry使用)
+.flex-masonry {
+  display: block !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+
+  .box {
+    width: calc((100% - (18px * 2)) / 3);
+    margin-bottom: rems(40px);
+
+    @include media-max(tab) {
+      width: calc((100% - (18px * 1)) / 2);
+      margin-bottom: rems(30px);
+    }
+
+    & > article {
+      & > h3 {
+        display: none;
+      }
+
+      & > div {
+        margin-top: rems(12px);
+        @include font-family(base, bold);
+        font-size: rems(18px);
+        text-align: center;
+        line-height: 1.4;
+
+        @include media-max(tab) {
+          font-size: rems(15px);
+        }
+      }
+    }
+  }
+}
+
 // チェックボックスアイコン付きのリスト
 .flex-checkbox {
   .box {
     display: flex;
     align-items: center;
+    margin-bottom: rems(13px);
+    padding-bottom: rems(11px);
+    border-bottom: 1px dashed white;
     overflow: visible !important;
-    margin-bottom: rems(20px);
 
     &:last-child {
       margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
     }
 
     & > div {
       width: 100%;
-      padding: rems(15px) rems(20px) rems(13px) rems(45px);
-      background-color: white;
-      border: 1px solid $color-main;
-      @include font-family(base, medium);
+      padding-left: rems(30px);
+      @include font-family(base, regular);
       font-size: rems(16px);
       line-height: 1.6;
       position: relative;
 
       &:before {
         flex: 0 0 auto;
-        @include font-awesome("\f14a", regular);
-        color: $color-main;
+        @include font-awesome("\f560");
+        color: $color-accent;
         font-size: rems(18px);
         position: absolute;
-        top: rems(19px);
-        left: rems(15px);
+        top: rems(1px);
+        left: 0;
       }
     }
   }
@@ -437,33 +628,23 @@
   }
 
   &__en {
-    display: block;
+    display: inline-block;
     margin-bottom: rems(10px);
-    @include font-family(accent, medium);
-    font-size: div(20, 28) * 1em;
+    background-color: black;
+    @include font-family(base, bold);
+    @include font-size-responsive(44, 8);
+    text-align: left;
+    line-height: 1;
   }
 
   &__ja {
     display: block;
-    @include font-family(base, bold);
+    @include font-family(base, regular);
   }
 
   .box {
     position: relative;
     z-index: 0;
-
-    &:before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(black, 0.5);
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
 
     & > article {
       & > h3 {
@@ -477,14 +658,10 @@
       }
 
       & > div {
-        width: 100%;
-        padding: rems(10px);
-        @include font-size-responsive(28px, 4px);
-        text-align: center;
+        text-align: right;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        right: rems(15px);
+        bottom: rems(15px);
         z-index: 1;
         pointer-events: none;
       }

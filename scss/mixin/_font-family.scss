@@ -9,21 +9,21 @@
 
 // font-awesome
 @mixin font-awesome($uni, $type: solid) {
-  $style: --fa-font-solid;
+  content: $uni;
+  line-height: 1;
 
-  @if $type == regular {
-    $style: --fa-font-regular;
+  // line-awesome使用時
+  @if $line-awesome-enable == true {
+    font-family: "Line Awesome Free";
+    font-weight: 900;
+  } @else {
+    // font-awesome使用時
+    $style: --fa-font-solid;
+
+    @if $type == regular {
+      $style: --fa-font-regular;
+    }
+
+    font: var($style);
   }
-
-  content: $uni;
-  font: var($style);
-  line-height: 1;
-}
-
-// line-awesome
-@mixin line-awesome($uni) {
-  content: $uni;
-  font-family: "Line Awesome Free";
-  font-weight: 900;
-  line-height: 1;
 }

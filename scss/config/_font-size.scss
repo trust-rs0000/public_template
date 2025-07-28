@@ -6,134 +6,73 @@ $font-size-denominator: 16px; // rems()を計算するときの分母。制作�
 $font-size-base: 16px;
 $font-size-base-tab: 14px;
 
-$font-size-config: (
-  h1: 60px,
-  h1-top: 40px,
-  h2: 44px,
-  h2-top: 48px,
-  h3: 36px,
-  h3-top: 30px,
-  h4: 28px,
-  h4-top: 28px,
-);
-
-// h1
-// 下層
-$font-size-h1: map-get($font-size-config, h1);
-$font-size-h1-bp1200: calc($font-size-h1 - 6px);
-$font-size-h1-tab: calc($font-size-h1-bp1200 - 6px);
-$font-size-h1-sp: calc($font-size-h1-tab - 3px);
-
-$font-size-h1-list: (
-  normal: $font-size-h1,
-  bp1200: $font-size-h1-bp1200,
-  tab: $font-size-h1-tab,
-  sp: $font-size-h1-sp,
-);
-
-// TOPページ
-$font-size-h1-top: map-get($font-size-config, h1-top);
-$font-size-h1-top-bp1200: calc($font-size-h1-top - 12px);
-$font-size-h1-top-tab: calc($font-size-h1-top-bp1200 - 12px);
-$font-size-h1-top-sp: calc($font-size-h1-top-tab - 12px);
-
-$font-size-h1-top-list: (
-  normal: $font-size-h1-top,
-  bp1200: $font-size-h1-top-bp1200,
-  tab: $font-size-h1-top-tab,
-  sp: $font-size-h1-top-sp,
-);
-
-// h2
-// 下層
-$font-size-h2: map-get($font-size-config, h2);
-$font-size-h2-bp1200: calc($font-size-h2 - 4px);
-$font-size-h2-tab: calc($font-size-h2-bp1200 - 4px);
-$font-size-h2-sp: calc($font-size-h2-tab - 2px);
-
-$font-size-h2-list: (
-  normal: $font-size-h2,
-  bp1200: $font-size-h2-bp1200,
-  tab: $font-size-h2-tab,
-  sp: $font-size-h2-sp,
-);
-
-// TOPページ
-$font-size-h2-top: map-get($font-size-config, h2-top);
-$font-size-h2-top-bp1200: calc($font-size-h2-top - 6px);
-$font-size-h2-top-tab: calc($font-size-h2-top-bp1200 - 6px);
-$font-size-h2-top-sp: calc($font-size-h2-top-tab - 6px);
-
-$font-size-h2-top-list: (
-  normal: $font-size-h2-top,
-  bp1200: $font-size-h2-top-bp1200,
-  tab: $font-size-h2-top-tab,
-  sp: $font-size-h2-top-sp,
-);
-
-// h3
-// 下層
-$font-size-h3: map-get($font-size-config, h3);
-$font-size-h3-bp1200: calc($font-size-h3 - 4px);
-$font-size-h3-tab: calc($font-size-h3-bp1200 - 4px);
-$font-size-h3-sp: calc($font-size-h3-tab - 2px);
-
-$font-size-h3-list: (
-  normal: $font-size-h3,
-  bp1200: $font-size-h3-bp1200,
-  tab: $font-size-h3-tab,
-  sp: $font-size-h3-sp,
-);
-
-// TOPページ
-$font-size-h3-top: map-get($font-size-config, h3-top);
-$font-size-h3-top-bp1200: calc($font-size-h3-top - 3px);
-$font-size-h3-top-tab: calc($font-size-h3-top-bp1200 - 3px);
-$font-size-h3-top-sp: calc($font-size-h3-top-tab - 3px);
-
-$font-size-h3-top-list: (
-  normal: $font-size-h3-top,
-  bp1200: $font-size-h3-top-bp1200,
-  tab: $font-size-h3-top-tab,
-  sp: $font-size-h3-top-sp,
-);
-
-// 下層
-$font-size-h4: map-get($font-size-config, h4);
-$font-size-h4-bp1200: calc($font-size-h4 - 4px);
-$font-size-h4-tab: calc($font-size-h4-bp1200 - 4px);
-$font-size-h4-sp: calc($font-size-h4-tab - 2px);
-
-$font-size-h4-list: (
-  normal: $font-size-h4,
-  bp1200: $font-size-h4-bp1200,
-  tab: $font-size-h4-tab,
-  sp: $font-size-h4-sp,
-);
-
-// TOPページ
-$font-size-h4-top: map-get($font-size-config, h4-top);
-$font-size-h4-top-bp1200: calc($font-size-h4-top - 6px);
-$font-size-h4-top-tab: calc($font-size-h4-top-bp1200 - 6px);
-$font-size-h4-top-sp: calc($font-size-h4-top-tab - 6px);
-
-$font-size-h4-top-list: (
-  normal: $font-size-h4-top,
-  bp1200: $font-size-h4-top-bp1200,
-  tab: $font-size-h4-top-tab,
-  sp: $font-size-h4-top-sp,
-);
-
-// heading-list
-$font-size-heading-list: (
-  h1: $font-size-h1-list,
-  h1-top: $font-size-h1-top-list,
-  h2: $font-size-h2-list,
-  h2-top: $font-size-h2-top-list,
-  h3: $font-size-h3-list,
-  h3-top: $font-size-h3-top-list,
-  h4: $font-size-h4-list,
-  h4-top: $font-size-h4-top-list,
+$font-size-heading-config-list: (
+  h1: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 30px,
+  ),
+  h1-english: (
+    base: 96px,
+    bp1200: 84px,
+    tab: 72px,
+    sp: 48px,
+  ),
+  h1-top: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 30px,
+  ),
+  h2: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 30px,
+  ),
+  h2-top: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 30px,
+  ),
+  h2-top-english: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 40px,
+  ),
+  h3: (
+    base: 24px,
+    bp1200: 22px,
+    tab: 20px,
+    sp: 18px,
+  ),
+  h3-top: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 30px,
+  ),
+  h3-top-english: (
+    base: 38px,
+    bp1200: 34px,
+    tab: 30px,
+    sp: 26px,
+  ),
+  h4: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 30px,
+  ),
+  h4-top: (
+    base: 50px,
+    bp1200: 44px,
+    tab: 38px,
+    sp: 30px,
+  ),
 );
 
 // ブログh1フォントサイズ

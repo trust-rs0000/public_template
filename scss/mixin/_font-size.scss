@@ -3,9 +3,8 @@
 @use "../config/font-size" as *;
 
 @mixin font-size($heading) {
-  $font-size-list: map-get($font-size-heading-list, $heading);
-
-  font-size: rems(map-get($font-size-list, normal));
+  $font-size-list: map-get($font-size-heading-config-list, $heading);
+  font-size: rems(map-get($font-size-list, base));
 
   @include media-max(bp1200) {
     font-size: rems(map-get($font-size-list, bp1200));
