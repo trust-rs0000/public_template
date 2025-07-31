@@ -136,6 +136,13 @@ body *:not(i, b) {
   }
 }
 
+// 固定ヘッダー用マージンを無効にするページ
+.page-no-header-margin-top {
+  #contents_wrap {
+    margin-top: 0;
+  }
+}
+
 // お問い合わせページの上余白
 .page-form-error,
 .page-form-confirm,

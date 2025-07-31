@@ -73,9 +73,9 @@
   @include scroll-bar;
 
   & > dl {
-    margin-bottom: rems(25px);
-    padding-bottom: rems(25px);
-    border-bottom: 1px dotted $color-border;
+    margin-bottom: rems(15px);
+    padding-bottom: rems(15px);
+    border-bottom: 1px solid $color-border;
 
     @include media-max(tab) {
       display: block !important;
@@ -94,7 +94,6 @@
       color: $color-main;
       @include font-family(main, bold);
       font-size: rems(16px);
-      line-height: 1;
 
       @include media-max(tab) {
         width: auto !important;
@@ -107,7 +106,6 @@
     & > dd {
       flex: 1 0 0;
       font-size: rems(16px);
-      line-height: div(25.6, 16);
 
       @include media-max(tab) {
         width: 100% !important;
@@ -133,7 +131,7 @@
     }
 
     & > dt {
-      padding: 1.1em 1em 0.8em;
+      padding: rems(16px) rems(16px) rems(14px);
       background-color: $color-grey-light;
       border-right: 1px solid $color-border;
 
@@ -145,7 +143,7 @@
     }
 
     & > dd {
-      padding: 1.1em 1em 0.8em;
+      padding: rems(16px) rems(16px) rems(14px);
 
       @include media-max(sp) {
         width: 100% !important;

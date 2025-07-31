@@ -184,18 +184,18 @@ window.addEventListener("load", function () {
 });
 
 // masonry
-window.addEventListener("DOMContentLoaded", function () {
-  const FLEX_MASONRY = $(".flex-masonry");
-  FLEX_MASONRY.imagesLoaded(function () {
-    FLEX_MASONRY.masonry({
-      itemSelector: ".box",
-      // columnWidth: 320,
-      // fitWidth: true,
-      percentPosition: true,
-      gutter: 18,
-    });
-  });
-});
+// window.addEventListener("DOMContentLoaded", function () {
+//   const FLEX_MASONRY = $(".flex-masonry");
+//   FLEX_MASONRY.imagesLoaded(function () {
+//     FLEX_MASONRY.masonry({
+//       itemSelector: ".box",
+//       // columnWidth: 320,
+//       // fitWidth: true,
+//       percentPosition: true,
+//       gutter: 18,
+//     });
+//   });
+// });
 
 // gsap
 window.addEventListener("load", function () {
