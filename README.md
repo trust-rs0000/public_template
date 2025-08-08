@@ -241,6 +241,36 @@ E:.
 
 ## よく使う mixin の使い方
 
+### ブレイクポイントの mixin
+
+ブレイクポイントの mixin は以下の通りになります。
+[\_breakpoints.scss](scss/config/_breakpoints.scss)の値を参照しています。
+
+```
+// max-width指定
+@include media-max(sp) {
+    // scssを記載してください
+}
+
+// min-width指定
+@include media-min(sp) {
+    // scssを記載してください
+}
+```
+
+### フォントファミリーの mixin
+
+フォントファミリー
+
+フォントファミリーの mixin は以下の通りになります。
+[\_font-family.scss](scss/config/_font-family.scss)
+
+```
+.sample-class {
+    @include font-family(base, bold);
+}
+```
+
 ## よく使う utility・module の使い方
 
 ## 参考サイト
