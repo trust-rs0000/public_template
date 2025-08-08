@@ -1,7 +1,6 @@
 ﻿import Accordion from "./module/accordion.js";
 import Breadcrumb from "./module/breadcrumb.js";
 import Hamburger from "./module/hamburger.js";
-import OpeningAnimation from "./module/opening-animation.js";
 import Text from "./module/text.js";
 
 // 必須
@@ -143,17 +142,6 @@ window.addEventListener("DOMContentLoaded", function () {
       const textSpliter = new Text(SNS_TEXT);
       textSpliter.split(60);
     });
-  }
-
-  // オープニングアニメーション
-  const LOADER = document.querySelector(".loader");
-  if (LOADER) {
-    const op = new OpeningAnimation(LOADER);
-
-    // 来訪済みか判断。
-    op.checkVisited();
-
-    // 以下、アニメーションの詳細な記述を記載してください。
   }
 
   // headerお問い合わせボタンの複製
