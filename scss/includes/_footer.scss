@@ -3,22 +3,14 @@
 // フッター
 
 // 上方向に余白
-footer#global_footer {
-  margin-top: rems(100px);
+// footer#global_footer {
+//   margin-top: rems(100px);
 
-  @include media-max(tab) {
-    margin-top: rems(80px);
-  }
-}
+//   @include media-max(tab) {
+//     margin-top: rems(80px);
+//   }
+// }
 
-.page-footer-not-margin-top footer#global_footer {
-  margin-top: 0;
-}
-
-.copyright {
-  display: block;
-  padding-top: rems(12px);
-  padding-bottom: rems(12px);
-  font-size: rems(14px);
-  text-align: center;
-}
+// .page-footer-not-margin-top footer#global_footer {
+//   margin-top: 0;
+// }

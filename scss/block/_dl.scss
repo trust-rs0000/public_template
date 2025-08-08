@@ -24,8 +24,13 @@
   }
 }
 
-// 会社概要
+// 装飾無し
 .form_wrap.dl {
+  @extend %reboot-dl;
+}
+
+// 会社概要
+.form_wrap.dl-company {
   @extend %reboot-dl;
 
   & > dl {
