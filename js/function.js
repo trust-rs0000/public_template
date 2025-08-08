@@ -239,6 +239,15 @@ window.addEventListener("load", function () {
       once: true,
     });
   });
+
+  ScrollTrigger.create({
+    trigger: "body",
+    start: "top top-=100",
+    end: "bottom bottom",
+    // markers: true,
+    toggleClass: { targets: "body", className: "gsap-scrolled" },
+    // toggleActions: "play none reverse none",
+  });
 });
 
 // slick
