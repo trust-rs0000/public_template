@@ -23,6 +23,7 @@
 
 ### ディレクトリ構成
 
+```
 E:.
 │ .gitignore < git をダウンロードしたときに自動でついてくるファイル(削除可能)
 │ dtd.html < BXI の[デザイン設定] > [基本設定] の dtd にコピペする用
@@ -195,6 +196,7 @@ E:.
 \_marker.scss < マーカー関連
 \_text-align.scss < 水平方向配置関連
 \_width.scss < width 関連(max-width とか)
+```
 
 #### vscode をインストールする
 
